@@ -1,3 +1,41 @@
+#region Base
+
+- type: entity
+  parent: [ClothingBeltStorageBase, ContentsExplosionResistanceBase]
+  id: ClothingBeltWebbingBase
+  name: Webbing
+  description: Can hold bits and bobs, but it's main purpose is to hold spare magazines and grenades.
+  components:
+  - type: Sprite
+    sprite: Clothing/Belt/securitywebbing.rsi
+  - type: Clothing
+    sprite: Clothing/Belt/securitywebbing.rsi
+  - type: ExplosionResistance # Prevents unwanted detonation of contents, i.e grenades.
+    damageCoefficient: 0.1
+  - type: Storage
+    grid:
+    - 0,0,3,1
+    - 0,3,3,4
+    whitelist:
+      tags:
+        - CigPack
+        - MagazinePistol
+        - MagazineMagnum
+        - CombatKnife
+        - HandGrenade
+      components:
+        - Flash
+        - Handcuff
+        - BallisticAmmoProvider
+        - CartridgeAmmo
+        - DoorRemote
+        - Whistle
+        - BalloonPopper
+  - type: Appearance
+  - type: Tag
+    tags: 
+    - Webbing
+
 #region Cargo
 
 - type: entity
@@ -576,7 +614,7 @@
         tableId: BeltSecurityEntityTable
 
 - type: entity
-  parent: ClothingBeltSecurity
+  parent: ClothingBeltWebbingBase
   id: ClothingBeltSecurityWebbingSyndi
   name: Security Carrier
   description: Unique and versatile chest rig, can hold security gear.
@@ -586,12 +624,52 @@
   - type: Clothing
     sprite: _FarHorizons/Clothing/Belt/securitywebbingsyndi.rsi
 
+# region Nukies
+
 - type: entity
-  id: ClothingBeltSecurityWebbingSyndiFilled
-  parent: ClothingBeltSecurityWebbingSyndi
-  suffix: Filled
+  parent: [ClothingBeltStorageBase, ContentsExplosionResistanceBase, BaseMajorContraband]
+  id: ClothingBeltMilitaryWebbing
+  name: Assault Belt
+  description: A hefty belt that can store just about anything, typically utilized by not-so friendly boarding parties.
   components:
-  - type: EntityTableContainerFill
-    containers:
-      storagebase: !type:NestedSelector
-        tableId: BeltSecurityEntityTable
+  - type: Storage
+    grid:
+    - 0,0,1,0 #left
+    - 0,1,0,1 #left - cube
+    - 3,0,10,1
+    - 12,0,13,0 #right
+    - 12,1,12,1 #right - cube
+  - type: Sprite
+    sprite: Clothing/Belt/assault.rsi
+  - type: Clothing
+    sprite: Clothing/Belt/assault.rsi
+  - type: ExplosionResistance
+    damageCoefficient: 0.1
+  - type: StaticPrice
+    price: 500
+
+- type: entity
+  parent: [ClothingBeltWebbingBase, BaseMajorContraband]
+  id: ClothingBeltMilitaryWebbingMed
+  name: Medical Chest Rig
+  description: A set of tactical webbing worn by various military corpsmen.
+  components:
+  - type: Sprite
+    sprite: _FarHorizons/Clothing/Belt/paramedicwebbing.rsi
+  - type: Clothing
+    sprite: _FarHorizons/Clothing/Belt/paramedicwebbing.rsi
+  - type: Item
+    size: Huge
+
+- type: entity
+  parent: [ClothingBeltWebbingBase, ContentsExplosionResistanceBase, BaseMajorContraband]
+  id: ClothingBeltMilitaryRig
+  name: Chest Rig
+  description: A set of tactical webbing worn by various militant boarding parties.
+  components:
+  - type: Sprite
+    sprite: Clothing/Belt/militarywebbing.rsi
+  - type: Clothing
+    sprite: Clothing/Belt/militarywebbing.rsi
+  - type: StaticPrice
+    price: 500

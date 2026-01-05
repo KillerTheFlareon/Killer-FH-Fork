@@ -273,15 +273,7 @@
         amount: 2
       - id: BedsheetBrigmedicStrange
       - id: BedsheetBrigmedic
-      - id: MedkitFilled
-        amount: 2
-      - id: MedkitAdvancedFilled
-        amount: 2
-      - id: MedkitOxygenFilled
-        amount: 2
-      - id: MedkitToxinFilled
-        amount: 2
-      - id: SecurityMedkitFHFilled
+      - id: SecurityMedkitFHFilledBrigmedic
         amount: 2
       - id: ClothingNeckCloakMoth #bzzz Moth-pocalypse
         prob: 0.35
@@ -308,17 +300,12 @@
       - id: ClothingUniformJumpskirtBrigmedic
       - id: ClothingUniformJumpskirtOfLife
       - id: ClothingShoesBootsMagSec
-        amount: 2 #Will change to 1 when corps locker is mapped
       - id: BedsheetBrigmedicStrange
-      - id: MedkitFilled
       - id: PlasmaChemistryVial
       - id: BoxBeaker
       - id: BoxSyringe
       - id: DefibrillatorBrigmedical
-      - id: MedkitAdvancedFilled
-      - id: MedkitOxygenFilled
-      - id: MedkitToxinFilled
-      - id: SecurityMedkitFHFilled
+      - id: SecurityMedkitFHFilledBrigmedic
       - id: ClothingNeckCloakMoth #bzzz Moth-pocalypse
         prob: 0.35
       - id: RubberStampBrigmedic
@@ -347,11 +334,7 @@
       - id: ClothingHandsGlovesBlackNitrile
       - id: ClothingShoesBootsMagSec
       - id: BedsheetCorpsmanStrange
-      - id: MedkitFilled
-      - id: MedkitCombatFilled
-      - id: SecurityMedkitFHFilled
-      - id: MedkitOxygenFilled
-      - id: MedkitToxinFilled
+      - id: SecurityMedkitFHFilledCorpsman
       - id: RubberStampCorpsman
       - id: PlushieMorgana
       - id: PlushieKiller
@@ -626,15 +609,7 @@
       - id: BedsheetBrigmedicStrange
         prob: 0.6
       - id: BedsheetBrigmedic
-      - id: MedkitFilled
-        amount: 2
-      - id: MedkitAdvancedFilled
-        amount: 2
-      - id: MedkitOxygenFilled
-        amount: 2
-      - id: MedkitToxinFilled
-        amount: 2
-      - id: SecurityMedkitFHFilled
+      - id: SecurityMedkitFHFilledBrigmedic
         amount: 2
       - id: ClothingNeckCloakMoth #bzzz Moth-pocalypse
         prob: 0.35
@@ -663,19 +638,14 @@
       - id: ClothingUniformJumpskirtBrigmedicSyndi
       #- id: ClothingUniformJumpskirtOfLife
       - id: ClothingShoesBootsMagSec
-        amount: 2 #Will change to 1 when corps locker is mapped
       - id: BedsheetBrigmedicStrange
         prob: 0.6
       - id: BedsheetBrigmedic
-      - id: MedkitFilled
       - id: PlasmaChemistryVial
       - id: BoxBeaker
       - id: BoxSyringe
       - id: DefibrillatorBrigmedical
-      - id: MedkitAdvancedFilled
-      - id: MedkitOxygenFilled
-      - id: MedkitToxinFilled
-      - id: SecurityMedkitFHFilled
+      - id: SecurityMedkitFHFilledBrigmedic
       - id: ClothingNeckCloakMoth #bzzz Moth-pocalypse
         prob: 0.35
       - id: RubberStampBrigmedic
@@ -708,11 +678,7 @@
       - id: ClothingHandsGlovesBlackNitrile
       - id: ClothingShoesBootsMagSec
       - id: BedsheetCorpsmanStrange
-      - id: MedkitFilled
-      - id: MedkitCombatFilled
-      - id: SecurityMedkitFHFilled
-      - id: MedkitOxygenFilled
-      - id: MedkitToxinFilled
+      - id: SecurityMedkitFHFilledCorpsman
       - id: RubberStampCorpsman
       - id: PlushieMorgana
       - id: PlushieKiller

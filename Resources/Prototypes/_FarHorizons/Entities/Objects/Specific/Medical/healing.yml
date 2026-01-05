@@ -131,3 +131,33 @@
   - type: Stack
     stackType: OilPack
     count: 1
+
+- type: entity
+  name: pill canister
+  parent: PillCanister
+  id: PillCanisterTricordrazineCharcoal
+  suffix: Charcoal 10u, 5 / Tricordrazine 10u, 5
+  components:
+  - type: Label
+    currentLabel: Charcoal 10u / Tricordrazine 10u
+  - type: StorageFill
+    contents:
+    - id: PillCharcoal
+      amount: 5
+    - id: PillTricordrazine
+      amount: 5
+
+- type: entity
+  name: pill canister
+  parent: PillCanister
+  id: PillCanisterDexalinDylovene
+  suffix: Dexalin 10u, 5 / Dylovene 10u, 5
+  components:
+  - type: Label
+    currentLabel: Dexalin 10u / Dylovene 10u
+  - type: StorageFill
+    contents:
+    - id: PillDexalin
+      amount: 5
+    - id: PillDylovene
+      amount: 5

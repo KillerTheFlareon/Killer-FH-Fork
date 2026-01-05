@@ -4308,5 +4308,98 @@ Entries:
   id: 54101
   time: '2025-12-31T22:30:12.000000+00:00'
   url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/541
+- author: Killer Tamashi
+  changes:
+  - message: Combined BSO/Corpsman/Brigmedic's medical kits into one. Less duplicate
+      items and neat.
+    type: Tweak
+  id: 54300
+  time: '2026-01-01T13:22:27.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/543
+- author: FAR HORIZONS TEAM, Hanz
+  changes:
+  - message: Added syndicate sec/brig backpack,satchel,duffel sprites.
+    type: Add
+  id: 54800
+  time: '2026-01-01T19:12:51.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/548
+- author: FAR HORIZONS TEAM, Hanz
+  changes:
+  - message: Updated nt sec/brig backpack,satchel,duffel sprites.
+    type: Tweak
+  id: 54801
+  time: '2026-01-01T19:12:51.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/548
+- author: FAR HORIZONS TEAM, Hanz
+  changes:
+  - message: Updated SMES sprites.
+    type: Tweak
+  id: 54802
+  time: '2026-01-01T19:12:51.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/548
+- author: CorruptOmega
+  changes:
+  - message: Substation, Wallmount Substation, and Wall Recharger resprited by Abby
+    type: Add
+  id: 55100
+  time: '2026-01-02T14:25:21.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/551
+- author: CorruptOmega
+  changes:
+  - message: Syndicate Security backpacks (minus combat medic) can now select their
+      new bags in their loadouts.
+    type: Add
+  id: 55101
+  time: '2026-01-02T14:25:21.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/551
+- author: Killer Tamashi
+  changes:
+  - message: Added Webbing slot (next to belt) can only hold webbing/rigs
+    type: Add
+  id: 54500
+  time: '2026-01-02T14:58:37.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/545
+- author: Killer Tamashi
+  changes:
+  - message: Added Pin slot for, well, pins!
+    type: Add
+  id: 54501
+  time: '2026-01-02T14:58:37.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/545
+- author: Killer Tamashi
+  changes:
+  - message: Changed the belt slot to no longer accept webbing/rigs
+    type: Tweak
+  id: 54502
+  time: '2026-01-02T14:58:37.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/545
+- author: SCARLET LIGHTWEAVER
+  changes:
+  - message: Added wings for the IPC!
+    type: Add
+  id: 55400
+  time: '2026-01-03T02:23:29.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/554
+- author: FAR HORIZONS TEAM
+  changes:
+  - message: Added role requirements for FH.
+    type: Add
+  id: 55600
+  time: '2026-01-03T15:19:22.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/556
+- author: jhrushbe
+  changes:
+  - message: The nuclear reactors found in salvage expeditions are no longer locked.
+    type: Tweak
+  id: 55800
+  time: '2026-01-04T15:43:47.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/558
+- author: jhrushbe
+  changes:
+  - message: Fixed the reactor dungeon creating a ton of ghost warp points.
+    type: Fix
+  id: 55801
+  time: '2026-01-04T15:43:47.000000+00:00'
+  url: https://github.com/Far-Horizons-SS14/Far-Horizons-SS14/pull/558
 Order: -1
 
