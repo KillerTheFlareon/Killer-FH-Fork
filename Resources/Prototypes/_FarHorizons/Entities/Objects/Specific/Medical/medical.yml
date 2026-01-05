@@ -36,6 +36,46 @@
     - Medkit
 
 - type: entity
+  name: Responder Kit
+  description: A heavy duty version of the advanced first aid kit typically utilized by paramedical staff.
+  parent: BaseStorageItem
+  id: ParamedicMedkit
+  components:
+  - type: Sprite
+    sprite: _FarHorizons/Objects/Specific/Medical/firstaidkits.rsi
+    state: ResponderKit
+  - type: Storage
+    whitelist:
+      tags:
+        - GlassBeaker
+        - Patch
+        - Bottle
+        - Spray
+        - Brutepack
+        - Bloodpack
+        - Gauze
+        - Ointment
+        - CigPack
+        - PillCanister
+        - Radio
+        - DiscreteHealthAnalyzer
+        - SurgeryTool
+        - Dropper
+        - AmmoniaPack
+        - AutoMender
+      components:
+        - Hypospray
+        - Injector
+        - Pill
+        - HandLabeler
+    grid:
+    - 0,0,3,2
+  - type: Item
+    size: Normal
+    sprite: _FarHorizons/Objects/Specific/Medical/firstaidkits.rsi
+    heldPrefix: responderkit
+
+- type: entity
   name: Miniature Hypospray Case
   description: A blast-resistant case to protect fragile glassware within for use inside the hypospray. #this is a lie since I can't add explosive damage resist.
   parent: BaseStorageItem
