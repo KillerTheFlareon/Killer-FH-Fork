@@ -7,6 +7,11 @@
   - type: Sprite
     sprite: _FarHorizons/Objects/Specific/Medical/firstaidkits.rsi
     state: BrigKube
+  - type: MeleeWeapon
+    wideAnimationRotation: -135
+    damage:
+      types:
+        Blunt: 8 #Chonky - Crowbar damage, for reference.
   - type: Storage
     whitelist:
       tags:
@@ -46,6 +51,11 @@
   - type: Sprite
     sprite: _FarHorizons/Objects/Specific/Medical/firstaidkits.rsi
     state: ResponderKit
+  - type: MeleeWeapon
+    wideAnimationRotation: -135
+    damage:
+      types:
+        Blunt: 8
   - type: Storage
     whitelist:
       tags:
@@ -71,7 +81,9 @@
         - Pill
         - HandLabeler
     grid:
-    - 0,0,3,2
+    - 0,1,0,2
+    - 1,0,4,3
+    - 5,1,5,2
   - type: Item
     size: Normal
     sprite: _FarHorizons/Objects/Specific/Medical/firstaidkits.rsi
