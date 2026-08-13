@@ -197,3 +197,14 @@
         - id: CyberneticImplanterRightArmCyberIFA30
         - id: TreasureCoinIron
         - id: AmmoSelection9mmSMGS
+
+- type: entity
+  id: BriefcaseSecureNukeCodes
+  parent: BriefcaseSecureNuke
+  suffix: Filled
+  components:
+  - type: EntityTableContainerFill
+    containers:
+      storagebase: !type:AllSelector
+        children:
+        - id: BoxFolderNuclearCodes

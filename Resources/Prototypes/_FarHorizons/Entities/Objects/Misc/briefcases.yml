@@ -1,0 +1,24 @@
+- type: entity
+  parent: BriefcaseBaseSecure
+  id: BriefcaseSecureNuke
+  name: Nuclear Authentication Codes Case
+  components:
+  - type: Sprite
+    sprite: _Starlight/Objects/Storage/Briefcases/briefcase_secure.rsi
+    layers: 
+      - state: icon
+      - state: open
+        shader: unshaded
+      - state: closed
+        shader: unshaded
+        map: ["enum.LockVisualLayers.Lock"]
+      - state: spark
+        shader: unshaded
+        visible: false
+        map: ["spark"]
+  - type: LockVisuals
+    stateLocked: closed
+    stateUnlocked: open
+  - type: Item
+    sprite: _Starlight/Objects/Storage/Briefcases/briefcase_secure.rsi
+#todo - make it roundstart with a randomized code that is then put in the lockers of NTR/HOS/CAPT in that order, 6 digits, they all get 2 each. NTR gets left, hos gets middle, capt gets end.
