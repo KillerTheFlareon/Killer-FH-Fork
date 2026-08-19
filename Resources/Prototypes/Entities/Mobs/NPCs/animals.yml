@@ -359,6 +359,7 @@
   parent: FoodEgg
   suffix: Fertilized, Chicken
   components:
+  - type: Timer
   - type: TimedSpawner
     prototypes:
     - MobChicken
@@ -817,6 +818,7 @@
   parent: FoodEgg
   suffix: Fertilized, Duck
   components:
+    - type: Timer
     - type: TimedSpawner
       prototypes:
       - MobDuckMallard

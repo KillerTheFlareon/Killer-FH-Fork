@@ -16,7 +16,7 @@ namespace Content.Server.Light.EntitySystems;
 /// <summary>
 ///     System for the PoweredLightComponents
 /// </summary>
-public sealed partial class PoweredLightSystem : SharedPoweredLightSystem
+public sealed class PoweredLightSystem : SharedPoweredLightSystem
 {
     public override void Initialize()
     {
@@ -29,19 +29,24 @@ public sealed partial class PoweredLightSystem : SharedPoweredLightSystem
 
     private void OnGhostBoo(EntityUid uid, PoweredLightComponent light, GhostBooEvent args)
     {
-        if (light.IgnoreGhostsBoo || HasComp<BlinkingPoweredLightComponent>(uid))
-            return; // The light is immune or already blinking.
-
-        // check cooldown first to prevent abuse
-        var curTime = GameTiming.CurTime;
-        if (light.LastGhostBlink != null && curTime <= light.LastGhostBlink + light.GhostBlinkingCooldown)
+        if (light.IgnoreGhostsBoo)
             return;
 
-        light.LastGhostBlink = curTime;
+        // check cooldown first to prevent abuse
+        var time = GameTiming.CurTime;
+        if (light.LastGhostBlink != null)
+        {
+            if (time <= light.LastGhostBlink + light.GhostBlinkingCooldown)
+                return;
+        }
 
-        var blinkingComp = EnsureComp<BlinkingPoweredLightComponent>(uid);
-        blinkingComp.StopBlinkingTime = curTime + light.GhostBlinkingTime;
-        Dirty(uid, blinkingComp);
+        light.LastGhostBlink = time;
+
+        ToggleBlinkingLight(uid, light, true);
+        uid.SpawnTimer(light.GhostBlinkingTime, () =>
+        {
+            ToggleBlinkingLight(uid, light, false);
+        });
 
         args.Handled = true;
     }

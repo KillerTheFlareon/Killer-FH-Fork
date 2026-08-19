@@ -4,9 +4,9 @@ using Robust.Client.GameObjects;
 
 namespace Content.Client.Weapons.Ranged.Systems;
 
-public sealed partial class BatteryWeaponFireModesVisualSystem : EntitySystem
+public sealed class BatteryWeaponFireModesVisualSystem : EntitySystem
 {
-    [Dependency] private GunSystem _gun = default!;
+    [Dependency] private readonly GunSystem _gun = default!;
     
     public override void Initialize()
     {

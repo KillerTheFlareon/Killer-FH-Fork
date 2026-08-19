@@ -4,10 +4,10 @@
   onlyGroupWhitelisted: true
   limits:
     enum.HumanoidVisualLayers.Hair:
-      limit: 1
+      limit: 0
       required: false
     enum.HumanoidVisualLayers.FacialHair:
-      limit: 1
+      limit: 0
       required: false
     enum.HumanoidVisualLayers.Tail:
       limit: 1

@@ -4,9 +4,9 @@ using Robust.Shared.Timing;
 
 namespace Content.Shared._FarHorizons.StatusEffects.Blindness;
 
-public abstract partial class SharedBlindnessSystem : EntitySystem
+public abstract class SharedBlindnessSystem : EntitySystem
 {
-    [Dependency] private IGameTiming _gameTiming = default!;
+    [Dependency] private readonly IGameTiming _gameTiming = default!;
 
     public override void Initialize()
     {

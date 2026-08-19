@@ -271,7 +271,7 @@
   placementMode: SnapgridCenter
 
 - type: construction
-  id: WindowGeneric #FH
+  id: WindowStandard #FH
   graph: Window
   startNode: start
   targetNode: window
@@ -299,7 +299,7 @@
   placementMode: SnapgridCenter
 
 - type: construction
-  id: ReinforcedWindowGeneric #FH
+  id: ReinforcedWindowStandard #FH
   graph: Window
   startNode: start
   targetNode: reinforcedWindow

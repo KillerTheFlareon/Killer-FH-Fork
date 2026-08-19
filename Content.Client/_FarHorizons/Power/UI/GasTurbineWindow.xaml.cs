@@ -19,7 +19,7 @@ namespace Content.Client._FarHorizons.Power.UI;
 public sealed partial class GasTurbineWindow : FancyWindow
 {
     // Dependencies
-    [Dependency] private IEntityManager _entityManager = null!;
+    [Dependency] private readonly IEntityManager _entityManager = null!;
     private readonly LockSystem _lock;
 
     #region Variables

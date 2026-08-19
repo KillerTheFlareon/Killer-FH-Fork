@@ -9,9 +9,9 @@ namespace Content.Shared.Mech.Equipment.EntitySystems;
 /// <summary>
 /// 
 /// </summary>
-public sealed partial class MechNightVisionSystem : EntitySystem
+public sealed class MechNightVisionSystem : EntitySystem
 {
-    [Dependency] private SharedActionsSystem _actions = default!;
+    [Dependency] private readonly SharedActionsSystem _actions = default!;
     
     public override void Initialize()
     {

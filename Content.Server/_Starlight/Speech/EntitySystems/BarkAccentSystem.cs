@@ -6,9 +6,9 @@ using Content.Shared._Starlight.Speech;
 
 namespace Content.Server._Starlight.Speech.EntitySystems;
 
-public sealed partial class BarkAccentSystem : EntitySystem
+public sealed class BarkAccentSystem : EntitySystem
 {
-    [Dependency] private IRobustRandom _random = default!;
+    [Dependency] private readonly IRobustRandom _random = default!;
 
     private static readonly IReadOnlyList<string> _barks = new List<string>{
         " Woof!", " WOOF", " wof-wof"

@@ -5,9 +5,9 @@ using Content.Shared.Movement.Systems;
 
 namespace Content.Shared._FarHorizons.VisualPickupable;
 
-public sealed partial class PickupableSpeedRelaySystem : EntitySystem
+public sealed class PickupableSpeedRelaySystem : EntitySystem
 {
-    [Dependency] private MovementSpeedModifierSystem _movementSpeedModifier = default!;
+    [Dependency] private readonly MovementSpeedModifierSystem _movementSpeedModifier = default!;
 
     public override void Initialize()
     {

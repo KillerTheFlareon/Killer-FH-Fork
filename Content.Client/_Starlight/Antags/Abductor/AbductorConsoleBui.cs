@@ -10,9 +10,9 @@ using static Robust.Client.UserInterface.Control;
 namespace Content.Client._Starlight.Antags.Abductor;
 
 [UsedImplicitly]
-public sealed partial class AbductorConsoleBui : BoundUserInterface
+public sealed class AbductorConsoleBui : BoundUserInterface
 {
-    [Dependency] private IPrototypeManager _protoManager = default!;
+    [Dependency] private readonly IPrototypeManager _protoManager = default!;
 
     [ViewVariables]
     private AbductorConsoleWindow? _window;

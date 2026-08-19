@@ -12,14 +12,14 @@ using Content.Client._Starlight;
 
 namespace Content.Client.Stylesheets
 {
-    public sealed partial class StylesheetManager : IStylesheetManager
+    public sealed class StylesheetManager : IStylesheetManager
     {
-        [Dependency] private ILogManager _logManager = default!;
-        [Dependency] private IUserInterfaceManager _userInterfaceManager = default!;
-        [Dependency] private IReflectionManager _reflection = default!;
+        [Dependency] private readonly ILogManager _logManager = default!;
+        [Dependency] private readonly IUserInterfaceManager _userInterfaceManager = default!;
+        [Dependency] private readonly IReflectionManager _reflection = default!;
 
         [Dependency]
-        private IResourceCache
+        private readonly IResourceCache
             _resCache = default!; // TODO: REMOVE (obsolete; used to construct StyleNano/StyleSpace)
 
         public Stylesheet SheetNanotrasen { get; private set; } = default!;

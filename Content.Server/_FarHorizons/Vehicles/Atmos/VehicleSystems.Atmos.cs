@@ -1,4 +1,5 @@
 using Content.Server.Atmos.EntitySystems;
+using Content.Server.Atmos.Piping.Components;
 using Content.Server.Body.Systems;
 using Content.Shared._FarHorizons.Vehicles.Components;
 using Content.Shared.Atmos;
@@ -9,9 +10,9 @@ namespace Content.Server._FarHorizons.Vehicles.Atmos;
 /// <summary>
 /// Handles atmospheric systems for mechs including air circulation, fans, and life support.
 /// </summary>
-public sealed partial class VehicleAtmosphereSystem : EntitySystem
+public sealed class VehicleAtmosphereSystem : EntitySystem
 {
-    [Dependency] private AtmosphereSystem _atmosphere = default!;
+    [Dependency] private readonly AtmosphereSystem _atmosphere = default!;
     private const float MinExternalPressure = 0.05f;
     private const float PressureTolerance = 0.1f;
 
@@ -173,7 +174,7 @@ public sealed partial class VehicleAtmosphereSystem : EntitySystem
 
         if (external == null
             || external.Pressure <= MinExternalPressure
-            || tankAir.Pressure >= tankComp.MaxReleasePressure - PressureTolerance)
+            || tankAir.Pressure >= tankComp.MaxOutputPressure - PressureTolerance)
         {
             SetFanState(ent, fanModule, FanState.Idle);
             return false;

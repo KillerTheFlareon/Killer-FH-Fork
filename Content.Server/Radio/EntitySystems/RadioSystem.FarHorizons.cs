@@ -5,7 +5,7 @@ namespace Content.Server.Radio.EntitySystems;
 
 public sealed partial class RadioSystem
 {
-    [Dependency] private SharedGameTicker _ticker = default!;
+    [Dependency] private readonly SharedGameTicker _ticker = default!;
 
     private string ObfuscateName(RadioChannelPrototype channel, EntityUid source)
     {

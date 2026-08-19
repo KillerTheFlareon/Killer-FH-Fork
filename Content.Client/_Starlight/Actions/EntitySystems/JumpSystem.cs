@@ -1,6 +1,6 @@
 ﻿using Content.Shared._Starlight.Actions.EntitySystems;
 
 namespace Content.Client._Starlight.Actions.EntitySystems;
-public sealed partial class JumpSystem : SharedJumpSystem
+public sealed class JumpSystem : SharedJumpSystem
 {
 }

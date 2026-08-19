@@ -8,11 +8,11 @@ using Robust.Shared.Prototypes;
 
 namespace Content.Client._Starlight.Overlay;
 
-public sealed partial class CycloriteVisionSystem : EntitySystem
+public sealed class CycloriteVisionSystem : EntitySystem
 {
-    [Dependency] private IPlayerManager _player = default!;
-    [Dependency] private IOverlayManager _overlayMan = default!;
-    [Dependency] private IPrototypeManager _prototypeManager = default!;
+    [Dependency] private readonly IPlayerManager _player = default!;
+    [Dependency] private readonly IOverlayManager _overlayMan = default!;
+    [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
     private CycloriteVisionOverlay _overlay = default!;
 
     private const string CycloriteShader = "CycloriteShader";

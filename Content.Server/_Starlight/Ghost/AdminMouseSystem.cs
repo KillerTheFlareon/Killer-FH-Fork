@@ -11,10 +11,10 @@ using Robust.Shared.Utility;
 
 namespace Content.Server._Starlight.Ghost;
 
-public sealed partial class AdminMouseSystem : EntitySystem
+public sealed class AdminMouseSystem : EntitySystem
 {
-    [Dependency] private IDiscordLinkManager _playerRoles = default!; /// Far Horizons
-    [Dependency] private PolymorphSystem _polymorphSystem = default!;
+    [Dependency] private readonly IDiscordLinkManager _playerRoles = default!; /// Far Horizons
+    [Dependency] private readonly PolymorphSystem _polymorphSystem = default!;
     public override void Initialize()
     {
         base.Initialize();

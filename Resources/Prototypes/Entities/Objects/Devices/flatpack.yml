@@ -194,7 +194,7 @@
     layers:
     - state: base
     - state: overlay
-      color: "#8a1313" #Far Horizons
+      color: "#cec8ac"
     - state: icon-default
 
 - type: entity

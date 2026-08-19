@@ -8,10 +8,10 @@ using Robust.Shared.Prototypes;
 
 namespace Content.Shared.Speech
 {
-    public sealed partial class SpeechSystem : EntitySystem
+    public sealed class SpeechSystem : EntitySystem
     {
 
-        [Dependency] private IPrototypeManager _prototypeManager = default!; //#starlight
+        [Dependency] private readonly IPrototypeManager _prototypeManager = default!; //#starlight
 
         public override void Initialize()
         {

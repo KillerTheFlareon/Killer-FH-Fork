@@ -2886,13 +2886,23 @@ entities:
       pos: -1.5,7.5
       parent: 1
     - type: GasCanister
-      air:
+      gasMixture:
         volume: 1500
         immutable: False
         temperature: 293.15
         moles:
-          Oxygen: 135.85272
-          Nitrogen: 511.06912
+        - 135.85272
+        - 511.06912
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
+        - 0
     - type: Physics
       bodyType: Static
 - proto: AirlockShuttle

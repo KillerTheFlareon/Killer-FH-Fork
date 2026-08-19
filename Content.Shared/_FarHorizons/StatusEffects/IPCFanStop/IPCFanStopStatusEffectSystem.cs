@@ -4,9 +4,9 @@ using Robust.Shared.Timing;
 
 namespace Content.Shared._FarHorizons.StatusEffects.IPCFanStop;
 
-public abstract partial class SharedIPCFanStopStatusEffectSystem : EntitySystem
+public abstract class SharedIPCFanStopStatusEffectSystem : EntitySystem
 {
-    [Dependency] private IGameTiming _gameTiming = default!;
+    [Dependency] private readonly IGameTiming _gameTiming = default!;
 
     public override void Initialize()
     {

@@ -8,9 +8,9 @@ using Content.Server._Starlight.Railroading;
 
 namespace Content.Server._Starlight.GameTicking.Rules;
 
-public sealed partial class BrighteyeRuleSystem : GameRuleSystem<BrighteyeRuleComponent>
+public sealed class BrighteyeRuleSystem : GameRuleSystem<BrighteyeRuleComponent>
 {
-    [Dependency] private RailroadDarkTaskSystem _railroadDarkTaskSystem = default!;
+    [Dependency] private readonly RailroadDarkTaskSystem _railroadDarkTaskSystem = default!;
 
 
     protected override void AppendRoundEndText(EntityUid uid,

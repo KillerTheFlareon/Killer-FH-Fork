@@ -39,7 +39,7 @@
   cost:
     SalvageTicket: 700
   categories:
-  - SalvageMech # Far Horizons
+  - SalvageEquipment
   conditions:
   - !type:ListingLimitedStockCondition
     stock: 1
@@ -51,7 +51,7 @@
   cost:
     SalvageTicket: 1200 #FH
   categories:
-  - SalvageArmor # Far Horizons
+  - SalvageEquipment
   conditions:
   - !type:ListingLimitedStockCondition
     stock: 3
@@ -127,7 +127,7 @@
   cost:
     SalvageTicket: 400
   categories:
-  - SalvageMech # Far Horizons
+  - SalvageEquipment
   conditions:
   - !type:ListingLimitedStockCondition
     stock: 1
@@ -139,7 +139,7 @@
   cost:
     SalvageTicket: 600
   categories:
-  - SalvageMech # Far Horizons
+  - SalvageEquipment
   conditions:
   - !type:ListingLimitedStockCondition
     stock: 1
@@ -180,7 +180,7 @@
   id: VendorSalvageWeaponLaserImmolator
   productEntity: WeaponLaserImmolator
   cost:
-    SalvageTicket: 1000 # Far Horizons
+    SalvageTicket: 500
   categories:
   - SalvageWeapons
   conditions:
@@ -210,7 +210,7 @@
   id: VendorSalvageWeaponPistolMK58
   productEntity: WeaponPistolMk58
   cost:
-    SalvageTicket: 200 # Far Horizons
+    SalvageTicket: 250
   categories:
   - SalvageWeapons
   conditions:
@@ -241,9 +241,9 @@
   id: VendorSalvageSpeedLoaderShotgunEmpty
   productEntity: SpeedLoaderShotgunEmpty
   cost:
-    SalvageTicket: 75 # Far Horizons
+    SalvageTicket: 100
   categories:
-  - SalvageAmmo # Far Horizons
+  - SalvageConsumeables
   conditions:
   - !type:BuyerAccessCondition
 
@@ -253,7 +253,7 @@
   cost:
     SalvageTicket: 200
   categories:
-  - SalvageAmmo
+  - SalvageConsumeables
   conditions:
   - !type:BuyerAccessCondition
 
@@ -269,11 +269,11 @@
 
 - type: listing
   id: VendorSalvageMagazineMK58
-  productEntity: MagazinePistolEmpty # Far Horizons
+  productEntity: MagazinePistolSP
   cost:
     SalvageTicket: 75
   categories:
-  - SalvageAmmo # Far Horizons
+  - SalvageConsumeables
   conditions:
   - !type:BuyerAccessCondition
 
@@ -283,7 +283,7 @@
   cost:
     SalvageTicket: 100
   categories:
-  - SalvageAmmo # Far Horizons
+  - SalvageConsumeables
   conditions:
   - !type:BuyerAccessCondition
 
@@ -400,16 +400,15 @@
 #  conditions:
 #  - !type:BuyerAccessCondition
 
-# Far Horizons removed
-# - type: listing
-#   id: VendorSalvageClothingHeadHelmetSalvageMerc
-#   productEntity: ClothingHeadHelmetSalvageMerc
-#   cost:
-#     SalvageTicket: 150
-#   categories:
-#   - SalvageMercenaryEquipment
-#   conditions:
-#   - !type:BuyerAccessCondition
+- type: listing
+  id: VendorSalvageClothingHeadHelmetSalvageMerc
+  productEntity: ClothingHeadHelmetSalvageMerc
+  cost:
+    SalvageTicket: 150
+  categories:
+  - SalvageMercenaryEquipment
+  conditions:
+  - !type:BuyerAccessCondition
     
 - type: listing
   id: VendorSalvageClothingUniformJumpsuitSalvageMercWhite
@@ -447,7 +446,7 @@
   cost:
     SalvageTicket: 300 #FH - As per request
   categories:
-  - SalvageArmor # Far Horizons
+  - SalvageMercenaryEquipment
   conditions:
   - !type:BuyerAccessCondition
 
@@ -471,7 +470,7 @@
     state: l_spacer_arm #FH
   productEntity: LeftArmCyberSpacer
   cost:
-    SalvageTicket: 300 # Far Horizons
+    SalvageTicket: 700
   categories:
   - SalvageCybernetics
   conditions:
@@ -484,7 +483,7 @@
     state: r_spacer_arm #FH
   productEntity: RightArmCyberSpacer
   cost:
-    SalvageTicket: 300 # Far Horizons
+    SalvageTicket: 700
   categories:
   - SalvageCybernetics
   conditions:

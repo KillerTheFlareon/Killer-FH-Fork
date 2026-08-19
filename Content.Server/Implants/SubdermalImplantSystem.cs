@@ -13,10 +13,10 @@ using Content.Shared.Implants.Components; // Starlight
 
 namespace Content.Server.Implants;
 
-public sealed partial class SubdermalImplantSystem : SharedSubdermalImplantSystem
+public sealed class SubdermalImplantSystem : SharedSubdermalImplantSystem
 {
-    [Dependency] private StoreSystem _store = default!;
-    [Dependency] private SharedPopupSystem _popup = default!;
+    [Dependency] private readonly StoreSystem _store = default!;
+    [Dependency] private readonly SharedPopupSystem _popup = default!;
 
     public override void Initialize()
     {

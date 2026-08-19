@@ -16,13 +16,11 @@
   - Salvage
   - Maintenance
   - External
-  - MaintenanceNS  # Far Horizons
-  - ExternalNS  # Far Horizons
   extendedAccess:
   - Mining # Starlight
   special:
   - !type:AddImplantSpecial
-    implants: [ MindShieldImplantGSL ] # Far Horizons
+    implants: [ MindShieldImplant ]
 
 - type: startingGear
   id: SalvageSpecialistGear

@@ -996,7 +996,6 @@
     idleState: printer
     runningState: printer_printing
     staticPacks:
-    - FarHorizonsNeoSolDocs #FH
     - StarlightDocs
   - type: MaterialStorage
     whitelist:

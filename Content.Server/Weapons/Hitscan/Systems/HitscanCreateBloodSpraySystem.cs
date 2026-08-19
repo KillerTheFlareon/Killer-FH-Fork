@@ -12,13 +12,13 @@ using Robust.Shared.Timing;
 
 namespace Content.Server.Weapons.Hitscan.Systems;
 
-public sealed partial class HitscanCreateBloodSpraySystem : EntitySystem
+public sealed class HitscanCreateBloodSpraySystem : EntitySystem
 {
-    [Dependency] private IPrototypeManager _proto = default!;
-    [Dependency] private DecalSystem _decal = default!;
-    [Dependency] private IRobustRandom _random = default!;
-    [Dependency] private SharedTransformSystem _transform = default!;
-    [Dependency] private SharedBloodstreamSystem _bloodstream = default!;
+    [Dependency] private readonly IPrototypeManager _proto = default!;
+    [Dependency] private readonly DecalSystem _decal = default!;
+    [Dependency] private readonly IRobustRandom _random = default!;
+    [Dependency] private readonly SharedTransformSystem _transform = default!;
+    [Dependency] private readonly SharedBloodstreamSystem _bloodstream = default!;
 
     private string[] _bloodDecals = [];
 

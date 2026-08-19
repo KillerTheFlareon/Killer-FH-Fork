@@ -5,9 +5,9 @@ using Robust.Client.GameObjects;
 
 namespace Content.Client._Starlight.Paper;
 
-public sealed partial class MultistampSystem : SharedMultistampSystem
+public sealed class MultistampSystem : SharedMultistampSystem
 {
-        [Dependency] private SpriteSystem _sprite = default!;
+        [Dependency] private readonly SpriteSystem _sprite = default!;
 
         public override void Initialize()
         {

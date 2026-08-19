@@ -8,11 +8,11 @@ using Content.Shared.Destructible;
 
 namespace Content.Shared._FarHorizons.ReagentDraw.EntitySystems;
 
-public sealed partial class SharedReagentDrawSystem : EntitySystem
+public sealed class SharedReagentDrawSystem : EntitySystem
 {
-    [Dependency] private IGameTiming _timing = default!;
-    [Dependency] private SharedSolutionContainerSystem _solutionContainer = default!;
-    [Dependency] private SharedContainerSystem _container = default!;
+    [Dependency] private readonly IGameTiming _timing = default!;
+    [Dependency] private readonly SharedSolutionContainerSystem _solutionContainer = default!;
+    [Dependency] private readonly SharedContainerSystem _container = default!;
 
     public override void Initialize()
     {

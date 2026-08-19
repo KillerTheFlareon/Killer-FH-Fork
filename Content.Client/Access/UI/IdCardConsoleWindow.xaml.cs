@@ -1,6 +1,5 @@
 using System.Linq;
 using Content.Client._Starlight.Access.UI; // Starlight-edit
-using Content.Shared._FarHorizons.Factions; //FH
 using Content.Shared.Access;
 using Content.Shared.Access.Systems;
 using Content.Shared.CCVar;
@@ -18,9 +17,9 @@ namespace Content.Client.Access.UI
     [GenerateTypedNameReferences]
     public sealed partial class IdCardConsoleWindow : DefaultWindow
     {
-        [Dependency] private IConfigurationManager _cfgManager = default!;
-        [Dependency] private IPrototypeManager _prototypeManager = default!;
-        [Dependency] private ILogManager _logManager = default!;
+        [Dependency] private readonly IConfigurationManager _cfgManager = default!;
+        [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
+        [Dependency] private readonly ILogManager _logManager = default!;
         private readonly ISawmill _logMill = default!;
 
         private IdCardConsoleBoundUserInterface? _owner; // Starlight edit
@@ -47,8 +46,6 @@ namespace Content.Client.Access.UI
         private HashSet<ProtoId<AccessLevelPrototype>> _allowedAccessLevels = new();
 
         private bool _pendingAccessOverride = false;
-
-        public List<string> ComputerFactions = []; //FH
 
         public IdCardConsoleWindow()
         // Starlight-edit: End
@@ -77,40 +74,20 @@ namespace Content.Client.Access.UI
                 JobTitleSaveButton.Disabled = JobTitleLineEdit.Text == _lastJobTitle;
             };
             JobTitleSaveButton.OnPressed += _ => SubmitData();
-            //FH start
-            
-            //FH end
-        }
 
-        //FH start
-        public void Initialize(IdCardConsoleBoundUserInterface owner)
-        {
-            _owner = owner;
+            var jobs = _prototypeManager.EnumeratePrototypes<JobPrototype>().ToList();
+            jobs.Sort((x, y) => string.Compare(x.LocalizedName, y.LocalizedName, StringComparison.CurrentCulture));
 
-            OnGroupSelected += group => _owner.OnGroupSelected(group);
-            // Starlight-edit: End
-            var rawjobs = _prototypeManager.EnumeratePrototypes<FactionJobAssignmentPrototype>().ToList();
-            var jobs = rawjobs.Where(jobfaction => ComputerFactions.Contains(jobfaction.Faction.Id)).ToList();
-
-            jobs.Sort((x, y) => string.Compare(
-                x.Override == null || x.Override.Name == null
-                    ? _prototypeManager.Index(x.Job).LocalizedName
-                    : Loc.GetString(x.Override.Name),
-                y.Override == null || y.Override.Name == null
-                    ? _prototypeManager.Index(y.Job).LocalizedName
-                    : Loc.GetString(y.Override.Name),
-                StringComparison.CurrentCulture));
             foreach (var job in jobs)
             {
-                if (!_prototypeManager.Index(job.Job).OverrideConsoleVisibility.GetValueOrDefault(_prototypeManager.Index(job.Job).SetPreference))
+                if (!job.OverrideConsoleVisibility.GetValueOrDefault(job.SetPreference))
+                {
                     continue;
+                }
 
                 _jobPrototypeIds.Add(job.ID);
-                JobPresetOptionButton.AddItem(job.Override == null || job.Override.Name == null
-                    ? _prototypeManager.Index(job.Job).LocalizedName
-                    : Loc.GetString(job.Override.Name), _jobPrototypeIds.Count - 1);
+                JobPresetOptionButton.AddItem(Loc.GetString(job.Name), _jobPrototypeIds.Count - 1);
             }
-            //FH end
 
             SelectAllButton.OnPressed += _ =>
             {
@@ -125,12 +102,13 @@ namespace Content.Client.Access.UI
             };
 
             JobPresetOptionButton.OnItemSelected += SelectJobPreset;
-            //FH start
+            // Starlight-edit: Start
             _accessGroups = new AccessGroupControl();
             _accessButtons = new AccessLevelControl();
             AccessGroupControlContainer.AddChild(_accessGroups);
             AccessLevelControlContainer.AddChild(_accessButtons);
             foreach (var (id, button) in _accessButtons.ButtonsList)
+            {
                 button.OnPressed += _ =>
                 {
                     if (button.Pressed)
@@ -139,9 +117,17 @@ namespace Content.Client.Access.UI
                         _pendingPressedAccessLevels.Remove(id);
                     SubmitData();
                 };
+            }
         }
 
-        //FH end
+        public void Initialize(IdCardConsoleBoundUserInterface owner)
+        {
+            _owner = owner;
+
+            OnGroupSelected += group => _owner.OnGroupSelected(group);
+            // Starlight-edit: End
+        }
+
         private void SetAllAccess(bool enabled)
         {
             _pendingPressedAccessLevels.Clear(); // Starlight-edit
@@ -152,30 +138,24 @@ namespace Content.Client.Access.UI
 
         private void SelectJobPreset(OptionButton.ItemSelectedEventArgs args)
         {
-            //FH start
-            if (!_prototypeManager.TryIndex(_jobPrototypeIds[args.Id], out FactionJobAssignmentPrototype? job))
+            if (!_prototypeManager.TryIndex(_jobPrototypeIds[args.Id], out JobPrototype? job))
+            {
                 return;
+            }
 
-            JobTitleLineEdit.Text = job.Override == null || job.Override.Name == null
-                    ? _prototypeManager.Index(job.Job).LocalizedName
-                    : Loc.GetString(job.Override.Name);
+            JobTitleLineEdit.Text = Loc.GetString(job.Name);
             args.Button.SelectId(args.Id);
 
             SetAllAccess(false);
 
             // Collect all access levels for this job (direct + all groups)
             // Starlight-edit: Start
-            var allJobAccess = new HashSet<ProtoId<AccessLevelPrototype>>(job.Override == null || job.Override.Access == null
-                    ? _prototypeManager.Index(job.Job).Access
-                    : job.Override.Access);
-            foreach (var group in job.Override == null || job.Override.AccessGroups == null
-                    ? _prototypeManager.Index(job.Job).AccessGroups
-                    : job.Override.AccessGroups)
+            var allJobAccess = new HashSet<ProtoId<AccessLevelPrototype>>(job.Access);
+            foreach (var group in job.AccessGroups)
             {
                 if (_prototypeManager.Resolve(group, out AccessGroupPrototype? groupPrototype))
                     allJobAccess.UnionWith(groupPrototype.Tags);
             }
-            //FH end
 
             // Get all tags from all groups in AccessGroups
             var allConsoleGroupTags = new HashSet<ProtoId<AccessLevelPrototype>>();
@@ -369,15 +349,9 @@ namespace Content.Client.Access.UI
             // For example, a new ID from a box would have no job index.
             if (jobIndex < 0)
             {
-                //FH start
-                var factionassistant = _jobPrototypeIds.FirstOrDefault(p => 
-                    _prototypeManager.Index<FactionJobAssignmentPrototype>(p).Job == _defaultJob); //Find a valid match to _defaultJob
-                jobIndex = _jobPrototypeIds.IndexOf(factionassistant ?? ""); //Find it in this console's list
+                jobIndex = _jobPrototypeIds.IndexOf(_defaultJob);
             }
-            if (jobIndex < 0) //if we cant find an Assistant to default to, just default to the first item in the list as a fallback. (might happen if a console has neither NS or NT)
-                jobIndex = 0;
-            //FH end
-            
+
             JobPresetOptionButton.SelectId(jobIndex);
 
             _lastFullName = state.TargetIdFullName;

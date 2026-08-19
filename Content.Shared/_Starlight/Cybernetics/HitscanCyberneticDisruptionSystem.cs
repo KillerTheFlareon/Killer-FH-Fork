@@ -6,10 +6,10 @@ using Robust.Shared.Timing;
 
 namespace Content.Shared._Starlight.Cybernetics;
 
-public sealed partial class HitscanCyberneticDisruptionSystem : EntitySystem
+public sealed class HitscanCyberneticDisruptionSystem : EntitySystem
 {
-    [Dependency] private SharedCyberneticDisruptionSystem _disrupt = default!;
-    [Dependency] private IGameTiming _gameTiming = default!; //FarHorizons
+    [Dependency] private readonly SharedCyberneticDisruptionSystem _disrupt = default!;
+    [Dependency] private readonly IGameTiming _gameTiming = default!; //FarHorizons
 
     public override void Initialize()
     {

@@ -4,9 +4,9 @@ using Robust.Shared.Timing;
 
 namespace Content.Shared._Starlight.Time
 {
-    public sealed partial class TimeSystem : EntitySystem
+    public sealed class TimeSystem : EntitySystem
     {
-        [Dependency] private IGameTiming _timing = default!;
+        [Dependency] private readonly IGameTiming _timing = default!;
         
         private DateTime _date = DateTime.UtcNow.AddYears(300);
 

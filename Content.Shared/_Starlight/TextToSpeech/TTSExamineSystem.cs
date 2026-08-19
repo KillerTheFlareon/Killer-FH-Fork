@@ -6,10 +6,10 @@ using Robust.Shared.Utility;
 
 namespace Content.Shared.Starlight.TextToSpeech;
 
-public sealed partial class TTSExamineSystem : EntitySystem
+public sealed class TTSExamineSystem : EntitySystem
 {
-    [Dependency] private IPrototypeManager _prototype = default!;
-    [Dependency] private ExamineSystemShared _examine = default!;
+    [Dependency] private readonly IPrototypeManager _prototype = default!;
+    [Dependency] private readonly ExamineSystemShared _examine = default!;
 
     public override void Initialize()
     {

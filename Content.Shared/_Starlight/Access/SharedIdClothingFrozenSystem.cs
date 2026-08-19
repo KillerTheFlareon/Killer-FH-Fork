@@ -7,9 +7,9 @@ namespace Content.Shared._Starlight.Access;
 /// <summary>
 /// System handling being blocked by equipment and lack of permissions to use it.
 /// </summary>
-public abstract partial class SharedIdClothingFrozenSystem : EntitySystem
+public abstract class SharedIdClothingFrozenSystem : EntitySystem
 {
-    [Dependency] private ActionBlockerSystem _blocker = default!;
+    [Dependency] private readonly ActionBlockerSystem _blocker = default!;
 
     public override void Initialize()
     {

@@ -10,10 +10,10 @@ using Content.Shared._FarHorizons.CCVar;
 
 namespace Content.Server.Airlocks;
 
-public sealed partial class AirlockFixupSystem : EntitySystem
+public sealed class AirlockFixupSystem : EntitySystem
 {
-    [Dependency] private IEntityManager _entityManager = default!;
-    [Dependency] private IConfigurationManager _cfg = default!;
+    [Dependency] private readonly IEntityManager _entityManager = default!;
+    [Dependency] private readonly IConfigurationManager _cfg = default!;
     private ConcurrentBag<int> knownFhMaps = [];
     private bool _active = false;
 

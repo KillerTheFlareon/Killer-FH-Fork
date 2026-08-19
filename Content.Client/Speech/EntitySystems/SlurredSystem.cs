@@ -2,6 +2,6 @@ using Content.Shared.Speech.EntitySystems;
 
 namespace Content.Client.Speech.EntitySystems;
 
-public sealed partial class SlurredSystem : SharedSlurredSystem
+public sealed class SlurredSystem : SharedSlurredSystem
 {
 }

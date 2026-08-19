@@ -20,7 +20,6 @@
     id: MailPDA
     ears: ClothingHeadsetCargo
     belt: ClothingBeltCargo #Far Horizons
-    pocket1: MailCompanion # Starlight
   storage:
     back:
     - MailTrolleyFlatpack

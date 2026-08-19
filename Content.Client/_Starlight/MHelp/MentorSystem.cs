@@ -9,9 +9,9 @@ using Robust.Shared.Timing;
 namespace Content.Client._Starlight.MHelp;
 
 [UsedImplicitly]
-public sealed partial class MentorSystem : SharedMentorSystem
+public sealed class MentorSystem : SharedMentorSystem
 {
-    [Dependency] private IGameTiming _timing = default!;
+    [Dependency] private readonly IGameTiming _timing = default!;
 
     public event EventHandler<MHelpTextMessage>? OnMentoringTextMessageReceived;
     private (TimeSpan Timestamp, bool Typing) _lastTypingUpdateSent;

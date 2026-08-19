@@ -8,9 +8,9 @@ using Robust.Shared.Prototypes;
 
 namespace Content.Client._Starlight.Language.Systems;
 
-public sealed partial class LanguageSystem : SharedLanguageSystem
+public sealed class LanguageSystem : SharedLanguageSystem
 {
-    [Dependency] private IPlayerManager _playerManager = default!;
+    [Dependency] private readonly IPlayerManager _playerManager = default!;
 
     /// <summary>
     ///     Invoked when the Languages of the local player entity change, for use in UI.

@@ -64,26 +64,26 @@ namespace Content.Server.GameTicking.Rules;
 /// <summary>
 /// Where all the main stuff for Revolutionaries happens (Assigning Head Revs, Command on station, and checking for the game to end.)
 /// </summary>
-public sealed partial class RevolutionaryRuleSystem : GameRuleSystem<RevolutionaryRuleComponent>
+public sealed class RevolutionaryRuleSystem : GameRuleSystem<RevolutionaryRuleComponent>
 {
-    [Dependency] private AntagSelectionSystem _antag = default!;
-    [Dependency] private EmergencyShuttleSystem _emergencyShuttle = default!;
-    [Dependency] private EuiManager _euiMan = default!;
-    [Dependency] private IAdminLogManager _adminLogManager = default!;
-    [Dependency] private IGameTiming _timing = default!;
-    [Dependency] private ISharedPlayerManager _player = default!;
-    [Dependency] private MindSystem _mind = default!;
-    [Dependency] private MobStateSystem _mobState = default!;
-    [Dependency] private NpcFactionSystem _npcFaction = default!;
-    [Dependency] private PopupSystem _popup = default!;
-    [Dependency] private RoleSystem _role = default!;
-    [Dependency] private RoundEndSystem _roundEnd = default!;
-    [Dependency] private SharedStunSystem _stun = default!;
-    [Dependency] private StationSystem _stationSystem = default!;
-    [Dependency] private ChatSystem _chatSystem = default!; // Starlight
-    [Dependency] private SharedAudioSystem _audioSystem = default!; // Starlight
-    [Dependency] private SpecialLobbyContentSystem _specialLobbyContent = default!; // Starlight
-    [Dependency] private AlertLevelSystem _alert = default!; // Starlight
+    [Dependency] private readonly AntagSelectionSystem _antag = default!;
+    [Dependency] private readonly EmergencyShuttleSystem _emergencyShuttle = default!;
+    [Dependency] private readonly EuiManager _euiMan = default!;
+    [Dependency] private readonly IAdminLogManager _adminLogManager = default!;
+    [Dependency] private readonly IGameTiming _timing = default!;
+    [Dependency] private readonly ISharedPlayerManager _player = default!;
+    [Dependency] private readonly MindSystem _mind = default!;
+    [Dependency] private readonly MobStateSystem _mobState = default!;
+    [Dependency] private readonly NpcFactionSystem _npcFaction = default!;
+    [Dependency] private readonly PopupSystem _popup = default!;
+    [Dependency] private readonly RoleSystem _role = default!;
+    [Dependency] private readonly RoundEndSystem _roundEnd = default!;
+    [Dependency] private readonly SharedStunSystem _stun = default!;
+    [Dependency] private readonly StationSystem _stationSystem = default!;
+    [Dependency] private readonly ChatSystem _chatSystem = default!; // Starlight
+    [Dependency] private readonly SharedAudioSystem _audioSystem = default!; // Starlight
+    [Dependency] private readonly SpecialLobbyContentSystem _specialLobbyContent = default!; // Starlight
+    [Dependency] private readonly AlertLevelSystem _alert = default!; // Starlight
 
     //Used in OnPostFlash, no reference to the rule component is available
     public readonly ProtoId<NpcFactionPrototype> RevolutionaryNpcFaction = "Revolutionary";
@@ -263,8 +263,8 @@ public sealed partial class RevolutionaryRuleSystem : GameRuleSystem<Revolutiona
         if (TryComp<HeadRevolutionaryImplantComponent>(user, out var implantComp) && implantComp.ImplantUid != null)
         {
             // Verify the implant still exists and is valid
-            if (Exists(implantComp.ImplantUid.Value) &&
-                HasComp<StoreComponent>(implantComp.ImplantUid.Value))
+            if (EntityManager.EntityExists(implantComp.ImplantUid.Value) &&
+                EntityManager.HasComponent<StoreComponent>(implantComp.ImplantUid.Value))
             {
                 return implantComp.ImplantUid.Value;
             }
@@ -275,8 +275,8 @@ public sealed partial class RevolutionaryRuleSystem : GameRuleSystem<Revolutiona
         {
             foreach (var implant in implants)
             {
-                if (HasComp<StoreComponent>(implant) &&
-                    Comp<MetaDataComponent>(implant).EntityPrototype?.ID == "USSPUplinkImplant")
+                if (EntityManager.HasComponent<StoreComponent>(implant) &&
+                    EntityManager.GetComponent<MetaDataComponent>(implant).EntityPrototype?.ID == "USSPUplinkImplant")
                 {
                     // Store the implant UID in the head revolutionary implant component for future use
                     if (HasComp<HeadRevolutionaryComponent>(user))
@@ -299,8 +299,8 @@ public sealed partial class RevolutionaryRuleSystem : GameRuleSystem<Revolutiona
                     continue;
 
                 var contained = slotEntity.ContainedEntity.Value;
-                if (HasComp<StoreComponent>(contained) &&
-                    Comp<MetaDataComponent>(contained).EntityPrototype?.ID == "USSPUplinkRadioPreset")
+                if (EntityManager.HasComponent<StoreComponent>(contained) &&
+                    EntityManager.GetComponent<MetaDataComponent>(contained).EntityPrototype?.ID == "USSPUplinkRadioPreset")
                 {
                     // Store the uplink UID in the head revolutionary implant component for future use
                     if (HasComp<HeadRevolutionaryComponent>(user))
@@ -318,8 +318,8 @@ public sealed partial class RevolutionaryRuleSystem : GameRuleSystem<Revolutiona
         var handsSystem = EntityManager.System<SharedHandsSystem>();
         foreach (var held in handsSystem.EnumerateHeld(user))
         {
-            if (HasComp<StoreComponent>(held) &&
-                Comp<MetaDataComponent>(held).EntityPrototype?.ID == "USSPUplinkRadioPreset")
+            if (EntityManager.HasComponent<StoreComponent>(held) &&
+                EntityManager.GetComponent<MetaDataComponent>(held).EntityPrototype?.ID == "USSPUplinkRadioPreset")
             {
                 // Store the uplink UID in the head revolutionary implant component for future use
                 if (HasComp<HeadRevolutionaryComponent>(user))
@@ -388,7 +388,7 @@ public sealed partial class RevolutionaryRuleSystem : GameRuleSystem<Revolutiona
                 if (uplinkUid == null)
                 {
                     // Create a new USSP uplink implant for this head revolutionary
-                    var uplinkImplant = Spawn("USSPUplinkImplant", Transform(ev.User.Value).Coordinates);
+                    var uplinkImplant = EntityManager.SpawnEntity("USSPUplinkImplant", Transform(ev.User.Value).Coordinates);
                     uplinkUid = uplinkImplant;
 
                     // Store this uplink for future use
@@ -434,11 +434,11 @@ public sealed partial class RevolutionaryRuleSystem : GameRuleSystem<Revolutiona
 
                     // Also directly synchronize all revolutionaries' uplinks with this head revolutionary's uplink
                     var ussplinkSystem = EntitySystem.Get<USSPUplinkSystem>();
-                    var revQuery2 = EntityQuery<RevolutionaryComponent, HeadRevolutionaryImplantComponent>();
+                    var revQuery2 = EntityManager.EntityQuery<RevolutionaryComponent, HeadRevolutionaryImplantComponent>();
                     foreach (var (_, revImplantComp) in revQuery2)
                     {
                         if (revImplantComp.ImplantUid != null &&
-                            Exists(revImplantComp.ImplantUid.Value) &&
+                            EntityManager.EntityExists(revImplantComp.ImplantUid.Value) &&
                             revImplantComp.ImplantUid.Value != uplinkUid.Value)
                         {
                             // Use the USSPUplinkSystem's SyncUplinkCurrencies method to directly sync the currencies
@@ -466,7 +466,7 @@ public sealed partial class RevolutionaryRuleSystem : GameRuleSystem<Revolutiona
                     }
 
                     // Also show a popup to any revolutionary who has this uplink's entity UID stored in their HeadRevolutionaryImplantComponent
-                    var revQuery = EntityQuery<RevolutionaryComponent, HeadRevolutionaryImplantComponent>();
+                    var revQuery = EntityManager.EntityQuery<RevolutionaryComponent, HeadRevolutionaryImplantComponent>();
                     foreach (var (_, revImplantComp) in revQuery)
                     {
                         if (revImplantComp.ImplantUid == uplinkUid &&
@@ -479,7 +479,7 @@ public sealed partial class RevolutionaryRuleSystem : GameRuleSystem<Revolutiona
                     }
 
                     // Also check for any revolutionaries who have an implant with this uplink
-                    var allRevs = EntityQuery<RevolutionaryComponent>();
+                    var allRevs = EntityManager.EntityQuery<RevolutionaryComponent>();
                     foreach (var rev in allRevs)
                     {
                         // Skip the head revolutionary who did the conversion
@@ -574,21 +574,21 @@ public sealed partial class RevolutionaryRuleSystem : GameRuleSystem<Revolutiona
     private void RemoveEventSchedulers()
     {
         // Remove BasicStationEventScheduler
-        var basicSchedulers = EntityQuery<BasicStationEventSchedulerComponent>();
+        var basicSchedulers = EntityManager.EntityQuery<BasicStationEventSchedulerComponent>();
         foreach (var scheduler in basicSchedulers)
         {
-            RemComp<BasicStationEventSchedulerComponent>(scheduler.Owner);
+            EntityManager.RemoveComponent<BasicStationEventSchedulerComponent>(scheduler.Owner);
         }
 
         // Remove RampingStationEventScheduler
-        var rampingSchedulers = EntityQuery<RampingStationEventSchedulerComponent>();
+        var rampingSchedulers = EntityManager.EntityQuery<RampingStationEventSchedulerComponent>();
         foreach (var scheduler in rampingSchedulers)
         {
-            RemComp<RampingStationEventSchedulerComponent>(scheduler.Owner);
+            EntityManager.RemoveComponent<RampingStationEventSchedulerComponent>(scheduler.Owner);
         }
 
         // Get all game rule entities
-        // var gameRuleQuery = EntityQuery<GameRuleComponent>();
+        // var gameRuleQuery = EntityManager.EntityQuery<GameRuleComponent>();
         // STARLIGHT END
     }
 
@@ -658,7 +658,7 @@ public sealed partial class RevolutionaryRuleSystem : GameRuleSystem<Revolutiona
     {
         // Find and delete all USSP uplinks
         EntityUid uid = default; // This sucks. Has to be a better way.
-        var uplinkQuery = EntityQuery<MetaDataComponent>(true);
+        var uplinkQuery = EntityManager.EntityQuery<MetaDataComponent>(true);
         var uplinksToDelete = new List<EntityUid>();
 
         foreach (var metadata in uplinkQuery)
@@ -672,15 +672,15 @@ public sealed partial class RevolutionaryRuleSystem : GameRuleSystem<Revolutiona
         // Delete all uplinks
         foreach (var uplink in uplinksToDelete)
         {
-            if (Exists(uplink))
+            if (EntityManager.EntityExists(uplink))
             {
-                QueueDel(uplink);
+                EntityManager.QueueDeleteEntity(uplink);
             }
         }
 
         // Find all supply rifts and collect them for deletion
         var riftsToDelete = new List<(EntityUid Entity, Robust.Shared.Map.EntityCoordinates Coordinates)>();
-        var riftQuery = EntityQuery<RevSupplyRiftComponent, TransformComponent>();
+        var riftQuery = EntityManager.EntityQuery<RevSupplyRiftComponent, TransformComponent>();
 
         foreach (var (rift, transform) in riftQuery)
         {
@@ -690,10 +690,10 @@ public sealed partial class RevolutionaryRuleSystem : GameRuleSystem<Revolutiona
         // Process all supply rifts
         foreach (var (entity, coordinates) in riftsToDelete)
         {
-            if (Exists(entity))
+            if (EntityManager.EntityExists(entity))
             {
                 // Spawn ash at the rift's location
-                Spawn("Ash", coordinates);
+                EntityManager.SpawnEntity("Ash", coordinates);
 
                 if (uid == default)
                 {
@@ -710,13 +710,13 @@ public sealed partial class RevolutionaryRuleSystem : GameRuleSystem<Revolutiona
                 }
 
                 // Delete the rift
-                QueueDel(entity);
+                EntityManager.QueueDeleteEntity(entity);
             }
         }
 
         // Find all SKB implanters and collect them for deletion
         var implantersToDelete = new List<(EntityUid Entity, Robust.Shared.Map.EntityCoordinates Coordinates)>();
-        var implanterQuery = EntityQuery<MetaDataComponent, TransformComponent>(true);
+        var implanterQuery = EntityManager.EntityQuery<MetaDataComponent, TransformComponent>(true);
 
         foreach (var (metadata, transform) in implanterQuery)
         {
@@ -729,13 +729,13 @@ public sealed partial class RevolutionaryRuleSystem : GameRuleSystem<Revolutiona
         // Process all SKB implanters
         foreach (var (entity, coordinates) in implantersToDelete)
         {
-            if (Exists(entity))
+            if (EntityManager.EntityExists(entity))
             {
                 // Spawn ash at the implanter's location
-                Spawn("Ash", coordinates);
+                EntityManager.SpawnEntity("Ash", coordinates);
 
                 // Delete the implanter
-                QueueDel(entity);
+                EntityManager.QueueDeleteEntity(entity);
             }
         }
     }
@@ -811,7 +811,7 @@ public sealed partial class RevolutionaryRuleSystem : GameRuleSystem<Revolutiona
     {
         // Find all uplinks owned by this head revolutionary
         var allUplinks = new List<EntityUid>();
-        var uplinkQuery = EntityQuery<USSPUplinkOwnerComponent, StoreComponent>();
+        var uplinkQuery = EntityManager.EntityQuery<USSPUplinkOwnerComponent, StoreComponent>();
 
         // Get the current uplink's currencies
         FixedPoint2 currentTelebond = FixedPoint2.Zero;
@@ -890,7 +890,7 @@ public sealed partial class RevolutionaryRuleSystem : GameRuleSystem<Revolutiona
         // First, check if this head revolutionary has an implant component
         if (TryComp<HeadRevolutionaryImplantComponent>(headRevUid, out var headRevImplant) &&
             headRevImplant.ImplantUid != null &&
-            Exists(headRevImplant.ImplantUid.Value))
+            EntityManager.EntityExists(headRevImplant.ImplantUid.Value))
         {
             var headRevUplinkUid = headRevImplant.ImplantUid.Value;
             allUplinks.Add(headRevUplinkUid);
@@ -904,7 +904,7 @@ public sealed partial class RevolutionaryRuleSystem : GameRuleSystem<Revolutiona
         }
 
         // Find all uplinks that have this head revolutionary as their owner
-        var uplinkQuery = EntityQuery<USSPUplinkOwnerComponent, StoreComponent>();
+        var uplinkQuery = EntityManager.EntityQuery<USSPUplinkOwnerComponent, StoreComponent>();
         foreach (var (uplinkOwner, uplinkStore) in uplinkQuery)
         {
             if (uplinkOwner.OwnerUid == headRevUid && !allUplinks.Contains(uplinkOwner.Owner))
@@ -929,11 +929,11 @@ public sealed partial class RevolutionaryRuleSystem : GameRuleSystem<Revolutiona
         }
 
         // Also check all revolutionaries who have this head revolutionary's uplink
-        var revQuery = EntityQuery<RevolutionaryComponent, HeadRevolutionaryImplantComponent>();
+        var revQuery = EntityManager.EntityQuery<RevolutionaryComponent, HeadRevolutionaryImplantComponent>();
         foreach (var (_, revImplant) in revQuery)
         {
             if (revImplant.ImplantUid != null &&
-                Exists(revImplant.ImplantUid.Value) &&
+                EntityManager.EntityExists(revImplant.ImplantUid.Value) &&
                 !allUplinks.Contains(revImplant.ImplantUid.Value))
             {
                 // Check if this uplink is owned by the head revolutionary
@@ -964,7 +964,7 @@ public sealed partial class RevolutionaryRuleSystem : GameRuleSystem<Revolutiona
         }
 
         // Check all revolutionaries for implants that might be owned by this head revolutionary
-        var allRevs = EntityQuery<RevolutionaryComponent>();
+        var allRevs = EntityManager.EntityQuery<RevolutionaryComponent>();
         foreach (var rev in allRevs)
         {
             // Skip the head revolutionary
@@ -1011,7 +1011,7 @@ public sealed partial class RevolutionaryRuleSystem : GameRuleSystem<Revolutiona
 
         // Also update the global conversion value for all USSP uplinks in the game
         // This ensures that all uplinks have the same conversion value, regardless of owner
-        var allUplinkQuery = EntityQuery<MetaDataComponent, StoreComponent>();
+        var allUplinkQuery = EntityManager.EntityQuery<MetaDataComponent, StoreComponent>();
         foreach (var (metadata, uplinkStore) in allUplinkQuery)
         {
             // Skip uplinks we've already processed
@@ -1061,7 +1061,7 @@ public sealed partial class RevolutionaryRuleSystem : GameRuleSystem<Revolutiona
     private void AddConversionToAllHeadRevs(StoreSystem storeSystem)
     {
         // Get all USSPUplinkImplant entities in the game
-        var query = EntityQuery<MetaDataComponent, StoreComponent>(true);
+        var query = EntityManager.EntityQuery<MetaDataComponent, StoreComponent>(true);
         var uplinkEntities = new List<EntityUid>();
 
         foreach (var (metadata, _) in query)

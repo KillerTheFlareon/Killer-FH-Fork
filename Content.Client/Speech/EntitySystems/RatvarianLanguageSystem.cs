@@ -2,7 +2,7 @@
 
 namespace Content.Client.Speech.EntitySystems;
 
-public sealed partial class RatvarianLanguageSystem : SharedRatvarianLanguageSystem
+public sealed class RatvarianLanguageSystem : SharedRatvarianLanguageSystem
 {
 
 }

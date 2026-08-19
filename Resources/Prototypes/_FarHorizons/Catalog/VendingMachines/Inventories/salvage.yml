@@ -6,7 +6,7 @@
   cost:
     SalvageTicket: 350
   categories:
-  - SalvageWeapons
+  - SalvageEquipment
   conditions:
   - !type:ListingLimitedStockCondition
     stock: 5
@@ -18,7 +18,7 @@
   cost:
     SalvageTicket: 300
   categories:
-  - SalvageWeapons
+  - SalvageEquipment
   conditions:
   - !type:ListingLimitedStockCondition
     stock: 6
@@ -30,7 +30,7 @@
   cost:
     SalvageTicket: 350
   categories:
-  - SalvageWeapons
+  - SalvageEquipment
   conditions:
   - !type:ListingLimitedStockCondition
     stock: 6
@@ -42,7 +42,7 @@
   cost:
     SalvageTicket: 450
   categories:
-  - SalvageWeapons
+  - SalvageEquipment
   conditions:
   - !type:ListingLimitedStockCondition
     stock: 4
@@ -54,7 +54,7 @@
   cost:
     SalvageTicket: 150
   categories:
-  - SalvageWeapons
+  - SalvageEquipment
   conditions:
   - !type:ListingLimitedStockCondition
     stock: 8
@@ -66,7 +66,7 @@
   cost:
     SalvageTicket: 800
   categories:
-  - SalvageVehicles
+  - SalvageEquipment
   conditions:
   - !type:ListingLimitedStockCondition
     stock: 5
@@ -111,7 +111,7 @@
   id: VendorWeaponMark1SniperRifle
   productEntity: WeaponRifleMark1Sniper
   cost:
-    SalvageTicket: 500
+    SalvageTicket: 600
   categories:
   - SalvageWeapons
   conditions:
@@ -121,7 +121,7 @@
   id: VendorWeaponMarkalibur1Rifle
   productEntity: Markalibur1SheathFilled
   cost:
-    SalvageTicket: 750
+    SalvageTicket: 1000
   categories:
   - SalvageWeapons
   conditions:
@@ -134,7 +134,7 @@
   cost:
     SalvageTicket: 250
   categories:
-  - SalvageAmmo
+  - SalvageConsumeables
   conditions:
   - !type:BuyerAccessCondition
 
@@ -144,57 +144,7 @@
   cost:
     SalvageTicket: 750
   categories:
-  - SalvageAmmo
-  conditions:
-  - !type:BuyerAccessCondition
-
-- type: listing
-  id: VendorBoxRevolver38
-  productEntity: MagazineBoxRevolver38SP
-  cost:
-    SalvageTicket: 400
-  categories:
-  - SalvageAmmo
-  conditions:
-  - !type:BuyerAccessCondition
-
-- type: listing
-  id: VendorBoxPistol
-  productEntity: MagazineBoxPistolSP
-  cost:
-    SalvageTicket: 600
-  categories:
-  - SalvageAmmo
-  conditions:
-  - !type:BuyerAccessCondition
-
-- type: listing
-  id: VendorSalvageMagazine38
-  productEntity: MagazinePistol38Empty
-  cost:
-    SalvageTicket: 75
-  categories:
-  - SalvageAmmo
-  conditions:
-  - !type:BuyerAccessCondition
-
-- type: listing
-  id: VendorSalvageSpeedloader38
-  productEntity: SpeedLoaderRevolver38Empty
-  cost:
-    SalvageTicket: 75
-  categories:
-  - SalvageAmmo
-  conditions:
-  - !type:BuyerAccessCondition
-
-- type: listing
-  id: VendorSalvageSpeedloader44
-  productEntity: SpeedLoaderMagnumEmpty
-  cost:
-    SalvageTicket: 75
-  categories:
-  - SalvageAmmo
+  - SalvageConsumeables
   conditions:
   - !type:BuyerAccessCondition
 
@@ -205,7 +155,7 @@
   cost:
     SalvageTicket: 250
   categories:
-  - SalvageArmor
+  - SalvageMercenaryEquipment
   conditions:
   - !type:ListingLimitedStockCondition
     stock: 5
@@ -215,9 +165,9 @@
   id: VendorSalvageClothingOuterArmorSalvageHeavy
   productEntity: ClothingOuterArmorSalvageHeavy
   cost:
-    SalvageTicket: 400
+    SalvageTicket: 500
   categories:
-  - SalvageArmor
+  - SalvageMercenaryEquipment
   conditions:
   - !type:ListingLimitedStockCondition
     stock: 2
@@ -227,9 +177,9 @@
   id: VendorSalvageClothingHeadHelmetSalvageMedium
   productEntity: ClothingHeadHelmetSalvageMedium
   cost:
-    SalvageTicket: 100
+    SalvageTicket: 150
   categories:
-  - SalvageArmor
+  - SalvageMercenaryEquipment
   conditions:
   - !type:ListingLimitedStockCondition
     stock: 5
@@ -239,9 +189,9 @@
   id: VendorSalvageClothingHeadHelmetSalvageHeavy
   productEntity: ClothingHeadHelmetSalvageHeavy
   cost:
-    SalvageTicket: 150
+    SalvageTicket: 300
   categories:
-  - SalvageArmor
+  - SalvageMercenaryEquipment
   conditions:
   - !type:ListingLimitedStockCondition
     stock: 2
@@ -294,18 +244,4 @@
   conditions:
   - !type:ListingLimitedStockCondition
     stock: 2
-  - !type:BuyerAccessCondition
-
-# Luxury
-
-- type: listing
-  id: VendorSalvageAmmoPrinter
-  productEntity: AmmoTechFabCircuitboard
-  cost:
-    SalvageTicket: 10000
-  categories:
-  - SalvageLuxury
-  conditions:
-  - !type:ListingLimitedStockCondition
-    stock: 1
   - !type:BuyerAccessCondition

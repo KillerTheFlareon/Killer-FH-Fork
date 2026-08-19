@@ -3,7 +3,7 @@ using Content.Shared._Starlight.Actions.Components;
 
 namespace Content.Server._Starlight.Actions.EntitySystems;
 
-public sealed partial class StasisFrozenSystem : SharedStasisFrozenSystem
+public sealed class StasisFrozenSystem : SharedStasisFrozenSystem
 {
     /// <summary>
     /// Freezes and mutes the given entity.

@@ -2,7 +2,7 @@
 
 namespace Content.Shared.Damage.Systems;
 
-public sealed partial class DamageProtectionBuffSystem : EntitySystem
+public sealed class DamageProtectionBuffSystem : EntitySystem
 {
     public override void Initialize()
     {

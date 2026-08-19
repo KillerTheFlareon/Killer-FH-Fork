@@ -105,7 +105,7 @@
 
 - type: storeCategory
   id: SalvageEquipment
-  name: Utility # Far Horizons
+  name: Equipment
   
 - type: storeCategory
   id: SalvageWeapons
@@ -117,7 +117,7 @@
 
 - type: storeCategory
   id: SalvageMercenaryEquipment
-  name: Equipment # Far Horizons
+  name: Scrapper
 
 - type: storeCategory
   id: SalvageCybernetics
@@ -126,7 +126,7 @@
 # mining
 - type: storeCategory
   id: MiningEquipment
-  name: Utility # Far Horizons
+  name: Equipment
 
 - type: storeCategory
   id: MiningConsumeables

@@ -11,11 +11,11 @@ using Robust.Shared.Timing;
 
 namespace Content.Shared.Starlight.Antags.Abductor;
 
-public abstract partial class SharedAbductorSystem : EntitySystem
+public abstract class SharedAbductorSystem : EntitySystem
 {
-    [Dependency] private EntityLookupSystem _entityLookup = default!;
-    [Dependency] private SharedAppearanceSystem _appearance = default!;
-    [Dependency] protected IGameTiming Timing = default!;
+    [Dependency] private readonly EntityLookupSystem _entityLookup = default!;
+    [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
+    [Dependency] protected readonly IGameTiming Timing = default!;
     
     public override void Initialize()
     {

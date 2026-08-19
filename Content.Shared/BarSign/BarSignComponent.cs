@@ -22,21 +22,6 @@ public sealed partial class BarSignComponent : Component
     /// </summary>
     [DataField, AutoNetworkedField]
     public ProtoId<BarSignPrototype>? Emped = "EmpBarSign";
-
-    // FarHorizons Start
-
-    [DataField, AutoNetworkedField]
-    public bool isBroken = false;
-
-    [DataField, AutoNetworkedField]
-    public ProtoId<BarSignPrototype>? Broken = "EmpBarSign";
-
-    [DataField, AutoNetworkedField]
-    public SignType SignType = SignType.BarSign;
-
-    [DataField, AutoNetworkedField]
-    public LocId TitleName = "barsign-ui-menu";
-    // FarHorizons End
 }
 
 /// <summary>

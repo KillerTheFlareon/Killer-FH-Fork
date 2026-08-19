@@ -18,9 +18,9 @@ using Robust.Shared.Utility;
 namespace Content.Client._Starlight.NewLife;
 
 [UsedImplicitly]
-public sealed partial class NewLifeEui : BaseEui
+public sealed class NewLifeEui : BaseEui
 {
-    [Dependency] private IClientPreferencesManager _preferencesManager = default!;
+    [Dependency] private readonly IClientPreferencesManager _preferencesManager = default!;
 
     private readonly NewLifeWindow _window;
 

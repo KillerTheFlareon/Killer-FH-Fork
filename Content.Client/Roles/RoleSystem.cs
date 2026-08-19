@@ -2,6 +2,6 @@
 
 namespace Content.Client.Roles;
 
-public sealed partial class RoleSystem : SharedRoleSystem
+public sealed class RoleSystem : SharedRoleSystem
 {
 }

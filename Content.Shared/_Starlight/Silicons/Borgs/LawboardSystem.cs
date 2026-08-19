@@ -6,10 +6,10 @@ using Robust.Shared.Localization;
 
 namespace Content.Shared._Starlight.Silicons.Borgs;
 
-public sealed partial class LawboardSystem : EntitySystem
+public sealed class LawboardSystem : EntitySystem
 {
-    [Dependency] private IPrototypeManager _prototype = default!;
-    [Dependency] private ILocalizationManager _loc = default!;
+    [Dependency] private readonly IPrototypeManager _prototype = default!;
+    [Dependency] private readonly ILocalizationManager _loc = default!;
 
     public override void Initialize()
     {

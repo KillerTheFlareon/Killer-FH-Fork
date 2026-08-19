@@ -7,9 +7,9 @@ using Robust.Shared.Prototypes;
 namespace Content.Client.BarSign.Ui;
 
 [UsedImplicitly]
-public sealed partial class BarSignBoundUserInterface(EntityUid owner, Enum uiKey) : BoundUserInterface(owner, uiKey)
+public sealed class BarSignBoundUserInterface(EntityUid owner, Enum uiKey) : BoundUserInterface(owner, uiKey)
 {
-    [Dependency] private IPrototypeManager _prototype = default!;
+    [Dependency] private readonly IPrototypeManager _prototype = default!;
 
     private BarSignMenu? _menu;
 
@@ -17,14 +17,12 @@ public sealed partial class BarSignBoundUserInterface(EntityUid owner, Enum uiKe
     {
         base.Open();
 
-        if(!EntMan.TryGetComponent<BarSignComponent>(Owner, out var signComp)) return; //Far Horizons
-        var allSigns = BarSignSystem.GetAllBarSigns(_prototype).Where(p => signComp.SignType.HasFlag(p.SignType)) //Far Horizons
+        var allSigns = BarSignSystem.GetAllBarSigns(_prototype)
             .OrderBy(p => Loc.GetString(p.Name))
             .ToList();
 
         _menu = this.CreateWindow<BarSignMenu>();
         _menu.LoadSigns(allSigns);
-        _menu.Title = Loc.GetString(signComp.TitleName); //Far Horizons
 
         _menu.OnSignSelected += id =>
         {

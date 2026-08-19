@@ -3,9 +3,9 @@ using Content.Shared.Tag;
 
 namespace Content.Shared.Clothing.EntitySystems;
 
-public sealed partial class AddTagsOnClothingEquipSystem : EntitySystem
+public sealed class AddTagsOnClothingEquipSystem : EntitySystem
 {
-    [Dependency] private TagSystem _tag = default!;
+    [Dependency] private readonly TagSystem _tag = default!;
 
     public override void Initialize()
     {

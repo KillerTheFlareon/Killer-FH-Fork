@@ -1,115 +1,115 @@
 - type: entity
   name: Syndicate Wall Spawner
-  id: SpawnerWallSolidNS70
+  id: SpawnerWallSolidSyndicate70
   suffix: 70%
   parent: MarkerBase
   components:
   - type: Sprite
     layers:
     - state: red
-    - sprite: _FarHorizons/Structures/Walls/NeoSol/solid.rsi
+    - sprite: _FarHorizons/Structures/Walls/solid_syndie.rsi
       state: full
   - type: RandomSpawner
     prototypes:
-    - WallSolidNS
+    - WallSolidSyndicate
     chance: 0.7
     offset: 0.0
 
 - type: entity
   name: Syndicate Wall Spawner
-  id: SpawnerWallSolidNS50
+  id: SpawnerWallSolidSyndicate50
   suffix: 50%
   parent: MarkerBase
   components:
   - type: Sprite
     layers:
     - state: red
-    - sprite: _FarHorizons/Structures/Walls/NeoSol/solid.rsi
+    - sprite: _FarHorizons/Structures/Walls/solid_syndie.rsi
       state: full
   - type: RandomSpawner
     prototypes:
-    - WallSolidNS
+    - WallSolidSyndicate
     chance: 0.5
     offset: 0.0
 
 - type: entity
   name: Syndicate Wall Spawner
-  id: SpawnerWallSolidNS30
+  id: SpawnerWallSolidSyndicate30
   suffix: 30%
   parent: MarkerBase
   components:
   - type: Sprite
     layers:
     - state: red
-    - sprite: _FarHorizons/Structures/Walls/NeoSol/solid.rsi
+    - sprite: _FarHorizons/Structures/Walls/solid_syndie.rsi
       state: full
   - type: RandomSpawner
     prototypes:
-    - WallSolidNS
+    - WallSolidSyndicate
     chance: 0.3
     offset: 0.0
 
 - type: entity
   name: Syndicate Reinforced Wall Spawner
-  id: SpawnerWallReinforcedNS70
+  id: SpawnerWallReinforcedSyndicate70
   suffix: 70%
   parent: MarkerBase
   components:
   - type: Sprite
     layers:
     - state: red
-    - sprite: _FarHorizons/Structures/Walls/NeoSol/solid.rsi
+    - sprite: _FarHorizons/Structures/Walls/solid_syndie.rsi
       state: rgeneric
   - type: RandomSpawner
     prototypes:
-    - WallReinforcedNS
+    - WallReinforcedSyndicate
     chance: 0.7
     offset: 0.0
 
 - type: entity
   name: Syndicate Reinforced Wall Spawner
-  id: SpawnerWallReinforcedNS50
+  id: SpawnerWallReinforcedSyndicate50
   suffix: 50%
   parent: MarkerBase
   components:
   - type: Sprite
     layers:
     - state: red
-    - sprite: _FarHorizons/Structures/Walls/NeoSol/solid.rsi
+    - sprite: _FarHorizons/Structures/Walls/solid_syndie.rsi
       state: rgeneric
   - type: RandomSpawner
     prototypes:
-    - WallReinforcedNS
+    - WallReinforcedSyndicate
     chance: 0.5
     offset: 0.0
 
 - type: entity
   name: Syndicate Reinforced Wall Spawner
-  id: SpawnerWallReinforcedNS30
+  id: SpawnerWallReinforcedSyndicate30
   suffix: 30%
   parent: MarkerBase
   components:
   - type: Sprite
     layers:
     - state: red
-    - sprite: _FarHorizons/Structures/Walls/NeoSol/solid.rsi
+    - sprite: _FarHorizons/Structures/Walls/solid_syndie.rsi
       state: rgeneric
   - type: RandomSpawner
     prototypes:
-    - WallReinforcedNS
+    - WallReinforcedSyndicate
     chance: 0.3
     offset: 0.0
 
 - type: entity
   name: Wall Spawner
   id: SpawnerWallSolid70
-  suffix: NT, 70%
+  suffix: 70%
   parent: MarkerBase
   components:
   - type: Sprite
     layers:
     - state: red
-    - sprite: _FarHorizons/Structures/Walls/NanoTrasen/solid.rsi
+    - sprite: Structures/Walls/solid.rsi
       state: full
   - type: RandomSpawner
     prototypes:
@@ -120,13 +120,13 @@
 - type: entity
   name: Wall Spawner
   id: SpawnerWallSolid50
-  suffix: NT, 50%
+  suffix: 50%
   parent: MarkerBase
   components:
   - type: Sprite
     layers:
     - state: red
-    - sprite: _FarHorizons/Structures/Walls/NanoTrasen/solid.rsi
+    - sprite: Structures/Walls/solid.rsi
       state: full
   - type: RandomSpawner
     prototypes:
@@ -137,13 +137,13 @@
 - type: entity
   name: Wall Spawner
   id: SpawnerWallSolid30
-  suffix: NT, 30%
+  suffix: 30%
   parent: MarkerBase
   components:
   - type: Sprite
     layers:
     - state: red
-    - sprite: _FarHorizons/Structures/Walls/NanoTrasen/solid.rsi
+    - sprite: Structures/Walls/solid.rsi
       state: full
   - type: RandomSpawner
     prototypes:
@@ -154,13 +154,13 @@
 - type: entity
   name: Reinforced Wall Spawner
   id: SpawnerWallReinforced70
-  suffix: NT, 70%
+  suffix: 70%
   parent: MarkerBase
   components:
   - type: Sprite
     layers:
     - state: red
-    - sprite: _FarHorizons/Structures/Walls/NanoTrasen/solid.rsi
+    - sprite: Structures/Walls/solid.rsi
       state: rgeneric
   - type: RandomSpawner
     prototypes:
@@ -171,13 +171,13 @@
 - type: entity
   name: Reinforced Wall Spawner
   id: SpawnerWallReinforced50
-  suffix: NT, 50%
+  suffix: 50%
   parent: MarkerBase
   components:
   - type: Sprite
     layers:
     - state: red
-    - sprite: _FarHorizons/Structures/Walls/NanoTrasen/solid.rsi
+    - sprite: Structures/Walls/solid.rsi
       state: rgeneric
   - type: RandomSpawner
     prototypes:
@@ -188,13 +188,13 @@
 - type: entity
   name: Reinforced Wall Spawner
   id: SpawnerWallReinforced30
-  suffix: NT, 30%
+  suffix: 30%
   parent: MarkerBase
   components:
   - type: Sprite
     layers:
     - state: red
-    - sprite: _FarHorizons/Structures/Walls/NanoTrasen/solid.rsi
+    - sprite: Structures/Walls/solid.rsi
       state: rgeneric
   - type: RandomSpawner
     prototypes:

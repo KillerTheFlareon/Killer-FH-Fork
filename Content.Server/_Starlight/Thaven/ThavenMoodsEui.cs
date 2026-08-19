@@ -8,7 +8,7 @@ using Content.Shared._Starlight.Thaven.Components;
 
 namespace Content.Server._Starlight.Thaven;
 
-public sealed partial class ThavenMoodsEui : BaseEui
+public sealed class ThavenMoodsEui : BaseEui
 {
     private readonly ThavenMoodsSystem _moodsSystem;
     private readonly EntityManager _entMan;

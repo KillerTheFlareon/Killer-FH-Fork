@@ -120,10 +120,6 @@
       - Medical
       - Service
       - Engineering
-      factions: #FH start
-      - FactionNT
-      - FactionCFA
-      - FactionCargonia #FH end
       privilegedIdSlot:
         name: id-card-clipboard-priviliged-id
         ejectSound: /Audio/Machines/id_swipe.ogg

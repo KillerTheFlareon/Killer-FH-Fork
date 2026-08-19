@@ -3,9 +3,9 @@ using Robust.Client.UserInterface;
 
 namespace Content.Client._FarHorizons.UI.HandheldRadio;
 
-public sealed partial class HandheldRadioBoundUserInterface : BoundUserInterface
+public sealed class HandheldRadioBoundUserInterface : BoundUserInterface
 {
-    [Dependency] private IEntityManager _entManager = default!;
+    [Dependency] private readonly IEntityManager _entManager = default!;
 
     [ViewVariables]
     private HandheldRadioWindow? _window;

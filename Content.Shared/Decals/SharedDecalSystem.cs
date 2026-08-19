@@ -3,6 +3,7 @@ using System.Diagnostics.CodeAnalysis;
 using System.Numerics;
 using Robust.Shared.GameStates;
 using Robust.Shared.Map;
+using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization;
 using static Content.Shared.Decals.DecalGridComponent;
 
@@ -10,6 +11,9 @@ namespace Content.Shared.Decals
 {
     public abstract class SharedDecalSystem : EntitySystem
     {
+        [Dependency] protected readonly IPrototypeManager PrototypeManager = default!;
+        [Dependency] protected readonly IMapManager MapManager = default!;
+
         protected bool PvsEnabled;
 
         // Note that this constant is effectively baked into all map files, because of how they save the grid decal component.

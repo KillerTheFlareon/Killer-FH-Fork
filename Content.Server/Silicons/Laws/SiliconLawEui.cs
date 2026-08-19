@@ -7,7 +7,7 @@ using Content.Shared.Silicons.Laws.Components;
 
 namespace Content.Server.Silicons.Laws;
 
-public sealed partial class SiliconLawEui : BaseEui
+public sealed class SiliconLawEui : BaseEui
 {
     private readonly SiliconLawSystem _siliconLawSystem;
     private readonly EntityManager _entityManager;

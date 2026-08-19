@@ -58,7 +58,7 @@
   parent:
     - BaseStation
     - BaseStationNews
-    - BaseStationCargoNS
+    - BaseStationCargo
     - BaseStationJobsSpawning
     - BaseStationRecords
     - BaseStationArrivals

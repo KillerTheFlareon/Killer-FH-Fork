@@ -4,7 +4,7 @@
 
 //namespace Content.Server.Speech.EntitySystems;
 
-//public sealed partial class LizardAccentSystem : EntitySystem
+//public sealed class LizardAccentSystem : EntitySystem
 //{
 //    private static readonly Regex RegexLowerS = new("s+");
 //    private static readonly Regex RegexUpperS = new("S+");

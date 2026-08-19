@@ -4,7 +4,7 @@ using Content.Shared.Medical.Healing;
 
 namespace Content.Shared.Medical;
 
-public sealed partial class SharedHealingSystem : EntitySystem
+public sealed class SharedHealingSystem : EntitySystem
 {
     public override void Initialize()
     {

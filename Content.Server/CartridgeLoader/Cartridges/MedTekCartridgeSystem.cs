@@ -13,10 +13,10 @@ using Content.Shared.Damage.Components;
 
 namespace Content.Server.CartridgeLoader.Cartridges;
 
-public sealed partial class MedTekCartridgeSystem : EntitySystem
+public sealed class MedTekCartridgeSystem : EntitySystem
 {
-    [Dependency] private CartridgeLoaderSystem _cartridgeLoaderSystem = default!;
-    [Dependency] private SharedInteractionSystem _interactionSystem = default!; //FarHorizons
+    [Dependency] private readonly CartridgeLoaderSystem _cartridgeLoaderSystem = default!;
+    [Dependency] private readonly SharedInteractionSystem _interactionSystem = default!; //FarHorizons
     public override void Initialize()
     {
         base.Initialize();

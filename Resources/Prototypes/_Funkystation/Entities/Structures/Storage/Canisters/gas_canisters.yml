@@ -8,10 +8,19 @@
     layers:
     - state: yellow # FH
   - type: GasCanister
-    air:
+    gasMixture:
       volume: 1000
       moles:
-        BZ: 1871.71051
+      - 0 # Oxygen
+      - 0 # Nitrogen
+      - 0 # CO2
+      - 0 # Plasma
+      - 0 # Tritium
+      - 0 # Water vapor
+      - 0 # Miasma
+      - 0 # N2O
+      - 0 # Frezon
+      - 1871.71051 # BZ
       temperature: 293.15
   - type: Destructible
     thresholds:
@@ -48,10 +57,20 @@
     layers:
     - state: yellow # FH
   - type: GasCanister
-    air:
+    gasMixture:
       volume: 1000
       moles:
-        Healium: 1871.71051
+      - 0 # Oxygen
+      - 0 # Nitrogen
+      - 0 # CO2
+      - 0 # Plasma
+      - 0 # Tritium
+      - 0 # Water vapor
+      - 0 # Miasma
+      - 0 # N2O
+      - 0 # Frezon
+      - 0 # BZ
+      - 1871.71051 # Healium
       temperature: 293.15
   - type: Destructible
     thresholds:
@@ -88,10 +107,21 @@
     layers:
     - state: yellow # FH
   - type: GasCanister
-    air:
+    gasMixture:
       volume: 1000
       moles:
-        Nitrium: 1871.71051
+      - 0 # Oxygen
+      - 0 # Nitrogen
+      - 0 # CO2
+      - 0 # Plasma
+      - 0 # Tritium
+      - 0 # Water vapor
+      - 0 # Miasma
+      - 0 # N2O
+      - 0 # Frezon
+      - 0 # BZ
+      - 0 # Healium
+      - 1871.71051 # Nitrium
       temperature: 293.15
   - type: Destructible
     thresholds:
@@ -128,10 +158,22 @@
     layers:
     - state: yellow # FH
   - type: GasCanister
-    air:
+    gasMixture:
       volume: 1000
       moles:
-        Pluoxium: 1871.71051
+      - 0 # Oxygen
+      - 0 # Nitrogen
+      - 0 # CO2
+      - 0 # Plasma
+      - 0 # Tritium
+      - 0 # Water vapor
+      - 0 # Miasma
+      - 0 # N2O
+      - 0 # Frezon
+      - 0 # BZ
+      - 0 # Healium
+      - 0 # Nitrium
+      - 1871.71051 # Pluoxium
       temperature: 293.15
   - type: Destructible
     thresholds:
@@ -168,10 +210,23 @@
     layers:
     - state: yellow # FH
   - type: GasCanister
-    air:
+    gasMixture:
       volume: 1000
       moles:
-        Hydrogen: 1871.71051
+      - 0 # Oxygen
+      - 0 # Nitrogen
+      - 0 # CO2
+      - 0 # Plasma
+      - 0 # Tritium
+      - 0 # Water vapor
+      - 0 # Miasma
+      - 0 # N2O
+      - 0 # Frezon
+      - 0 # BZ
+      - 0 # Healium
+      - 0 # Nitrium
+      - 0 # Pluoxium
+      - 1871.71051 # Hydrogen
       temperature: 293.15
   - type: Destructible
     thresholds:
@@ -208,10 +263,24 @@
     layers:
     - state: yellow # FH
   - type: GasCanister
-    air:
+    gasMixture:
       volume: 1000
       moles:
-        HyperNoblium: 1871.71051
+      - 0 # Oxygen
+      - 0 # Nitrogen
+      - 0 # CO2
+      - 0 # Plasma
+      - 0 # Tritium
+      - 0 # Water vapor
+      - 0 # Miasma
+      - 0 # N2O
+      - 0 # Frezon
+      - 0 # BZ
+      - 0 # Healium
+      - 0 # Nitrium
+      - 0 # Pluoxium
+      - 0 # Hydrogen
+      - 1871.71051 # HyperNoblium
       temperature: 293.15
   - type: Destructible
     thresholds:
@@ -248,10 +317,25 @@
     layers:
     - state: yellow # FH
   - type: GasCanister
-    air:
+    gasMixture:
       volume: 1000
       moles:
-        ProtoNitrate: 1871.71051
+      - 0 # Oxygen
+      - 0 # Nitrogen
+      - 0 # CO2
+      - 0 # Plasma
+      - 0 # Tritium
+      - 0 # Water vapor
+      - 0 # Miasma
+      - 0 # N2O
+      - 0 # Frezon
+      - 0 # BZ
+      - 0 # Healium
+      - 0 # Nitrium
+      - 0 # Pluoxium
+      - 0 # Hydrogen
+      - 0 # HyperNoblium
+      - 1871.71051 # ProtoNitrate
       temperature: 293.15
   - type: Destructible
     thresholds:
@@ -288,10 +372,26 @@
     layers:
     - state: yellow # FH
   - type: GasCanister
-    air:
+    gasMixture:
       volume: 1000
       moles:
-        Zauker: 1871.71051
+      - 0 # Oxygen
+      - 0 # Nitrogen
+      - 0 # CO2
+      - 0 # Plasma
+      - 0 # Tritium
+      - 0 # Water vapor
+      - 0 # Miasma
+      - 0 # N2O
+      - 0 # Frezon
+      - 0 # BZ
+      - 0 # Healium
+      - 0 # Nitrium
+      - 0 # Pluoxium
+      - 0 # Hydrogen
+      - 0 # HyperNoblium
+      - 0 # ProtoNitrate
+      - 1871.71051 # Zauker
       temperature: 293.15
   - type: Destructible
     thresholds:
@@ -328,10 +428,27 @@
     layers:
     - state: yellow # FH
   - type: GasCanister
-    air:
+    gasMixture:
       volume: 1000
       moles:
-        Halon: 1871.71051
+      - 0 # Oxygen
+      - 0 # Nitrogen
+      - 0 # CO2
+      - 0 # Plasma
+      - 0 # Tritium
+      - 0 # Water vapor
+      - 0 # Miasma
+      - 0 # N2O
+      - 0 # Frezon
+      - 0 # BZ
+      - 0 # Healium
+      - 0 # Nitrium
+      - 0 # Pluoxium
+      - 0 # Hydrogen
+      - 0 # HyperNoblium
+      - 0 # ProtoNitrate
+      - 0 # Zauker
+      - 1871.71051 # Halon
       temperature: 293.15
   - type: Destructible
     thresholds:
@@ -369,10 +486,28 @@
     layers:
     - state: yellow # FH
   - type: GasCanister
-    air:
+    gasMixture:
       volume: 1000
       moles:
-        Helium: 1871.71051
+      - 0 # Oxygen
+      - 0 # Nitrogen
+      - 0 # CO2
+      - 0 # Plasma
+      - 0 # Tritium
+      - 0 # Water vapor
+      - 0 # Miasma
+      - 0 # N2O
+      - 0 # Frezon
+      - 0 # BZ
+      - 0 # Healium
+      - 0 # Nitrium
+      - 0 # Pluoxium
+      - 0 # Hydrogen
+      - 0 # HyperNoblium
+      - 0 # ProtoNitrate
+      - 0 # Zauker
+      - 0 # Halon
+      - 1871.71051 # Helium
       temperature: 293.15
   - type: Destructible
     thresholds:
@@ -409,10 +544,30 @@
     layers:
     - state: yellow # FH
   - type: GasCanister
-    air:
+    gasMixture:
       volume: 1000
       moles:
-        AntiNoblium: 1871.71051
+      - 0 # Oxygen
+      - 0 # Nitrogen
+      - 0 # CO2
+      - 0 # Plasma
+      - 0 # Tritium
+      - 0 # Water vapor
+      - 0 # Miasma
+      - 0 # N2O
+      - 0 # Frezon
+      - 0 # BZ
+      - 0 # Healium
+      - 0 # Nitrium
+      - 0 # Pluoxium
+      - 0 # Hydrogen
+      - 0 # HyperNoblium
+      - 0 # ProtoNitrate
+      - 0 # Zauker
+      - 0 # Halon
+      - 0 # Helium
+      - 1871.71051 # AntiNoblium
+      temperature: 293.15
   - type: Destructible
     thresholds:
     - trigger:

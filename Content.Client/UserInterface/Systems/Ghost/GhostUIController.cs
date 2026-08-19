@@ -1,6 +1,5 @@
 using Content.Client.Gameplay;
 using Content.Client.Ghost;
-using Content.Client.Lobby; //🌟Starlight🌟
 using Content.Client.UserInterface.Systems.Gameplay;
 using Content.Client.UserInterface.Systems.Ghost.Widgets;
 using Content.Shared.Ghost;
@@ -10,9 +9,9 @@ using Robust.Client.UserInterface.Controllers;
 namespace Content.Client.UserInterface.Systems.Ghost;
 
 // TODO hud refactor BEFORE MERGE fix ghost gui being too far up
-public sealed partial class GhostUIController : UIController, IOnSystemChanged<GhostSystem>
+public sealed class GhostUIController : UIController, IOnSystemChanged<GhostSystem>
 {
-    [Dependency] private IEntityNetworkManager _net = default!;
+    [Dependency] private readonly IEntityNetworkManager _net = default!;
 
     [UISystemDependency] private readonly GhostSystem? _system = default;
 
@@ -127,7 +126,6 @@ public sealed partial class GhostUIController : UIController, IOnSystemChanged<G
         Gui.ReturnToBodyPressed += ReturnToBody;
         Gui.GhostRolesPressed += GhostRolesPressed;
         Gui.NewLifePressed += NewLifePressed; //🌟Starlight🌟
-        Gui.CharacterEditorPressed += CharacterEditorPressed; //🌟Starlight🌟
         Gui.GhostThemePressed += GhostThemePressed; //🌟Starlight🌟
         Gui.TargetWindow.WarpClicked += OnWarpClicked;
         Gui.TargetWindow.OnGhostnadoClicked += OnGhostnadoClicked;
@@ -144,7 +142,6 @@ public sealed partial class GhostUIController : UIController, IOnSystemChanged<G
         Gui.ReturnToBodyPressed -= ReturnToBody;
         Gui.GhostRolesPressed -= GhostRolesPressed;
         Gui.NewLifePressed -= NewLifePressed; //🌟Starlight🌟
-        Gui.CharacterEditorPressed -= CharacterEditorPressed; //🌟Starlight🌟
         Gui.GhostThemePressed -= GhostThemePressed; //🌟Starlight🌟
         Gui.TargetWindow.WarpClicked -= OnWarpClicked;
 
@@ -169,11 +166,12 @@ public sealed partial class GhostUIController : UIController, IOnSystemChanged<G
     }
 
     private void NewLifePressed() //🌟Starlight🌟
-        =>  _system?.OpenNewLife();
-
-    private void CharacterEditorPressed() //🌟Starlight🌟
-        => UIManager.GetUIController<LobbyUIController>().OpenCharacterSetupWindow();
+    {
+        _system?.OpenNewLife();
+    }
     
     private void GhostThemePressed() //🌟Starlight🌟
-        => _system?.OpenGhostTheme();
+    {
+        _system?.OpenGhostTheme();
+    }
 }

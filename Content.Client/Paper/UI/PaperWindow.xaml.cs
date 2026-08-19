@@ -23,8 +23,8 @@ namespace Content.Client.Paper.UI
     {
         private PaperComponent.PaperBoundUserInterfaceState _currentState = default!;
         private string _currentRawText = string.Empty;
-        [Dependency] private IInputManager _inputManager = default!;
-        [Dependency] private IResourceCache _resCache = default!;
+        [Dependency] private readonly IInputManager _inputManager = default!;
+        [Dependency] private readonly IResourceCache _resCache = default!;
 
         private static Color DefaultTextColor = new(25, 25, 25);
 
@@ -59,18 +59,7 @@ namespace Content.Client.Paper.UI
             typeof(LogoTag),
             typeof(SyndieLogoTag),
             typeof(CCLogoTag),
-            //Far Horizons-Start
-            typeof(CFALogoTag),
-            typeof(NSLogoTag),
-            typeof(HCLogoTag),
-            typeof(MELogoTag),
-            typeof(NSGSLLogoTag),
-            typeof(CDLogoTag),
-            typeof(IPLogoTag),
-            typeof(MRILogoTag),
-            typeof(ACSLogoTag),
-            typeof(NSCFALogoTag),
-            //Far Horizons-End
+            typeof(CFALogoTag), //Far Horizons
             typeof(CheckTagHandler)
         };
 

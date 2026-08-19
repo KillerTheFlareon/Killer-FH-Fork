@@ -103,7 +103,6 @@
     interactSuccessSound:
       collection: FenceRattle
   - type: BlockWeather
-  - type: StructureOcclusion #Far Horizons
 
 - type: entity
   id: ShuttersNormal

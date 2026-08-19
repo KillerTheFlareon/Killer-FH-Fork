@@ -9,4 +9,4 @@ using Content.Shared.Eye;
 
 namespace Content.Server.Eye;
 
-public sealed partial class DarkenedVisionSystem : SharedDarkenedVisionSystem {}
+public sealed class DarkenedVisionSystem : SharedDarkenedVisionSystem {}

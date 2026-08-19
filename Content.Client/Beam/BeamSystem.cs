@@ -8,9 +8,9 @@ using Robust.Shared.Toolshed.TypeParsers;
 
 namespace Content.Client.Beam;
 
-public sealed partial class BeamSystem : SharedBeamSystem
+public sealed class BeamSystem : SharedBeamSystem
 {
-    [Dependency] private SpriteSystem _sprite = default!;
+    [Dependency] private readonly SpriteSystem _sprite = default!;
 
     public override void Initialize()
     {

@@ -135,7 +135,7 @@
               doAfter: 2
 
     - node: wall
-      entity: WallSolidGeneric #FH, Paintable Walls
+      entity: WallSolidStandard #FH, Paintable Walls
       edges:
         - to: girder
           completed:
@@ -374,11 +374,7 @@
 
 #FH - Start
     - node: ReinforcedShuttleWall
-<<<<<<< HEAD
       entity: WallShuttleReinforced
-=======
-      entity: WallShuttleReinforcedGeneric
->>>>>>> Far-Horizons
       edges:
         - to: reinforcedGirder
           completed:
@@ -451,11 +447,7 @@
               doAfter: 4
 
     - node: DiagonalReinforcedShuttleWall
-<<<<<<< HEAD
       entity: WallShuttleReinforcedDiagonal
-=======
-      entity: WallShuttleReinforcedDiagonalGeneric
->>>>>>> Far-Horizons
       edges:
         - to: reinforcedGirder
           completed:
@@ -504,11 +496,7 @@
               doAfter: 1
 
     - node: ArmoredShuttleWall
-<<<<<<< HEAD
       entity: WallShuttleArmored
-=======
-      entity: WallShuttleArmoredGeneric
->>>>>>> Far-Horizons
       edges:
         - to: reinforcedGirder
           completed:
@@ -589,11 +577,7 @@
               doAfter: 4
 
     - node: DiagonalArmoredShuttleWall
-<<<<<<< HEAD
       entity: WallShuttleArmoredDiagonal
-=======
-      entity: WallShuttleArmoredDiagonalGeneric
->>>>>>> Far-Horizons
       edges:
         - to: reinforcedGirder
           completed:
@@ -651,7 +635,7 @@
 #FH - End
 
     - node: reinforcedWall
-      entity: WallReinforcedGeneric #FH, Paintable Walls
+      entity: WallReinforcedStandard #FH, Paintable Walls
       edges:
         - to: reinforcedGirder
           completed:
@@ -812,7 +796,7 @@
               doAfter: 4
 
     - node: diagonalshuttleWall
-      entity: WallShuttleDiagonalGeneric # Far Horizons
+      entity: WallShuttleDiagonal
       edges:
         - to: reinforcedGirder
           completed:

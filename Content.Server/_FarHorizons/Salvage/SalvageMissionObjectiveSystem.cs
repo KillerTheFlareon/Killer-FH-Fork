@@ -10,12 +10,12 @@ using Robust.Shared.Prototypes;
 
 namespace Content.Server._FarHorizons.Salvage;
 
-public sealed partial class SalvageMissionObjectiveSystem : EntitySystem
+public sealed class SalvageMissionObjectiveSystem : EntitySystem
 {
-    [Dependency] private IPrototypeManager _protoMan = default!;
-    [Dependency] private ChatSystem _chat = default!;
-    [Dependency] private SharedTransformSystem _transform = default!;
-    [Dependency] private StackSystem _stack = default!;
+    [Dependency] private readonly IPrototypeManager _protoMan = default!;
+    [Dependency] private readonly ChatSystem _chat = default!;
+    [Dependency] private readonly SharedTransformSystem _transform = default!;
+    [Dependency] private readonly StackSystem _stack = default!;
 
     public override void Initialize()
     {
@@ -77,7 +77,7 @@ public sealed partial class SalvageMissionObjectiveSystem : EntitySystem
             _stack.SpawnMultipleAtPosition(objective.RewardProto, ent.Comp.TotalReward, pos.Value);
             _stack.SpawnMultipleAtPosition(objective.CashProto, totalCash, pos.Value);
         }
-        RemComp<SalvageMissionRewardComponent>(ent);
+        EntityManager.RemoveComponent<SalvageMissionRewardComponent>(ent);
 
         _chat.TrySendInGameICMessage(
             ent, 

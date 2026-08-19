@@ -13,33 +13,19 @@ using Content.Shared.Interaction;
 using Content.Shared.Labels.Components;
 using Content.Shared.Paper;
 using Content.Shared.Station.Components;
-using Content.Shared.Tools;
 using JetBrains.Annotations;
 using Robust.Shared.Map;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Timing;
 using Robust.Shared.Utility;
 
-#region Starlight
-using Content.Shared._Starlight.Cargo.TamperSeal.Components;
-using Content.Server._Starlight.Cargo.TamperSeal.Components;
-using Content.Shared._Starlight.CCVar;
-using Content.Shared.Access;
-#endregion
-
 namespace Content.Server.Cargo.Systems
 {
     public sealed partial class CargoSystem
     {
-        [Dependency] private SharedTransformSystem _transformSystem = default!;
-        [Dependency] private EmagSystem _emag = default!;
-        [Dependency] private IGameTiming _timing = default!;
-
-        #region Starlight
-        private float _tamperSealRewardMultiplier = 0.1f;
-        private float _tamperSealPenaltyMultiplier = 0.1f;
-        private float _tamperSealRefundMultiplier = 0.5f;
-        #endregion
+        [Dependency] private readonly SharedTransformSystem _transformSystem = default!;
+        [Dependency] private readonly EmagSystem _emag = default!;
+        [Dependency] private readonly IGameTiming _timing = default!;
 
         private void InitializeConsole()
         {
@@ -50,12 +36,6 @@ namespace Content.Server.Cargo.Systems
             SubscribeLocalEvent<CargoOrderConsoleComponent, ComponentInit>(OnInit);
             SubscribeLocalEvent<CargoOrderConsoleComponent, InteractUsingEvent>(OnInteractUsing);
             SubscribeLocalEvent<CargoOrderConsoleComponent, GotEmaggedEvent>(OnEmagged);
-
-            // Starlight BEGIN
-            _cfg.OnValueChanged(StarlightCCVars.TamperSealRewardMultiplier, v => _tamperSealRewardMultiplier = v, true);
-            _cfg.OnValueChanged(StarlightCCVars.TamperSealPenaltyMultiplier, v => _tamperSealPenaltyMultiplier = v, true);
-            _cfg.OnValueChanged(StarlightCCVars.TamperSealRefundMultiplier, v => _tamperSealRefundMultiplier = v, true);
-            // Starlight END
         }
 
         private void OnInteractUsingCash(EntityUid uid, CargoOrderConsoleComponent component, ref InteractUsingEvent args)
@@ -96,7 +76,7 @@ namespace Content.Server.Cargo.Systems
                 return;
 
             var orderId = GenerateOrderId(orderDatabase);
-            var data = new CargoOrderData(orderId, product.Product, product.Name, product.Cost, slip.OrderQuantity, slip.Requester, slip.Reason, slip.Account, GetNetEntity(stationUid.Value)); // Starlight: +stationUid
+            var data = new CargoOrderData(orderId, product.Product, product.Name, product.Cost, slip.OrderQuantity, slip.Requester, slip.Reason, slip.Account);
 
             if (!TryAddOrder(stationUid.Value, ent.Comp.Account, data, orderDatabase))
             {
@@ -406,7 +386,7 @@ namespace Content.Server.Cargo.Systems
 
             var targetAccount = component.Mode == CargoOrderConsoleMode.SendToPrimary ? bank.PrimaryAccount : component.Account;
 
-            var data = new CargoOrderData(GenerateOrderId(orderDatabase), product.Product, product.Name, product.Cost, args.Amount, args.Requester, args.Reason, component.Account, GetNetEntity(stationUid.Value)); // Starlight: +stationUid
+            var data = GetOrderData(args, product, GenerateOrderId(orderDatabase), component.Account);
 
             if (!TryAddOrder(stationUid.Value, targetAccount, data, orderDatabase))
             {
@@ -484,15 +464,10 @@ namespace Content.Server.Cargo.Systems
             }
         }
 
-        #region Starlight
-        // This is an upstream method, but it is now unused due to our changes elsewhere in this file.
-        /*
         private static CargoOrderData GetOrderData(CargoConsoleAddOrderMessage args, CargoProductPrototype cargoProduct, int id, ProtoId<CargoAccountPrototype> account)
         {
             return new CargoOrderData(id, cargoProduct.Product, cargoProduct.Name, cargoProduct.Cost, args.Amount, args.Requester, args.Reason, account);
         }
-        */
-        #endregion
 
         public int GetOutstandingOrderCount(Entity<StationCargoOrderDatabaseComponent> station, ProtoId<CargoAccountPrototype> account)
         {
@@ -559,7 +534,7 @@ namespace Content.Server.Cargo.Systems
             DebugTools.Assert(_protoMan.HasIndex<EntityPrototype>(spawnId));
             // Make an order
             var id = GenerateOrderId(component);
-            var order = new CargoOrderData(id, spawnId, name, cost, qty, sender, description, account, GetNetEntity(stationData.Owner)); // Starlight: +stationUid
+            var order = new CargoOrderData(id, spawnId, name, cost, qty, sender, description, account);
 
             // Approve it now
             order.SetApproverData(dest, sender);
@@ -677,39 +652,8 @@ namespace Content.Server.Cargo.Systems
                 }
             }
 
-            // Starlight BEGIN
-            // If the entity does not support tamper seals, do not apply one.
-            if (!TryComp<TamperSealableComponent>(item, out var tamperSealable))
-                return true;
-
-            var recipient = _protoMan.Index(account);
-
-            // Apply a tamper seal to the entity. This does the actual sealing logic.
-            var seal = EnsureComp<TamperSealComponent>(item);
-            seal.Recipient = account;
-            seal.RecipientName = recipient.TamperSealName;
-            seal.RecipientExamineColor = recipient.Color;
-            seal.Color = recipient.TamperSealColor;
-            seal.FactionName = recipient.FactionSealName; //FarHorizons
-            seal.FactionColor = recipient.FactionSealColor; //FarHorizons
-            seal.Accesses = new List<TamperSealAccessPattern>(recipient.TamperSealAccesses);
-            seal.DestroyToolQualities = new HashSet<ProtoId<ToolQualityPrototype>>(tamperSealable.DestroyToolQualities);
-
-            // Attach a tamper seal value component to enable reward/penalty on unseal/destroy.
-            var value = EnsureComp<TamperSealValueComponent>(item);
-            value.StationId = GetEntity(order.StationId);
-            value.Value = order.Price;
-            value.Reward = (int) Math.Floor(_tamperSealRewardMultiplier * order.Price); // Rewards rounded down.
-            value.Penalty = (int) Math.Ceiling(_tamperSealPenaltyMultiplier * order.Price); // Penalties rounded up.
-            value.Refund = (int) Math.Ceiling(_tamperSealRefundMultiplier * order.Price); // Refunds rounded up.
-
-            // Attach an integrity component. This is used by the integrity system to detect repeat tampering.
-            var integrity = EnsureComp<TamperSealIntegrityBeaconComponent>(item);
-            integrity.StationId = GetEntity(order.StationId);
-
-            DirtyEntity(item);
             return true;
-            // Starlight END
+
         }
 
         public List<ProtoId<CargoProductPrototype>> GetAvailableProducts(Entity<CargoOrderConsoleComponent> ent)

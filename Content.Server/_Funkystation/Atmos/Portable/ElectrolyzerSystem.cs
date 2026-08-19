@@ -14,21 +14,20 @@ using Content.Shared.DeviceLinking;
 using Content.Shared.DeviceLinking.Events;
 using Robust.Server.Audio;
 using Robust.Shared.Audio;
-using Content.Shared.Atmos.Components;
 
 namespace Content.Server._Funkystation.Atmos.Portable;
 
-public sealed partial class ElectrolyzerSystem : EntitySystem
+public sealed class ElectrolyzerSystem : EntitySystem
 {
-    [Dependency] private AtmosphereSystem _atmosphereSystem = default!;
-    [Dependency] private PopupSystem _popup = default!;
-    [Dependency] private SharedAppearanceSystem _appearance = default!;
-    [Dependency] private GasTileOverlaySystem _gasOverlaySystem = default!;
-    [Dependency] private ItemSlotsSystem _itemSlots = default!;
-    [Dependency] private StackSystem _stackSystem = default!;
-    [Dependency] private HandsSystem _handsSystem = default!;
-    [Dependency] private TagSystem _tagSystem = default!;
-    [Dependency] private AudioSystem _audio = default!;
+    [Dependency] private readonly AtmosphereSystem _atmosphereSystem = default!;
+    [Dependency] private readonly PopupSystem _popup = default!;
+    [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
+    [Dependency] private readonly GasTileOverlaySystem _gasOverlaySystem = default!;
+    [Dependency] private readonly ItemSlotsSystem _itemSlots = default!;
+    [Dependency] private readonly StackSystem _stackSystem = default!;
+    [Dependency] private readonly HandsSystem _handsSystem = default!;
+    [Dependency] private readonly TagSystem _tagSystem = default!;
+    [Dependency] private readonly AudioSystem _audio = default!;
     private const float WorkingPower = 2f;
     private const float PowerEfficiency = 1f;
     private const string PlasmaTag = "SheetPlasma"; // Starlight Edit: PlasmaSheet -> SheetPlasma
@@ -101,7 +100,7 @@ public sealed partial class ElectrolyzerSystem : EntitySystem
 
     private void UpdateAppearance(EntityUid uid)
     {
-        if (TryComp<ElectrolyzerComponent>(uid, out var comp))
+        if (EntityManager.TryGetComponent<ElectrolyzerComponent>(uid, out var comp))
         {
             _appearance.SetData(uid, ElectrolyzerVisuals.State,
                 comp.IsPowered ? ElectrolyzerState.On : ElectrolyzerState.Off);
@@ -146,7 +145,7 @@ public sealed partial class ElectrolyzerSystem : EntitySystem
 
             // If stack now empty, delete it
             if (stack.Count <= 0)
-                QueueDel(fuelEntity);
+                EntityManager.QueueDeleteEntity(fuelEntity);
         }
 
         UpdateAppearance(uid);
@@ -270,7 +269,7 @@ public sealed partial class ElectrolyzerSystem : EntitySystem
             else
             {
                 _stackSystem.SetCount((existingItem.Value, existingStack), total);
-                QueueDel(heldItem);
+                EntityManager.QueueDeleteEntity(heldItem);
             }
 
             return;

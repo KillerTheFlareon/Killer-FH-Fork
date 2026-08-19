@@ -12,12 +12,12 @@
 
 // namespace Content.Server.Traits;
 
-// public sealed partial class TraitSystem : EntitySystem
+// public sealed class TraitSystem : EntitySystem
 // {
-//     peManager _prototypeManager = default!;
-//     ndsSystem _sharedHandsSystem = default!;
-//     itelistSystem _whitelistSystem = default!;
-//     m _tag = default!;
+//     [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
+//     [Dependency] private readonly SharedHandsSystem _sharedHandsSystem = default!;
+//     [Dependency] private readonly EntityWhitelistSystem _whitelistSystem = default!;
+//     [Dependency] private readonly TagSystem _tag = default!;
 
 //     public override void Initialize()
 //     {

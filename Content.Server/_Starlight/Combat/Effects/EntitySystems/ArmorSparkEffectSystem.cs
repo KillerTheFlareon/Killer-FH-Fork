@@ -9,9 +9,9 @@ namespace Content.Server._Starlight.Combat.Effects.EntitySystems;
 /// <summary>
 /// Server-side implementation of the armor spark effect system.
 /// </summary>
-public sealed partial class ArmorSparkEffectSystem : SharedArmorSparkEffectSystem
+public sealed class ArmorSparkEffectSystem : SharedArmorSparkEffectSystem
 {
-    [Dependency] private SharedAudioSystem _audio = default!;
+    [Dependency] private readonly SharedAudioSystem _audio = default!;
 
     protected override void SpawnSparkEffectAt(EntityCoordinates coordinates, string effectPrototype)
     {

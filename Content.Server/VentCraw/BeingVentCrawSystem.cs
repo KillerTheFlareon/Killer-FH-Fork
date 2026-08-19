@@ -9,14 +9,13 @@ using Content.Shared.Mobs;
 using Content.Shared.VentCraw.Components;
 using Robust.Shared.Player;
 using Content.Shared.NodeContainer;
-using Content.Shared.Atmos;
 
 namespace Content.Server.VentCraw;
 
-public sealed partial class BeingVentCrawSystem : EntitySystem
+public sealed class BeingVentCrawSystem : EntitySystem
 {
-    [Dependency] private NodeContainerSystem _nodeContainer = default!;
-    [Dependency] private IEntityManager _entities = default!;
+    [Dependency] private readonly NodeContainerSystem _nodeContainer = default!;
+    [Dependency] private readonly IEntityManager _entities = default!;
 
     public override void Initialize()
     {

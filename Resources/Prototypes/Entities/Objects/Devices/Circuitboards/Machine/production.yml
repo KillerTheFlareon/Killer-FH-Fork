@@ -626,7 +626,7 @@
       componentRequirements:
         PowerCell:
           amount: 4
-          defaultPrototype: PowerCellSmallPrinted # Far Horizons - band-aid flatpack fix
+          defaultPrototype: PowerCellSmall
 
 - type: entity
   id: SMESAdvancedMachineCircuitboard
@@ -645,7 +645,7 @@
     componentRequirements:
       PowerCell:
         amount: 4
-        defaultPrototype: PowerCellMediumPrinted # Far Horizons - band-aid flatpack fix
+        defaultPrototype: PowerCellMedium
 
 - type: entity
   id: CellRechargerCircuitboard
@@ -766,7 +766,7 @@
       componentRequirements:
         PowerCell:
           amount: 1
-          defaultPrototype: PowerCellSmallPrinted # Far Horizons - band-aid flatpack fix
+          defaultPrototype: PowerCellSmall
     - type: PhysicalComposition
       materialComposition:
         Glass: 200

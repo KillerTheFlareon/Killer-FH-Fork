@@ -26,7 +26,6 @@
       behaviors:
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
-  - type: LineOfSightExclude # Far Horizons
 
 - type: entity
   id: HoloFan

@@ -45,7 +45,6 @@
         - FullTileMask
         layer:     #removed opaque from the layer, allowing lasers to pass through glass airlocks
         - GlassAirlockLayer
-  - type: LineOfSightExclude
 
 - type: entity
   parent: FHAirlockExternalGlass

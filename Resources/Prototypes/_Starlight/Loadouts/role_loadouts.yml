@@ -12,7 +12,6 @@
   - Trinkets
   - Scarves
   - Pens
-  - CivilianWeaponsNT # FH
 
 - type: roleLoadout
   id: JobMagistrate
@@ -28,7 +27,6 @@
   - Trinkets
   - Scarves
   - LuxuryPens
-  - CivilianWeaponsFactionless # FH
 
 - type: roleLoadout
   id: JobSurgeon
@@ -47,7 +45,6 @@
   - Scarves
   - SurgeonEquipmentGroup #FH
   - Pens
-  - CivilianWeaponsNT # FH
 
 - type: roleLoadout
   id: JobNanoTrasenRepresentative
@@ -61,7 +58,6 @@
   - Scarves
   - NTRPens
   - SurvivalStationManagement #FH
-  - CivilianWeaponsNT # FH
 
 - type: roleLoadout
   id: JobIAA
@@ -75,7 +71,6 @@
   - Scarves
   - LuxuryPens
   - SurvivalStationManagement #FH
-  - CivilianWeaponsFactionless # FH
 
 - type: roleLoadout
   id: JobBlueShield
@@ -109,7 +104,6 @@
   - Trinkets
   - Scarves
   - Pens
-  - CivilianWeaponsFactionless # FH
 
 - type: roleLoadout
   id: JobMailTech
@@ -124,7 +118,6 @@
   - Trinkets
   - Scarves
   - Pens
-  - CivilianWeaponsFactionless # FH
 
 - type: roleLoadout
   id: JobBrigmedic
@@ -162,7 +155,6 @@
     - SurvivalCargo #FH
     - Trinkets
     - Scarves # FH
-    - CivilianWeaponsFactionless # FH
 
 # Antagonist Loadouts
 - type: roleLoadout

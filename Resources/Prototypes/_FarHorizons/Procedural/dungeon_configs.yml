@@ -33,7 +33,7 @@
     tile: FloorDarkMono
 
   - !type:BoundaryWallDunGen
-    wall: WallSolidNS
+    wall: WallSolidSyndicate
     tile: FloorDarkMono
 
   - !type:JunctionDunGen

@@ -8,7 +8,7 @@ namespace Content.Server._Starlight.NullSpace;
 
 public sealed partial class ShowNullSpaceSystem : SharedShowNullSpaceSystem
 {
-    [Dependency] private EyeSystem _eye = default!;
+    [Dependency] private readonly EyeSystem _eye = default!;
     public override void Initialize()
     {
         base.Initialize();

@@ -5,10 +5,10 @@ using Robust.Shared.Configuration;
 
 namespace Content.Server._FarHorizons.DiscordLink;
 
-public sealed partial class DiscordRequestsAdapter
+public sealed class DiscordRequestsAdapter
 {
-    [Dependency] private IConfigurationManager _cfg = default!;
-    [Dependency] private ILogManager _logManager = default!;
+    [Dependency] private readonly IConfigurationManager _cfg = default!;
+    [Dependency] private readonly ILogManager _logManager = default!;
     private readonly HttpClient _httpClient = new();
     private ISawmill _sawmill = default!;
 

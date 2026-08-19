@@ -8,9 +8,9 @@ using Content.Shared.Starlight.CryoTeleportation;
 namespace Content.Shared._Starlight.Commands.SSDIndicator;
 
 [AnyCommand]
-public sealed partial class SSDIndicatorCommand : IConsoleCommand
+public sealed class SSDIndicatorCommand : IConsoleCommand
 {
-    [Dependency] private IEntityManager _entities = default!;
+    [Dependency] private readonly IEntityManager _entities = default!;
 
     public string Command => "ssd";
     public string Description => Loc.GetString("ssd-indicator-command-description");

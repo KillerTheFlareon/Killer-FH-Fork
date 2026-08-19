@@ -1,5 +1,5 @@
 - type: entity
-  name: Crisis Button #FH
+  name: crisis button
   parent: BaseItem
   id: CrisisButton
   description: Used to broadcast an distress call to security comms.

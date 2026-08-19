@@ -11,8 +11,8 @@ namespace Content.Shared.EntityEffects.Effects.Disease;
 /// <inheritdoc cref="EntityEffectSystem{T,TEffect}"/>
 public sealed partial class CauseDiseaseEntityEffectSystem : EntityEffectSystem<DiseaseCarrierComponent, CauseDisease>
 {
-    [Dependency] private IPrototypeManager _prototype = default!;
-    [Dependency] private SharedDiseaseSystem _disease = default!;
+    [Dependency] private readonly IPrototypeManager _prototype = default!;
+    [Dependency] private readonly SharedDiseaseSystem _disease = default!;
 
     protected override void Effect(Entity<DiseaseCarrierComponent> entity, ref EntityEffectEvent<CauseDisease> args)
     {
@@ -26,30 +26,30 @@ public sealed partial class CauseDiseaseEntityEffectSystem : EntityEffectSystem<
             
         if (args.Effect.ForceInfect)
         {
-            _disease.Infect(entity.Owner, disease.Value, stage);
+            _disease.Infect(entity.Owner, disease, stage);
             return;
         }
 
-       if(!_disease.CanBeInfected(entity.Owner, disease.Value))
+       if(!_disease.CanBeInfected(entity.Owner, disease))
         return;
 
-        switch (disease.Value.SpreadPath)
+        switch (disease.SpreadPath)
         {
             case DiseaseSpreadPath.Contact:
                 {
-                    var probability = _disease.AdjustContactChanceForProtection(entity.Owner, proto.ContactInfect, disease.Value);
-                    _disease.TryInfectWithChance(entity.Owner, disease.Value, stage, probability);
+                    var probability = _disease.AdjustContactChanceForProtection(entity.Owner, proto.ContactInfect, disease);
+                    _disease.TryInfectWithChance(entity.Owner, disease, stage, probability);
                     break;
                 }
             case DiseaseSpreadPath.Airborne:
                 {
-                    var probability = _disease.AdjustAirborneChanceForProtection(entity.Owner, proto.AirborneInfect, disease.Value);
-                    _disease.TryInfectWithChance(entity.Owner, disease.Value, stage, probability);
+                    var probability = _disease.AdjustAirborneChanceForProtection(entity.Owner, proto.AirborneInfect, disease);
+                    _disease.TryInfectWithChance(entity.Owner, disease, stage, probability);
                     break;
                 }
             default:
                 {
-                    _disease.Infect(entity.Owner, disease.Value, stage);
+                    _disease.Infect(entity.Owner, disease, stage);
                     break;
                 }
         }

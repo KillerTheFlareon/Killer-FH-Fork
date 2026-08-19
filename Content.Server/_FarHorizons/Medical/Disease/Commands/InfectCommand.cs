@@ -12,10 +12,10 @@ namespace Content.Server._FarHorizons.Medical.Disease.Commands;
 /// Infects your attached entity with a disease at an optional stage.
 /// </summary>
 [AdminCommand(AdminFlags.Fun)]
-public sealed partial class InfectCommand : LocalizedEntityCommands
+public sealed class InfectCommand : LocalizedEntityCommands
 {
-    [Dependency] private SharedDiseaseSystem _disease = default!;
-    [Dependency] private IPrototypeManager _proto = default!;
+    [Dependency] private readonly SharedDiseaseSystem _disease = default!;
+    [Dependency] private readonly IPrototypeManager _proto = default!;
 
     public override string Command => "infect";
 
@@ -46,7 +46,7 @@ public sealed partial class InfectCommand : LocalizedEntityCommands
         if(disease == null || stageData == null)
             return;
 
-        if (!_disease.Infect(targetUid, disease.Value, stageData))
+        if (!_disease.Infect(targetUid, disease, stageData))
         {
             shell.WriteError(Loc.GetString("cmd-infect-fail"));
             return;

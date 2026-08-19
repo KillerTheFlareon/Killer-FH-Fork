@@ -539,7 +539,7 @@
       gasTank:
         length: 1.0
   - type: GasTank
-    releasePressure: 42.6
+    outputPressure: 42.6
     air:
       # 13 minutes of thrust
       volume: 5

@@ -19,7 +19,7 @@
         amount: 10
         doAfter: 5
       - material: GoliathHide
-        amount: 10
+        amount: 15
         doAfter: 5
   - node: salvageHeavyArmorGoliath
     entity: ClothingOuterArmorSalvageHeavyGoliath

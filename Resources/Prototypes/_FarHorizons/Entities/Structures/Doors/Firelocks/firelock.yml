@@ -194,7 +194,6 @@
       occludes: false
     - type: Construction
       node: FirelockGlass
-    - type: LineOfSightExclude
 
 - type: entity
   id: FirelockEdgeNeoSol
@@ -236,4 +235,3 @@
     - type: Construction
       graph: Firelock
       node: FirelockEdge
-    - type: LineOfSightExclude

@@ -4,10 +4,10 @@ using Content.Shared.Holiday;
 
 namespace Content.Server.Holiday;
 
-public sealed partial class HolidayVisualsSystem : EntitySystem
+public sealed class HolidayVisualsSystem : EntitySystem
 {
-    [Dependency] private SharedAppearanceSystem _appearance = default!;
-    [Dependency] private HolidaySystem _holiday = default!;
+    [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
+    [Dependency] private readonly HolidaySystem _holiday = default!;
     
     public override void Initialize()
     {

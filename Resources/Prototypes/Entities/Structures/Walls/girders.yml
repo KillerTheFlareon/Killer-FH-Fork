@@ -54,7 +54,6 @@
           collection: MetalBreak
   - type: StaticPrice
     price: 30
-  - type: LineOfSightExclude # Far Horizons
 
 - type: entity
   id: ReinforcedGirder

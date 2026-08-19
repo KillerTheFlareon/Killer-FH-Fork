@@ -10,9 +10,9 @@ using Robust.Shared.Prototypes;
 
 namespace Content.Client.Vampire;
 
-public sealed partial class VampireSystem : EntitySystem
+public sealed class VampireSystem : EntitySystem
 {
-    [Dependency] private IPrototypeManager _prototype = default!;
+    [Dependency] private readonly IPrototypeManager _prototype = default!;
 
     public override void Initialize()
     {

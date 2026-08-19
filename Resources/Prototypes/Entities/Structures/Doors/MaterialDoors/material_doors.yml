@@ -63,7 +63,6 @@
         acts: ["Destruction"]
   - type: Occluder
   - type: BlockWeather
-  - type: StructureOcclusion #Far Horizons
 
 - type: entity
   abstract: true
@@ -158,8 +157,6 @@
           IngotGold1:
             min: 3
             max: 5
-  - type: StructureOcclusion #Far Horizons
-    occlusionAmount: 2.0
 
 - type: entity
   parent: BaseMaterialDoorNavMap
@@ -298,8 +295,6 @@
           SheetPaper1:
             min: 3
             max: 5
-  - type: StructureOcclusion #Far Horizons
-    occlusionAmount: 0.20
 
 - type: entity
   parent: BaseMaterialDoorNavMap
@@ -339,8 +334,6 @@
           MaterialWebSilk1:
             min: 1
             max: 2
-  - type: StructureOcclusion #Far Horizons
-    occlusionAmount: 0.5
 
 - type: entity
   parent: BaseMaterialDoorNavMap
@@ -382,8 +375,6 @@
           MaterialCardboard:
             min: 3
             max: 5
-  - type: StructureOcclusion #Far Horizons
-    occlusionAmount: 0.25
 
 - type: entity
   parent: BaseMaterialDoorNavMap

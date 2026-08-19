@@ -149,30 +149,6 @@
       types:
         Heat: 18
 
-- type: entity
-  parent: BasicHitscan
-  id: RedShuttleLightLaser
-  name: Red Shuttle Light Laser Ray
-  categories: [ HideSpawnMenu ]
-  components:
-  - type: HitscanBasicDamage
-    damage:
-      types:
-        Heat: 12
-        Structural: 40
-
-- type: entity
-  parent: BasicHitscan
-  id: RedShuttleHeavyLaser
-  name: Red Shuttle Heavy Laser Ray
-  categories: [ HideSpawnMenu ]
-  components:
-  - type: HitscanBasicDamage
-    damage:
-      types:
-        Heat: 80
-        Structural: 750
-
 #region Bullets
 
 
@@ -614,31 +590,6 @@
     proto: PelletShotgunBreachTrace
     count: 12
     spread: 50
-
-#region Railgun
-
-- type: entity
-  id: HeavyRodBulletTrace
-  parent: BulletTrace
-  categories: [ HideSpawnMenu ]
-  components:
-  - type: HitscanBasicDamage
-    armorPenetration: 0.75
-    damage:
-      types:
-        Piercing: 150
-        Structural: 1500
-  - type: HitscanStaminaDamage
-    staminaDamage: 100
-  - type: HitscanPierce
-    chance: 0.9
-    pierceLevel: HardenedMetal
-    deviation: 0.005
-  - type: HitscanRicochet
-    chance: 0.9
-  - type: HitscanReflect
-    reflectiveType: NonEnergy
-    maxReflections: 2 # This is the recursion depth for reflect, ricochet, and pierce
 
 #region Rubber Rounds
 

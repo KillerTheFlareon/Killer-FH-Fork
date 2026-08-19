@@ -10,7 +10,7 @@ namespace Content.Server._Starlight.Railroading;
 
 public sealed partial class RailroadingFaxHandlerSystem : EntitySystem
 {
-    [Dependency] private IRobustRandom _random = default!;
+    [Dependency] private readonly IRobustRandom _random = default!;
 
     public override void Initialize()
     {

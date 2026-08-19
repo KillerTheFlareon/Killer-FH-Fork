@@ -12,10 +12,10 @@ using Content.Shared.Popups;
 
 namespace Content.Server._Starlight.Access;
 
-public sealed partial class IdClothingBlockerSystem : SharedIdClothingBlockerSystem
+public sealed class IdClothingBlockerSystem : SharedIdClothingBlockerSystem
 {
-    [Dependency] private PopupSystem _popup = default!;
-    [Dependency] private SharedIdCardSystem _card = default!;
+    [Dependency] private readonly PopupSystem _popup = default!;
+    [Dependency] private readonly SharedIdCardSystem _card = default!;
     
     public override void Initialize()
     {
@@ -31,7 +31,7 @@ public sealed partial class IdClothingBlockerSystem : SharedIdClothingBlockerSys
     {
         if (component.FreezeUser)
         {
-            var blockedComponent = EnsureComp<IdClothingFrozenComponent>(wearer);
+            var blockedComponent = EntityManager.EnsureComponent<IdClothingFrozenComponent>(wearer);
             blockedComponent.ClothingItem = clothingUid;
             Dirty(wearer, blockedComponent);
         }

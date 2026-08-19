@@ -4,6 +4,7 @@
   suffix: entertainment
   name: television
   description: Finally, some decent reception around here...
+  abstract: true
   components:
   - type: Construction
     graph: WallmountTelevision

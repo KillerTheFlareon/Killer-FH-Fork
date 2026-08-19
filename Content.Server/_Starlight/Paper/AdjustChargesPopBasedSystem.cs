@@ -2,10 +2,10 @@ using Robust.Shared.Player;
 
 namespace Content.Server._Starlight.Paper;
 
-public sealed partial class AdjustChargesPopBasedSystem : EntitySystem
+public sealed class AdjustChargesPopBasedSystem : EntitySystem
 {
 
-    [Dependency] private ISharedPlayerManager _playerManager = default!;
+    [Dependency] private readonly ISharedPlayerManager _playerManager = default!;
 
     public override void Initialize()
     {

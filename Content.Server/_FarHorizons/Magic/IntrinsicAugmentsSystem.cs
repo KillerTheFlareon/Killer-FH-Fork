@@ -7,10 +7,10 @@ using Robust.Server.GameObjects;
 
 namespace Content.Server._FarHorizons.Magic;
 
-public sealed partial class IntrinsicAugmentsSystem : EntitySystem
+public sealed class IntrinsicAugmentsSystem : EntitySystem
 {
-    [Dependency] private ActionsSystem _actions = default!;
-    [Dependency] private UserInterfaceSystem _ui = default!;
+    [Dependency] private readonly ActionsSystem _actions = default!;
+    [Dependency] private readonly UserInterfaceSystem _ui = default!;
 
     public override void Initialize()
     {

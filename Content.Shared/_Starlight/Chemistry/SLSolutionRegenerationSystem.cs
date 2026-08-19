@@ -6,9 +6,9 @@ using Robust.Shared.Timing;
 
 namespace Content.Shared._Starlight.Chemistry;
 
-public sealed partial class SLSolutionRegenerationSystem : EntitySystem
+public sealed class SLSolutionRegenerationSystem : EntitySystem
 {
-    [Dependency] private IGameTiming _timing = default!;
+    [Dependency] private readonly IGameTiming _timing = default!;
 
     public override void Initialize()
     {

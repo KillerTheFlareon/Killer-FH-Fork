@@ -4,9 +4,9 @@ using Robust.Shared.Random;
 
 namespace Content.Shared._Starlight.Speech.Components;
 
-public sealed partial class AnomalyAccentSystem : EntitySystem
+public sealed class AnomalyAccentSystem : EntitySystem
 {
-    [Dependency] private IRobustRandom _random = default!;
+    [Dependency] private readonly IRobustRandom _random = default!;
 
     public override void Initialize()
     {

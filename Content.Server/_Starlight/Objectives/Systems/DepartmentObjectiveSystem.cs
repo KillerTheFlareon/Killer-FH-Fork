@@ -4,11 +4,11 @@ using Robust.Shared.Prototypes;
 
 namespace Content.Server._Starlight.Objectives.Systems;
 
-public sealed partial class DepartmentObjectiveSystem : EntitySystem
+public sealed class DepartmentObjectiveSystem : EntitySystem
 {
 
-    [Dependency] private IPrototypeManager _protoMan = default!;
-    [Dependency] private MetaDataSystem _meta = default!;
+    [Dependency] private readonly IPrototypeManager _protoMan = default!;
+    [Dependency] private readonly MetaDataSystem _meta = default!;
 
     public override void Initialize()
     {

@@ -303,7 +303,7 @@
 
 - type: entity
   id: FakeMindShieldImplanter
-  name: Fake Mindshield Implanter (NT) #FH
+  name: fake mindshield implanter
   parent: BaseImplantOnlyImplanterSyndi
   components:
   - type: Implanter
@@ -313,7 +313,7 @@
 
 - type: entity
   id: MindShieldImplanter
-  name: MindShield Implanter (NT) #FH
+  name: mindshield implanter
   parent: BaseImplantOnlyImplanter
   components:
   - type: Implanter

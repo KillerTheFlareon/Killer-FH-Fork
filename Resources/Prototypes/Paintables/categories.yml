@@ -3,7 +3,6 @@
   groups:
   - FHAirlockStandard  # FarHorizons
   - FHAirlockGlass  # FarHorizons
-  - SolidSecretDoor #FH
 
 - type: paintableGroupCategory
   id: Canisters

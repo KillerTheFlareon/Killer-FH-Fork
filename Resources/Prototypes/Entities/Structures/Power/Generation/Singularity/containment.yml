@@ -107,4 +107,3 @@
     - SingularityTeslaEngine
     - SingularityEngine
     - Power
-  - type: LineOfSightExclude # Far Horizons

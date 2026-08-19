@@ -5,10 +5,10 @@ using Robust.Shared.Spawners;
 
 namespace Content.Server._Starlight.HoloItem;
 
-public sealed partial class HoloItemSystem : EntitySystem
+public sealed class HoloItemSystem : EntitySystem
 {
-    [Dependency] private PowerCellSystem _powerCell = default!;
-    [Dependency] private IComponentFactory _componentFactory = default!;
+    [Dependency] private readonly PowerCellSystem _powerCell = default!;
+    [Dependency] private readonly IComponentFactory _componentFactory = default!;
 
     public override void Initialize()
     {

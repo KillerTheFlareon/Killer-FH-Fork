@@ -4,9 +4,9 @@ using Content.Shared.Speech;
 
 namespace Content.Server.Speech.EntitySystems;
 
-public sealed partial class ArchaicAccentSystem : EntitySystem
+public sealed class ArchaicAccentSystem : EntitySystem
 {
-    [Dependency] private ReplacementAccentSystem _replacement = default!;
+    [Dependency] private readonly ReplacementAccentSystem _replacement = default!;
 
     public override void Initialize()
     {

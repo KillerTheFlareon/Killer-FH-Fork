@@ -2,4 +2,4 @@ using Content.Shared.Starlight.EntityEffects.EntitySystems;
 
 namespace Content.Client.Starlight.EntityEffects.EntitySystems;
 
-public sealed partial class DissolvableSystem : SharedDissolvableSystem {}
+public sealed class DissolvableSystem : SharedDissolvableSystem {}

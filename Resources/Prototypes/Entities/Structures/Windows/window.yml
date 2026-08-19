@@ -27,9 +27,9 @@
       - Window
   - type: Sprite
     drawdepth: WallTops
-    sprite: _FarHorizons/Structures/Windows/NanoTrasen/window.rsi #FH
+    sprite: Structures/Windows/window.rsi
   - type: Icon
-    sprite: _FarHorizons/Structures/Windows/NanoTrasen/window.rsi #FH
+    sprite: Structures/Windows/window.rsi
     state: full
   - type: Physics
     bodyType: Static
@@ -99,9 +99,6 @@
   - type: StaticPrice
     price: 100
   - type: BlockWeather
-  - type: LineOfSightExclude # Far Horizons
-  - type: StructureOcclusion #Far Horizons
-    occlusionAmount: 0.8
 
 - type: entity #FH Start
   id: Window
@@ -242,9 +239,6 @@
       sprite: Structures/Windows/cracks_directional.rsi
   - type: StaticPrice
     price: 15
-  - type: LineOfSightExclude # Far Horizons
-  - type: StructureOcclusion #Far Horizons
-    occlusionAmount: 0.25
 
 - type: entity
   id: WindowDirectionalRCDResistant
@@ -276,7 +270,7 @@
 - type: entity
   parent: BaseWindow #FH 
   id: WindowDiagonal
-  suffix: Diagonal, NT #Far Horizons - The Great Capitalization Crusade
+  suffix: Diagonal #Far Horizons - The Great Capitalization Crusade
   placement:
     mode: SnapgridCenter
     snap:
@@ -284,7 +278,7 @@
   components:
   - type: Sprite
     drawdepth: WallTops
-    sprite: _FarHorizons/Structures/Windows/NanoTrasen/window_diagonal.rsi #FH
+    sprite: Structures/Windows/window_diagonal.rsi
     state: state0
   - type: Tag
     tags:
@@ -292,10 +286,10 @@
     - Window
   - type: IconSmooth
     mode: Diagonal
-    key: walls #FH
+    key: windows
     base: state
   - type: Icon
-    sprite: _FarHorizons/Structures/Windows/NanoTrasen/window_diagonal.rsi #FH
+    sprite: Structures/Windows/window_diagonal.rsi
     state: state0
   - type: Fixtures
     fixtures:
@@ -321,6 +315,3 @@
   - type: Construction
     graph: WindowDiagonal
     node: windowDiagonal
-  - type: Paintable #FH start
-    group: WindowDiagonal 
-  - type: GenericPaintable #FH end

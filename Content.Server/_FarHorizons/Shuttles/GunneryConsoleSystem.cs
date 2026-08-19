@@ -17,15 +17,17 @@ using Robust.Shared.Timing;
 
 namespace Content.Server._FarHorizons.Shuttles;
 
-public sealed partial class GunneryConsoleSystem : EntitySystem
+public sealed class GunneryConsoleSystem : EntitySystem
 {
-    [Dependency] private DeviceLinkSystem _signal = default!;
-    [Dependency] private IRobustRandom _random = default!;
-    [Dependency] private PhysicsSystem _physics = default!;
-    [Dependency] private SharedGunSystem _gunSystem = default!;
-    [Dependency] private ShuttleConsoleSystem _console = default!;
-    [Dependency] private TransformSystem _transformSystem = default!;
-    [Dependency] private UserInterfaceSystem _uiSystem = null!;
+    [Dependency] private readonly DeviceLinkSystem _signal = default!;
+    [Dependency] private readonly IRobustRandom _random = default!;
+    [Dependency] private readonly PhysicsSystem _physics = default!;
+    [Dependency] private readonly SharedGunSystem _gunSystem = default!;
+    [Dependency] private readonly ShuttleConsoleSystem _console = default!;
+    [Dependency] private readonly TransformSystem _transformSystem = default!;
+    [Dependency] private readonly UserInterfaceSystem _uiSystem = null!;
+
+    private const CollisionGroup BulletCollisionMask = CollisionGroup.Impassable | CollisionGroup.BulletImpassable;
 
     public override void Initialize()
     {
@@ -51,14 +53,14 @@ public sealed partial class GunneryConsoleSystem : EntitySystem
 
     private void CollectTurrets(EntityUid uid, GunneryConsoleComponent comp)
     {
-        if (!TryComp<DeviceLinkSourceComponent>(uid, out var source))
+        if (!EntityManager.TryGetComponent<DeviceLinkSourceComponent>(uid, out var source))
             return;
 
         comp.ConnectedTurrets.Clear();
 
         foreach (var (turretUid, _) in source.LinkedPorts)
         {
-            if (!HasComp<GunComponent>(turretUid))
+            if (!EntityManager.HasComponent<GunComponent>(turretUid))
                 continue;
 
             comp.ConnectedTurrets.Add(turretUid);
@@ -70,10 +72,7 @@ public sealed partial class GunneryConsoleSystem : EntitySystem
         if (args.SourcePort != comp.TurretConnectionPort)
             return;
 
-        if (!HasComp<GunComponent>(args.Sink))
-            return;
-
-        if (!HasComp<GunneryManagedTargetingComponent>(args.Sink))
+        if (!EntityManager.HasComponent<GunComponent>(args.Sink))
             return;
 
         if (comp.ConnectedTurrets.Contains(args.Sink))
@@ -122,7 +121,7 @@ public sealed partial class GunneryConsoleSystem : EntitySystem
             var metaData = new GunneryConsoleTurretMetaData
             {
                 EntityName = Identity.Name(turret, EntityManager),
-                Coordinates = GetNetCoordinates(Transform(turret).Coordinates)
+                Coordinates = EntityManager.GetNetCoordinates(Transform(turret).Coordinates)
             };
             comp.TurretMetaData[GetNetEntity(turret)] = metaData;
         }
@@ -169,19 +168,16 @@ public sealed partial class GunneryConsoleSystem : EntitySystem
     private void OnFireAction(EntityUid uid, GunneryConsoleComponent comp, ref GunneryConsoleFireActionMessage args)
     {
         List<EntityUid> turretUids = [];
-        args.TurretEntities.ForEach(netEnt => turretUids.Add(GetEntity(netEnt)));
+        args.TurretEntities.ForEach(netEnt => turretUids.Add(EntityManager.GetEntity(netEnt)));
         turretUids = [.. turretUids.Intersect(comp.ConnectedTurrets)];
 
-        var targetCoords = GetCoordinates(args.Position);
+        var targetCoords = EntityManager.GetCoordinates(args.Position);
         var targetWorldCoords = _transformSystem.ToWorldPosition(targetCoords);
 
         foreach (var turret in turretUids)
         {
             var xform = Transform(turret);
-            if (!TryComp<GunComponent>(turret, out var gun) || xform == null)
-                continue;
-
-            if (!TryComp<GunneryManagedTargetingComponent>(turret, out var targeting))
+            if (!EntityManager.TryGetComponent<GunComponent>(turret, out var gun) || xform == null)
                 continue;
 
             if (!_gunSystem.CanShoot(gun))
@@ -195,13 +191,13 @@ public sealed partial class GunneryConsoleSystem : EntitySystem
             // The bullet is only 0.1 wide, but 0.2 gives buffer for jank collisions and ship movement
             var posOffset = (targetDir with { X = -targetDir.X }) * 0.2f;
 
-            var ray1 = new CollisionRay(globalPos + posOffset, targetDir, (int)targeting.TargetingCollisionMask);
+            var ray1 = new CollisionRay(globalPos + posOffset, targetDir, (int)BulletCollisionMask);
             var ray1CastResults = _physics.IntersectRay(xform.MapID, ray1, comp.CheckDistance, turret, false);
 
             if (ray1CastResults.Select(r => r.HitEntity).Any(u => Transform(u).ParentUid == xform.ParentUid))
                 continue;
 
-            var ray2 = new CollisionRay(globalPos - posOffset, targetDir, (int)targeting.TargetingCollisionMask);
+            var ray2 = new CollisionRay(globalPos - posOffset, targetDir, (int)BulletCollisionMask);
             var ray2CastResults = _physics.IntersectRay(xform.MapID, ray2, comp.CheckDistance, turret, false);
 
             if (ray2CastResults.Select(r => r.HitEntity).Any(u => Transform(u).ParentUid == xform.ParentUid))

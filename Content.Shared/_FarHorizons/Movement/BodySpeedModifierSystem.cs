@@ -2,9 +2,9 @@ using Content.Shared.Movement.Systems;
 
 namespace Content.Shared._FarHorizons.Movement;
 
-public sealed partial class BodySpeedModifierSystem : EntitySystem
+public sealed class BodySpeedModifierSystem : EntitySystem
 {
-    [Dependency] private MovementSpeedModifierSystem _movement = default!;
+    [Dependency] private readonly MovementSpeedModifierSystem _movement = default!;
     public override void Initialize()
     {
         base.Initialize();

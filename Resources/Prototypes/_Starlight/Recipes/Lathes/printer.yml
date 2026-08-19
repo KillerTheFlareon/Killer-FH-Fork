@@ -5,7 +5,6 @@
   result: PrintedDocumentReportMorgue
   categories:
   - Reports
-  - NanoTrasonDocument #FH
   completetime: 2
   applyMaterialDiscount: false
   materials:
@@ -16,7 +15,6 @@
   result: PrintedDocumentReportStation
   categories:
   - Reports
-  - NanoTrasonDocument #FH
   completetime: 2
   applyMaterialDiscount: false
   materials:
@@ -27,7 +25,6 @@
   result: PrintedDocumentReportOnEliminationOfViolations
   categories:
   - Reports
-  - NanoTrasonDocument #FH
   completetime: 2
   applyMaterialDiscount: false
   materials:
@@ -38,7 +35,6 @@
   result: PrintedDocumentReportDepartment
   categories:
   - Reports
-  - NanoTrasonDocument #FH
   completetime: 2
   applyMaterialDiscount: false
   materials:
@@ -49,7 +45,6 @@
   result: PrintedDocumentReportEmployeePerformance
   categories:
   - Reports
-  - NanoTrasonDocument #FH
   completetime: 2
   applyMaterialDiscount: false
   materials:
@@ -60,7 +55,6 @@
   result: PrintedDocumentReportOnTheChaptersMeeting
   categories:
   - Reports
-  - NanoTrasonDocument #FH
   completetime: 2
   applyMaterialDiscount: false
   materials:
@@ -71,7 +65,6 @@
   result: PrintedDocumentInternalAffairsAgentsReport
   categories:
   - Reports
-  - NanoTrasonDocument #FH
   completetime: 2
   applyMaterialDiscount: false
   materials:
@@ -82,7 +75,6 @@
   result: PrintedDocumentConditionReport
   categories:
   - Reports
-  - NanoTrasonDocument #FH
   completetime: 2
   applyMaterialDiscount: false
   materials:
@@ -93,7 +85,6 @@
   result: PrintedDocumentObjectInvestigationReport
   categories:
   - Reports
-  - NanoTrasonDocument #FH
   completetime: 2
   applyMaterialDiscount: false
   materials:
@@ -104,7 +95,6 @@
   result: PrintedDocumentExperimentReport
   categories:
   - Reports
-  - NanoTrasonDocument #FH
   completetime: 2
   applyMaterialDiscount: false
   materials:
@@ -115,7 +105,6 @@
   result: PrintedDocumentDisposalReport
   categories:
   - Reports
-  - NanoTrasonDocument #FH
   completetime: 2
   applyMaterialDiscount: false
   materials:
@@ -126,7 +115,6 @@
   result: PrintedDocumentArrestReport
   categories:
   - Reports
-  - NanoTrasonDocument #FH
   completetime: 2
   applyMaterialDiscount: false
   materials:
@@ -136,8 +124,7 @@
   id: PrintedDocumentSalvageLeadReportRecipe
   result: PrintedDocumentSalvageLeadReport
   categories:
-  - Reports
-  - NanoTrasonDocument #FH
+    - Reports
   completetime: 2
   applyMaterialDiscount: false
   materials:
@@ -150,7 +137,6 @@
   result: PrintedDocumentStatementAppointmentInterimChapter
   categories:
   - Statements
-  - NanoTrasonDocument #FH
   completetime: 2
   applyMaterialDiscount: false
   materials:
@@ -161,7 +147,6 @@
   result: PrintedDocumentEmploymentStatement
   categories:
   - Statements
-  - NanoTrasonDocument #FH
   completetime: 2
   applyMaterialDiscount: false
   materials:
@@ -172,7 +157,6 @@
   result: PrintedDocumentResignationStatement
   categories:
   - Statements
-  - NanoTrasonDocument #FH
   completetime: 2
   applyMaterialDiscount: false
   materials:
@@ -183,7 +167,6 @@
   result: PrintedDocumentAccessRequestStatement
   categories:
   - Statements
-  - NanoTrasonDocument #FH
   completetime: 2
   applyMaterialDiscount: false
   materials:
@@ -194,7 +177,6 @@
   result: PrintedDocumentEquipmentRequestStatement
   categories:
   - Statements
-  - NanoTrasonDocument #FH
   completetime: 2
   applyMaterialDiscount: false
   materials:
@@ -207,7 +189,6 @@
   result: PrintedDocumentInvocation
   categories:
   - InquiriesAndAppeals
-  - NanoTrasonDocument #FH
   completetime: 2
   applyMaterialDiscount: false
   materials:
@@ -218,7 +199,6 @@
   result: PrintedDocumentEvacuationShuttleRequest
   categories:
   - InquiriesAndAppeals
-  - NanoTrasonDocument #FH
   completetime: 2
   applyMaterialDiscount: false
   materials:
@@ -229,7 +209,6 @@
   result: PrintedDocumentShuttleRegistrationRequest
   categories:
   - InquiriesAndAppeals
-  - NanoTrasonDocument #FH
   completetime: 2
   applyMaterialDiscount: false
   materials:
@@ -240,7 +219,6 @@
   result: PrintedDocumentRequestCallCentCommMembers
   categories:
   - InquiriesAndAppeals
-  - NanoTrasonDocument #FH
   completetime: 2
   applyMaterialDiscount: false
   materials:
@@ -251,7 +229,6 @@
   result: PrintedDocumentRequestRequestEstablishThreatLevel
   categories:
   - InquiriesAndAppeals
-  - NanoTrasonDocument #FH
   completetime: 2
   applyMaterialDiscount: false
   materials:
@@ -262,7 +239,6 @@
   result: PrintedDocumentRequestChangeSalary
   categories:
   - InquiriesAndAppeals
-  - NanoTrasonDocument #FH
   completetime: 2
   applyMaterialDiscount: false
   materials:
@@ -273,7 +249,6 @@
   result: PrintedDocumentRequestForNonlistedEmployment
   categories:
   - InquiriesAndAppeals
-  - NanoTrasonDocument #FH
   completetime: 2
   applyMaterialDiscount: false
   materials:
@@ -284,7 +259,6 @@
   result: PrintedDocumentRequestForPromotion
   categories:
   - InquiriesAndAppeals
-  - NanoTrasonDocument #FH
   completetime: 2
   applyMaterialDiscount: false
   materials:
@@ -295,7 +269,6 @@
   result: PrintedDocumentRequestDocuments
   categories:
   - InquiriesAndAppeals
-  - NanoTrasonDocument #FH
   completetime: 2
   applyMaterialDiscount: false
   materials:
@@ -306,7 +279,6 @@
   result: PrintedDocumentRequestEuthanasia
   categories:
   - InquiriesAndAppeals
-  - NanoTrasonDocument #FH
   completetime: 2
   applyMaterialDiscount: false
   materials:
@@ -317,7 +289,6 @@
   result: PrintedDocumentRequestConstructionWork
   categories:
   - InquiriesAndAppeals
-  - NanoTrasonDocument #FH
   completetime: 2
   applyMaterialDiscount: false
   materials:
@@ -328,7 +299,6 @@
   result: PrintedDocumentRequestModernization
   categories:
   - InquiriesAndAppeals
-  - NanoTrasonDocument #FH
   completetime: 2
   applyMaterialDiscount: false
   materials:
@@ -339,7 +309,6 @@
   result: PrintedDocumentRequestERT
   categories:
   - InquiriesAndAppeals
-  - NanoTrasonDocument #FH
   completetime: 2
   applyMaterialDiscount: false
   materials:
@@ -350,7 +319,6 @@
   result: PrintedDocumentProductOrder
   categories:
   - InquiriesAndAppeals
-  - NanoTrasonDocument #FH
   completetime: 2
   applyMaterialDiscount: false
   materials:
@@ -363,7 +331,6 @@
   result: PrintedDocumentComplaintViolationLaborRules
   categories:
   - Complaints
-  - NanoTrasonDocument #FH
   completetime: 2
   applyMaterialDiscount: false
   materials:
@@ -374,7 +341,6 @@
   result: PrintedDocumentComplaintOffense
   categories:
   - Complaints
-  - NanoTrasonDocument #FH
   completetime: 2
   applyMaterialDiscount: false
   materials:
@@ -387,7 +353,6 @@
   result: PrintedDocumentPermissionEquipment
   categories:
   - Permissions
-  - NanoTrasonDocument #FH
   completetime: 2
   applyMaterialDiscount: false
   materials:
@@ -398,7 +363,6 @@
   result: PrintedDocumentSearchPermission
   categories:
   - Permissions
-  - NanoTrasonDocument #FH
   completetime: 2
   applyMaterialDiscount: false
   materials:
@@ -409,7 +373,6 @@
   result: PrintedDocumentPermissionToCarryWeapons
   categories:
   - Permissions
-  - NanoTrasonDocument #FH
   completetime: 2
   applyMaterialDiscount: false
   materials:
@@ -420,7 +383,6 @@
   result: PrintedDocumentPermissionDisposeBody
   categories:
   - Permissions
-  - NanoTrasonDocument #FH
   completetime: 2
   applyMaterialDiscount: false
   materials:
@@ -431,7 +393,6 @@
   result: PrintedDocumentConstructionPermit
   categories:
   - Permissions
-  - NanoTrasonDocument #FH
   completetime: 2
   applyMaterialDiscount: false
   materials:
@@ -442,7 +403,6 @@
   result: PrintedDocumentSurgeryConsentPermit
   categories:
   - Permissions
-  - NanoTrasonDocument #FH
   completetime: 2
   applyMaterialDiscount: false
   materials:
@@ -455,7 +415,6 @@
   result: PrintedDocumentDismissalOrder
   categories:
   - OrdersAndInstructions
-  - NanoTrasonDocument #FH
   completetime: 2
   applyMaterialDiscount: false
   materials:
@@ -466,7 +425,6 @@
   result: PrintedDocumentAccessRevocationOrder
   categories:
   - OrdersAndInstructions
-  - NanoTrasonDocument #FH
   completetime: 2
   applyMaterialDiscount: false
   materials:
@@ -477,7 +435,6 @@
   result: PrintedDocumentIncentiveOrder
   categories:
   - OrdersAndInstructions
-  - NanoTrasonDocument #FH
   completetime: 2
   applyMaterialDiscount: false
   materials:
@@ -488,7 +445,6 @@
   result: PrintedDocumentPrisonerParoleOrder
   categories:
   - OrdersAndInstructions
-  - NanoTrasonDocument #FH
   completetime: 2
   applyMaterialDiscount: false
   materials:
@@ -499,7 +455,6 @@
   result: PrintedDocumentOrderRecognizingReasonablenessCreature
   categories:
   - OrdersAndInstructions
-  - NanoTrasonDocument #FH
   completetime: 2
   applyMaterialDiscount: false
   materials:
@@ -510,7 +465,6 @@
   result: PrintedDocumentExecutionDNROrder
   categories:
   - OrdersAndInstructions
-  - NanoTrasonDocument #FH
   completetime: 2
   applyMaterialDiscount: false
   materials:
@@ -521,7 +475,6 @@
   result: PrintedDocumentMedicalInterventionOrder
   categories:
   - OrdersAndInstructions
-  - NanoTrasonDocument #FH
   completetime: 2
   applyMaterialDiscount: false
   materials:
@@ -534,7 +487,6 @@
   result: PrintedDocumentCentCommCommunication
   categories:
   - Communications
-  - NanoTrasonDocument #FH
   completetime: 2
   applyMaterialDiscount: false
   materials:

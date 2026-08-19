@@ -1,54 +1,38 @@
-#region WallSolid
+# Walls
 
 - type: entity
   parent: WallSolid
-  id: WallSolidGeneric
-  suffix: Generic
+  id: WallSolidStandard
+  suffix: ""
   name: Solid Wall
   components:
   - type: Sprite
-    sprite: _FarHorizons/Structures/Walls/Generic/solid.rsi
+    sprite: Structures/Walls/solid.rsi #TODO: neutral sprite
   - type: Icon
-    sprite: _FarHorizons/Structures/Walls/Generic/solid.rsi
+    sprite: Structures/Walls/solid.rsi #TODO: neutral sprites
 
 - type: entity
-  parent: WallSolid
-  id: WallSolidNS
-  name: Solid Wall
-  suffix: NS
+  parent: WallReinforced
+  id: WallReinforcedStandard
+  name: Reinforced Wall
+  suffix: ""
   components:
   - type: Sprite
-    sprite: _FarHorizons/Structures/Walls/NeoSol/solid.rsi
+    sprite: Structures/Walls/solid.rsi #TODO: neutral sprites
   - type: Icon
-    sprite: _FarHorizons/Structures/Walls/NeoSol/solid.rsi
-
-- type: entity
-  parent: WallSolidGeneric
-  id: WallSolidRustGeneric
-  suffix: Rusted, Generic
-  components:
-  - type: Sprite
-    sprite: _FarHorizons/Structures/Walls/Generic/solid_rust.rsi
-  - type: Icon
-    sprite: _FarHorizons/Structures/Walls/Generic/solid_rust.rsi
-    state: full
-  - type: Construction
-    graph: Girder
-    node: wallrust
-
-- type: entity
-  parent: WallSolidNS
-  id: WallSolidRustNS
-  suffix: Rusted, NS
-  components:
-  - type: Sprite
-    sprite: _FarHorizons/Structures/Walls/NeoSol/solid_rust.rsi
-  - type: Icon
-    sprite: _FarHorizons/Structures/Walls/NeoSol/solid_rust.rsi
-    state: full
-  - type: Construction
-    graph: Girder
-    node: wallrust
+    sprite: Structures/Walls/solid.rsi #TODO: neutral sprites
+    state: rgeneric
+  - type: GenericVisualizer
+    visuals:
+      enum.ReinforcedWallVisuals.DeconstructionStage:
+        ReinforcedWallVisualLayers.Deconstruction:
+          -1: { visible: false }
+          0: { state: reinf_construct-0, visible: true}
+          1: { state: reinf_construct-1, visible: true}
+          2: { state: reinf_construct-2, visible: true}
+          3: { state: reinf_construct-3, visible: true}
+          4: { state: reinf_construct-4, visible: true}
+          5: { state: reinf_construct-5, visible: true}
 
 - type: entity
   parent: WallSolid
@@ -72,8 +56,46 @@
         sound:
           collection: MetalSlam
 
+#region NeoSol
+
+
 - type: entity
-  parent: WallSolidNS
+  parent: WallSolid
+  id: WallSolidSyndicate
+  name: Solid Wall
+  suffix: NS
+  components:
+  - type: Sprite
+    sprite: _FarHorizons/Structures/Walls/solid_syndie.rsi
+  - type: Icon
+    sprite: _FarHorizons/Structures/Walls/solid_syndie.rsi
+
+- type: entity
+  parent: WallReinforced
+  id: WallReinforcedSyndicate
+  name: Reinforced Wall
+  suffix: NS
+  components:
+  - type: Sprite
+    sprite: _FarHorizons/Structures/Walls/solid_syndie.rsi
+  - type: Icon
+    sprite: _FarHorizons/Structures/Walls/solid_syndie.rsi
+    state: rgeneric
+  - type: GenericVisualizer
+    visuals:
+      enum.ReinforcedWallVisuals.DeconstructionStage:
+        ReinforcedWallVisualLayers.Deconstruction:
+          -1: { visible: false }
+          0: { state: reinf_construct-0, visible: true}
+          1: { state: reinf_construct-1, visible: true}
+          2: { state: reinf_construct-2, visible: true}
+          3: { state: reinf_construct-3, visible: true}
+          4: { state: reinf_construct-4, visible: true}
+          5: { state: reinf_construct-5, visible: true}
+
+
+- type: entity
+  parent: WallSolidSyndicate
   id: WallFakeNS
   name: Solid Wall
   suffix: Fake, NS
@@ -95,176 +117,26 @@
           collection: MetalSlam
 
 - type: entity
-  parent: WallSolidDiagonal
-  id: WallSolidDiagonalGeneric
-  suffix: Diagonal, Generic
-  components:
-  - type: Sprite
-    sprite: _FarHorizons/Structures/Walls/NanoTrasen/solid_diagonal.rsi #PLACEHOLD
-  - type: Icon
-    sprite: _FarHorizons/Structures/Walls/NanoTrasen/solid_diagonal.rsi #PLACEHOLD
-
-- type: entity
-  parent: WallSolidDiagonal
-  id: WallSolidDiagonalNS
-  suffix: Diagonal, NS
-  components:
-  - type: Sprite
-    sprite: _FarHorizons/Structures/Walls/NeoSol/solid_diagonal.rsi
-  - type: Icon
-    sprite: _FarHorizons/Structures/Walls/NeoSol/solid_diagonal.rsi
-
-#region WallReinforced
-- type: entity
-  parent: WallReinforced
-  id: WallReinforcedGeneric
-  name: Reinforced Wall
-  suffix: Generic
-  components:
-  - type: Sprite
-    sprite: _FarHorizons/Structures/Walls/Generic/solid.rsi
-  - type: Icon
-    sprite: _FarHorizons/Structures/Walls/Generic/solid.rsi
-    state: rgeneric
-  - type: GenericVisualizer
-    visuals:
-      enum.ReinforcedWallVisuals.DeconstructionStage:
-        ReinforcedWallVisualLayers.Deconstruction:
-          -1: { visible: false }
-          0: { state: reinf_construct-0, visible: true}
-          1: { state: reinf_construct-1, visible: true}
-          2: { state: reinf_construct-2, visible: true}
-          3: { state: reinf_construct-3, visible: true}
-          4: { state: reinf_construct-4, visible: true}
-          5: { state: reinf_construct-5, visible: true}
-
-- type: entity
-  parent: WallReinforced
-  id: WallReinforcedNS
-  name: Reinforced Wall
-  suffix: NS
-  components:
-  - type: Sprite
-    sprite: _FarHorizons/Structures/Walls/NeoSol/solid.rsi
-  - type: Icon
-    sprite: _FarHorizons/Structures/Walls/NeoSol/solid.rsi
-    state: rgeneric
-  - type: GenericVisualizer
-    visuals:
-      enum.ReinforcedWallVisuals.DeconstructionStage:
-        ReinforcedWallVisualLayers.Deconstruction:
-          -1: { visible: false }
-          0: { state: reinf_construct-0, visible: true}
-          1: { state: reinf_construct-1, visible: true}
-          2: { state: reinf_construct-2, visible: true}
-          3: { state: reinf_construct-3, visible: true}
-          4: { state: reinf_construct-4, visible: true}
-          5: { state: reinf_construct-5, visible: true}
-
-- type: entity
-  parent: WallReinforcedGeneric
-  id: WallReinforcedRustGeneric
-  suffix: Rusted, Generic
-  components:
-  - type: Sprite
-    sprite: _FarHorizons/Structures/Walls/Generic/solid_rust.rsi
-  - type: Icon
-    sprite: _FarHorizons/Structures/Walls/Generic/solid_rust.rsi
-    state: rgeneric
-  - type: Construction
-    graph: Girder
-    node: reinforcedWallRust
-
-- type: entity
-  parent: WallReinforcedNS
-  id: WallReinforcedRustNS
+  parent: WallSolidSyndicate
+  id: WallSolidRustNS
   suffix: Rusted, NS
   components:
   - type: Sprite
-    sprite: _FarHorizons/Structures/Walls/NeoSol/solid_rust.rsi
+    sprite: Structures/Walls/solid_rust.rsi
   - type: Icon
-    sprite: _FarHorizons/Structures/Walls/NeoSol/solid_rust.rsi
-    state: rgeneric
+    sprite: Structures/Walls/solid_rust.rsi
+    state: full
   - type: Construction
     graph: Girder
-    node: reinforcedWallRust
-
-- type: entity
-  parent: WallReinforcedDiagonal
-  id: WallReinforcedDiagonalGeneric
-  suffix: Diagonal, Generic
-  components:
-  - type: Sprite
-    sprite: _FarHorizons/Structures/Walls/NanoTrasen/reinforced_diagonal.rsi #PLACEHOLD
-  - type: Icon
-    sprite: _FarHorizons/Structures/Walls/NanoTrasen/reinforced_diagonal.rsi #PLACEHOLD
-
-- type: entity
-  parent: WallReinforcedDiagonal
-  id: WallReinforcedDiagonalNS
-  suffix: Diagonal, NS
-  components:
-  - type: Sprite
-    sprite: _FarHorizons/Structures/Walls/NeoSol/reinforced_diagonal.rsi
-  - type: Icon
-    sprite: _FarHorizons/Structures/Walls/NeoSol/reinforced_diagonal.rsi
-
-#region WallShuttle
-- type: entity
-  parent: WallShuttle
-  id: WallShuttleGeneric
-  suffix: Generic
-  components:
-  - type: Sprite
-    sprite: _FarHorizons/Structures/Walls/NanoTrasen/shuttle.rsi
-  - type: Icon
-    sprite: _FarHorizons/Structures/Walls/NanoTrasen/shuttle.rsi
-
-- type: entity
-  parent: WallShuttle
-  id: WallShuttleNS
-  suffix: NS
-  components:
-  - type: Sprite
-    sprite: _FarHorizons/Structures/Walls/NeoSol/shuttle.rsi
-  - type: Icon
-    sprite: _FarHorizons/Structures/Walls/NeoSol/shuttle.rsi
-
-- type: entity
-  parent: WallShuttleDiagonal
-  id: WallShuttleDiagonalGeneric
-  suffix: Diagonal, Generic
-  components:
-  - type: Sprite
-    sprite: _FarHorizons/Structures/Walls/NanoTrasen/shuttle_diagonal.rsi
-  - type: Icon
-    sprite: _FarHorizons/Structures/Walls/NanoTrasen/shuttle_diagonal.rsi
-
-- type: entity
-  parent: WallShuttleDiagonal
-  id: WallShuttleDiagonalNS
-  suffix: Diagonal, NS
-  components:
-  - type: Sprite
-    sprite: _FarHorizons/Structures/Walls/NeoSol/shuttle_diagonal.rsi
-  - type: Icon
-    sprite: _FarHorizons/Structures/Walls/NeoSol/shuttle_diagonal.rsi
-
-#region WallShuttleReinforced
-- type: entity
-  parent: BaseWall
-  id: WallShuttleReinforced
-  name: Reinforced Shuttle Wall
-  suffix: NT
-  components:
-  - type: Damageable
-    damageContainer: StructuralInorganic
-    damageModifierSet: StructuralMetallicStrong
+    node: wallrust
+  - type: IconSmooth
+    key: walls
+    base: solid
   - type: Destructible
     thresholds:
     - trigger:
         !type:DamageTrigger
-        damage: 1000
+        damage: 300
       behaviors:
       - !type:DoActsBehavior
         acts: ["Destruction"]
@@ -273,7 +145,7 @@
           collection: MetalSlam
     - trigger:
         !type:DamageTrigger
-        damage: 750
+        damage: 150
       behaviors:
       - !type:PlaySoundBehavior
         sound:
@@ -282,77 +154,51 @@
         node: girder
       - !type:DoActsBehavior
         acts: ["Destruction"]
-<<<<<<< HEAD
 
-#region Reinf. Shuttle Wall
-=======
-  - type: StaticPrice
-    price: 350
-  - type: RadiationBlocker
-    resistance: 7
+- type: entity
+  parent: WallReinforcedSyndicate
+  id: WallReinforcedRustNS
+  suffix: Rusted, NS
+  components:
   - type: Sprite
-    sprite: _FarHorizons/Structures/Walls/NanoTrasen/reinf_shuttle.rsi
+    sprite: Structures/Walls/solid_rust.rsi
   - type: Icon
-    sprite: _FarHorizons/Structures/Walls/NanoTrasen/reinf_shuttle.rsi
-    state: full
-  - type: IconSmooth
-    key: walls
-    base: state
-  - type: Appearance
-  - type: GenericVisualizer
-    visuals:
-      enum.ShuttleWallVisuals.DeconstructionStage:
-        ShuttleWallVisualLayers.Deconstruction:
-          -1: { visible: false }
-          0: { state: shuttle_construct-0, visible: true}
-          1: { state: shuttle_construct-1, visible: true}
-          2: { state: shuttle_construct-2, visible: true}
-          3: { state: shuttle_construct-3, visible: true}
-          4: { state: shuttle_construct-4, visible: true}
-          5: { state: shuttle_construct-5, visible: true}
-  - type: Ricochetable
-    chance: 1
-  - type: Fixtures
-    fixtures:
-      fix1:
-        shape:
-          !type:PhysShapeAabb
-          bounds: "-0.5,-0.5,0.5,0.5"
-        mask:
-        - FullTileMask
-        layer:
-        - WallLayer
-        density: 3000
+    sprite: Structures/Walls/solid_rust.rsi
+    state: rgeneric
   - type: Construction
     graph: Girder
-    node: ReinforcedShuttleWall
+    node: reinforcedWallRust
+  - type: IconSmooth
+    key: walls
+    base: reinf_over
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 500
+      behaviors:
+      - !type:DoActsBehavior
+        acts: ["Destruction"]
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalSlam
+    - trigger:
+        !type:DamageTrigger
+        damage: 350
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalSlam
+      - !type:ChangeConstructionNodeBehavior
+        node: girder
+      - !type:DoActsBehavior
+        acts: ["Destruction"]
 
-- type: entity
-  parent: WallShuttleReinforced
-  id: WallShuttleReinforcedGeneric
-  suffix: Generic
-  components:
-  - type: Sprite
-    sprite: _FarHorizons/Structures/Walls/NanoTrasen/reinf_shuttle.rsi
-  - type: Icon
-    sprite: _FarHorizons/Structures/Walls/NanoTrasen/reinf_shuttle.rsi
-
-- type: entity
-  parent: WallShuttleReinforced
-  id: WallShuttleReinforcedNS
-  suffix: NS
-  components:
-  - type: Sprite
-    sprite: _FarHorizons/Structures/Walls/NeoSol/reinf_shuttle.rsi
-  - type: Icon
-    sprite: _FarHorizons/Structures/Walls/NeoSol/reinf_shuttle.rsi
-
->>>>>>> Far-Horizons
+#region Reinf. Shuttle Wall
 - type: entity
   parent: WallDiagonalBase
   id: WallShuttleReinforcedDiagonal
   name: Reinforced Shuttle Wall
-<<<<<<< HEAD
   suffix: Diagonal
   components:
   - type: Sprite
@@ -361,16 +207,6 @@
     state: state0
   - type: Icon
     sprite: _FarHorizons/Structures/Walls/shuttle_diagonal.rsi
-=======
-  suffix: Diagonal, NT
-  components:
-  - type: Sprite
-    drawdepth: Walls
-    sprite: _FarHorizons/Structures/Walls/NanoTrasen/shuttle_diagonal.rsi
-    state: state0
-  - type: Icon
-    sprite: _FarHorizons/Structures/Walls/NanoTrasen/shuttle_diagonal.rsi
->>>>>>> Far-Horizons
     state: state0
   - type: IconSmooth
     key: walls
@@ -433,37 +269,9 @@
     node: DiagonalReinforcedShuttleWall
 
 - type: entity
-<<<<<<< HEAD
   parent: BaseWall
   id: WallShuttleReinforced
   name: Reinforced Shuttle Wall
-=======
-  parent: WallShuttleReinforcedDiagonal
-  id: WallShuttleReinforcedDiagonalGeneric
-  suffix: Diagonal, Generic
-  components:
-  - type: Sprite
-    sprite: _FarHorizons/Structures/Walls/NanoTrasen/shuttle_diagonal.rsi
-  - type: Icon
-    sprite: _FarHorizons/Structures/Walls/NanoTrasen/shuttle_diagonal.rsi
-
-- type: entity
-  parent: WallShuttleReinforcedDiagonal
-  id: WallShuttleReinforcedDiagonalNS
-  suffix: Diagonal, NS
-  components:
-  - type: Sprite
-    sprite: _FarHorizons/Structures/Walls/NeoSol/shuttle_diagonal.rsi
-  - type: Icon
-    sprite: _FarHorizons/Structures/Walls/NeoSol/shuttle_diagonal.rsi
-
-#region WallShuttleArmored
-- type: entity
-  parent: BaseWall
-  id: WallShuttleArmored
-  name: Armored Shuttle Wall
-  suffix: NT
->>>>>>> Far-Horizons
   components:
   - type: Damageable
     damageContainer: StructuralInorganic
@@ -472,11 +280,7 @@
     thresholds:
     - trigger:
         !type:DamageTrigger
-<<<<<<< HEAD
         damage: 1000
-=======
-        damage: 1200
->>>>>>> Far-Horizons
       behaviors:
       - !type:DoActsBehavior
         acts: ["Destruction"]
@@ -485,11 +289,7 @@
           collection: MetalSlam
     - trigger:
         !type:DamageTrigger
-<<<<<<< HEAD
         damage: 750
-=======
-        damage: 1000
->>>>>>> Far-Horizons
       behaviors:
       - !type:PlaySoundBehavior
         sound:
@@ -499,7 +299,6 @@
       - !type:DoActsBehavior
         acts: ["Destruction"]
   - type: StaticPrice
-<<<<<<< HEAD
     price: 350
   - type: RadiationBlocker
     resistance: 7
@@ -507,15 +306,6 @@
     sprite: Structures/Walls/shuttle.rsi
   - type: Icon
     sprite: Structures/Walls/shuttle.rsi
-=======
-    price: 550
-  - type: RadiationBlocker
-    resistance: 10
-  - type: Sprite
-    sprite: _FarHorizons/Structures/Walls/NanoTrasen/reinf_shuttle.rsi
-  - type: Icon
-    sprite: _FarHorizons/Structures/Walls/NanoTrasen/reinf_shuttle.rsi
->>>>>>> Far-Horizons
     state: full
   - type: IconSmooth
     key: walls
@@ -544,47 +334,16 @@
         - FullTileMask
         layer:
         - WallLayer
-<<<<<<< HEAD
         density: 3000
   - type: Construction
     graph: Girder
     node: ReinforcedShuttleWall
 
 #region Armor. Shuttle Wall
-=======
-        density: 4000
-  - type: RCDDeconstructable
-    deconstructable: false
-  - type: Construction
-    graph: Girder
-    node: ArmoredShuttleWall
-
-- type: entity
-  parent: WallShuttleArmored
-  id: WallShuttleArmoredGeneric
-  suffix: Generic
-  components:
-  - type: Sprite
-    sprite: _FarHorizons/Structures/Walls/NanoTrasen/reinf_shuttle.rsi
-  - type: Icon
-    sprite: _FarHorizons/Structures/Walls/NanoTrasen/reinf_shuttle.rsi
-
-- type: entity
-  parent: WallShuttleArmored
-  id: WallShuttleArmoredNS
-  suffix: NS
-  components:
-  - type: Sprite
-    sprite: _FarHorizons/Structures/Walls/NeoSol/reinf_shuttle.rsi
-  - type: Icon
-    sprite: _FarHorizons/Structures/Walls/NeoSol/reinf_shuttle.rsi
-
->>>>>>> Far-Horizons
 - type: entity
   parent: WallDiagonalBase
   id: WallShuttleArmoredDiagonal
   name: Armored Shuttle Wall
-<<<<<<< HEAD
   suffix: Diagonal
   components:
   - type: Sprite
@@ -593,16 +352,6 @@
     state: state0
   - type: Icon
     sprite: _FarHorizons/Structures/Walls/shuttle_diagonal.rsi
-=======
-  suffix: Diagonal, NT
-  components:
-  - type: Sprite
-    drawdepth: Walls
-    sprite: _FarHorizons/Structures/Walls/NanoTrasen/shuttle_diagonal.rsi
-    state: state0
-  - type: Icon
-    sprite: _FarHorizons/Structures/Walls/NanoTrasen/shuttle_diagonal.rsi
->>>>>>> Far-Horizons
     state: state0
   - type: IconSmooth
     key: walls
@@ -667,7 +416,6 @@
     node: DiagonalArmoredShuttleWall
 
 - type: entity
-<<<<<<< HEAD
   parent: BaseWall
   id: WallShuttleArmored
   name: Armored Shuttle Wall
@@ -778,23 +526,3 @@
     key: walls
     base: state
   - type: Appearance
-=======
-  parent: WallShuttleArmoredDiagonal
-  id: WallShuttleArmoredDiagonalGeneric
-  suffix: Diagonal, Generic
-  components:
-  - type: Sprite
-    sprite: _FarHorizons/Structures/Walls/NanoTrasen/shuttle_diagonal.rsi
-  - type: Icon
-    sprite: _FarHorizons/Structures/Walls/NanoTrasen/shuttle_diagonal.rsi
-
-- type: entity
-  parent: WallShuttleArmoredDiagonal
-  id: WallShuttleArmoredDiagonalNS
-  suffix: Diagonal, NS
-  components:
-  - type: Sprite
-    sprite: _FarHorizons/Structures/Walls/NeoSol/shuttle_diagonal.rsi
-  - type: Icon
-    sprite: _FarHorizons/Structures/Walls/NeoSol/shuttle_diagonal.rsi
->>>>>>> Far-Horizons

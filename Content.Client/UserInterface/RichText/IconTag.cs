@@ -11,10 +11,10 @@ using Robust.Shared.Utility;
 
 namespace Content.Client.UserInterface.RichText;
 
-public sealed partial class IconTag : IMarkupTag
+public sealed class IconTag : IMarkupTag
 {
-    [Dependency] private IPrototypeManager _prototype = default!;
-    [Dependency] private IEntitySystemManager _entitySystem = default!;
+    [Dependency] private readonly IPrototypeManager _prototype = default!;
+    [Dependency] private readonly IEntitySystemManager _entitySystem = default!;
     private SpriteSystem? _spriteSystem;
 
     public string Name => "icon";

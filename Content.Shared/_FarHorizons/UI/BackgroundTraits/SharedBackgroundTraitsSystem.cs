@@ -9,11 +9,12 @@ namespace Content.Shared._FarHorizons.UI.BackgroundTraits;
 
 public abstract partial class SharedBackgroundTraitSystem : EntitySystem
 {
-    [Dependency] protected IGameTiming Timing = default!;
-    [Dependency] protected SharedActionsSystem _actions = default!;
-    [Dependency] protected IComponentFactory _compFactory = default!;
-    [Dependency] protected ILogManager _log = default!;
-    [Dependency] protected SharedUserInterfaceSystem _ui = default!;
+    [Dependency] protected readonly IGameTiming Timing = default!;
+    [Dependency] protected readonly IPrototypeManager ProtoMan = default!;
+    [Dependency] protected readonly SharedActionsSystem _actions = default!;
+    [Dependency] protected readonly IComponentFactory _compFactory = default!;
+    [Dependency] protected readonly ILogManager _log = default!;
+    [Dependency] protected readonly SharedUserInterfaceSystem _ui = default!;
 
     public override void Initialize()
         => base.Initialize();
@@ -55,17 +56,17 @@ public abstract class BackgroundTraitSystem<TBase, T> : EntitySystem
     protected virtual void TraitInit(Entity<TBase, T> ent) { }
 }
 
-public abstract partial class BackgroundPassiveTraitSystem<TBase, T> : BackgroundTraitSystem<TBase, T>
+public abstract class BackgroundPassiveTraitSystem<TBase, T> : BackgroundTraitSystem<TBase, T>
     where TBase : Component
     where T : BackgroundPassiveTraitComponent
 {
-    [Dependency] protected IGameTiming Timing = default!;
+    [Dependency] protected readonly IGameTiming Timing = default!;
 
     public override void Update(float frameTime)
     {
         base.Update(frameTime);
 
-        var query = AllEntityQuery<TBase, T>();
+        var query = EntityManager.AllEntityQueryEnumerator<TBase, T>();
         while (query.MoveNext(out var uid, out var anchor, out var comp))
         {
             if (comp.TickRate == TimeSpan.Zero || Timing.CurTime < comp.NextUpdate) continue;
@@ -77,12 +78,12 @@ public abstract partial class BackgroundPassiveTraitSystem<TBase, T> : Backgroun
     protected virtual void UpdateEffect(Entity<TBase, T> ent) { }
 }
 
-public abstract partial class BackgroundActionTraitSystem<TBase, T, TEvent> : BackgroundTraitSystem<TBase, T>
+public abstract class BackgroundActionTraitSystem<TBase, T, TEvent> : BackgroundTraitSystem<TBase, T>
     where TBase : Component
     where T : BackgroundActionTraitComponent
     where TEvent : BaseActionEvent
 {
-    [Dependency] protected SharedActionsSystem Actions = default!;
+    [Dependency] protected readonly SharedActionsSystem Actions = default!;
 
     public override void Initialize()
     {
@@ -106,12 +107,12 @@ public abstract partial class BackgroundActionTraitSystem<TBase, T, TEvent> : Ba
     protected virtual void ActionUsed(Entity<TBase, T> ent, ref TEvent args) { }
 }
 
-public abstract partial class BackgroundToggleActionTraitSystem<TBase, T, TEvent> : BackgroundActionTraitSystem<TBase, T, TEvent>
+public abstract class BackgroundToggleActionTraitSystem<TBase, T, TEvent> : BackgroundActionTraitSystem<TBase, T, TEvent>
     where TBase : Component
     where T : BackgroundToggleActionComponent
     where TEvent : InstantActionEvent
 {
-    [Dependency] private INetManager _net = default!;
+    [Dependency] private readonly INetManager _net = default!;
 
     public override void Initialize() => base.Initialize();
 

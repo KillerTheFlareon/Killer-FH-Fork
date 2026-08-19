@@ -1,14 +1,14 @@
 - type: entity
   id: UraniumWindow
   name: Uranium Window #Far Horizons - The Great Capitalization Crusade
-  suffix: "NT" #FH
+  suffix: "" #FH
   parent: [BaseDeltaPressurePlasma, WindowRCDResistant]
   components:
   - type: Sprite
     drawdepth: WallTops
-    sprite: _FarHorizons/Structures/Windows/NanoTrasen/uranium_window.rsi #FH
+    sprite: Structures/Windows/uranium_window.rsi
   - type: Icon
-    sprite: _FarHorizons/Structures/Windows/NanoTrasen/uranium_window.rsi #FH
+    sprite: Structures/Windows/uranium_window.rsi
     state: full
   - type: Damageable
     damageContainer: StructuralInorganic
@@ -51,9 +51,6 @@
     price: 200
   - type: RadiationBlocker
     resistance: 3
-  - type: Paintable #FH start
-    group: UraniumWindow 
-  - type: GenericPaintable #FH end
 
 - type: entity
   id: UraniumWindowDirectional
@@ -111,7 +108,7 @@
 - type: entity
   parent: UraniumWindow
   id: UraniumWindowDiagonal
-  suffix: Diagonal, NT #Far Horizons - The Great Capitalization Crusade
+  suffix: Diagonal #Far Horizons - The Great Capitalization Crusade
   placement:
     mode: SnapgridCenter
     snap:
@@ -119,7 +116,7 @@
   components:
   - type: Sprite
     drawdepth: WallTops
-    sprite: _FarHorizons/Structures/Windows/NanoTrasen/uranium_window_diagonal.rsi #FH
+    sprite: Structures/Windows/uranium_window_diagonal.rsi
     state: state0
   - type: Tag
     tags:
@@ -127,10 +124,10 @@
     - Window
   - type: IconSmooth
     mode: Diagonal
-    key: walls #FH
+    key: windows
     base: state
   - type: Icon
-    sprite: _FarHorizons/Structures/Windows/NanoTrasen/uranium_window_diagonal.rsi #FH
+    sprite: Structures/Windows/uranium_window_diagonal.rsi
     state: state0
   - type: Fixtures
     fixtures:
@@ -156,6 +153,3 @@
   - type: Construction
     graph: WindowDiagonal
     node: uraniumWindowDiagonal
-  - type: Paintable #FH start
-    group: UraniumWindowDiagonal 
-  - type: GenericPaintable #FH end

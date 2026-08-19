@@ -85,7 +85,6 @@
             bounds: "-0.5,-0.5,0.5,0.5"
           layer:
           - GlassLayer
-    - type: LineOfSightExclude # Far Horizons
 
 - type: entity
   id: Cascad2

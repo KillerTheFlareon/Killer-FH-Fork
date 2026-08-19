@@ -16,12 +16,12 @@ using Robust.Shared.Timing;
 
 namespace Content.Server._Starlight.Language;
 
-public sealed partial class TranslatorSystem : SharedTranslatorSystem
+public sealed class TranslatorSystem : SharedTranslatorSystem
 {
-    [Dependency] private SharedContainerSystem _containers = default!;
-    [Dependency] private PopupSystem _popup = default!;
-    [Dependency] private LanguageSystem _language = default!;
-    [Dependency] private PowerCellSystem _powerCell = default!;
+    [Dependency] private readonly SharedContainerSystem _containers = default!;
+    [Dependency] private readonly PopupSystem _popup = default!;
+    [Dependency] private readonly LanguageSystem _language = default!;
+    [Dependency] private readonly PowerCellSystem _powerCell = default!;
 
     public override void Initialize()
     {

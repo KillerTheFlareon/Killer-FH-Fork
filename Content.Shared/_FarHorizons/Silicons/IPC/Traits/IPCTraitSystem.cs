@@ -25,9 +25,9 @@ public abstract class IPCToggleActionTraitSystem<T, TEvent>
     where T : IPCToggleActionComponent
     where TEvent : InstantActionEvent;
 
-public sealed partial class ModifyBloodstreamTraitSystem : IPCTraitSystem<ModifyBloodstreamTraitComponent>
+public sealed class ModifyBloodstreamTraitSystem : IPCTraitSystem<ModifyBloodstreamTraitComponent>
 {
-    [Dependency] private SharedBloodstreamSystem _bloodstream = default!;
+    [Dependency] private readonly SharedBloodstreamSystem _bloodstream = default!;
     protected override void TraitInit(Entity<IPCBrainHolderComponent, ModifyBloodstreamTraitComponent> ent)
     {
         _bloodstream.SetBloodRefreshRate(ent.Owner, ent.Comp2.BloodRefreshRate);
@@ -35,9 +35,9 @@ public sealed partial class ModifyBloodstreamTraitSystem : IPCTraitSystem<Modify
     }
 }
 
-public sealed partial class SetDamageModifierTraitSystem : IPCTraitSystem<SetDamageModifierTraitComponent>
+public sealed class SetDamageModifierTraitSystem : IPCTraitSystem<SetDamageModifierTraitComponent>
 {
-    [Dependency] private DamageableSystem _damageable = default!;
+    [Dependency] private readonly DamageableSystem _damageable = default!;
     protected override void TraitInit(Entity<IPCBrainHolderComponent, SetDamageModifierTraitComponent> ent)
     {
         if (!TryComp<DamageableComponent>(ent.Owner, out var damageable))

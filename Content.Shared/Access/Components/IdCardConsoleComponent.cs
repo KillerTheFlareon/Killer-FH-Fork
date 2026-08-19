@@ -1,4 +1,3 @@
-using Content.Shared._FarHorizons.Factions; //FH
 using Content.Shared.Access.Systems;
 using Content.Shared.Containers.ItemSlots;
 using Content.Shared.Roles;
@@ -27,9 +26,9 @@ public sealed partial class IdCardConsoleComponent : Component
         public readonly string FullName;
         public readonly string JobTitle;
         public readonly List<ProtoId<AccessLevelPrototype>> AccessList;
-        public readonly ProtoId<FactionJobAssignmentPrototype> JobPrototype;
+        public readonly ProtoId<JobPrototype> JobPrototype;
 
-        public WriteToTargetIdMessage(string fullName, string jobTitle, List<ProtoId<AccessLevelPrototype>> accessList, ProtoId<FactionJobAssignmentPrototype> jobPrototype) //FH
+        public WriteToTargetIdMessage(string fullName, string jobTitle, List<ProtoId<AccessLevelPrototype>> accessList, ProtoId<JobPrototype> jobPrototype)
         {
             FullName = fullName;
             JobTitle = jobTitle;
@@ -58,8 +57,6 @@ public sealed partial class IdCardConsoleComponent : Component
     [AutoNetworkedField]
     public ProtoId<AccessGroupPrototype>? CurrentAccessGroup;
     // Starlight-edit: End
-    [DataField, AutoNetworkedField] //FH
-    public List<string> Factions = []; //FH
     public List<ProtoId<AccessLevelPrototype>> AccessLevels = new()
     {
         "Armory",
@@ -108,7 +105,7 @@ public sealed partial class IdCardConsoleComponent : Component
         public readonly string? TargetIdJobTitle;
         public readonly List<ProtoId<AccessLevelPrototype>>? TargetIdAccessList;
         public readonly List<ProtoId<AccessLevelPrototype>>? AllowedModifyAccessList;
-        public readonly ProtoId<FactionJobAssignmentPrototype> TargetIdJobPrototype; //FH
+        public readonly ProtoId<JobPrototype> TargetIdJobPrototype;
         // Starlight-edit: Start
         public readonly ProtoId<AccessGroupPrototype> CurrentAccessGroup;
         public readonly List<ProtoId<AccessGroupPrototype>>? AvailableAccessGroups;
@@ -121,7 +118,7 @@ public sealed partial class IdCardConsoleComponent : Component
             string? targetIdJobTitle,
             List<ProtoId<AccessLevelPrototype>>? targetIdAccessList,
             List<ProtoId<AccessLevelPrototype>>? allowedModifyAccessList,
-            ProtoId<FactionJobAssignmentPrototype> targetIdJobPrototype, //FH
+            ProtoId<JobPrototype> targetIdJobPrototype,
             string privilegedIdName,
             string targetIdName,
             // Starlight-edit: Start

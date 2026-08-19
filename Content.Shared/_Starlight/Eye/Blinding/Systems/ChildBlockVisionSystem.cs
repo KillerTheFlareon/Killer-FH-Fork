@@ -5,10 +5,10 @@ using Robust.Shared.Map.Components;
 
 namespace Content.Shared._Starlight.Eye.Blinding.Systems;
 
-public sealed partial class ChildBlockVisionSystem : EntitySystem
+public sealed class ChildBlockVisionSystem : EntitySystem
 {
-    [Dependency] private SharedTransformSystem _transform = default!;
-    [Dependency] private BlindableSystem _blindable = default!;
+    [Dependency] private readonly SharedTransformSystem _transform = default!;
+    [Dependency] private readonly BlindableSystem _blindable = default!;
 
     private EntityQuery<TransformComponent> _transformQuery;
     private EntityQuery<ChildBlockVisionComponent> _blockQuery;

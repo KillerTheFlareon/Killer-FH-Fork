@@ -6,11 +6,11 @@ using Robust.Shared.Timing;
 
 namespace Content.Shared.Damage.Systems;
 
-public sealed partial class PassiveDamageSystem : EntitySystem
+public sealed class PassiveDamageSystem : EntitySystem
 {
-    [Dependency] private DamageableSystem _damageable = default!;
-    [Dependency] private IGameTiming _timing = default!;
-    [Dependency] private LimbDamageSystem _limbDamage = default!; // Far Horizons
+    [Dependency] private readonly DamageableSystem _damageable = default!;
+    [Dependency] private readonly IGameTiming _timing = default!;
+    [Dependency] private readonly LimbDamageSystem _limbDamage = default!; // Far Horizons
 
     public override void Initialize()
     {

@@ -97,6 +97,3 @@
       Plastic: 10
   - type: StaticPrice
     price: 30
-  - type: Tag #FH
-    tags: 
-    - ConstructionMaterial #FH

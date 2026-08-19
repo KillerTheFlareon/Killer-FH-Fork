@@ -13,9 +13,9 @@ using Robust.Shared.Utility;
 
 namespace Content.Client.UserInterface.RichText;
 
-public sealed partial class CCLogoTag : IMarkupTag
+public sealed class CCLogoTag : IMarkupTag
 {
-    [Dependency] private IEntitySystemManager _entitySystem = default!;
+    [Dependency] private readonly IEntitySystemManager _entitySystem = default!;
     private SpriteSystem? _spriteSystem;
     private IResourceCache? _resourceCache;
 

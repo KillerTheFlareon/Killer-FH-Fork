@@ -6,10 +6,10 @@ using Content.Shared.Eye;
 
 namespace Content.Client.Eye;
 
-public sealed partial class DarkenedVisionSystem : SharedDarkenedVisionSystem
+public sealed class DarkenedVisionSystem : SharedDarkenedVisionSystem
 {
-    [Dependency] private IPlayerManager _player = default!;
-    [Dependency] private IOverlayManager _overlayMan = default!;
+    [Dependency] private readonly IPlayerManager _player = default!;
+    [Dependency] private readonly IOverlayManager _overlayMan = default!;
 
 
     private DarkenedVisionOverlay _overlay = default!;

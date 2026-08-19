@@ -6,11 +6,11 @@ using Content.Shared.Starlight.EntityEffects.Components;
 
 namespace Content.Shared.Starlight.EntityEffects.EntitySystems;
 
-public abstract partial class SharedDissolvableSystem : EntitySystem
+public abstract class SharedDissolvableSystem : EntitySystem
 {
-    [Dependency] private SharedIgnitionSourceSystem _ignitionSourceSystem = default!;
-    [Dependency] private SharedAppearanceSystem _appearance = default!;
-    [Dependency] private ISharedAdminLogManager _adminLogger = default!;
+    [Dependency] private readonly SharedIgnitionSourceSystem _ignitionSourceSystem = default!;
+    [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
+    [Dependency] private readonly ISharedAdminLogManager _adminLogger = default!;
     
     
     public void UpdateAppearance(EntityUid uid, DissolvableComponent? dissolvable = null, AppearanceComponent? appearance = null)
@@ -61,7 +61,7 @@ public abstract partial class SharedDissolvableSystem : EntitySystem
         
         if (dissolvable.Effect != null)
         {
-            QueueDel(dissolvable.Effect);
+            EntityManager.QueueDeleteEntity(dissolvable.Effect);
             dissolvable.Effect = null;
         }
 

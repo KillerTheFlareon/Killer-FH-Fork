@@ -5,9 +5,9 @@ using Robust.Shared.Map.Components;
 
 namespace Content.Shared.VentCraw;
 
-public sealed partial class SharedVentTubeSystem : EntitySystem
+public sealed class SharedVentTubeSystem : EntitySystem
 {
-    [Dependency] private SharedMapSystem _mapSystem = default!;
+    [Dependency] private readonly SharedMapSystem _mapSystem = default!;
     
     public EntityUid? NextTubeFor(EntityUid target, Direction nextDirection, VentCrawTubeComponent? targetTube = null)
     {

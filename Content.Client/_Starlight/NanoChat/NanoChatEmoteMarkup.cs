@@ -14,10 +14,10 @@ namespace Content.Client._Starlight.NanoChat;
 /// Rich text markup handler for inline emote rendering in NanoChat messages.
 /// Usage: [emote="emotename"] or [emote name="emotename"]
 /// </summary>
-public sealed partial class NanoChatEmoteMarkup : IMarkupTagHandler
+public sealed class NanoChatEmoteMarkup : IMarkupTagHandler
 {
-    [Dependency] private IResourceCache _resourceCache = default!;
-    [Dependency] private IEntitySystemManager _entitySystemManager = default!;
+    [Dependency] private readonly IResourceCache _resourceCache = default!;
+    [Dependency] private readonly IEntitySystemManager _entitySystemManager = default!;
 
     private SpriteSystem? _spriteSystem;
 

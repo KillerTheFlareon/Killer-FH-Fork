@@ -2,7 +2,7 @@
 
 namespace Content.Client.Physics.Controllers;
 
-public sealed partial class ConveyorController : SharedConveyorController
+public sealed class ConveyorController : SharedConveyorController
 {
     //Class is empty, needed for prediction and networking
 }

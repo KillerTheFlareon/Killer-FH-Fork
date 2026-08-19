@@ -10,9 +10,9 @@ using Content.Shared.Starlight.NewLife;
 
 namespace Content.Server.Ghost.Roles.UI;
 
-public sealed partial class CardSelectionEui : BaseEui
+public sealed class CardSelectionEui : BaseEui
 {
-    [Dependency] private IEntitySystemManager _systems = default!;
+    [Dependency] private readonly IEntitySystemManager _systems = default!;
     public required Entity<RailroadableComponent> Subject { get; init; }
 
     public CardSelectionEui() => IoCManager.InjectDependencies(this);

@@ -451,8 +451,6 @@
     - FarHorizonsSecurityPracticeStatic #FarHorizons
     - FarHorizonsSecurityAmmoStatic #FarHorizons
     - FarHorizonsSecurityGeneralEquipmentStatic #FarHorizons
-    - FarHorizonsCivilianMagazinesStatic #FH
-    - FarHorizonsCivilianWeaponsStatic #FH
     dynamicPacks:
     - SalvageSecurityBoards
     - SalvageSecurityWeapons

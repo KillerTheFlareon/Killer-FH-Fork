@@ -13,12 +13,12 @@ using Robust.Shared.Utility;
 
 namespace Content.Client.Body;
 
-public sealed partial class VisualBodySystem : SharedVisualBodySystem
+public sealed class VisualBodySystem : SharedVisualBodySystem
 {
-    [Dependency] private IConfigurationManager _cfg = default!;
-    [Dependency] private IPrototypeManager _prototype = default!;
-    [Dependency] private MarkingManager _marking = default!;
-    [Dependency] private SpriteSystem _sprite = default!;
+    [Dependency] private readonly IConfigurationManager _cfg = default!;
+    [Dependency] private readonly IPrototypeManager _prototype = default!;
+    [Dependency] private readonly MarkingManager _marking = default!;
+    [Dependency] private readonly SpriteSystem _sprite = default!;
 
     public override void Initialize()
     {
@@ -204,6 +204,7 @@ public sealed partial class VisualBodySystem : SharedVisualBodySystem
 
     private void ApplyMarkings(Entity<VisualOrganMarkingsComponent> ent, EntityUid target)
     {
+        var unshadedShader = _prototype.Index(SpriteSystem.UnshadedId);
         var applied = new List<Marking>();
         foreach (var marking in AllMarkings(ent))
         {
@@ -235,26 +236,9 @@ public sealed partial class VisualBodySystem : SharedVisualBodySystem
                 else
                     _sprite.LayerSetColor(target, layerId, Color.White);
 
-                // Far Horizons Start
-                if (_sprite.TryGetLayer(target, layerId, out var markingLayer, true))
-                {
-                    if(marking.IsGlowing)
-                    {
-                        var shader = _prototype.Index(SpriteSystem.UnshadedId);
-                        
-                        if(_sprite.TryGetLayer(target, proto.BodyPart, out var protoLayer, true) && protoLayer.ShaderPrototype != null
-                            && _prototype.TryIndex<ShaderPrototype>($"{protoLayer.ShaderPrototype}_unshaded", out var unshadedShader))
-                            shader = unshadedShader;
-
-                        markingLayer.Shader = shader.Instance();
-                    }
-                    else if(_sprite.TryGetLayer(target, proto.BodyPart, out var protoLayer, true) && protoLayer.ShaderPrototype != null)
-                    {
-                        var shader = _prototype.Index(protoLayer.ShaderPrototype);
-                        markingLayer.Shader = shader.Instance();
-                    }
-                }
-                // Far Horizons End
+                // Far Horizons
+                if (marking.IsGlowing && _sprite.TryGetLayer(target, layerId, out var markingLayer, true))
+                    markingLayer.Shader = unshadedShader.Instance();
             }
 
             applied.Add(marking);

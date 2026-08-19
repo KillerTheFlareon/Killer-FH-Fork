@@ -3,10 +3,10 @@ using Content.Shared.Paper;
 
 namespace Content.Shared._Starlight.Paper;
 
-public sealed partial class TextFilePaperContentSystem : EntitySystem
+public sealed class TextFilePaperContentSystem : EntitySystem
 {
-    [Dependency] private PaperSystem _paper = default!;
-    [Dependency] private PreWrittenDocumentManager _documentManager = default!;
+    [Dependency] private readonly PaperSystem _paper = default!;
+    [Dependency] private readonly PreWrittenDocumentManager _documentManager = default!;
 
     public override void Initialize()
     {

@@ -13,10 +13,10 @@ namespace Content.Shared._Starlight.Chemistry.ExternalContainerInjector;
 /// <summary>
 /// System for Injectors that use solutions from inserted vials instead of internal solutions.
 /// </summary>
-public abstract partial class SharedExternalContainerInjectorSystem : EntitySystem
+public abstract class SharedExternalContainerInjectorSystem : EntitySystem
 {
-    [Dependency] private SharedSolutionContainerSystem _solutionContainers = default!;
-    [Dependency] private ItemSlotsSystem _itemSlots = default!;
+    [Dependency] private readonly SharedSolutionContainerSystem _solutionContainers = default!;
+    [Dependency] private readonly ItemSlotsSystem _itemSlots = default!;
 
     public override void Initialize()
     {

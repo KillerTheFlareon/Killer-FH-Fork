@@ -9,10 +9,10 @@ using Robust.Shared.GameStates;
 
 namespace Content.Server._Starlight.MassDriver.EntitySystems;
 
-public sealed partial class MassDriverSystem : SharedMassDriverSystem
+public sealed class MassDriverSystem : SharedMassDriverSystem
 {
-    [Dependency] private SharedUserInterfaceSystem _ui = default!;
-    [Dependency] private PowerReceiverSystem _powerReceiver = default!;
+    [Dependency] private readonly SharedUserInterfaceSystem _ui = default!;
+    [Dependency] private readonly PowerReceiverSystem _powerReceiver = default!;
 
     public override void Initialize()
     {

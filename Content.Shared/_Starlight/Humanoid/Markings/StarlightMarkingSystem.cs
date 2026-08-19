@@ -4,9 +4,9 @@ using Robust.Shared.Prototypes;
 
 namespace Content.Shared._Starlight.Humanoid.Markings;
 
-public sealed partial class StarlightMarkingSystem : EntitySystem
+public sealed class StarlightMarkingSystem : EntitySystem
 {
-    [Dependency] private IPrototypeManager _prototype = default!;
+    [Dependency] private readonly IPrototypeManager _prototype = default!;
 
     public bool TryGetWaggingId(ProtoId<MarkingPrototype> markingId, [NotNullWhen(true)] out string? waggingId)
     {

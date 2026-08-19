@@ -6,9 +6,9 @@ using Robust.Client.UserInterface;
 namespace Content.Client._Starlight.Thaven;
 
 [UsedImplicitly]
-public sealed partial class ThavenMoodsBoundUserInterface : BoundUserInterface
+public sealed class ThavenMoodsBoundUserInterface : BoundUserInterface
 {
-    [Dependency] private IEntityManager _entMan = default!;
+    [Dependency] private readonly IEntityManager _entMan = default!;
 
     [ViewVariables]
     private ThavenMoodsMenu? _menu;

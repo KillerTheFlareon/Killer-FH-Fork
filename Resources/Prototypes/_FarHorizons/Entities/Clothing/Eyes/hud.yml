@@ -21,7 +21,7 @@
 - type: entity
   parent: [ClothingEyesHudBase, BaseSalvageContraband]
   id: ClothingEyesHudScrapper
-  name: Salvage Objective HUD 
+  name: Scrapper Objective HUD 
   description: A heads-up display that helps tracking down the mission objective for salvage.
   suffix: GSL
   components:
@@ -38,7 +38,7 @@
 - type: entity
   parent: [ClothingEyesHudBase, ShowMedicalIcons, BaseSalvageContraband]
   id: ClothingEyesHudScrapperMedical
-  name: Salvage Medical HUD 
+  name: Scrapper Medical HUD 
   description: A modified heads-up medical display with objective tracking. Trademarked by GSL.
   suffix: GSL
   components:
