@@ -194,6 +194,7 @@
       occludes: false
     - type: Construction
       node: FirelockGlass
+    - type: LineOfSightExclude # Far Horizons
 
 - type: entity
   id: FirelockEdge
@@ -235,3 +236,4 @@
     - type: Construction
       graph: Firelock
       node: FirelockEdge
+    - type: LineOfSightExclude # Far Horizons

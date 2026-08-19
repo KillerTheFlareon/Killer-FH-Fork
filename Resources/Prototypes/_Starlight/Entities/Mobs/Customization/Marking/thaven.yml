@@ -1301,3 +1301,702 @@
   sprites:
   - sprite: _Starlight/Mobs/Customization/thaven/thaven_hair.rsi
     state: wisp
+
+# Chest
+
+- type: marking
+  id: BodyhairThaven
+  bodyPart: Chest
+  groupWhitelist: [ Thaven , ProtoThaven ] #FH
+  sprites:
+  - sprite: _Starlight/Mobs/Customization/thaven/chest.rsi
+    state: hair
+
+- type: marking
+  id: Gills
+  bodyPart: Chest
+  groupWhitelist: [ Thaven , ProtoThaven ] #FH
+  sprites:
+  - sprite: _Starlight/Mobs/Customization/thaven/chest.rsi
+    state: gills
+
+- type: marking
+  id: ThavenAbs
+  bodyPart: Chest
+  groupWhitelist: [ Thaven , ProtoThaven ] #FH
+  sprites:
+  - sprite: _Starlight/Mobs/Customization/thaven/chest.rsi
+    state: muscular
+
+- type: marking
+  id: ThavenBiteMark
+  bodyPart: Chest
+  groupWhitelist: [ Thaven , ProtoThaven ] #FH
+  sprites:
+  - sprite: _Starlight/Mobs/Customization/thaven/chest.rsi
+    state: bitemark
+
+- type: marking
+  id: ThavenBodyStripes
+  bodyPart: Chest
+  groupWhitelist: [ Thaven , ProtoThaven ] #FH
+  sprites:
+  - sprite: _Starlight/Mobs/Customization/thaven/chest.rsi
+    state: stripes
+
+- type: marking
+  id: ThavenChestScales
+  bodyPart: Chest
+  groupWhitelist: [ Thaven , ProtoThaven ] #FH
+  sprites:
+  - sprite: _Starlight/Mobs/Customization/thaven/chest.rsi
+    state: scales
+
+- type: marking
+  id: ThavenChestTattoo1
+  bodyPart: Chest
+  groupWhitelist: [ Thaven , ProtoThaven ] #FH
+  coloring:
+    default:
+      type:
+        !type:TattooColoring
+      fallbackColor: "#666666"
+  sprites:
+  - sprite: _Starlight/Mobs/Customization/thaven/chest.rsi
+    state: tat1
+
+- type: marking
+  id: ThavenSpinechill
+  bodyPart: Chest
+  groupWhitelist: [ Thaven , ProtoThaven ] #FH
+  coloring:
+    default:
+      type:
+        !type:EyeColoring
+        negative: false
+  sprites:
+  - sprite: _Starlight/Mobs/Customization/thaven/chest.rsi
+    state: spinechill
+
+- type: marking
+  id: ThavenSpines
+  bodyPart: Chest
+  groupWhitelist: [ Thaven , ProtoThaven ] #FH
+  sprites:
+  - sprite: _Starlight/Mobs/Customization/thaven/chest.rsi
+    state: spines
+
+- type: marking
+  id: ThavenTattooWave
+  bodyPart: Chest
+  groupWhitelist: [ Thaven , ProtoThaven ] #FH
+  sprites:
+  - sprite: _Starlight/Mobs/Customization/thaven/chest.rsi
+    state: tattoowave
+
+- type: marking
+  id: ThavenTattooVines
+  bodyPart: Chest
+  groupWhitelist: [ Thaven , ProtoThaven ] #FH
+  sprites:
+  - sprite: _Starlight/Mobs/Customization/thaven/chest.rsi
+    state: tattoovines
+
+- type: marking
+  id: ThavenTiger
+  bodyPart: Chest
+  groupWhitelist: [ Thaven , ProtoThaven ] #FH
+  sprites:
+  - sprite: _Starlight/Mobs/Customization/thaven/chest.rsi
+    state: tiger1
+  - sprite: _Starlight/Mobs/Customization/thaven/chest.rsi
+    state: tiger2
+
+
+# Head
+
+- type: marking
+  id: ThavenHeadCap
+  bodyPart: Head
+  groupWhitelist: [ Thaven , ProtoThaven ] #FH
+  sprites:
+  - sprite: _Starlight/Mobs/Customization/thaven/head.rsi
+    state: cap1
+  - sprite: _Starlight/Mobs/Customization/thaven/head.rsi
+    state: cap2
+
+- type: marking
+  id: ThavenHeadScales
+  bodyPart: Head
+  groupWhitelist: [ Thaven , ProtoThaven ] #FH
+  sprites:
+  - sprite: _Starlight/Mobs/Customization/thaven/head.rsi
+    state: scales
+
+- type: marking
+  id: ThavenHeadStripes
+  bodyPart: Head
+  groupWhitelist: [ Thaven , ProtoThaven ] #FH
+  sprites:
+  - sprite: _Starlight/Mobs/Customization/thaven/head.rsi
+    state: stripes
+
+- type: marking
+  id: ThavenShadow
+  bodyPart: Head
+  groupWhitelist: [ Thaven , ProtoThaven ] #FH
+  forcedColoring: true
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+        color: "#000000"
+  sprites:
+  - sprite: _Starlight/Mobs/Customization/thaven/head.rsi
+    state: shadowthaven
+
+# Snout
+
+# Eyes
+
+- type: marking
+  id: SharkminnowEyeliner
+  bodyPart: Eyes
+  groupWhitelist: [ Thaven , ProtoThaven ] #FH
+  sprites:
+  - sprite: _Starlight/Mobs/Customization/thaven/eyes.rsi
+    state: sharkminnoweyeliner
+
+- type: marking
+  id: ThavenEyesSharkminnow
+  bodyPart: Eyes
+  groupWhitelist: [ Thaven , ProtoThaven ] #FH
+  coloring:
+    default:
+      type:
+        !type:EyeColoring
+        negative: false
+  sprites:
+  - sprite: _Starlight/Mobs/Customization/thaven/eyes.rsi
+    state: sharkminnow
+
+- type: marking
+  id: ThavenEyesSharkminnowGlowing
+  bodyPart: Eyes
+  groupWhitelist: [ Thaven , ProtoThaven ] #FH
+  coloring:
+    default:
+      type:
+        !type:EyeColoring
+        negative: false
+  sprites:
+  - sprite: _Starlight/Mobs/Customization/thaven/eyes.rsi
+    state: sharkminnow
+
+- type: marking
+  id: ThavenLEyeGlow
+  bodyPart: Eyes
+  groupWhitelist: [ Thaven , ProtoThaven ] #FH
+  coloring:
+    default:
+      type:
+        !type:EyeColoring
+        negative: false
+  sprites:
+  - sprite: _Starlight/Mobs/Customization/thaven/eyes.rsi
+    state: glowleft
+
+- type: marking
+  id: ThavenREyeGlow
+  bodyPart: Eyes
+  groupWhitelist: [ Thaven , ProtoThaven ] #FH
+  coloring:
+    default:
+      type:
+        !type:EyeColoring
+        negative: false
+  sprites:
+  - sprite: _Starlight/Mobs/Customization/thaven/eyes.rsi
+    state: glowright
+
+# RArm
+
+- type: marking
+  id: ThavenRArmScales
+  bodyPart: RArm
+  groupWhitelist: [ Thaven , ProtoThaven ] #FH
+  sprites:
+  - sprite: _Starlight/Mobs/Customization/thaven/rarm.rsi
+    state: scales
+
+- type: marking
+  id: ThavenRArmTattoo1
+  bodyPart: RArm
+  groupWhitelist: [ Thaven , ProtoThaven ] #FH
+  coloring:
+    default:
+      type:
+        !type:TattooColoring
+      fallbackColor: "#666666"
+  sprites:
+  - sprite: _Starlight/Mobs/Customization/thaven/rarm.rsi
+    state: tat1
+
+- type: marking
+  id: ThavenTigerRArm
+  bodyPart: RArm
+  groupWhitelist: [ Thaven , ProtoThaven ] #FH
+  sprites:
+  - sprite: _Starlight/Mobs/Customization/thaven/rarm.rsi
+    state: tiger
+
+# LArm
+
+- type: marking
+  id: ThavenLArmScales
+  bodyPart: LArm
+  groupWhitelist: [ Thaven , ProtoThaven ] #FH
+  sprites:
+  - sprite: _Starlight/Mobs/Customization/thaven/larm.rsi
+    state: scales
+
+- type: marking
+  id: ThavenLArmTattoo1
+  bodyPart: LArm
+  groupWhitelist: [ Thaven , ProtoThaven ] #FH
+  coloring:
+    default:
+      type:
+        !type:TattooColoring
+      fallbackColor: "#666666"
+  sprites:
+  - sprite: _Starlight/Mobs/Customization/thaven/larm.rsi
+    state: tat1
+
+- type: marking
+  id: ThavenTigerLArm
+  bodyPart: LArm
+  groupWhitelist: [ Thaven , ProtoThaven ] #FH
+  sprites:
+  - sprite: _Starlight/Mobs/Customization/thaven/larm.rsi
+    state: tiger
+
+# RLeg
+
+- type: marking
+  id: ThavenRLegScales
+  bodyPart: RLeg
+  groupWhitelist: [ Thaven , ProtoThaven ] #FH
+  sprites:
+  - sprite: _Starlight/Mobs/Customization/thaven/rleg.rsi
+    state: scales
+
+# LLeg
+
+- type: marking
+  id: ThavenLLegScales
+  bodyPart: LLeg
+  groupWhitelist: [ Thaven , ProtoThaven ] #FH
+  sprites:
+  - sprite: _Starlight/Mobs/Customization/thaven/lleg.rsi
+    state: scales
+
+# UndergarmentBottom
+
+- type: marking
+  id: UnderwearBriefsT
+  bodyPart: UndergarmentBottom
+  groupWhitelist: [ Thaven , ProtoThaven ] #FH
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+        color: "#FFFFFF"
+  sprites:
+  - sprite: _Starlight/Mobs/Customization/thaven/undergarmentbottom.rsi
+    state: briefs
+
+- type: marking
+  id: UnderwearDefaultT
+  bodyPart: UndergarmentBottom
+  groupWhitelist: [ Thaven , ProtoThaven ] #FH
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+        color: "#FFFFFF"
+  sprites:
+  - sprite: _Starlight/Mobs/Customization/thaven/undergarmentbottom.rsi
+    state: boxers
+
+- type: marking
+  id: UnderwearLowridersT
+  bodyPart: UndergarmentBottom
+  groupWhitelist: [ Thaven , ProtoThaven ] #FH
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+        color: "#FFFFFF"
+  sprites:
+  - sprite: _Starlight/Mobs/Customization/thaven/undergarmentbottom.rsi
+    state: lowriders
+
+- type: marking
+  id: UnderwearSatinT
+  bodyPart: UndergarmentBottom
+  groupWhitelist: [ Thaven , ProtoThaven ] #FH
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+        color: "#FFFFFF"
+  sprites:
+  - sprite: _Starlight/Mobs/Customization/thaven/undergarmentbottom.rsi
+    state: satin
+
+- type: marking
+  id: UnderwearTangaT
+  bodyPart: UndergarmentBottom
+  groupWhitelist: [ Thaven , ProtoThaven ] #FH
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+        color: "#FFFFFF"
+  sprites:
+  - sprite: _Starlight/Mobs/Customization/thaven/undergarmentbottom.rsi
+    state: tanga
+
+# UndergarmentTop
+
+- type: marking
+  id: UndergarmentTopBinderT
+  bodyPart: UndergarmentTop
+  groupWhitelist: [ Thaven , ProtoThaven ] #FH
+  coloring:
+    default:
+      type: null
+      fallbackColor: '#FFFFFF'
+  sprites:
+  - sprite: _Starlight/Mobs/Customization/thaven/undergarmenttop.rsi
+    state: binder
+
+- type: marking
+  id: UndershirtBraClassicT
+  bodyPart: UndergarmentTop
+  groupWhitelist: [ Thaven , ProtoThaven ] #FH
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+        color: "#FFFFFF"
+  sprites:
+  - sprite: _Starlight/Mobs/Customization/thaven/undergarmenttop.rsi
+    state: classic
+
+- type: marking
+  id: UndershirtBraSportsT
+  bodyPart: UndergarmentTop
+  groupWhitelist: [ Thaven , ProtoThaven ] #FH
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+        color: "#FFFFFF"
+  sprites:
+  - sprite: _Starlight/Mobs/Customization/thaven/undergarmenttop.rsi
+    state: sports
+
+- type: marking
+  id: UndershirtBraStraplessT
+  bodyPart: UndergarmentTop
+  groupWhitelist: [ Thaven , ProtoThaven ] #FH
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+        color: "#FFFFFF"
+  sprites:
+  - sprite: _Starlight/Mobs/Customization/thaven/undergarmenttop.rsi
+    state: strapless
+
+- type: marking
+  id: UndershirtDefaultT
+  bodyPart: UndergarmentTop
+  groupWhitelist: [ Thaven , ProtoThaven ] #FH
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+        color: "#FFFFFF"
+  sprites:
+  - sprite: _Starlight/Mobs/Customization/thaven/undergarmenttop.rsi
+    state: undershirt
+
+- type: marking
+  id: UndershirtGrossSleevelessT
+  bodyPart: UndergarmentTop
+  groupWhitelist: [ Thaven , ProtoThaven ] #FH
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+        color: "#FFFFFF"
+  sprites:
+  - sprite: _Starlight/Mobs/Customization/thaven/undergarmenttop.rsi
+    state: grosssleeveless
+
+- type: marking
+  id: UndershirtNanotrasenT
+  bodyPart: UndergarmentTop
+  groupWhitelist: [ Thaven , ProtoThaven ] #FH
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+        color: "#FFFFFF"
+  sprites:
+  - sprite: _Starlight/Mobs/Customization/thaven/undergarmenttop.rsi
+    state: nanotrasen
+
+- type: marking
+  id: UndershirtRolledT
+  bodyPart: UndergarmentTop
+  groupWhitelist: [ Thaven , ProtoThaven ] #FH
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+        color: "#FFFFFF"
+  sprites:
+  - sprite: _Starlight/Mobs/Customization/thaven/undergarmenttop.rsi
+    state: rolledundershirt
+
+# HeadSide
+
+- type: marking
+  id: ThavenEars1
+  bodyPart: HeadSide
+  groupWhitelist: [ Thaven , ProtoThaven ] #FH
+  forcedColoring: true
+  sprites:
+  - sprite: _Starlight/Mobs/Customization/thaven/headside.rsi
+    state: ears1
+
+- type: marking
+  id: ThavenEars2
+  bodyPart: HeadSide
+  groupWhitelist: [ Thaven , ProtoThaven ] #FH
+  forcedColoring: true
+  sprites:
+  - sprite: _Starlight/Mobs/Customization/thaven/headside.rsi
+    state: ears2
+
+- type: marking
+  id: ThavenEars3
+  bodyPart: HeadSide
+  groupWhitelist: [ Thaven , ProtoThaven ] #FH
+  forcedColoring: true
+  sprites:
+  - sprite: _Starlight/Mobs/Customization/thaven/headside.rsi
+    state: ears3
+
+- type: marking
+  id: ThavenEars4
+  bodyPart: HeadSide
+  groupWhitelist: [ Thaven , ProtoThaven ] #FH
+  forcedColoring: true
+  sprites:
+  - sprite: _Starlight/Mobs/Customization/thaven/headside.rsi
+    state: ears4
+
+- type: marking
+  id: ThavenEarsBigFins
+  bodyPart: HeadSide
+  groupWhitelist: [ Thaven , ProtoThaven ] #FH
+  sprites:
+  - sprite: _Starlight/Mobs/Customization/thaven/headside.rsi
+    state: bigfins
+  - sprite: _Starlight/Mobs/Customization/thaven/headside.rsi
+    state: bigfins2
+
+- type: marking
+  id: ThavenEarsTwinFins
+  bodyPart: HeadSide
+  groupWhitelist: [ Thaven , ProtoThaven ] #FH
+  forcedColoring: true
+  sprites:
+  - sprite: _Starlight/Mobs/Customization/thaven/headside.rsi
+    state: twinfin
+
+- type: marking
+  id: ThavenFishEars
+  bodyPart: HeadSide
+  groupWhitelist: [ Thaven , ProtoThaven ] #FH
+  forcedColoring: true
+  sprites:
+  - sprite: _Starlight/Mobs/Customization/thaven/headside.rsi
+    state: fishears
+
+- type: marking
+  id: ThavenNoEars
+  bodyPart: HeadSide
+  groupWhitelist: [ Thaven , ProtoThaven ] #FH
+  sprites:
+  - sprite: _Starlight/Mobs/Customization/thaven/headside.rsi
+    state: noears
+
+# HeadTop
+
+- type: marking
+  id: ThavenHibiscus
+  bodyPart: HeadTop
+  groupWhitelist: [ Thaven , ProtoThaven ] #FH
+  coloring:
+    default:
+      type:
+        !type:EyeColoring
+        negative: false
+  sprites:
+  - sprite: _Starlight/Mobs/Customization/thaven/headtop.rsi
+    state: hibiscus1
+  - sprite: _Starlight/Mobs/Customization/thaven/headtop.rsi
+    state: hibiscus2
+
+- type: marking
+  id: ThavenPiercings
+  bodyPart: HeadTop
+  groupWhitelist: [ Thaven , ProtoThaven ] #FH
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+        color: "#FFFFFF"
+  sprites:
+  - sprite: _Starlight/Mobs/Customization/thaven/headtop.rsi
+    state: piercings
+
+- type: marking
+  id: ThavenPiercings2
+  bodyPart: HeadTop
+  groupWhitelist: [ Thaven , ProtoThaven ] #FH
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+        color: "#FFFFFF"
+  sprites:
+  - sprite: _Starlight/Mobs/Customization/thaven/headtop.rsi
+    state: piercings2
+
+# Tail
+
+- type: marking
+  id: ThavenBasicTail
+  bodyPart: Tail
+  groupWhitelist: [ Thaven , ProtoThaven ] #FH
+  sprites:
+  - sprite: _Starlight/Mobs/Customization/thaven/taillayers.rsi
+    state: basic_front
+  - sprite: _Starlight/Mobs/Customization/thaven/taillayers.rsi
+    state: basic_behind
+
+- type: marking
+  id: ThavenBigTail
+  bodyPart: Tail
+  groupWhitelist: [ Thaven , ProtoThaven ] #FH
+  sprites:
+  - sprite: _Starlight/Mobs/Customization/thaven/taillayers.rsi
+    state: big1_behind
+  - sprite: _Starlight/Mobs/Customization/thaven/taillayers.rsi
+    state: big1_front
+  - sprite: _Starlight/Mobs/Customization/thaven/taillayers.rsi
+    state: big2_behind
+  - sprite: _Starlight/Mobs/Customization/thaven/taillayers.rsi
+    state: big2_front
+
+- type: marking
+  id: ThavenTadpoleTail
+  bodyPart: Tail
+  groupWhitelist: [ Thaven , ProtoThaven ] #FH
+  sprites:
+  - sprite: _Starlight/Mobs/Customization/thaven/taillayers.rsi
+    state: tadpole1_behind
+  - sprite: _Starlight/Mobs/Customization/thaven/taillayers.rsi
+    state: tadpole1_front
+  - sprite: _Starlight/Mobs/Customization/thaven/taillayers.rsi
+    state: tadpole2_behind
+  - sprite: _Starlight/Mobs/Customization/thaven/taillayers.rsi
+    state: tadpole2_front
+
+- type: marking
+  id: ThavenTailEel
+  bodyPart: Tail
+  groupWhitelist: [ Thaven , ProtoThaven ] #FH
+  sprites:
+  - sprite: _Starlight/Mobs/Customization/thaven/taillayers.rsi
+    state: eel1_behind
+  - sprite: _Starlight/Mobs/Customization/thaven/taillayers.rsi
+    state: eel1_front
+  - sprite: _Starlight/Mobs/Customization/thaven/taillayers.rsi
+    state: eel2_behind
+  - sprite: _Starlight/Mobs/Customization/thaven/taillayers.rsi
+    state: eel2_front
+
+- type: marking
+  id: ThavenTailEelOverlay
+  bodyPart: TailCover
+  groupWhitelist: [ Thaven , ProtoThaven ] #FH
+  coloring:
+    default:
+      type:
+        !type:EyeColoring
+        negative: false
+  sprites:
+  - sprite: _Starlight/Mobs/Customization/thaven/taillayers.rsi
+    state: eelghost_behind
+  - sprite: _Starlight/Mobs/Customization/thaven/taillayers.rsi
+    state: eelghost_front
+  - sprite: _Starlight/Mobs/Customization/thaven/taillayers.rsi
+    state: eel3_behind
+  - sprite: _Starlight/Mobs/Customization/thaven/taillayers.rsi
+    state: eel3_front
+
+- type: marking
+  id: ThavenTailNurse
+  bodyPart: Tail
+  groupWhitelist: [ Thaven , ProtoThaven ] #FH
+  sprites:
+  - sprite: _Starlight/Mobs/Customization/thaven/taillayers.rsi
+    state: nurse1_behind
+  - sprite: _Starlight/Mobs/Customization/thaven/taillayers.rsi
+    state: nurse1_front
+  - sprite: _Starlight/Mobs/Customization/thaven/taillayers.rsi
+    state: nurse2_behind
+  - sprite: _Starlight/Mobs/Customization/thaven/taillayers.rsi
+    state: nurse2_front
+
+- type: marking
+  id: ThavenTailStub
+  bodyPart: Tail
+  groupWhitelist: [ Thaven , ProtoThaven ] #FH
+  sprites:
+  - sprite: _Starlight/Mobs/Customization/thaven/taillayers.rsi
+    state: stub1_behind
+  - sprite: _Starlight/Mobs/Customization/thaven/taillayers.rsi
+    state: stub1_front
+  - sprite: _Starlight/Mobs/Customization/thaven/taillayers.rsi
+    state: stub2_behind
+  - sprite: _Starlight/Mobs/Customization/thaven/taillayers.rsi
+    state: stub2_front
+
+- type: marking
+  id: ThavenTailThresher
+  bodyPart: Tail
+  groupWhitelist: [ Thaven , ProtoThaven ] #FH
+  sprites:
+  - sprite: _Starlight/Mobs/Customization/thaven/tail.rsi
+    state: thresher1
+  - sprite: _Starlight/Mobs/Customization/thaven/tail.rsi
+    state: thresher2

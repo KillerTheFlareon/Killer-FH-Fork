@@ -12,11 +12,11 @@ namespace Content.Shared._FarHorizons.Medical.Disease.Systems;
 /// Handles using a DiseaseSample on the DiseaseDiagnoser to print a report.
 /// TODO: There should be more features. The current implementation provides a minimal implementation for diagnostics.
 /// </summary>
-public sealed class DiseaseDiagnoserSystem : EntitySystem
+public sealed partial class DiseaseDiagnoserSystem : EntitySystem
 {
-    [Dependency] private readonly IPrototypeManager _prototypes = default!;
-    [Dependency] private readonly SharedPopupSystem _popup = default!;
-    [Dependency] private readonly PaperSystem _paper = default!;
+    [Dependency] private IPrototypeManager _prototypes = default!;
+    [Dependency] private SharedPopupSystem _popup = default!;
+    [Dependency] private PaperSystem _paper = default!;
 
     /// <inheritdoc/>
     public override void Initialize()

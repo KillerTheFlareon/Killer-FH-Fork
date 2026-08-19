@@ -8,8 +8,8 @@ namespace Content.Shared._FarHorizons.Body;
 
 public sealed partial class MovementOrganSystem : EntitySystem
 {
-    [Dependency] private readonly MovementSpeedModifierSystem _movementSpeed = default!;
-    [Dependency] private readonly InventorySystem _inventory = default!;
+    [Dependency] private MovementSpeedModifierSystem _movementSpeed = default!;
+    [Dependency] private InventorySystem _inventory = default!;
 
     private const float NoLegsModifier = 0.1f;
 

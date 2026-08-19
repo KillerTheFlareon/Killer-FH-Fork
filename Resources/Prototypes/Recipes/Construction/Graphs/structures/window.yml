@@ -99,7 +99,7 @@
               doAfter: 3
 
     - node: window
-      entity: WindowStandard #FH
+      entity: WindowGeneric #FH
       edges:
         - to: start
           completed:
@@ -114,7 +114,7 @@
               doAfter: 2
 
     - node: reinforcedWindow
-      entity: ReinforcedWindowStandard #FH
+      entity: ReinforcedWindowGeneric #FH
       edges:
         - to: start
           completed:
@@ -156,7 +156,7 @@
               doAfter: 2
 
     - node: plasmaWindow
-      entity: PlasmaWindow
+      entity: PlasmaWindowGeneric # Far Horizons
       edges:
         - to: start
           completed:
@@ -175,7 +175,7 @@
               doAfter: 3
 
     - node: reinforcedPlasmaWindow
-      entity: ReinforcedPlasmaWindow
+      entity: ReinforcedPlasmaWindowGeneric # Far Horizons
       edges:
         - to: start
           completed:
@@ -198,7 +198,7 @@
               doAfter: 3
 
     - node: uraniumWindow
-      entity: UraniumWindow
+      entity: UraniumWindowGeneric # Far Horizons
       edges:
         - to: start
           completed:
@@ -217,7 +217,7 @@
               doAfter: 3
 
     - node: reinforcedUraniumWindow
-      entity: ReinforcedUraniumWindow
+      entity: ReinforcedUraniumWindowGeneric # Far Horizons
       edges:
         - to: start
           completed:
@@ -295,12 +295,20 @@
 
 #FH - Start
     - node: ReinforcedShuttleWindow
+<<<<<<< HEAD
       entity: ShuttleWindowReinforced
+=======
+      entity: ShuttleWindowReinforcedGeneric
+>>>>>>> Far-Horizons
       edges:
         - to: start
           completed:
             - !type:GivePrototype
+<<<<<<< HEAD
               prototype: ReinforcedPlasmaGlass
+=======
+              prototype: SheetRPGlass1
+>>>>>>> Far-Horizons
               amount: 4
             - !type:GivePrototype
               prototype: SheetPlasteel1
@@ -341,12 +349,20 @@
               doAfter: 1
 
     - node: ArmoredShuttleWindow
+<<<<<<< HEAD
       entity: ShuttleWindowArmored
+=======
+      entity: ShuttleWindowArmoredGeneric
+>>>>>>> Far-Horizons
       edges:
         - to: start
           completed:
             - !type:GivePrototype
+<<<<<<< HEAD
               prototype: ReinforcedUraniumGlass
+=======
+              prototype: SheetRUGlass1
+>>>>>>> Far-Horizons
               amount: 4
             - !type:GivePrototype
               prototype: SheetPlasteel1
@@ -384,4 +400,9 @@
             - tool: Welding
               doAfter: 4
             - tool: Anchoring
+<<<<<<< HEAD
               doAfter: 1
+=======
+              doAfter: 1
+#FH end
+>>>>>>> Far-Horizons

@@ -20,8 +20,8 @@ using Robust.Shared.Utility;
 namespace Content.Server._FarHorizons.Body;
 public sealed partial class BrainTransferSystem : EntitySystem
 {
-    [Dependency] private readonly IComponentFactory _factory = default!;
-    [Dependency] private readonly MindSystem _mind = default!;
+    [Dependency] private IComponentFactory _factory = default!;
+    [Dependency] private MindSystem _mind = default!;
     public override void Initialize()
     {
         base.Initialize();
@@ -61,7 +61,7 @@ public sealed partial class BrainTransferSystem : EntitySystem
     {
         foreach(var component in _mindComponents)
         {
-            if (!EntityManager.TryGetComponent(args.Body, component, out var comp))
+            if (!TryComp(args.Body, component, out var comp))
                 continue;
 
             if (HasComp<NymphComponent>(args.Body) && ent.Comp.StoredComponents.ContainsKey(component.Name))
@@ -70,7 +70,7 @@ public sealed partial class BrainTransferSystem : EntitySystem
                 continue;
             }
 
-            ent.Comp.StoredComponents[component.Name] = new EntityPrototype.ComponentRegistryEntry(comp, new MappingDataNode());
+            ent.Comp.StoredComponents[component.Name] = new EntityPrototype.ComponentRegistryEntry(comp);
             RemComp(args.Body, comp);
         }
     }

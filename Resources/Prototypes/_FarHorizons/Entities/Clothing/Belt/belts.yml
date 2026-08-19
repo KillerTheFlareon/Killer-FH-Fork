@@ -38,6 +38,10 @@
         - ImprovisedWrench
         - ImprovisedMultitool
         - Knife
+        - UtilityKnife # Starlight start
+        - Document # Relevant cargo gear
+        - Folder
+        - Write # Starlight end
       components:
         - StationMap
         - SprayPainter

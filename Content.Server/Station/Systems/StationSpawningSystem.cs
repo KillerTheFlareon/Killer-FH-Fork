@@ -38,25 +38,25 @@ namespace Content.Server.Station.Systems;
 /// Also provides helpers for spawning in the player's mob.
 /// </summary>
 [PublicAPI]
-public sealed class StationSpawningSystem : SharedStationSpawningSystem
+public sealed partial class StationSpawningSystem : SharedStationSpawningSystem
 {
-    [Dependency] private readonly SharedAccessSystem _accessSystem = default!;
-    [Dependency] private readonly ActorSystem _actors = default!;
-    [Dependency] private readonly IdCardSystem _cardSystem = default!;
-    [Dependency] private readonly HumanoidProfileSystem _humanoidProfile = default!;
-    [Dependency] private readonly SharedVisualBodySystem _visualBody = default!;
-    [Dependency] private readonly IdentitySystem _identity = default!;
-    [Dependency] private readonly MetaDataSystem _metaSystem = default!;
-    [Dependency] private readonly PdaSystem _pdaSystem = default!;
-    [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
-    [Dependency] private readonly MindSystem _mindSystem = default!;
-    [Dependency] private readonly IServerFactionManager _factions = default!; // Far Horizons
-    [Dependency] private readonly ContainerSystem _container = default!; // Far Horizons
+    [Dependency] private SharedAccessSystem _accessSystem = default!;
+    [Dependency] private ActorSystem _actors = default!;
+    [Dependency] private IdCardSystem _cardSystem = default!;
+    [Dependency] private HumanoidProfileSystem _humanoidProfile = default!;
+    [Dependency] private SharedVisualBodySystem _visualBody = default!;
+    [Dependency] private IdentitySystem _identity = default!;
+    [Dependency] private MetaDataSystem _metaSystem = default!;
+    [Dependency] private PdaSystem _pdaSystem = default!;
+    [Dependency] private IPrototypeManager _prototypeManager = default!;
+    [Dependency] private MindSystem _mindSystem = default!;
+    [Dependency] private IServerFactionManager _factions = default!; // Far Horizons
+    [Dependency] private ContainerSystem _container = default!; // Far Horizons
 
     private List<CyberneticImplant> _allCybernetics = default!; // Starlight
 
     #region Starlight
-    [Dependency] private readonly GameTicker _gameTicker = default!;
+    [Dependency] private GameTicker _gameTicker = default!;
     private static readonly ProtoId<SpeciesPrototype> FallbackSpecies = "Human";
     private static readonly ProtoId<JobPrototype> FallbackJob = "Assistant";
     private static readonly Gauge _speciesJobsSpawns = Metrics.CreateGauge(
@@ -162,7 +162,7 @@ public sealed class StationSpawningSystem : SharedStationSpawningSystem
             RaiseLocalEvent(jobEntity, ref jobEntityGearEv);
             // Starlight End
 
-            DoJobSpecials(job, jobEntity);
+            DoJobSpecials(faction, job, jobEntity); // Far Horizons factions
             _identity.QueueIdentityUpdate(jobEntity);
             return jobEntity;
         }
@@ -225,7 +225,7 @@ public sealed class StationSpawningSystem : SharedStationSpawningSystem
             SetPdaAndIdCardData(entity.Value, metaData.EntityName, factionProto, prototype, station); // Far Horizons
         }
 
-        DoJobSpecials(job, entity.Value);
+        DoJobSpecials(faction, job, entity.Value); // Far Horizons factions
         _identity.QueueIdentityUpdate(entity.Value);
 
         #region StarlightStats
@@ -255,12 +255,12 @@ public sealed class StationSpawningSystem : SharedStationSpawningSystem
         return entity.Value;
     }
 
-    private void DoJobSpecials(ProtoId<JobPrototype>? job, EntityUid entity)
+    private void DoJobSpecials(ProtoId<FactionPrototype>? faction, ProtoId<JobPrototype>? job, EntityUid entity) // Far Horizons factions
     {
         if (!_prototypeManager.Resolve(job, out JobPrototype? prototype))
             return;
 
-        foreach (var jobSpecial in prototype.Special)
+        foreach (var jobSpecial in _factions.OverrideJobSpecial((faction, prototype.ID))) // Far Horizons factions
         {
             jobSpecial.AfterEquip(entity);
         }

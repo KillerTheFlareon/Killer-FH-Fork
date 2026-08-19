@@ -3,6 +3,7 @@
   parent: [ BaseHandheldComputer, BaseBlueshieldCommandContraband ] # FH
   id: HandheldBSOCrewMonitor
   description: Does not monitor the competence levels of command members.
+  suffix: NT #FH
   components:
 #  - type: Tag
 #    tags:
@@ -21,7 +22,7 @@
   - type: CrewMonitoringConsole
   - type: CrewMonitoringFilter
     shownDepartments:
-    - Command
+    - "Command Jobs - NT Executives" #FH
     alwaysShowTrackingImplants: true
   - type: DeviceNetwork
     deviceNetId: Wireless
@@ -32,7 +33,7 @@
 - type: entity
   id: HandheldBSOCrewMonitorEmpty
   parent: HandheldBSOCrewMonitor
-  suffix: Empty
+  suffix: NT, Empty #FH
   components:
 #  - type: Tag
 #    tags:

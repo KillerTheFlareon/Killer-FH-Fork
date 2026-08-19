@@ -6,9 +6,9 @@
   components:
   - type: Sprite
     drawdepth: WallTops
-    sprite: _FarHorizons/Structures/Windows/reinforced_window.rsi #FH
+    sprite: _FarHorizons/Structures/Windows/NanoTrasen/reinforced_window.rsi #FH
   - type: Icon
-    sprite: _FarHorizons/Structures/Windows/reinforced_window.rsi #FH
+    sprite: _FarHorizons/Structures/Windows/NanoTrasen/reinforced_window.rsi #FH
   - type: Repairable
     fuelCost: 10
     doAfterDelay: 2
@@ -59,6 +59,7 @@
   - type: Paintable #FH start
     group: ReinforcedWindow 
   - type: GenericPaintable #FH end
+  - type: StructureOcclusion #Far Horizons
 
 - type: entity
   id: WindowReinforcedDirectional
@@ -119,11 +120,13 @@
         acts: [ "Destruction" ]
   - type: StaticPrice
     price: 22.5
+  - type: StructureOcclusion #Far Horizons
+    occlusionAmount: 0.3
 
 - type: entity
   parent: ReinforcedWindow
   id: ReinforcedWindowDiagonal
-  suffix: Diagonal #Far Horizons - The Great Capitalization Crusade
+  suffix: Diagonal, NT #Far Horizons - The Great Capitalization Crusade
   placement:
     mode: SnapgridCenter
     snap:
@@ -131,7 +134,7 @@
   components:
   - type: Sprite
     drawdepth: WallTops
-    sprite: _FarHorizons/Structures/Windows/reinforced_window_diagonal.rsi #FH
+    sprite: _FarHorizons/Structures/Windows/NanoTrasen/reinforced_window_diagonal.rsi #FH
     state: state0
   - type: Tag
     tags:
@@ -139,10 +142,10 @@
     - Window
   - type: IconSmooth
     mode: Diagonal
-    key: windows
+    key: walls #FH
     base: state
   - type: Icon
-    sprite: _FarHorizons/Structures/Windows/reinforced_window_diagonal.rsi #FH
+    sprite: _FarHorizons/Structures/Windows/NanoTrasen/reinforced_window_diagonal.rsi #FH
     state: state0
   - type: Fixtures
     fixtures:
@@ -169,4 +172,5 @@
     graph: WindowDiagonal
     node: reinforcedWindowDiagonal
   - type: Paintable #FH start
-    group: null #FH end
+    group: ReinforcedWindowDiagonal 
+  - type: GenericPaintable #FH end

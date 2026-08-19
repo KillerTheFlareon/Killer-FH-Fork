@@ -14,7 +14,7 @@ namespace Content.Shared.Silicons.Borgs;
 public abstract partial class SharedBorgSystem
 {
     private EntityQuery<BorgModuleComponent> _moduleQuery;
-    [Dependency] private readonly SharedIPCSystem _ipc = default!; // FarHorizons
+    [Dependency] private SharedIPCSystem _ipc = default!; // FarHorizons
 
     public void InitializeModule()
     {

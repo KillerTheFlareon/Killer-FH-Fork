@@ -11,15 +11,15 @@ using Content.Shared.Body.Systems;
 
 namespace Content.Shared._Starlight.BreathOrgan.Systems;
 
-public sealed class OrganBreathToolSystem : EntitySystem
+public sealed partial class OrganBreathToolSystem : EntitySystem
 {
-    [Dependency] private readonly ActionContainerSystem _actionContainer = default!;
-    [Dependency] private readonly SharedActionsSystem _actions = default!;
-    [Dependency] private readonly SharedAtmosphereSystem _atmos = default!;
-    [Dependency] private readonly BodySystem _body = default!;
-    [Dependency] private readonly SharedGasTankSystem _gasTank = default!;
-    [Dependency] private readonly SharedInternalsSystem _internals = default!;
-    [Dependency] private readonly SharedUserInterfaceSystem _ui = default!;
+    [Dependency] private ActionContainerSystem _actionContainer = default!;
+    [Dependency] private SharedActionsSystem _actions = default!;
+    [Dependency] private SharedAtmosphereSystem _atmos = default!;
+    [Dependency] private BodySystem _body = default!;
+    [Dependency] private SharedGasTankSystem _gasTank = default!;
+    [Dependency] private SharedInternalsSystem _internals = default!;
+    [Dependency] private SharedUserInterfaceSystem _ui = default!;
 
     public override void Initialize()
     {

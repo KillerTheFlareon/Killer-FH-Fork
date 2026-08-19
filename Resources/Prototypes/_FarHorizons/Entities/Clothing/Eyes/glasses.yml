@@ -48,7 +48,7 @@
 - type: entity
   parent: [ClothingEyesBase, BaseSalvageContraband]
   id: ClothingEyesGlassesScrapper
-  name: Scrapper Objective Glasses 
+  name: Salvage Objective Glasses 
   description: A pair of glasses that helps tracking down the mission objective for salvage.
   suffix: GSL
   components:
@@ -70,7 +70,7 @@
 - type: entity
   parent: [ClothingEyesBase, ShowMedicalIcons, BaseSalvageContraband]
   id: ClothingEyesGlassesScrapperMedical
-  name: Scrapper Medical Glasses 
+  name: Salvage Medical Glasses 
   description: A modified pair of medical glasses with objective tracking. Trademarked by GSL.
   suffix: GSL
   components:

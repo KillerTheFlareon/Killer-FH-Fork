@@ -384,7 +384,7 @@
     radius: 2
     energy: 4
     color: blue
-    mask: /Textures/Effects/LightMasks/double_cone.png
+    lightMask: ConeDouble
   - type: RotatingLight
     speed: 360
  #Far Horizons - End
@@ -465,7 +465,7 @@
     radius: 2
     energy: 4
     color: blue
-    mask: /Textures/Effects/LightMasks/double_cone.png
+    lightMask: ConeDouble
   - type: RotatingLight
     speed: 360
  #Far Horizons - End
@@ -543,7 +543,7 @@
     radius: 2
     energy: 4
     color: blue
-    mask: /Textures/Effects/LightMasks/double_cone.png
+    lightMask: ConeDouble
   - type: RotatingLight
     speed: 360
  #Far Horizons - End
@@ -832,7 +832,7 @@
     radius: 2
     energy: 4
     color: blue
-    mask: /Textures/Effects/LightMasks/double_cone.png
+    lightMask: ConeDouble
   - type: RotatingLight
     speed: 360
  #Far Horizons - End

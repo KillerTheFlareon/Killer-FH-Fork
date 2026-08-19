@@ -9,9 +9,9 @@ namespace Content.Server._FarHorizons.Telegraphs.Effects;
 
 public sealed partial class TelegraphDealDamageOnTriggerSystem : EntitySystem
 {
-    [Dependency] private readonly TelegraphedAttackSystem _telegraph = default!;
-    [Dependency] private readonly DamageableSystem _damage = default!;
-    [Dependency] private readonly LimbDamageSystem _limbDamage = default!;
+    [Dependency] private TelegraphedAttackSystem _telegraph = default!;
+    [Dependency] private DamageableSystem _damage = default!;
+    [Dependency] private LimbDamageSystem _limbDamage = default!;
 
     public override void Initialize()
     {

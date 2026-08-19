@@ -17,6 +17,8 @@
   - Mining
   - Maintenance
   - External
+  - MaintenanceNS  # Far Horizons
+  - ExternalNS  # Far Horizons
   extendedAccess:
   - Salvage
 

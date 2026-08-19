@@ -327,6 +327,69 @@
     tags:
     - P291
 
+
+  #region Contable's
+- type: entity
+  name: Compliance
+  parent: [BaseWeaponSubMachineGun, BaseSecurityContraband]
+  id: WeaponSubMachineGunCompliance
+  description: A small bullpup SMG, designed for close quarters combat and subduing prison riots. Feeds from 9mm Magazines.
+  components:
+  - type: Sprite
+    sprite: _FarHorizons/Objects/Weapons/Guns/SMGs/NS_P91/ns_p91_x32x64.rsi
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-0
+      map: ["enum.GunVisualLayers.Mag"]
+  - type: Clothing
+    sprite: _FarHorizons/Objects/Weapons/Guns/SMGs/NS_P91/ns_p91_x32.rsi
+  - type: Item
+    sprite: _FarHorizons/Objects/Weapons/Guns/SMGs/NS_P91/ns_p91_x32.rsi
+  - type: Wieldable
+    unwieldOnUse: false
+  - type: GunWieldBonus # 1 - 15 Deviation / Addition of Grip
+    minAngle: 0
+    maxAngle: -10
+  - type: Gun # 1 - 25 Deviation (When one-handed)
+    fireRate: 10
+    minAngle: 1
+    maxAngle: 25
+    angleIncrease: 8
+    angleDecay: 5
+    selectedMode: FullAuto
+    availableModes:
+    - SemiAuto
+    - FullAuto
+    soundGunshot:
+      path: /Audio/_Starlight/Weapons/Guns/Gunshots/uzi.ogg
+  - type: MagazineVisuals
+    magState: mag
+    steps: 5
+    zeroVisible: true
+  - type: Appearance
+  - type: Sharp
+  - type: MeleeWeapon
+    wideAnimationRotation: -90
+    attackRate: 1.5
+    soundHit:
+      collection: MetalThud
+    angle: 0
+    animation: WeaponArcThrust
+    damage:
+      types:
+        Blunt: 7 #Far horizons
+  - type: StaminaDamageOnHit
+    damage: 20
+  - type: UseDelay
+    delay: 1
+  - type: SpeedModifiedOnWield
+    walkModifier: 1
+    sprintModifier: 1
+  - type: AltFireMelee
+    attackType: Heavy
+
+
 #region = Syndicate =
 
 

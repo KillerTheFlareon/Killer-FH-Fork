@@ -86,4 +86,6 @@ public sealed partial class JobOverride{
     public IReadOnlyCollection<ProtoId<AccessGroupPrototype>>? ExtendedAccessGroups;
     [DataField]
     public LocId? Supervisors;
+    [DataField(serverOnly: true)]
+    public JobSpecial[]? Special;
 }

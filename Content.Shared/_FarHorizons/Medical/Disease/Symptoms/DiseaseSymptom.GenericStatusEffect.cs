@@ -37,7 +37,7 @@ public sealed partial class SymptomGenericStatusEffect : SymptomBehavior
 
 public sealed partial class SymptomGenericStatusEffect
 {
-    [Dependency] private readonly StatusEffectsSystem _status = default!;
+    [Dependency] private StatusEffectsSystem _status = default!;
 
     /// <summary>
     /// Adds an effect status component to the entity.

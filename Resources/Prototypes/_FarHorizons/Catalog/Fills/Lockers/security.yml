@@ -1493,7 +1493,7 @@
     - id: ClothingHeadHatDetGadget
     - id: ClothingNeckTieDet
     - id: ClothingOuterVestDetectiveSyndi
-    - id: ClothingOuterCoatInspector
+    - id: ClothingOuterCoatDetectiveSyndi
     - id: FlippoEngravedLighter
     - id: FlashlightSeclite
     - id: ForensicScanner

@@ -502,7 +502,7 @@
 - type: entity
   parent: [ ClothingUniformBase , BaseSalvageContraband ]
   id: ClothingUniformJumpsuitSalvageMercWhite
-  name: White Scrapper Jumpsuit #Far Horizons - The Great Capitalization Crusade
+  name: White Salvage Jumpsuit #Far Horizons - The Great Capitalization Crusade
   description: Utilitarian clothing for salvagers.
   components:
     - type: Sprite
@@ -513,7 +513,7 @@
 - type: entity
   parent: [ ClothingUniformBase , BaseSalvageContraband ]
   id: ClothingUniformJumpsuitSalvageMercGreen
-  name: Green Scrapper Jumpsuit #Far Horizons - The Great Capitalization Crusade
+  name: Green Salvage Jumpsuit #Far Horizons - The Great Capitalization Crusade
   description: Utilitarian clothing for salvagers.
   components:
     - type: Sprite
@@ -524,7 +524,7 @@
 - type: entity
   parent: [ ClothingUniformBase , BaseSalvageContraband ]
   id: ClothingUniformJumpsuitSalvageMercBrown
-  name: Brown Scrapper Jumpsuit #Far Horizons - The Great Capitalization Crusade
+  name: Brown Salvage Jumpsuit #Far Horizons - The Great Capitalization Crusade
   description: Utilitarian clothing for salvagers.
   components:
     - type: Sprite

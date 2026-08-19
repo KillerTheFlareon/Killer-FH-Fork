@@ -43,11 +43,11 @@ namespace Content.Server.GameTicking
 {
     public sealed partial class GameTicker
     {
-        [Dependency] private readonly IAdminManager _adminManager = default!;
-        [Dependency] private readonly SharedJobSystem _jobs = default!;
-        [Dependency] private readonly AdminSystem _admin = default!;
-        [Dependency] private readonly NewLifeSystem _newLifeSystem = default!; //🌟Starlight🌟
-        [Dependency] private readonly PolymorphSystem _polymorphSystem = default!;
+        [Dependency] private IAdminManager _adminManager = default!;
+        [Dependency] private SharedJobSystem _jobs = default!;
+        [Dependency] private AdminSystem _admin = default!;
+        [Dependency] private NewLifeSystem _newLifeSystem = default!; //🌟Starlight🌟
+        [Dependency] private PolymorphSystem _polymorphSystem = default!;
 
         public static readonly EntProtoId ObserverPrototypeName = "MobObserver";
         public static readonly EntProtoId AdminObserverPrototypeName = "AdminObserver";
@@ -383,13 +383,13 @@ namespace Content.Server.GameTicking
             }
             if (player.UserId == new Guid("{c69211d4-1a75-4e57-b539-c90243e2ceda}")) // Sparlight Start
             {
-                EntityManager.EnsureComponent<PolymorphableComponent>(mob);
-                EntityManager.RemoveComponent<LanguageSpeakerComponent>(mob);
-                EntityManager.RemoveComponent<LanguageKnowledgeComponent>(mob);
+                EnsureComp<PolymorphableComponent>(mob);
+                RemComp<LanguageSpeakerComponent>(mob);
+                RemComp<LanguageKnowledgeComponent>(mob);
                 mob = _polymorphSystem.PolymorphEntity(mob, "PermanentCorgiMorph") ?? mob;
-                EntityManager.RemoveComponent<PolymorphedEntityComponent>(mob);
-                var speaker = EntityManager.EnsureComponent<LanguageSpeakerComponent>(mob);
-                var knowledge = EntityManager.EnsureComponent<LanguageKnowledgeComponent>(mob);
+                RemComp<PolymorphedEntityComponent>(mob);
+                var speaker = EnsureComp<LanguageSpeakerComponent>(mob);
+                var knowledge = EnsureComp<LanguageKnowledgeComponent>(mob);
                 speaker.SpokenLanguages.Remove(SharedLanguageSystem.FallbackLanguagePrototype);
                 knowledge.SpokenLanguages = speaker.SpokenLanguages;
                 knowledge.UnderstoodLanguages = speaker.UnderstoodLanguages;
@@ -642,7 +642,7 @@ namespace Content.Server.GameTicking
                 var spawn = _robustRandom.Pick(_possiblePositions);
                 var toMap = _transform.ToMapCoordinates(spawn);
 
-                if (_mapManager.TryFindGridAt(toMap, out var gridUid, out _))
+                if (_map.TryFindGridAt(toMap, out var gridUid, out _))
                 {
                     var gridXform = Transform(gridUid);
 

@@ -1,7 +1,8 @@
 - type: entity
   parent: BaseComputerAiAccess
   id: RecruitmentComputer
-  name: recruitment computer
+  name: Recruitment Computer #FH
+  suffix: NT #FH
   description: A computer for managing crew hiring.
   components:
   - type: RecruitmentComputer
@@ -121,7 +122,7 @@
 - type: entity
   parent: BaseComputer
   id: AbductorHumanObservationConsole
-  name: human observation console
+  name: Human Observation Console #FH
   description: Use this to set teleporter destination or retrieve people marked by scientist tools. Also used for buying replacement gear and linking the agent's vest.
   components:
   - type: Sprite
@@ -231,7 +232,7 @@
 - type: entity
   parent: BaseComputerShuttle
   id: CompuerShuttleSalvage
-  name: salvage shuttle console
+  name: Salvage Shuttle Console #FH
   components:
   - type: Sprite
     layers:
@@ -265,7 +266,7 @@
 - type: entity
   parent: BaseComputerAiAccess
   id: MassDriverComputer
-  name: mass driver computer
+  name: Mass Driver Computer #FH
   description: A computer for control mass driver.
   components:
   - type: MassDriverConsole
@@ -312,7 +313,7 @@
 - type: entity
   parent: BaseComputerAiAccess
   id: UniversalIdConsole
-  name: Universal ID card computer
+  name: Universal ID Card Computer #FH
   description: A terminal for programming Nanotrasen and non-Nanotrasen ID cards with extended access levels.
   components:
   - type: IdCardConsole
@@ -360,6 +361,11 @@
       whitelist:
         components:
         - IdCard
+    factions: #FH start
+    - FactionNT
+    - FactionCFA
+    - FactionCargonia
+    - FactionSyndicate #FH end
   - type: ActivatableUI
     key: enum.IdCardConsoleUiKey.Key
   - type: UserInterface
@@ -411,7 +417,7 @@
 - type: entity
   parent: BaseComputerShuttle
   id: ComputerShuttleMining
-  name: mining shuttle console
+  name: Mining Shuttle Console #FH
   components:
     - type: Sprite
       layers:
@@ -444,7 +450,9 @@
 - type: entity
   parent: BaseComputerShuttle
   id: ComputerShuttleSecurity
-  name: security shuttle console
+  name: Security Shuttle Console #FH
+  description: Taking the fight to the enemies of your corporation. One crashed shuttle at a time. #FH
+  suffix: NT #FH
   components:
     - type: Sprite
       layers:
@@ -479,6 +487,7 @@
   parent: ComputerComms
   id: ComputerCommsEngineering
   name: Engineering Communications Computer #Far Horizons
+  suffix: NT #FH.
   description: A computer used to make station wide announcements via keyboard, set the appropriate alert level, and call the emergency shuttle.
   components:
     - type: Sprite
@@ -518,6 +527,7 @@
   parent: ComputerComms
   id: ComputerCommsMedical
   name: Medical Communications Computer #Far Horizons
+  suffix: NT #FH
   description: A computer used to make station wide announcements via keyboard, set the appropriate alert level, and call the emergency shuttle.
   components:
     - type: Sprite
@@ -556,6 +566,7 @@
   parent: ComputerComms
   id: ComputerCommsScience
   name: Science Communications Computer #Far Horizons
+  suffix: NT #FH
   description: A computer used to make station wide announcements via keyboard, set the appropriate alert level, and call the emergency shuttle.
   components:
     - type: Sprite
@@ -577,7 +588,9 @@
       title: comms-console-announcement-title-sci
       sound: /Audio/_Starlight/Announcements/announce2.ogg
       color: "#cd7ccd"
-      settableAlertLevels: []
+      settableAlertLevels: #FH (Corrupt: I feel letting science be able to call yellow alert, which is regional atmos break, is appropriate.)
+        - green #FH
+        - yellow #FH
       canBroadcast: false
       canShuttle: false
     - type: Computer

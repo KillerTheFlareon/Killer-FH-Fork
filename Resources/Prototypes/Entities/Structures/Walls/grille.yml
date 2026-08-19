@@ -85,6 +85,7 @@
             True: { visible: True }
             False: { visible: False }
     - type: AnimationPlayer
+    - type: LineOfSightExclude # Far Horizons
 
 - type: entity
   id: ClockworkGrille

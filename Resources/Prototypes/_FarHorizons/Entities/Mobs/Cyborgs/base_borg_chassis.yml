@@ -16,6 +16,7 @@
 
 
 #region ## NanoTrasen ##
+
 - type: entity # TODO implement sirens
   parent: [BaseBorgChassis, BaseSecBorgTransponder]
   id: BorgChassisSecuritySelectable
@@ -259,9 +260,59 @@
       collection: FootstepHoverXenoborg
 
 #region ## NeoSol ##
+
+- type: entity
+  abstract: true
+  id: BaseBorgTransponderNS
+  components:
+  - type: TextToSpeech
+  - type: BorgTransponder
+  - type: DeviceNetwork
+    deviceNetId: Wireless
+    receiveFrequencyId: CyborgControlNS
+    transmitFrequencyId: RoboticsConsoleNS
+    savableAddress: false
+  - type: TimerTrigger
+    delay: 10
+    examinable: false
+    beepSound:
+      path: /Audio/Effects/Cargo/buzz_two.ogg
+      params:
+        volume: -4
+  # prevent any funnies if someone makes a cyborg item...
+  - type: ExplodeOnTrigger
+    keysIn:
+    - timer
+  # explosion does most of its damage in the center and less at the edges
+  - type: Explosive
+    explosionType: Minibomb
+    deleteAfterExplosion: false # let damage threshold gib the borg
+    totalIntensity: 30
+    intensitySlope: 20
+    maxIntensity: 20
+    canCreateVacuum: false # its for killing the borg not the station
+  - type: SpaceRescuePingSender
+    color: "#2f88ff"
+
+- type: entity
+  abstract: true
+  parent: BaseBorgTransponderNS
+  id: BaseSecBorgTransponderNS
+  components:
+  - type: DeviceNetwork
+    deviceNetId: Wireless
+    receiveFrequencyId: SecborgControlNS
+    transmitFrequencyId: SecurityRoboticsConsoleNS
+    savableAddress: false
+  - type: BorgTransponder
+    name: L.E.A.D. Cyborg
+    sprite:
+      sprite: _FarHorizons/Mobs/Silicon/Chassis/security.rsi
+      state: borg
+
 - type: entity
   id: BaseBorgChassisNS
-  parent: [BaseBorgChassis, BaseBorgTransponder]
+  parent: [BaseBorgChassis, BaseBorgTransponderNS]
   abstract: true
   components:
   - type: TextToSpeech
@@ -281,7 +332,7 @@
       Unsexed: UnisexSiliconSyndicate
 
 - type: entity
-  parent: [BaseBorgChassisNS, BaseSecBorgTransponder]
+  parent: [BaseBorgChassisNS, BaseSecBorgTransponderNS]
   id: BorgChassisSecuritySelectableNS
   name: Security Cyborg
   description: A special chassis produced by Nanotrasen to aid station side security forces in their duties.

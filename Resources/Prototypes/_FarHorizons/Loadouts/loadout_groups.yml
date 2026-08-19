@@ -646,3 +646,25 @@
   - EmergencyNitrogenService
   - EmergencyNonBreatherService
   - EmergencyIPCService #FH
+
+#region Civilian
+- type: loadoutGroup
+  id: CivilianWeaponsFactionless
+  name: loadout-group-civilian-weapons
+  minLimit: 0
+  loadouts:
+  - Mk58Civ
+  - InstigatorCiv
+  - LeverActionCiv
+
+- type: loadoutGroup
+  id: CivilianWeaponsNT
+  parent: CivilianWeaponsFactionless
+  loadouts:
+  - Mk78Civ
+
+- type: loadoutGroup
+  id: CivilianWeaponsNS
+  parent: CivilianWeaponsFactionless
+  loadouts:
+  - Mk59Civ

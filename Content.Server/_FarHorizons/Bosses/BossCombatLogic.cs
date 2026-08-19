@@ -1,6 +1,7 @@
 using System.Linq;
 using Content.Shared._FarHorizons.Bosses;
 using Content.Shared._FarHorizons.Telegraphs;
+using Content.Shared.Mobs.Systems;
 using Content.Shared.NPC.Components;
 using Content.Shared.NPC.Systems;
 using Content.Shared.Random.Helpers;
@@ -49,9 +50,12 @@ public sealed partial class TelegraphedAttackFollowingEveryone : IBossMechanicLo
 
         var npcFaction = entMan.System<NpcFactionSystem>();
         var telegraph = entMan.System<SharedTelegraphedAttackSystem>();
+        var mobState = entMan.System<MobStateSystem>();
 
         foreach (var enemy in npcFaction.GetNearbyHostiles((ent, comp), SearchRange))
         {
+            if (!mobState.IsAlive(enemy)) continue;
+
             var spawned = telegraph.SpawnTelegraphAttachedTo(attack, enemy);
 
             if (spawned == null) continue;

@@ -1,13 +1,14 @@
 - type: entity
   id: ReinforcedPlasmaWindow
   name: Reinforced Plasma Window #FH CRUSADE
+  suffix: NT #FH
   parent: [BaseDeltaPressureReinforcedPlasma, WindowRCDResistant]
   components:
   - type: Sprite
     drawdepth: WallTops
-    sprite: _FarHorizons/Structures/Windows/reinforced_plasma_window.rsi #FH
+    sprite: _FarHorizons/Structures/Windows/NanoTrasen/reinforced_plasma_window.rsi #FH
   - type: Icon
-    sprite: _FarHorizons/Structures/Windows/reinforced_plasma_window.rsi #FH
+    sprite: _FarHorizons/Structures/Windows/NanoTrasen/reinforced_plasma_window.rsi #FH
   - type: Damageable
     damageContainer: StructuralInorganic
     damageModifierSet: RGlass
@@ -55,6 +56,9 @@
       sprite: Structures/Windows/cracks.rsi
   - type: StaticPrice
     price: 132
+  - type: Paintable #FH start
+    group: ReinforcedPlasmaWindow 
+  - type: GenericPaintable #FH end
 
 - type: entity
   id: PlasmaReinforcedWindowDirectional
@@ -117,7 +121,7 @@
 - type: entity
   parent: ReinforcedPlasmaWindow
   id: ReinforcedPlasmaWindowDiagonal
-  suffix: diagonal
+  suffix: Diagonal, NT # Far Horizons
   placement:
     mode: SnapgridCenter
     snap:
@@ -125,7 +129,7 @@
   components:
   - type: Sprite
     drawdepth: WallTops
-    sprite: Structures/Windows/reinforced_plasma_diagonal.rsi
+    sprite: _FarHorizons/Structures/Windows/NanoTrasen/reinforced_plasma_diagonal.rsi #FH
     state: state0
   - type: Tag
     tags:
@@ -133,10 +137,10 @@
     - Window
   - type: IconSmooth
     mode: Diagonal
-    key: windows
+    key: walls #FH
     base: state
   - type: Icon
-    sprite: Structures/Windows/reinforced_plasma_diagonal.rsi
+    sprite: _FarHorizons/Structures/Windows/NanoTrasen/reinforced_plasma_diagonal.rsi #FH
     state: state0
   - type: Fixtures
     fixtures:
@@ -163,3 +167,6 @@
   - type: Construction
     graph: WindowDiagonal
     node: reinforcedPlasmaWindowDiagonal
+  - type: Paintable #FH start
+    group: ReinforcedPlasmaWindowDiagonal 
+  - type: GenericPaintable #FH end

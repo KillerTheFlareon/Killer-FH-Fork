@@ -4,8 +4,8 @@ meta:
   engineVersion: 272.0.1
   forkId: ""
   forkVersion: ""
-  time: 07/11/2026 16:14:29
-  entityCount: 33837
+  time: 08/09/2026 07:07:52
+  entityCount: 33832
 maps:
 - 1
 grids:
@@ -16159,6 +16159,23 @@ entities:
     components:
     - type: Transform
       pos: 11.5,17.5
+      parent: 2
+    - type: Fixtures
+      fixtures: {}
+- proto: BaseAdSignNT
+  entities:
+  - uid: 29059
+    components:
+    - type: Transform
+      pos: 19.5,19.5
+      parent: 2
+    - type: Fixtures
+      fixtures: {}
+  - uid: 29060
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 6.5,13.5
       parent: 2
     - type: Fixtures
       fixtures: {}
@@ -94607,12 +94624,6 @@ entities:
     - type: Transform
       pos: -34.5,58.5
       parent: 2
-  - uid: 15816
-    components:
-    - type: Transform
-      rot: 1.5707963267948966 rad
-      pos: -27.5,67.5
-      parent: 2
   - uid: 15817
     components:
     - type: Transform
@@ -97377,6 +97388,14 @@ entities:
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: -28.5,107.5
+      parent: 2
+- proto: FHAirlockSecurityGlassNoCadetLocked
+  entities:
+  - uid: 15816
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: -27.5,67.5
       parent: 2
 - proto: FHAirlockSecurityLawyerLocked
   entities:
@@ -162194,6 +162213,8 @@ entities:
       rot: 1.5707963267948966 rad
       pos: -31.5,70.5
       parent: 2
+- proto: PlasmaWindoorSecureSecurityLocked
+  entities:
   - uid: 24899
     components:
     - type: Transform
@@ -167997,12 +168018,6 @@ entities:
       rot: 1.5707963267948966 rad
       pos: 10.5,54.5
       parent: 2
-  - uid: 25874
-    components:
-    - type: Transform
-      rot: 3.141592653589793 rad
-      pos: -33.5,66.5
-      parent: 2
   - uid: 25875
     components:
     - type: Transform
@@ -168053,6 +168068,16 @@ entities:
     components:
     - type: Transform
       pos: -81.5,41.5
+      parent: 2
+  - uid: 27974
+    components:
+    - type: Transform
+      pos: -32.5,67.5
+      parent: 2
+  - uid: 27975
+    components:
+    - type: Transform
+      pos: -33.5,67.5
       parent: 2
 - proto: RadiationCollectorNoTank
   entities:
@@ -174683,6 +174708,20 @@ entities:
       - Experimental
       - CivilianServices
       - Biochemical
+- proto: SecurityTechFabAmmo
+  entities:
+  - uid: 25874
+    components:
+    - type: Transform
+      pos: -33.5,66.5
+      parent: 2
+    - type: TechnologyDatabase
+      supportedDisciplines:
+      - Industrial
+      - Arsenal
+      - Experimental
+      - CivilianServices
+      - Biochemical
 - proto: SeedExtractor
   entities:
   - uid: 27055
@@ -178759,7 +178798,7 @@ entities:
       pos: 51.5,1.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -2473.3813
+      secondsUntilStateChange: -2754.8003
       state: Opening
 - proto: SpaceCash10
   entities:
@@ -180822,38 +180861,6 @@ entities:
     components:
     - type: Transform
       pos: -17.5,26.5
-      parent: 2
-- proto: Stunbaton
-  entities:
-  - uid: 27974
-    components:
-    - type: Transform
-      pos: -33.69297,66.81306
-      parent: 2
-  - uid: 27975
-    components:
-    - type: Transform
-      pos: -33.34922,66.81306
-      parent: 2
-  - uid: 27976
-    components:
-    - type: Transform
-      pos: -33.677345,66.43806
-      parent: 2
-  - uid: 27977
-    components:
-    - type: Transform
-      pos: -33.396095,66.42243
-      parent: 2
-  - uid: 27978
-    components:
-    - type: Transform
-      pos: -33.03672,66.48493
-      parent: 2
-  - uid: 27979
-    components:
-    - type: Transform
-      pos: -33.052345,66.85993
       parent: 2
 - proto: SubstationBasic
   entities:
@@ -184806,16 +184813,6 @@ entities:
     - type: Transform
       pos: -31.5,67.5
       parent: 2
-  - uid: 28510
-    components:
-    - type: Transform
-      pos: -32.5,67.5
-      parent: 2
-  - uid: 28511
-    components:
-    - type: Transform
-      pos: -33.5,67.5
-      parent: 2
   - uid: 28512
     components:
     - type: Transform
@@ -188366,23 +188363,6 @@ entities:
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: -29.5,109.5
-      parent: 2
-    - type: Fixtures
-      fixtures: {}
-- proto: WallmountTelevisionRandomSpawner
-  entities:
-  - uid: 29059
-    components:
-    - type: Transform
-      pos: 19.5,19.5
-      parent: 2
-    - type: Fixtures
-      fixtures: {}
-  - uid: 29060
-    components:
-    - type: Transform
-      rot: 1.5707963267948966 rad
-      pos: 6.5,13.5
       parent: 2
     - type: Fixtures
       fixtures: {}
@@ -211588,11 +211568,6 @@ entities:
       rot: 1.5707963267948966 rad
       pos: -27.5,65.5
       parent: 2
-  - uid: 33320
-    components:
-    - type: Transform
-      pos: -33.5,67.5
-      parent: 2
   - uid: 33321
     components:
     - type: Transform
@@ -211638,22 +211613,22 @@ entities:
   - uid: 33328
     components:
     - type: Transform
-      pos: -32.80938,67.737206
+      pos: -32.575233,67.762215
       parent: 2
   - uid: 33329
     components:
     - type: Transform
-      pos: -32.71563,67.518456
+      pos: -32.52836,67.387215
       parent: 2
   - uid: 33330
     components:
     - type: Transform
-      pos: -33.517788,67.69033
+      pos: -32.543983,67.93409
       parent: 2
   - uid: 33331
     components:
     - type: Transform
-      pos: -33.377163,67.518456
+      pos: -32.512733,67.637215
       parent: 2
   - uid: 33332
     components:
@@ -211677,15 +211652,25 @@ entities:
       parent: 2
 - proto: WeaponDominator
   entities:
+  - uid: 27976
+    components:
+    - type: Transform
+      pos: -33.55961,67.84034
+      parent: 2
+  - uid: 27977
+    components:
+    - type: Transform
+      pos: -33.481483,67.668465
+      parent: 2
   - uid: 33336
     components:
     - type: Transform
-      pos: -31.90313,67.78408
+      pos: -33.543983,67.418465
       parent: 2
   - uid: 33337
     components:
     - type: Transform
-      pos: -31.77813,67.580956
+      pos: -33.49711,67.59034
       parent: 2
 - proto: WeaponEnergyTurretAI
   entities:

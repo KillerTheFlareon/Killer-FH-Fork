@@ -857,3 +857,37 @@
   - type: RollUpSleeves
   - type: Sprite
     sprite: _FarHorizons/Clothing/Uniforms/Jumpsuit/NeoSol/janitor.rsi 
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformJumpsuitClownNS
+  name: Clown Suit
+  suffix: NS
+  description: HONK!
+  components:
+  - type: Sprite
+    sprite: _FarHorizons/Clothing/Uniforms/Jumpsuit/NeoSol/clown.rsi
+  - type: Clothing
+    sprite: _FarHorizons/Clothing/Uniforms/Jumpsuit/NeoSol/clown.rsi
+  - type: Tag
+    tags:
+    - ClownSuit
+    - WhitelistChameleon
+
+- type: entity
+  parent: ClothingUniformJumpsuitClown
+  id: ClothingUniformJumpsuitCluwneNS
+  name: Cluwne Suit
+  suffix: NS, Unremoveable
+  description: Cursed cluwne suit.
+  components:
+  - type: Sprite
+    sprite: _FarHorizons/Clothing/Uniforms/Jumpsuit/NeoSol/cluwne.rsi
+  - type: Clothing
+    sprite: _FarHorizons/Clothing/Uniforms/Jumpsuit/NeoSol/cluwne.rsi
+  - type: Unremoveable
+  - type: Tag
+    tags:
+    - ClownSuit
+    - WhitelistChameleon
+    - BibleThwackRemovable

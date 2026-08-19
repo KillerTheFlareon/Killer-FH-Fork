@@ -63,6 +63,38 @@
     - state: crypt_silver
     - state: nano_label
 
+- type: entity
+  parent: [ EncryptionKey, BaseHighlyIllegalContraband]
+  id: EncryptionKeyBlackmarket
+  name: Blackmarket Encryption Key
+  description: An extremely illegal black market encryption key capable of deciphering radio communication.
+  suffix: ""
+  components:
+  - type: EncryptionKey
+    channels:
+    - Common
+    - Command
+    - Engineering
+    - Medical
+    - Science
+    - Security
+    - Service
+    - SyndiCommand
+    - SyndiSec
+    - SyndiEngi
+    - SyndiSci
+    - SyndiMed
+    - SyndiService
+    - SyndiCommon
+    - GSL
+    - CFA
+    - Freelance
+    defaultChannel: Freelance
+  - type: Sprite
+    layers:
+    - state: crypt_rusted
+    - state: omni_label
+
 #region Syndi Station Comms
 
 - type: entity 

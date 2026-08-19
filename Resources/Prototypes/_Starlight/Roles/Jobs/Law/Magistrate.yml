@@ -21,19 +21,33 @@
   access:
   - Magistrate
   - Bar
+  - BarNS  # Far Horizons
   - Kitchen
+  - KitchenNS  # Far Horizons
   - Hydroponics
+  - HydroponicsNS  # Far Horizons
   - Janitor
+  - JanitorNS  # Far Horizons
   - Theatre
+  - TheatreNS # Far Horizons
   - Chapel
+  - ChapelNS # Far Horizons
   - External #Far Horizons
+  - ExternalNS #Far Horizons
   - Lawyer
+  - LawyerNS # Far Horizons
   - Brig
+  - BrigNS # Far Horizons
   - Security
+  - SecurityNS # Far Horizons
   - Command
+  - Executive # Far Horizons
   - Maintenance
+  - MaintenanceNS # Far Horizons
   - GenpopEnter
   - GenpopLeave
+  - GenpopEnterNS # Far Horizons
+  - GenpopLeaveNS # Far Horizons
   special:
   - !type:AddImplantSpecial
     implants: [ MindShieldImplant ]

@@ -54,7 +54,7 @@
 - type: entity
   parent: ClothingHandsBase
   id: ClothingHandsGlovesScrapperTierOne
-  name: Basic Scrapper Gloves
+  name: Basic Salvage Gloves
   description: These gloves will protect the wearer from electric shocks. Does not come with any armor protection.
   components:
   - type: FingerprintMask
@@ -70,7 +70,7 @@
 - type: entity
   parent: ClothingHandsGlovesScrapperTierOne
   id: ClothingHandsGlovesScrapperTierTwo
-  name: Scrapper Gloves
+  name: Salvage Gloves
   description: These gloves will protect the wearer from electric shocks along with some minor armor.
   components:
   - type: FingerprintMask
@@ -98,7 +98,7 @@
 - type: entity
   parent: [ BaseSalvageContraband, ClothingHandsGlovesCombat ]
   id: ClothingHandsSalvageMercGlovesCombatGoliath
-  name: Goliath Scrapper Combat Gloves 
+  name: Goliath Salvage Combat Gloves 
   description: High-quality insulated gloves that provide protection while salvaging with added Goliath Flesh.
   components:
     - type: Sprite

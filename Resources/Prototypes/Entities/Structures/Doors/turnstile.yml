@@ -58,6 +58,7 @@
   - type: Construction
     graph: Turnstile
     node: turnstile
+  - type: LineOfSightExclude # Far Horizons
 
 - # Spawned by the client-side turnstile examine code to indicate the direction to pass through.
   type: entity

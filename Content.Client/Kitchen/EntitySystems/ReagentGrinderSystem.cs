@@ -4,4 +4,4 @@ using JetBrains.Annotations;
 namespace Content.Client.Kitchen.EntitySystems;
 
 [UsedImplicitly]
-public sealed class ReagentGrinderSystem : SharedReagentGrinderSystem;
+public sealed partial class ReagentGrinderSystem : SharedReagentGrinderSystem;

@@ -383,6 +383,61 @@
   - MagazineShotgunSlug
   - BoxShotgunFlechette
 
+#Speedloader
+- type: thiefBackpackSet
+  id: AmmoWeapon12GHPSpeedloader
+  name: ammo-selection-hp-name
+  description: ammo-selection-hp-description
+  sprite:
+    sprite: _FarHorizons/Objects/Weapons/Guns/Ammunition/Boxes/Shotgun/12g.rsi
+    state: icon_hp
+  content:
+  - SpeedLoaderMagnumBasic
+  - SpeedLoaderMagnumBasic
+  - SpeedLoaderMagnumBasic
+  - BoxLethalshot
+
+- type: thiefBackpackSet
+  id: AmmoWeapon12GSPSpeedloader
+  name: ammo-selection-sp-name
+  description: ammo-selection-sp-description
+  sprite:
+    sprite: _FarHorizons/Objects/Weapons/Guns/Ammunition/Boxes/Shotgun/12g.rsi
+    state: icon_sp
+  content:
+  - SpeedLoaderShotgunFlechette
+  - SpeedLoaderShotgunFlechette
+  - SpeedLoaderShotgunFlechette
+  - SpeedLoaderShotgunFlechette
+  - SpeedLoaderShotgunFlechette
+  - BoxShotgunFlechette
+
+- type: thiefBackpackSet
+  id: AmmoWeapon12GFMJSpeedloader
+  name: ammo-selection-fmj-name
+  description: ammo-selection-fmj-description
+  sprite:
+    sprite: _FarHorizons/Objects/Weapons/Guns/Ammunition/Boxes/Shotgun/12g.rsi
+    state: icon_fmj
+  content:
+  - SpeedLoaderShotgunSlug
+  - SpeedLoaderShotgunSlug
+  - SpeedLoaderShotgunSlug
+  - BoxShotgunSlug
+
+- type: thiefBackpackSet
+  id: AmmoWeapon12GMixedSpeedloader
+  name: ammo-selection-mixed-name
+  description: ammo-selection-mixed-description
+  sprite:
+    sprite: _FarHorizons/Objects/Weapons/Guns/Ammunition/Boxes/Shotgun/12g.rsi
+    state: icon
+  content:
+  - SpeedLoaderMagnumBasic
+  - SpeedLoaderShotgunFlechette
+  - SpeedLoaderShotgunSlug
+  - BoxShotgunFlechette
+
 #region Blammo Bag
 - type: thiefBackpackSet
   id: AmmoBagHP

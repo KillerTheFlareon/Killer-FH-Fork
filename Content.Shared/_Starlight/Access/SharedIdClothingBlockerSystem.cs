@@ -63,10 +63,10 @@ public abstract class SharedIdClothingBlockerSystem : EntitySystem
 
     private void OnGotUnequipped(EntityUid uid, IdClothingBlockerComponent component, GotUnequippedEvent args)
     {
-        if (EntityManager.EntityExists(args.Equipee) &&
-            EntityManager.HasComponent<IdClothingFrozenComponent>(args.Equipee))
+        if (Exists(args.Equipee) &&
+            HasComp<IdClothingFrozenComponent>(args.Equipee))
         {
-            EntityManager.RemoveComponent<IdClothingFrozenComponent>(args.Equipee);
+            RemComp<IdClothingFrozenComponent>(args.Equipee);
         }
     }
 

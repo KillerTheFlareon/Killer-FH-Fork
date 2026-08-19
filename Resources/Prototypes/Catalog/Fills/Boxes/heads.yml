@@ -79,6 +79,7 @@
         - id: CargoRequestSecurityComputerCircuitboard
         - id: SecurityCommsComputerCircuitboard # Starlight
         - id: SecurityShuttleConsoleCircuitboard #FH
+        - id: SecurityAmmoTechFabCircuitboard #FH
 
 - type: entity
   parent: [ToteBase, BaseCommandContraband] #FH

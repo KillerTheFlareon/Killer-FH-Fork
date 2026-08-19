@@ -148,6 +148,9 @@
   id: MagazinePistol38
 
 - type: Tag
+  id: MagazinePistolCivilian
+
+- type: Tag
   id: MagazinePistolDouble
 
 - type: Tag
@@ -176,6 +179,9 @@
 
 - type: Tag
   id: Pin
+
+- type: Tag
+  id: PKSUpgrade
  
 - type: Tag
   id: PocketFireExtinguish
@@ -307,6 +313,9 @@
   id: ShotgunBoxAmmo
 
 - type: Tag
+  id: ShuttleRailgunRod
+
+- type: Tag
   id: SiliconEmotesFH
 
 - type: Tag
@@ -314,7 +323,7 @@
 
 - type: Tag
   id: SpeedLoaderRevolver38
-
+  
 - type: Tag
   id: STVKeys
 

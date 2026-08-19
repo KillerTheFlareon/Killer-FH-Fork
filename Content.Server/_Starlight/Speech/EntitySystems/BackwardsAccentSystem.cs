@@ -4,7 +4,7 @@ using Content.Shared.Speech;
 
 namespace Content.Server._Starlight.Speech.EntitySystems;
 
-public sealed class BackwardsAccentSystem : EntitySystem
+public sealed partial class BackwardsAccentSystem : EntitySystem
 {
     public override void Initialize() 
         => SubscribeLocalEvent<BackwardsAccentComponent, AccentGetEvent>(OnAccent);

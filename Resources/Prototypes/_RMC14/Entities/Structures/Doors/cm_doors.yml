@@ -139,6 +139,7 @@
         - Airlocks
         - WirePanels
         - Networking
+    - type: StructureOcclusion #Far Horizons
 
 - type: entity
   abstract: true

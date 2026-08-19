@@ -502,6 +502,7 @@
     - id: HoloprojectorSecurity
     - id: RubberStampMarshal
     - id: SecurityTechFabCircuitboard
+    - id: SecurityAmmoTechFabCircuitboardNS
     - id: CargoRequestSecurityComputerCircuitboard
     - id: WeaponDisabler
     - id: WantedListCartridge
@@ -583,7 +584,7 @@
         - id: WeaponDisabler
         - id: LuxuryPen
         - id: BoxFolderClipboardFilled
-        - id: PrinterDocFlatpack
+        - id: NSDocPrinterFlatpack
         - id: FaxMachineFlatpack
         - id: PlushieEmmie
         - id: ClothingOuterHardsuitNtrepSyndi

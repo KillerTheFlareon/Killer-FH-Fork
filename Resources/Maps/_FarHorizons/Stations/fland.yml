@@ -4,8 +4,8 @@ meta:
   engineVersion: 272.0.1
   forkId: ""
   forkVersion: ""
-  time: 07/11/2026 15:49:27
-  entityCount: 41944
+  time: 08/10/2026 21:09:34
+  entityCount: 41941
 maps:
 - 1
 grids:
@@ -17279,9 +17279,7 @@ entities:
           27,-15:
             0: 4223
           27,-14:
-            0: 273
-            2: 1028
-            7: 64
+            0: 1365
           27,-13:
             0: 12159
           27,-17:
@@ -30664,16 +30662,6 @@ entities:
     - type: Transform
       pos: 93.5,-61.5
       parent: 2
-  - uid: 1893
-    components:
-    - type: Transform
-      pos: 110.5,-53.5
-      parent: 2
-  - uid: 1894
-    components:
-    - type: Transform
-      pos: 110.5,-55.5
-      parent: 2
   - uid: 1895
     components:
     - type: Transform
@@ -31043,11 +31031,6 @@ entities:
       parent: 2
 - proto: AtmosFixInstantPlasmaFireMarker
   entities:
-  - uid: 1968
-    components:
-    - type: Transform
-      pos: 110.5,-54.5
-      parent: 2
   - uid: 1969
     components:
     - type: Transform
@@ -31426,6 +31409,43 @@ entities:
     components:
     - type: Transform
       pos: -23.5,33.5
+      parent: 2
+    - type: Fixtures
+      fixtures: {}
+- proto: BaseAdSignNT
+  entities:
+  - uid: 34459
+    components:
+    - type: Transform
+      pos: -18.5,47.5
+      parent: 2
+    - type: Fixtures
+      fixtures: {}
+  - uid: 34460
+    components:
+    - type: Transform
+      pos: -29.5,-3.5
+      parent: 2
+    - type: Fixtures
+      fixtures: {}
+  - uid: 34461
+    components:
+    - type: Transform
+      pos: 77.5,17.5
+      parent: 2
+    - type: Fixtures
+      fixtures: {}
+  - uid: 34462
+    components:
+    - type: Transform
+      pos: 20.5,0.5
+      parent: 2
+    - type: Fixtures
+      fixtures: {}
+  - uid: 34463
+    components:
+    - type: Transform
+      pos: 9.5,-3.5
       parent: 2
     - type: Fixtures
       fixtures: {}
@@ -128346,7 +128366,7 @@ entities:
       pos: -15.5,-6.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -11016.467
+      secondsUntilStateChange: -11146.903
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -128499,7 +128519,7 @@ entities:
       pos: 57.5,12.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -61259.598
+      secondsUntilStateChange: -61390.035
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -129806,7 +129826,7 @@ entities:
       pos: 28.5,4.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -55808.703
+      secondsUntilStateChange: -55939.14
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -133761,7 +133781,7 @@ entities:
       pos: 21.5,33.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -38570.2
+      secondsUntilStateChange: -38700.637
       state: Closing
   - uid: 19867
     components:
@@ -204614,7 +204634,6 @@ entities:
       parent: 2
     - type: ApcPowerReceiver
       powerLoad: 0
-    - type: Timer
   - uid: 28953
     components:
     - type: Transform
@@ -204623,7 +204642,6 @@ entities:
       parent: 2
     - type: ApcPowerReceiver
       powerLoad: 0
-    - type: Timer
   - uid: 28954
     components:
     - type: Transform
@@ -204632,7 +204650,6 @@ entities:
       parent: 2
     - type: ApcPowerReceiver
       powerLoad: 0
-    - type: Timer
   - uid: 28955
     components:
     - type: Transform
@@ -219113,6 +219130,8 @@ entities:
       - Experimental
       - CivilianServices
       - Biochemical
+- proto: SecurityTechFabAmmo
+  entities:
   - uid: 31302
     components:
     - type: Transform
@@ -240768,43 +240787,6 @@ entities:
     components:
     - type: Transform
       pos: 38.5,35.5
-      parent: 2
-    - type: Fixtures
-      fixtures: {}
-- proto: WallmountTelevisionRandomSpawner
-  entities:
-  - uid: 34459
-    components:
-    - type: Transform
-      pos: -18.5,47.5
-      parent: 2
-    - type: Fixtures
-      fixtures: {}
-  - uid: 34460
-    components:
-    - type: Transform
-      pos: -29.5,-3.5
-      parent: 2
-    - type: Fixtures
-      fixtures: {}
-  - uid: 34461
-    components:
-    - type: Transform
-      pos: 77.5,17.5
-      parent: 2
-    - type: Fixtures
-      fixtures: {}
-  - uid: 34462
-    components:
-    - type: Transform
-      pos: 20.5,0.5
-      parent: 2
-    - type: Fixtures
-      fixtures: {}
-  - uid: 34463
-    components:
-    - type: Transform
-      pos: 9.5,-3.5
       parent: 2
     - type: Fixtures
       fixtures: {}
@@ -268012,7 +267994,7 @@ entities:
       lastSignals:
         DoorStatus: True
     - type: Door
-      secondsUntilStateChange: -14759.069
+      secondsUntilStateChange: -14889.506
       state: Opening
     - type: Airlock
       autoClose: False

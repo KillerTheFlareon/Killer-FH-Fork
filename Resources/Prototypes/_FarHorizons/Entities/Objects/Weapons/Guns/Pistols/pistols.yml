@@ -58,7 +58,7 @@
     size: Large
     shape:
     - 0,0,3,0
-    - 1,1,0,1
+    - 0,1,1,1
     storedOffset: -5,-4
   - type: GunRequiresWield
   - type: GunWieldBonus
@@ -157,7 +157,7 @@
   name: MK 78
   parent: [BaseWeaponPistol, BaseSecurityContraband, FlashlightLantern]
   id: WeaponPistolMk78
-  description: Designed by Nanotrasen’s Small Arms Division, the MK 78 is a semi-automatic pistol with a simple recoil-operated action and excellent reliability. The new standard sidearm of Nanotrasen’s station security and emergency response teams, feeds from .35 pistol magazines. Comes with a intergrated flashlight and electronic status lights, unlike the MK 58. Feeds from 9mm Magazines.
+  description: Designed by Nanotrasen’s Small Arms Division, the MK 78 is a semi-automatic pistol with a simple recoil-operated action and excellent reliability. The new standard sidearm of Nanotrasen’s station security and emergency response teams, feeds from 9mm pistol magazines. Comes with a intergrated flashlight and electronic status lights, unlike the MK 58.
   suffix: NT
   components:
   - type: Sprite
@@ -537,3 +537,212 @@
     tags:
     - Enforcer
     - Sidearm
+
+#region =Civilian=
+
+
+
+
+
+
+#region Civilian MK 58
+- type: entity
+  name: Civilian MK 58
+  parent: [BaseWeaponPistol]
+  id: WeaponPistolMk58Civilian
+  description: A modified MK 58 designed for civilian use. It has been modifed to only accept civilian 9mm magazines, and to have a slower fire-rate.
+  components:
+  - type: Sprite
+    sprite: _FarHorizons/Objects/Weapons/Guns/Pistols/mk58.rsi
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-0
+      map: ["enum.GunVisualLayers.Mag"]
+  - type: MagazineVisuals
+    magState: mag
+    steps: 1
+    zeroVisible: true
+  - type: Clothing
+    sprite: _FarHorizons/Objects/Weapons/Guns/Pistols/mk58.rsi
+  - type: Item
+    size: Small
+    shape:
+    - 0,0,1,0
+    - 0,1,0,1
+    storedRotation: 0
+    sprite: _FarHorizons/Objects/Weapons/Guns/Pistols/mk58.rsi
+    storedOffset: 0,-2
+  - type: Gun
+    fireRate: 3
+    availableModes:
+    - SemiAuto
+    soundGunshot:
+      path: /Audio/Weapons/Guns/Gunshots/mk58.ogg
+  - type: ItemSlots
+    slots:
+      gun_magazine:
+        name: Magazine
+        startingItem: MagazinePistolCivilianSP
+        insertSound: /Audio/Weapons/Guns/MagIn/pistol_magin.ogg
+        ejectSound: /Audio/Weapons/Guns/MagOut/pistol_magout.ogg
+        priority: 2
+        whitelist:
+          tags:
+            - MagazinePistolCivilian
+        whitelistFailPopup: gun-magazine-whitelist-fail
+      gun_chamber:
+        name: Chamber
+        startingItem: CartridgePistolSP
+        priority: 1
+        whitelist:
+          tags:
+            - CartridgePistol
+
+#region Civilian MK78
+- type: entity
+  name: Civilian MK 78
+  parent: [BaseWeaponPistol, FlashlightLantern]
+  id: WeaponPistolMk78Civilian
+  description: A modified MK 57 designed for civilian use. It has been modifed to only accept civilian 9mm magazines, and to have a slower fire-rate.
+  suffix: NT
+  components:
+  - type: Sprite
+    sprite: _FarHorizons/Objects/Weapons/Guns/Pistols/mk78.rsi
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: base-overlay
+      shader: unshaded
+      visible: false
+      map: [ "light" ]
+    - state: mag-0
+      map: ["enum.GunVisualLayers.Mag"]
+  - type: ItemSlots
+    slots:
+      cell_slot:
+        name: power-cell-slot-component-slot-name-default
+        startingItem: PowerCellMedium
+      gun_magazine:
+        name: Magazine
+        startingItem: MagazinePistolCivilianSP
+        insertSound: /Audio/Weapons/Guns/MagIn/pistol_magin.ogg
+        ejectSound: /Audio/Weapons/Guns/MagOut/pistol_magout.ogg
+        priority: 2
+        whitelist:
+          tags:
+            - MagazinePistolCivilian
+        whitelistFailPopup: gun-magazine-whitelist-fail
+      gun_chamber:
+        name: Chamber
+        startingItem: CartridgePistolSP
+        priority: 1
+        whitelist:
+          tags:
+            - CartridgePistol
+  - type: ContainerContainer
+    containers:
+      gun_magazine: !type:ContainerSlot
+      gun_chamber: !type:ContainerSlot
+      cell_slot: !type:ContainerSlot
+  - type: HandheldLight
+    addPrefix: false
+    wattage: 0.5
+  - type: ToggleableVisuals
+    inhandVisuals:
+      left:
+      - state: inhand-left-light
+        shader: unshaded
+      right:
+      - state: inhand-right-light
+        shader: unshaded
+  - type: MagazineVisuals
+    magState: mag
+    steps: 4
+    zeroVisible: true
+  - type: Clothing
+    sprite: _FarHorizons/Objects/Weapons/Guns/Pistols/mk78.rsi
+  - type: Item
+    size: Small
+    shape:
+    - 0,0,1,0
+    - 0,1,0,1
+    storedRotation: 0
+    sprite: _FarHorizons/Objects/Weapons/Guns/Pistols/mk78.rsi
+    storedOffset: 0,-2
+  - type: Gun
+    fireRate: 2.5
+    availableModes:
+    - SemiAuto
+    soundGunshot:
+      path: /Audio/Weapons/Guns/Gunshots/mk58.ogg
+  - type: ChamberMagazineAmmoProvider
+    autoEject: true
+
+#region Civilian MK59
+- type: entity
+  name: Civilian MK 59
+  parent: [BaseWeaponPistol]
+  id: WeaponPistolMk59Civilian
+  description:  A modified MK 57 designed for civilian use. It has been modifed to only accept civilian 9mm magazines, and to have a slower fire-rate.
+  suffix: NS
+  components:
+  - type: Sprite
+    sprite: _FarHorizons/Objects/Weapons/Guns/Pistols/mk59.rsi
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-0
+      map: ["enum.GunVisualLayers.Mag"]
+  - type: MagazineVisuals
+    magState: mag
+    steps: 1
+    zeroVisible: true
+  - type: Clothing
+    sprite: _FarHorizons/Objects/Weapons/Guns/Pistols/mk59.rsi
+  - type: Item
+    size: Small
+    shape:
+    - 0,0,1,0
+    - 0,1,0,1
+    storedRotation: 0
+    sprite: _FarHorizons/Objects/Weapons/Guns/Pistols/mk59.rsi
+    storedOffset: 0,-2
+  - type: Gun
+    fireRate: 2.5
+    availableModes:
+    - SemiAuto
+    soundGunshot:
+      path: /Audio/Weapons/Guns/Gunshots/mk58.ogg
+  - type: Sharp
+  - type: MeleeWeapon
+    wideAnimationRotation: -90
+    attackRate: 1.5
+    damage:
+      types:
+        Slash: 12 # Same as combat knife.
+    soundHit: /Audio/Weapons/bladeslice.ogg
+    angle: 0
+    animation: WeaponArcThrust
+  - type: AltFireMelee
+    attackType: Heavy
+  - type: ItemSlots
+    slots:
+      gun_magazine:
+        name: Magazine
+        startingItem: MagazinePistolCivilianSP
+        insertSound: /Audio/Weapons/Guns/MagIn/pistol_magin.ogg
+        ejectSound: /Audio/Weapons/Guns/MagOut/pistol_magout.ogg
+        priority: 2
+        whitelist:
+          tags:
+            - MagazinePistolCivilian
+        whitelistFailPopup: gun-magazine-whitelist-fail
+      gun_chamber:
+        name: Chamber
+        startingItem: CartridgePistolSP
+        priority: 1
+        whitelist:
+          tags:
+            - CartridgePistol
+  

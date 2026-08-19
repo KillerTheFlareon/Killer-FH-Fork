@@ -12,11 +12,11 @@ namespace Content.Shared._FarHorizons.Medical.Disease.Cures;
 
 public sealed partial class SharedDiseaseCureSystem : EntitySystem
 {
-    [Dependency] private readonly IPrototypeManager _prototypes = default!;
-    [Dependency] private readonly IEntitySystemManager _entitySystemManager = default!;
-    [Dependency] private readonly IGameTiming _timing = default!;
-    [Dependency] private readonly SharedPopupSystem _popup = default!;
-    [Dependency] private readonly SharedDiseaseSystem _disease = default!;
+    [Dependency] private IPrototypeManager _prototypes = default!;
+    [Dependency] private IEntitySystemManager _entitySystemManager = default!;
+    [Dependency] private IGameTiming _timing = default!;
+    [Dependency] private SharedPopupSystem _popup = default!;
+    [Dependency] private SharedDiseaseSystem _disease = default!;
 
     /// <summary>
     /// Executes a configured cure step via its polymorphic OnCure.

@@ -20,14 +20,14 @@ using Robust.Shared.Prototypes;
 
 namespace Content.Server.Clothing.Systems;
 
-public sealed class OutfitSystem : EntitySystem
+public sealed partial class OutfitSystem : EntitySystem
 {
-    [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
-    [Dependency] private readonly HandsSystem _handSystem = default!;
-    [Dependency] private readonly InventorySystem _invSystem = default!;
-    [Dependency] private readonly SharedStationSpawningSystem _spawningSystem = default!;
-    [Dependency] private readonly IServerFactionManager _factions = default!; // Far Horizons
-    [Dependency] private readonly ContainerSystem _container = default!; // Far Horizons
+    [Dependency] private IPrototypeManager _prototypeManager = default!;
+    [Dependency] private HandsSystem _handSystem = default!;
+    [Dependency] private InventorySystem _invSystem = default!;
+    [Dependency] private SharedStationSpawningSystem _spawningSystem = default!;
+    [Dependency] private IServerFactionManager _factions = default!; // Far Horizons
+    [Dependency] private ContainerSystem _container = default!; // Far Horizons
 
     public bool SetOutfit(EntityUid target, string gear, Action<EntityUid, EntityUid>? onEquipped = null, bool unremovable = false)
     {
@@ -43,7 +43,7 @@ public sealed class OutfitSystem : EntitySystem
             profile = profileComp.Profile;
         #endregion Starlight
 
-        var spawnCoords = EntityManager.GetComponent<TransformComponent>(target).Coordinates; // Far Horizons
+        var spawnCoords = Comp<TransformComponent>(target).Coordinates; // Far Horizons
         ICommonSession? session = null;
 
         if (_invSystem.TryGetSlots(target, out var slots))

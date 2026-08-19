@@ -78,6 +78,7 @@
   - MagazineBoxMagnumSP
   - MagazineBoxMagnumHP
   - MagazineBoxMagnumFMJ
+  - MagazineBoxMagnum
 # Shotgun
   - BoxLethalshot
   - BoxShotgunSlug
@@ -138,6 +139,7 @@
   - SpeedLoaderMagnumSP
   - SpeedLoaderMagnumHP
   - SpeedLoaderMagnumFMJ
+  - SpeedLoaderMagnumRubber
 # SMG
   - MagazinePistolSubMachineGunSP
   - MagazinePistolSubMachineGunHP
@@ -208,7 +210,6 @@
   - MagazineBoxMagnumIncendiary
   - MagazineBoxMagnumUranium
   - MagazineBoxMagnumAP
-  - MagazineBoxMagnum
 # Rifle
   - MagazineBoxRifle556Incendiary
   - MagazineBoxRifle556Uranium

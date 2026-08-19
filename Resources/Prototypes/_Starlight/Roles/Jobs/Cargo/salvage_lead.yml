@@ -17,11 +17,13 @@
   - SalvageLead
   - Maintenance
   - External
+  - MaintenanceNS  # Far Horizons
+  - ExternalNS  # Far Horizons
   extendedAccess:
   - Mining
   special:
   - !type:AddImplantSpecial
-    implants: [ MindShieldImplant ]
+    implants: [ MindShieldImplantGSL ] # Far Horizons
 
 - type: startingGear
   id: SalvageLeadGear

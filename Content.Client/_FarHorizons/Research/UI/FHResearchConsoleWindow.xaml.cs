@@ -11,7 +11,7 @@ namespace Content.Client._FarHorizons.Research.UI;
 [GenerateTypedNameReferences]
 public sealed partial class FHResearchConsoleWindow : FancyWindow
 {
-    [Dependency] private readonly IPrototypeManager _protoMan = default!;
+    [Dependency] private IPrototypeManager _protoMan = default!;
 
     private HashSet<ResearchTreeNodePrototype> _allNodes = [];
     private HashSet<ProtoId<ResearchTreeTierPrototype>> _unlockedTiers = [];

@@ -19,7 +19,7 @@
     belt: ClothingBeltRedSwordWebbingFilled
     gloves: ClothingHandsGlovesCombat
     pocket1: WeaponMultiphaseGun
-    pocket2: HandheldBSOCrewMonitor
+    pocket2: HandheldBSOCrewMonitorNS
   storage:
     back:
     - Flash
@@ -238,7 +238,7 @@
   id: SyndieCorpsmanGear
   equipment:
     neck: ClothingNeckTieBlue
-    pocket2: HandheldCorpsmanCrewMonitor
+    pocket2: HandheldCorpsmanCrewMonitorNS
     id: NeoSolCorpsmanPDA
     ears: ClothingHeadsetSecMedSyndi
   storage:
@@ -251,7 +251,7 @@
   id: SyndieBrigmedicGear
   equipment:
     neck: ClothingNeckTieRed
-    pocket2: HandheldBrigmedicCrewMonitor
+    pocket2: HandheldBrigmedicCrewMonitorNS
     mask: ClothingMaskBreathMedicalSecurity
     id: NeoSolBrigmedicPDA
     ears: ClothingHeadsetSecMedSyndi
@@ -353,7 +353,7 @@
 - type: startingGear
   id: SyndieClownGear
   equipment:
-    mask: ClothingMaskClown
+    mask: ClothingMaskClownNS
     pocket1: BikeHorn
     pocket2: ClownRecorder
     id: NeoSolClownPDA

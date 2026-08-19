@@ -377,3 +377,34 @@
   #- Pistol Stock (Nullifies Species Knockback / +1s ADS / +Size Increase)
   #- Premium Extended Cylnder (+2 Shell Count), im justifying this by pointing out this is in all intents and purposes a longarm that also needs to be wielded, doesn't fit in pocket/holster anymore.
   #- Muzzle Brake (this would increase accuracy if it MATTERED)
+
+#region =Civilian=
+
+
+
+
+
+#region Civilian Instigator
+- type: entity
+  name: Civilian Instigator
+  parent: [BaseWeaponRevolver]
+  id: WeaponRevolverInstigatorCivilian
+  description: A modified Instigator designed for civilian use. It has been modifed to have 6 chambers and to have a slower fire-rate.
+  components:
+  - type: Sprite
+    sprite: _FarHorizons/Objects/Weapons/Guns/Revolvers/instigator.rsi
+  - type: Clothing
+    sprite: _FarHorizons/Objects/Weapons/Guns/Revolvers/instigator.rsi
+  - type: Item
+    storedOffset: 0,-2
+  - type: RevolverAmmoProvider
+    capacity: 6
+    proto: CartridgeRevolver38SP
+    chambers: [ True, True, True, True, True, True ]
+    ammoSlots: [ null, null, null, null, null, null ]
+    whitelist:
+      tags:
+        - CartridgeRevolver38
+        - SpeedLoaderRevolver38
+  - type: Gun
+    fireRate: 1.15

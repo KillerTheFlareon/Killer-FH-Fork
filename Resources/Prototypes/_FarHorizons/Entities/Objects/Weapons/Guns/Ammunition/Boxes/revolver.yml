@@ -47,6 +47,7 @@
   parent: BaseMagazineBoxRevolver38
   id: MagazineBoxRevolver38SP
   name: .38 Special Ammunition Box (Revolver SP)
+  description: A cardboard box of Soft-Point .38 Special revolver rounds. Effective against lightly-armored targets.
   components:
   - type: BallisticAmmoProvider
     mayTransfer: true

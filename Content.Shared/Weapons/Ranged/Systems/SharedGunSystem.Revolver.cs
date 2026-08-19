@@ -411,12 +411,6 @@ public partial class SharedGunSystem
                 ent.Comp.Chambers[index] = null;
                 args.Ammo.Add((ammoEnt.Value, EnsureComp<AmmoComponent>(ammoEnt.Value)));
             }
-
-            // Delete the cartridge entity on client
-            if (_netManager.IsClient)
-            {
-                QueueDel(ammoEnt);
-            }
         }
 
         UpdateAmmoCount(ent, prediction: false);

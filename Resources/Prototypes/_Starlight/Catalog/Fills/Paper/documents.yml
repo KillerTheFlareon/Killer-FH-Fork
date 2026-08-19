@@ -4,9 +4,19 @@
   parent: Paper
   id: PrintedDocument
   abstract: true
-  description: Bureaucratic unit. A document printed on a printer.
+  description: Bureaucratic unit for NanoTrasen. A document printed on a printer. #FH start
   components:
-    - type: Paper
+  - type: Sprite
+    sprite: _FarHorizons/Objects/Misc/bureaucracy.rsi #FH
+    layers:
+    - state: paper_nt
+    - state: paper_words_nt
+      map: ["enum.PaperVisualLayers.Writing"]
+      visible: false
+    - state: paper_stamp-generic
+      map: ["enum.PaperVisualLayers.Stamp"]
+      sprite: Objects/Misc/bureaucracy.rsi #FH
+      visible: false #FH end
     
 # Reports
 

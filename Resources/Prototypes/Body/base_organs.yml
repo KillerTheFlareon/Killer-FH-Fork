@@ -84,6 +84,7 @@
       - BodyCover # Far Horizons
       - BodyCoverCover # Far Horizons
       - TailCover # Far Horizons
+      - Wings # Far Horizons
 
 #FarHorizons Start
 - type: entity

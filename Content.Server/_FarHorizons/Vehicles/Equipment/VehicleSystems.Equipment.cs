@@ -10,7 +10,6 @@ using Robust.Shared.Prototypes;
 using System.Linq;
 using Content.Shared.Movement.Systems;
 using Content.Shared.Movement.Components;
-using Robust.Shared.Timing;
 using Content.Shared.PowerCell.Components;
 using Content.Shared.PowerCell;
 using Content.Shared._FarHorizons.ReagentDraw.Components;
@@ -36,23 +35,23 @@ using Robust.Shared.Audio;
 namespace Content.Server._FarHorizons.Vehicles.Equipment;
 public sealed partial class VehicleEquipmentSystems : EntitySystem
 {
-    [Dependency] private readonly SharedContainerSystem _container = default!;
-    [Dependency] private readonly SharedTransformSystem _transform = default!;
-    [Dependency] private readonly SharedActionsSystem _actions = default!;
-    [Dependency] private readonly IPrototypeManager _proto = default!;
-    [Dependency] private readonly MovementSpeedModifierSystem _movementSpeed = default!;
-    [Dependency] private readonly PowerCellSystem _powerCell = default!;
-    [Dependency] private readonly MetaDataSystem _meta = default!;
-    [Dependency] private readonly SharedUserInterfaceSystem _ui = default!;
-    [Dependency] private readonly DamageableSystem _damage = default!;
-    [Dependency] private readonly VehicleAtmosphereSystem _vAtmos = default!;
-    [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
-    [Dependency] private readonly SharedDoAfterSystem _doAfter = default!;
-    [Dependency] private readonly SharedHandsSystem _hands = default!;
-    [Dependency] private readonly SharedPopupSystem _popupSystem = default!;
-    [Dependency] private readonly IRobustRandom _random = default!;
-    [Dependency] private readonly IConfigurationManager _configManager = default!;
-    [Dependency] private readonly SharedAudioSystem _audio = default!;
+    [Dependency] private SharedContainerSystem _container = default!;
+    [Dependency] private SharedTransformSystem _transform = default!;
+    [Dependency] private SharedActionsSystem _actions = default!;
+    [Dependency] private IPrototypeManager _proto = default!;
+    [Dependency] private MovementSpeedModifierSystem _movementSpeed = default!;
+    [Dependency] private PowerCellSystem _powerCell = default!;
+    [Dependency] private MetaDataSystem _meta = default!;
+    [Dependency] private SharedUserInterfaceSystem _ui = default!;
+    [Dependency] private DamageableSystem _damage = default!;
+    [Dependency] private VehicleAtmosphereSystem _vAtmos = default!;
+    [Dependency] private SharedAppearanceSystem _appearance = default!;
+    [Dependency] private SharedDoAfterSystem _doAfter = default!;
+    [Dependency] private SharedHandsSystem _hands = default!;
+    [Dependency] private SharedPopupSystem _popupSystem = default!;
+    [Dependency] private IRobustRandom _random = default!;
+    [Dependency] private IConfigurationManager _configManager = default!;
+    [Dependency] private SharedAudioSystem _audio = default!;
 
     private float _frictionModifier;
     private float _airfrictionModifier;
@@ -64,21 +63,21 @@ public sealed partial class VehicleEquipmentSystems : EntitySystem
 
         SubscribeLocalEvent<VehicleModsComponent, InteractUsingEvent>(OnInstallAttempt);
         SubscribeLocalEvent<VehicleModsComponent, InstallDoAfter>(OnInstallDoAfter);
-        SubscribeLocalEvent<VehicleEquipmentComponent, InstalledVehicleEquipment>(OnVehicleEquipmentInstalled);
-        SubscribeLocalEvent<MovementSpeedModifierComponent, InstalledVehicleEquipment>(OnMovementInstalled);
-        SubscribeLocalEvent<PowerCellDrawComponent, InstalledVehicleEquipment>(OnElectricEngineInstalled);
-        SubscribeLocalEvent<ReagentDrawComponent, InstalledVehicleEquipment>(OnGasEngineInstalled);
-        SubscribeLocalEvent<DamageableComponent, InstalledVehicleEquipment>(OnArmorInstalled);
-        SubscribeLocalEvent<PointLightComponent, InstalledVehicleEquipment>(OnLightInstalled);
+        SubscribeLocalEvent<VehicleEquipmentComponent, InstalledVehicleEquipment>(OnVehicleEquipmentInstalled, after:[typeof(MovementSpeedModifierSystem)]);
+        SubscribeLocalEvent<MovementSpeedModifierComponent, InstalledVehicleEquipment>(OnMovementInstalled, after:[typeof(MovementSpeedModifierSystem)]);
+        SubscribeLocalEvent<PowerCellDrawComponent, InstalledVehicleEquipment>(OnElectricEngineInstalled, after:[typeof(MovementSpeedModifierSystem)]);
+        SubscribeLocalEvent<ReagentDrawComponent, InstalledVehicleEquipment>(OnGasEngineInstalled, after:[typeof(MovementSpeedModifierSystem)]);
+        SubscribeLocalEvent<DamageableComponent, InstalledVehicleEquipment>(OnArmorInstalled, after:[typeof(MovementSpeedModifierSystem)]);
+        SubscribeLocalEvent<PointLightComponent, InstalledVehicleEquipment>(OnLightInstalled, after:[typeof(MovementSpeedModifierSystem)]);
 
         SubscribeLocalEvent<VehicleModsComponent, UninstallPartMessage>(OnUninstallPart);
         SubscribeLocalEvent<VehicleModsComponent, UninstallDoAfter>(OnUninstallDoAfter);
-        SubscribeLocalEvent<VehicleEquipmentComponent, UnInstalledVehicleEquipment>(OnVehicleEquipmentUnInstalled);
-        SubscribeLocalEvent<MovementSpeedModifierComponent, UnInstalledVehicleEquipment>(OnMovementUnInstalled);
-        SubscribeLocalEvent<PowerCellDrawComponent, UnInstalledVehicleEquipment>(OnElectricEngineUnInstalled);
-        SubscribeLocalEvent<ReagentDrawComponent, UnInstalledVehicleEquipment>(OnGasEngineUnInstalled);
-        SubscribeLocalEvent<DamageableComponent, UnInstalledVehicleEquipment>(OnArmorUnInstalled);
-        SubscribeLocalEvent<PointLightComponent, UnInstalledVehicleEquipment>(OnLightUnInstalled);
+        SubscribeLocalEvent<VehicleEquipmentComponent, UnInstalledVehicleEquipment>(OnVehicleEquipmentUnInstalled, after:[typeof(MovementSpeedModifierSystem)]);
+        SubscribeLocalEvent<MovementSpeedModifierComponent, UnInstalledVehicleEquipment>(OnMovementUnInstalled, after:[typeof(MovementSpeedModifierSystem)]);
+        SubscribeLocalEvent<PowerCellDrawComponent, UnInstalledVehicleEquipment>(OnElectricEngineUnInstalled, after:[typeof(MovementSpeedModifierSystem)]);
+        SubscribeLocalEvent<ReagentDrawComponent, UnInstalledVehicleEquipment>(OnGasEngineUnInstalled, after:[typeof(MovementSpeedModifierSystem)]);
+        SubscribeLocalEvent<DamageableComponent, UnInstalledVehicleEquipment>(OnArmorUnInstalled, after:[typeof(MovementSpeedModifierSystem)]);
+        SubscribeLocalEvent<PointLightComponent, UnInstalledVehicleEquipment>(OnLightUnInstalled, after:[typeof(MovementSpeedModifierSystem)]);
 
         SubscribeLocalEvent<RiderComponent, AddRiderActions>(OnAddActions);
         SubscribeLocalEvent<RiderComponent, RemoveRiderActions>(OnRemoveActions);
@@ -87,7 +86,6 @@ public sealed partial class VehicleEquipmentSystems : EntitySystem
         SubscribeLocalEvent<VehicleEquipmentComponent, GetItemActionsEvent>(OnGetActions);
 
         SubscribeLocalEvent<VehicleModsComponent, GridUidChangedEvent>(GridUiChanged);
-        SubscribeLocalEvent<VehicleModsComponent, RefreshFrictionModifiersEvent>(OnFrictionRefresh);
         SubscribeLocalEvent<VehicleModsComponent, RefreshWeightlessModifiersEvent>(OnWeightlessRefresh);
         SubscribeLocalEvent<VehicleModsComponent, TurnOffVehicleEvent>(OnVehicleShutoff);
         SubscribeLocalEvent<VehicleModsComponent, DamageChangedEvent>(OnDamageChanged);
@@ -117,7 +115,10 @@ public sealed partial class VehicleEquipmentSystems : EntitySystem
                 
                 var item = SpawnAtPosition(itemProto, ent.Owner.ToCoordinates());
                 if(!CheckandAssign(item, ent.Comp))
+                {
                     QueueDel(item);
+                    continue;
+                }
                     
                 if(HasComp<PointLightComponent>(item))
                 {
@@ -171,6 +172,7 @@ public sealed partial class VehicleEquipmentSystems : EntitySystem
                 if(HasComp<PointLightComponent>(part))
                 {
                     _transform.SetParent(part, ent.Owner);
+                    _transform.SetCoordinates(part, ent.Owner.ToCoordinates());
                     _transform.SetLocalRotation(part, Angle.Zero);
                 }
                 else
@@ -202,21 +204,20 @@ public sealed partial class VehicleEquipmentSystems : EntitySystem
         if(!TryComp<VehicleEquipmentComponent>(ent.Owner, out var veComp) 
             || !TryComp<MovementSpeedModifierComponent>(args.Vehicle, out var msmComp)) return;
         var Vehicle = args.Vehicle;
-        Timer.Spawn(0, () =>
+        switch(veComp.Slot)
         {
-            switch(veComp.Slot)
-            {
-                case EquipmentType.TIRES:
-                    _movementSpeed.RefreshFrictionModifiers(Vehicle);
-                    break;
-                case EquipmentType.ENGINE:
-                    _movementSpeed.ChangeBaseSpeed(Vehicle, ent.Comp.BaseWalkSpeed, ent.Comp.BaseSprintSpeed, msmComp.Acceleration);
-                    break;
-                case EquipmentType.THURSTERS:
-                    _meta.AddFlag(Vehicle, MetaDataFlags.ExtraTransformEvents);
-                    break;
+            case EquipmentType.TIRES:
+                _movementSpeed.ChangeBaseFriction(Vehicle, ent.Comp.BaseFriction/_frictionModifier, ent.Comp.BaseFriction/_frictionModifier, ent.Comp.BaseAcceleration);
+                break;
+            case EquipmentType.ENGINE:
+                _movementSpeed.ChangeBaseSpeed(Vehicle, ent.Comp.BaseWalkSpeed, ent.Comp.BaseSprintSpeed, msmComp.Acceleration);
+                break;
+            case EquipmentType.THURSTERS:
+                _meta.AddFlag(Vehicle, MetaDataFlags.ExtraTransformEvents);
+                break;
             }
-        });
+            _movementSpeed.RefreshFrictionModifiers(Vehicle);
+            _movementSpeed.RefreshMovementSpeedModifiers(Vehicle);
     }
 
     private void OnElectricEngineInstalled(Entity<PowerCellDrawComponent> ent, ref InstalledVehicleEquipment args) 
@@ -300,21 +301,20 @@ public sealed partial class VehicleEquipmentSystems : EntitySystem
         if(!TryComp<VehicleEquipmentComponent>(ent.Owner, out var veComp) 
             || !TryComp<MovementSpeedModifierComponent>(args.Vehicle, out var msmComp)) return;
         var Vehicle = args.Vehicle;
-        Timer.Spawn(0, () =>
+        switch(veComp.Slot)
         {
-            switch(veComp.Slot)
-            {
-                case EquipmentType.TIRES:
-                    _movementSpeed.RefreshFrictionModifiers(Vehicle);
-                    break;
-                case EquipmentType.ENGINE:
-                    _movementSpeed.ChangeBaseSpeed(Vehicle, 0, 0, msmComp.Acceleration);
-                    break;
-                case EquipmentType.THURSTERS:
-                    _meta.RemoveFlag(Vehicle, MetaDataFlags.ExtraTransformEvents);
-                    break;
-            }
-        });
+            case EquipmentType.TIRES:
+                _movementSpeed.ChangeBaseFriction(Vehicle, 20/_frictionModifier, 20/_frictionModifier, 0.5f);
+                break;
+            case EquipmentType.ENGINE:
+                _movementSpeed.ChangeBaseSpeed(Vehicle, 0, 0, msmComp.Acceleration);
+                break;
+            case EquipmentType.THURSTERS:
+                _meta.RemoveFlag(Vehicle, MetaDataFlags.ExtraTransformEvents);
+                break;
+        }
+        _movementSpeed.RefreshFrictionModifiers(Vehicle);
+        _movementSpeed.RefreshMovementSpeedModifiers(Vehicle);
     }
 
     private void OnElectricEngineUnInstalled(Entity<PowerCellDrawComponent> ent, ref UnInstalledVehicleEquipment args) 
@@ -344,26 +344,26 @@ public sealed partial class VehicleEquipmentSystems : EntitySystem
     {
         if(ent.Comp.Riding == null) return;
         var vehicle = ent.Comp.Riding.Value;
-        if(!TryComp<VehicleModsComponent>(vehicle, out var vmComp) || vmComp.SpawnedEquipment.Count == 0) return;
-        foreach(var item in vmComp.SpawnedEquipment)
+        if(!TryComp<VehicleModsComponent>(vehicle, out var vmComp) || vmComp.Equipment.Count == 0) return;
+        foreach(var item in vmComp.Equipment)
         {
-            if(!TryComp<VehicleEquipmentComponent>(item, out var veComp) || veComp.ActionEntity == null)
+            if(!TryComp<VehicleEquipmentComponent>(item.Value, out var veComp) || veComp.ActionEntity == null)
                 continue;
-            if(TryComp<DestructibleComponent>(item, out var destructibleComp) && destructibleComp.IsBroken)
+            if(TryComp<DestructibleComponent>(item.Value, out var destructibleComp) && destructibleComp.IsBroken)
                 continue;
-            _actions.GrantContainedAction(ent.Owner, item, veComp.ActionEntity.Value);
+            _actions.GrantContainedAction(ent.Owner, item.Value.Value, veComp.ActionEntity.Value);
         }
     }
     private void OnRemoveActions(Entity<RiderComponent> ent, ref RemoveRiderActions args)
     {
         if(ent.Comp.Riding == null) return;
         var vehicle = ent.Comp.Riding.Value;
-        if(!TryComp<VehicleModsComponent>(vehicle, out var vmComp) || vmComp.SpawnedEquipment.Count == 0) return;
-        foreach(var item in vmComp.SpawnedEquipment)
+        if(!TryComp<VehicleModsComponent>(vehicle, out var vmComp) || vmComp.Equipment.Count == 0) return;
+        foreach(var item in vmComp.Equipment)
         {
-            if(!TryComp<VehicleEquipmentComponent>(item, out var veComp) || veComp.ActionEntity == null)
+            if(!TryComp<VehicleEquipmentComponent>(item.Value, out var veComp) || veComp.ActionEntity == null)
                 continue;
-            _actions.RemoveProvidedAction(ent.Owner, item, veComp.ActionEntity.Value);
+            _actions.RemoveProvidedAction(ent.Owner, item.Value.Value, veComp.ActionEntity.Value);
         }
     }
 
@@ -417,27 +417,6 @@ public sealed partial class VehicleEquipmentSystems : EntitySystem
     #endregion
 
     #region Events
-    private void OnFrictionRefresh(Entity<VehicleModsComponent> ent, ref RefreshFrictionModifiersEvent args)
-    {
-        if(!TryComp<DestructibleComponent>(ent.Owner, out var destructible))
-            return;
-
-        ent.Comp.Equipment.TryGetValue(EquipmentType.TIRES, out var tires);
-
-        if(tires == null || destructible.IsBroken)
-        {
-            args.Acceleration = 0.5f;
-            args.Friction = 16/_frictionModifier;
-            args.FrictionNoInput = 16/_frictionModifier; 
-        }
-        else
-        {
-            if(!TryComp<MovementSpeedModifierComponent>(tires, out var msmComp)) return;
-            args.Acceleration = msmComp.BaseAcceleration;
-            args.Friction = msmComp.BaseFriction/_frictionModifier;
-            args.FrictionNoInput = msmComp.BaseFriction/_frictionModifier;   
-        }
-    }
 
     private void OnWeightlessRefresh(Entity<VehicleModsComponent> ent, ref RefreshWeightlessModifiersEvent args)
     {
@@ -489,7 +468,7 @@ public sealed partial class VehicleEquipmentSystems : EntitySystem
         var xForm = Transform(ent.Owner);
         if(xForm.GridUid == xForm.ParentUid)
             return;
-         
+
         if(ent.Comp.ActionEntity != null && TryComp<VehicleComponent>(ent.Owner, out var vehicleComp))
         {
             if(vehicleComp.Rider != null)

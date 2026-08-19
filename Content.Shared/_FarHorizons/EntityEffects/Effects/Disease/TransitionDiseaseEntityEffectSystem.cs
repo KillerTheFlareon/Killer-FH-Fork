@@ -12,8 +12,8 @@ namespace Content.Shared.EntityEffects.Effects.Disease;
 /// <inheritdoc cref="EntityEffectSystem{T,TEffect}"/>
 public sealed partial class TransitionDiseaseEntityEffectSystem : EntityEffectSystem<DiseaseCarrierComponent, TransitionDisease>
 {
-    [Dependency] private readonly IPrototypeManager _prototype = default!;
-    [Dependency] private readonly SharedDiseaseSystem _disease = default!;
+    [Dependency] private IPrototypeManager _prototype = default!;
+    [Dependency] private SharedDiseaseSystem _disease = default!;
 
     protected override void Effect(Entity<DiseaseCarrierComponent> entity, ref EntityEffectEvent<TransitionDisease> args)
     {
@@ -31,11 +31,11 @@ public sealed partial class TransitionDiseaseEntityEffectSystem : EntityEffectSy
         if(disease == null || stage == null)
             return;
 
-        if(! _disease.CanBeInfected(entity.Owner, disease))
+        if(! _disease.CanBeInfected(entity.Owner, disease.Value))
             return;
 
         entity.Comp.ActiveDiseases.Remove(transitionFrom);
-        _disease.Infect(entity.Owner, disease, stage);
+        _disease.Infect(entity.Owner, disease.Value, stage);
     }
 }
 

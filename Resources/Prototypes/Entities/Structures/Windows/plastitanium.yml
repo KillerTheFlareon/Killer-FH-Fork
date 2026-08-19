@@ -45,6 +45,10 @@
         layer:
         - WallLayer
         density: 5000 #FH
+<<<<<<< HEAD
+=======
+  - type: LineOfSightExclude # Far Horizons
+>>>>>>> Far-Horizons
 
 - type: entity
   id: PlastitaniumWindowSquareBase
@@ -144,7 +148,7 @@
     state: state0
   - type: IconSmooth
     mode: Diagonal
-    key: windows
+    key: walls #FH
     base: state
   - type: Fixtures
     fixtures:

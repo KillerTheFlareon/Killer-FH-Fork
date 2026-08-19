@@ -13,7 +13,7 @@
   minWidth: 0.9
   defaultWidth: 1
   maxWidth: 1.2
-  minHeight: 0.9
+  minHeight: 0.8
   defaultHeight: 1
   maxHeight: 1.367
   standardSize: 150

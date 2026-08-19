@@ -18,11 +18,17 @@
   displayWeight: 40
   access:
   - Brig
+  - BrigNS # Far Horizons
   - Maintenance
+  - MaintenanceNS # Far Horizons
   - Lawyer
+  - LawyerNS # Far Horizons
   - Command #Far Horizons
+  - Executive # Far Horizons
   - GenpopEnter
   - GenpopLeave
+  - GenpopEnterNS # Far Horizons
+  - GenpopLeaveNS # Far Horizons
   special:
   - !type:AddImplantSpecial
     implants: [ MindShieldImplant ]

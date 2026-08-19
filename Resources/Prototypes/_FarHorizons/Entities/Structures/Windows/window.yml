@@ -1,33 +1,88 @@
-# Regular
+#region Window
 
 - type: entity
-  id: WindowStandard
+  id: WindowGeneric
   parent: Window
-  name: Window
-  suffix: ""
+  suffix: Generic
   components:
   - type: Sprite
-    drawdepth: WallTops
-    sprite: Structures/Windows/window.rsi
+    sprite: _FarHorizons/Structures/Windows/Generic/window.rsi
   - type: Icon
-    sprite: Structures/Windows/window.rsi
-    state: full
-
-# Reinforced
+    sprite: _FarHorizons/Structures/Windows/Generic/window.rsi
 
 - type: entity
-  id: ReinforcedWindowStandard
-  parent: ReinforcedWindow
-  name: Reinforced Window
-  suffix: ""
+  id: WindowNS
+  parent: Window
+  suffix: NS
   components:
   - type: Sprite
-    drawdepth: WallTops
-    sprite: Structures/Windows/reinforced_window.rsi
+    sprite: _FarHorizons/Structures/Windows/NeoSol/window.rsi
   - type: Icon
-    sprite: Structures/Windows/reinforced_window.rsi
+    sprite: _FarHorizons/Structures/Windows/NeoSol/window.rsi
 
-# Wooden
+- type: entity
+  id: WindowDiagonalGeneric
+  parent: WindowDiagonal
+  suffix: Diagonal, Generic
+  components:
+  - type: Sprite
+    sprite: _FarHorizons/Structures/Windows/NanoTrasen/window_diagonal.rsi
+  - type: Icon
+    sprite: _FarHorizons/Structures/Windows/NanoTrasen/window_diagonal.rsi
+
+- type: entity
+  id: WindowDiagonalNS
+  parent: WindowDiagonal
+  suffix: Diagonal, NS
+  components:
+  - type: Sprite
+    sprite: _FarHorizons/Structures/Windows/NeoSol/window_diagonal.rsi
+  - type: Icon
+    sprite: _FarHorizons/Structures/Windows/NeoSol/window_diagonal.rsi
+
+#region Reinforced Window
+
+- type: entity
+  id: ReinforcedWindowGeneric
+  parent: ReinforcedWindow
+  suffix: Generic
+  components:
+  - type: Sprite
+    sprite: _FarHorizons/Structures/Windows/Generic/reinforced_window.rsi
+  - type: Icon
+    sprite: _FarHorizons/Structures/Windows/Generic/reinforced_window.rsi
+
+- type: entity
+  id: ReinforcedWindowNS
+  parent: ReinforcedWindow
+  suffix: NS
+  components:
+  - type: Sprite
+    sprite: _FarHorizons/Structures/Windows/NeoSol/reinforced_window.rsi
+  - type: Icon
+    sprite: _FarHorizons/Structures/Windows/NeoSol/reinforced_window.rsi
+
+- type: entity
+  id: ReinforcedWindowDiagonalGeneric
+  parent: ReinforcedWindowDiagonal
+  suffix: Diagonal, Generic
+  components:
+  - type: Sprite
+    sprite: _FarHorizons/Structures/Windows/NanoTrasen/reinforced_window_diagonal.rsi
+  - type: Icon
+    sprite: _FarHorizons/Structures/Windows/NanoTrasen/reinforced_window_diagonal.rsi
+
+- type: entity
+  id: ReinforcedWindowDiagonalNS
+  parent: ReinforcedWindowDiagonal
+  suffix: Diagonal, NS
+  components:
+  - type: Sprite
+    sprite: _FarHorizons/Structures/Windows/NeoSol/reinforced_window_diagonal.rsi
+  - type: Icon
+    sprite: _FarHorizons/Structures/Windows/NeoSol/reinforced_window_diagonal.rsi
+
+#region Wooden
 
 - type: entity
   id: WindowWoodenFrame
@@ -129,33 +184,9 @@
   - type: StaticPrice
     price: 100
   - type: BlockWeather
+  - type: LineOfSightExclude
 
-  #region NeoSol
-- type: entity
-  id: WindowSyndie
-  parent: Window
-  name: Window
-  suffix: NS
-  components:
-  - type: Sprite
-    drawdepth: WallTops
-    sprite: Structures/Windows/window.rsi
-  - type: Icon
-    sprite: Structures/Windows/window.rsi
-    state: full
-
-- type: entity
-  id: ReinforcedWindowSyndie
-  parent: ReinforcedWindow
-  name: Reinforced Window 
-  suffix: NS
-  components:
-  - type: Sprite
-    drawdepth: WallTops
-    sprite: Structures/Windows/reinforced_window.rsi
-  - type: Icon
-    sprite: Structures/Windows/reinforced_window.rsi
-
+#region TintedWindow
 - type: entity
   parent: BaseWindow 
   id: TintedWindowNeoSol
@@ -183,17 +214,59 @@
     - Off
     - Toggle
 
+#region ShuttleWindow
+- type: entity
+  id: ShuttleWindowGeneric
+  parent: ShuttleWindow
+  suffix: Generic
+  components:
+  - type: Sprite
+    sprite: _FarHorizons/Structures/Windows/NanoTrasen/shuttle_window.rsi
+  - type: Icon
+    sprite: _FarHorizons/Structures/Windows/NanoTrasen/shuttle_window.rsi
+
+- type: entity
+  id: ShuttleWindowNS
+  parent: ShuttleWindow
+  suffix: NS
+  components:
+  - type: Sprite
+    sprite: _FarHorizons/Structures/Windows/NeoSol/shuttle_window.rsi
+  - type: Icon
+    sprite: _FarHorizons/Structures/Windows/NeoSol/shuttle_window.rsi
+
+- type: entity
+  id: ShuttleWindowDiagonalGeneric
+  parent: ShuttleWindowDiagonal
+  suffix: Diagonal, Generic
+  components:
+  - type: Sprite
+    sprite: _FarHorizons/Structures/Windows/NanoTrasen/shuttle_window_diagonal.rsi
+  - type: Icon
+    sprite: _FarHorizons/Structures/Windows/NanoTrasen/shuttle_window_diagonal.rsi
+
+- type: entity
+  id: ShuttleWindowDiagonalNS
+  parent: ShuttleWindowDiagonal
+  suffix: Diagonal, NS
+  components:
+  - type: Sprite
+    sprite: _FarHorizons/Structures/Windows/NeoSol/shuttle_window_diagonal.rsi
+  - type: Icon
+    sprite: _FarHorizons/Structures/Windows/NeoSol/shuttle_window_diagonal.rsi
+
 #region Reinf. Shuttle Window
 - type: entity
+  parent: [BaseDeltaPressurePlasmaQuarter, WindowRCDResistant]
   id: ShuttleWindowReinforced
   name: Reinforced Shuttle Window
-  parent: [BaseDeltaPressurePlasmaQuarter, WindowRCDResistant]
+  suffix: NT
   components:
   - type: Sprite
     drawdepth: WallTops
-    sprite: _FarHorizons/Structures/Windows/shuttle_window.rsi
+    sprite: _FarHorizons/Structures/Windows/NanoTrasen/reinforced_shuttle_window.rsi 
   - type: Icon
-    sprite: _FarHorizons/Structures/Windows/shuttle_window.rsi
+    sprite: _FarHorizons/Structures/Windows/NanoTrasen/reinforced_shuttle_window.rsi 
   - type: Repairable
     fuelCost: 15
     doAfterDelay: 3
@@ -226,7 +299,7 @@
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
   - type: IconSmooth
-    key: walls # Far Horizons... This will surely get fixed, eventually, during a lunar eclipse, when all the stars align.
+    key: walls # Far Horizons... This will surely get fixed, eventually, during a lunar eclipse, when all the stars align. - the stars weep in my presence 
     base: swindow
   - type: Appearance
   - type: DamageVisuals
@@ -242,9 +315,29 @@
     node: ReinforcedShuttleWindow
 
 - type: entity
+  id: ShuttleWindowReinforcedGeneric
+  parent: ShuttleWindowReinforced
+  suffix: Generic
+  components:
+  - type: Sprite
+    sprite: _FarHorizons/Structures/Windows/NanoTrasen/reinforced_shuttle_window.rsi 
+  - type: Icon
+    sprite: _FarHorizons/Structures/Windows/NanoTrasen/reinforced_shuttle_window.rsi 
+    
+- type: entity
+  id: ShuttleWindowReinforcedNS
+  parent: ShuttleWindowReinforced
+  suffix: NS
+  components:
+  - type: Sprite
+    sprite: _FarHorizons/Structures/Windows/NeoSol/reinforced_shuttle_window.rsi 
+  - type: Icon
+    sprite: _FarHorizons/Structures/Windows/NeoSol/reinforced_shuttle_window.rsi 
+
+- type: entity
   parent: ShuttleWindowReinforced
   id: ShuttleWindowReinforcedDiagonal
-  suffix: Diagonal
+  suffix: Diagonal, NT
   placement:
     mode: SnapgridCenter
     snap:
@@ -252,7 +345,7 @@
   components:
   - type: Sprite
     drawdepth: WallTops
-    sprite: _FarHorizons/Structures/Windows/shuttle_window_diagonal.rsi
+    sprite: _FarHorizons/Structures/Windows/NanoTrasen/reinforced_shuttle_window_diagonal.rsi
     state: state0
   - type: Tag
     tags:
@@ -260,10 +353,10 @@
     - Window
   - type: IconSmooth
     mode: Diagonal
-    key: walls # Far Horizons... This will surely get fixed, eventually, during a lunar eclipse, when all the stars align.
+    key: walls
     base: state
   - type: Icon
-    sprite: _FarHorizons/Structures/Windows/shuttle_window_diagonal.rsi
+    sprite: _FarHorizons/Structures/Windows/NanoTrasen/reinforced_shuttle_window_diagonal.rsi
     state: state0
   - type: Fixtures
     fixtures:
@@ -287,20 +380,41 @@
     damageOverlay:
       sprite: Structures/Windows/cracks_diagonal.rsi
   - type: Construction
-    graph: Window
-    node: ReinforcedShuttleWindowDirectional
+    graph: WindowDiagonal
+    node: ShuttleWindowReinforcedDiagonal
+
+- type: entity
+  id: ShuttleWindowReinforcedDiagonalGeneric
+  parent: ShuttleWindowReinforcedDiagonal
+  suffix: Diagonal, Generic
+  components:
+  - type: Sprite
+    sprite: _FarHorizons/Structures/Windows/NanoTrasen/reinforced_shuttle_window_diagonal.rsi
+  - type: Icon
+    sprite: _FarHorizons/Structures/Windows/NanoTrasen/reinforced_shuttle_window_diagonal.rsi
+
+- type: entity
+  id: ShuttleWindowReinforcedDiagonalNS
+  parent: ShuttleWindowReinforcedDiagonal
+  suffix: Diagonal, NS
+  components:
+  - type: Sprite
+    sprite: _FarHorizons/Structures/Windows/NeoSol/reinforced_shuttle_window_diagonal.rsi
+  - type: Icon
+    sprite: _FarHorizons/Structures/Windows/NeoSol/reinforced_shuttle_window_diagonal.rsi
 
 #region A.Shuttle Window
 - type: entity
   id: ShuttleWindowArmored
   name: Armored Shuttle Window
+  suffix: NT
   parent: [BaseDeltaPressureReinforcedPlasmaQuarter, WindowRCDResistant]
   components:
   - type: Sprite
     drawdepth: WallTops
-    sprite: _FarHorizons/Structures/Windows/shuttle_window.rsi
+    sprite: _FarHorizons/Structures/Windows/NanoTrasen/reinforced_shuttle_window.rsi 
   - type: Icon
-    sprite: _FarHorizons/Structures/Windows/shuttle_window.rsi
+    sprite: _FarHorizons/Structures/Windows/NanoTrasen/reinforced_shuttle_window.rsi 
   - type: Repairable
     fuelCost: 15
     doAfterDelay: 3
@@ -333,7 +447,7 @@
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
   - type: IconSmooth
-    key: walls # Far Horizons... This will surely get fixed, eventually, during a lunar eclipse, when all the stars align.
+    key: walls # Far Horizons... This will surely get fixed, eventually, during a lunar eclipse, when all the stars align. - the stars weep in my presence 
     base: swindow 
   - type: Appearance
   - type: DamageVisuals
@@ -349,9 +463,29 @@
     node: ArmoredShuttleWindow
 
 - type: entity
+  id: ShuttleWindowArmoredGeneric
+  parent: ShuttleWindowArmored
+  suffix: Generic
+  components:
+  - type: Sprite
+    sprite: _FarHorizons/Structures/Windows/NanoTrasen/reinforced_shuttle_window.rsi 
+  - type: Icon
+    sprite: _FarHorizons/Structures/Windows/NanoTrasen/reinforced_shuttle_window.rsi 
+
+- type: entity
+  id: ShuttleWindowArmoredNS
+  parent: ShuttleWindowArmored
+  suffix: NS
+  components:
+  - type: Sprite
+    sprite: _FarHorizons/Structures/Windows/NeoSol/reinforced_shuttle_window.rsi 
+  - type: Icon
+    sprite: _FarHorizons/Structures/Windows/NeoSol/reinforced_shuttle_window.rsi 
+
+- type: entity
   parent: ShuttleWindowArmored
   id: ShuttleWindowArmoredDiagonal
-  suffix: Diagonal
+  suffix: Diagonal, NT
   placement:
     mode: SnapgridCenter
     snap:
@@ -359,7 +493,7 @@
   components:
   - type: Sprite
     drawdepth: WallTops
-    sprite: _FarHorizons/Structures/Windows/shuttle_window_diagonal.rsi
+    sprite: _FarHorizons/Structures/Windows/NanoTrasen/reinforced_shuttle_window_diagonal.rsi
     state: state0
   - type: Tag
     tags:
@@ -367,10 +501,10 @@
     - Window
   - type: IconSmooth
     mode: Diagonal
-    key: walls # Far Horizons... This will surely get fixed, eventually, during a lunar eclipse, when all the stars align.
+    key: walls
     base: state
   - type: Icon
-    sprite: _FarHorizons/Structures/Windows/shuttle_window_diagonal.rsi
+    sprite: _FarHorizons/Structures/Windows/NanoTrasen/reinforced_shuttle_window_diagonal.rsi
     state: state0
   - type: Fixtures
     fixtures:
@@ -394,48 +528,25 @@
     damageOverlay:
       sprite: Structures/Windows/cracks_diagonal.rsi
   - type: Construction
-    graph: Window
-    node: ArmoredShuttleWindowDirectional
-
-#region Syndicate
-- type: entity
-  id: ShuttleWindowArmoredSyndicate
-  name: Armored Shuttle Window
-  parent: ShuttleWindowArmored
-  suffix: Syndicate
-  components:
-  - type: Sprite
-    drawdepth: WallTops
-    sprite: _FarHorizons/Structures/Windows/shuttle_window.rsi
-    color: "#1D1D1D"
-  - type: Icon
-    sprite: _FarHorizons/Structures/Windows/shuttle_window.rsi
-    color: "#1D1D1D"
-  - type: IconSmooth
-    key: walls
-    base: swindow 
-  - type: Appearance
+    graph: WindowDiagonal
+    node: ArmoredShuttleWindowDiagonal
 
 - type: entity
+  id: ShuttleWindowArmoredDiagonalGeneric
   parent: ShuttleWindowArmoredDiagonal
-  id: ShuttleWindowArmoredDiagonalSyndicate
-  suffix: Diagonal, Syndicate
-  placement:
-    mode: SnapgridCenter
-    snap:
-    - Window
+  suffix: Diagonal, Generic
   components:
-  - type: Appearance
   - type: Sprite
-    drawdepth: WallTops
-    sprite: _FarHorizons/Structures/Windows/shuttle_window_diagonal.rsi
-    state: state0
-    color: "#1D1D1D"
-  - type: IconSmooth
-    mode: Diagonal
-    key: walls
-    base: state
+    sprite: _FarHorizons/Structures/Windows/NanoTrasen/reinforced_shuttle_window_diagonal.rsi
   - type: Icon
-    sprite: _FarHorizons/Structures/Windows/shuttle_window_diagonal.rsi
-    state: state0
-    color: "#1D1D1D"
+    sprite: _FarHorizons/Structures/Windows/NanoTrasen/reinforced_shuttle_window_diagonal.rsi
+
+- type: entity
+  id: ShuttleWindowArmoredDiagonalNS
+  parent: ShuttleWindowArmoredDiagonal
+  suffix: Diagonal, NS
+  components:
+  - type: Sprite
+    sprite: _FarHorizons/Structures/Windows/NeoSol/reinforced_shuttle_window_diagonal.rsi
+  - type: Icon
+    sprite: _FarHorizons/Structures/Windows/NeoSol/reinforced_shuttle_window_diagonal.rsi

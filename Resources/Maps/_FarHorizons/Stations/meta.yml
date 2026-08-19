@@ -4,7 +4,7 @@ meta:
   engineVersion: 272.0.1
   forkId: ""
   forkVersion: ""
-  time: 07/03/2026 23:57:50
+  time: 08/08/2026 20:08:04
   entityCount: 31899
 maps:
 - 1
@@ -16732,6 +16732,22 @@ entities:
       parent: 2
     - type: BarSign
       current: TheAleNath
+    - type: Fixtures
+      fixtures: {}
+- proto: BaseAdSignNT
+  entities:
+  - uid: 24366
+    components:
+    - type: Transform
+      pos: 36.5,5.5
+      parent: 2
+    - type: Fixtures
+      fixtures: {}
+  - uid: 24367
+    components:
+    - type: Transform
+      pos: -67.5,9.5
+      parent: 2
     - type: Fixtures
       fixtures: {}
 - proto: BaseGasCondenser
@@ -88067,7 +88083,7 @@ entities:
       pos: 1.5,35.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -10724.274
+      secondsUntilStateChange: -10753.813
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -161659,18 +161675,6 @@ entities:
       parent: 2
 - proto: SecurityTechFab
   entities:
-  - uid: 9917
-    components:
-    - type: Transform
-      pos: 0.5,44.5
-      parent: 2
-    - type: TechnologyDatabase
-      supportedDisciplines:
-      - Industrial
-      - Arsenal
-      - Experimental
-      - CivilianServices
-      - Biochemical
   - uid: 59798
     components:
     - type: Transform
@@ -161688,6 +161692,20 @@ entities:
       - Glass
       - Plastic
       - Steel
+- proto: SecurityTechFabAmmo
+  entities:
+  - uid: 9917
+    components:
+    - type: Transform
+      pos: 0.5,44.5
+      parent: 2
+    - type: TechnologyDatabase
+      supportedDisciplines:
+      - Industrial
+      - Arsenal
+      - Experimental
+      - CivilianServices
+      - Biochemical
 - proto: SeedExtractor
   entities:
   - uid: 21996
@@ -179433,22 +179451,6 @@ entities:
     components:
     - type: Transform
       pos: 24.5,20.5
-      parent: 2
-    - type: Fixtures
-      fixtures: {}
-- proto: WallmountTelevisionRandomSpawner
-  entities:
-  - uid: 24366
-    components:
-    - type: Transform
-      pos: 36.5,5.5
-      parent: 2
-    - type: Fixtures
-      fixtures: {}
-  - uid: 24367
-    components:
-    - type: Transform
-      pos: -67.5,9.5
       parent: 2
     - type: Fixtures
       fixtures: {}
@@ -199660,7 +199662,7 @@ entities:
       lastSignals:
         DoorStatus: True
     - type: Door
-      secondsUntilStateChange: -6113.8447
+      secondsUntilStateChange: -6143.3843
       state: Opening
     - type: Airlock
       autoClose: False

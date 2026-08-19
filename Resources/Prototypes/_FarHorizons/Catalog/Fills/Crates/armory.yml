@@ -1,7 +1,7 @@
 - type: entity
   parent: [ CrateWeaponSecure, BaseSecurityContraband ]
   id: CrateArmorySMGLight
-  name: Light SMG crate
+  name: Light SMG Crate
   description: Contains two P2-91s with four mags. Requires Armory access to open.
   components:
   - type: EntityTableContainerFill
@@ -12,3 +12,118 @@
           amount: 2
         - id: MagazinePistolSubMachineGunSP
           amount: 4
+
+- type: entity
+  parent: [ CrateWeaponSecure, BaseSecurityContraband ]
+  id: CrateArmoryCivilianMk58
+  name: Civilian Mk 58 Crate
+  description: Contains two Civilian Mk 58s with four mags. Requires Armory access to open.
+  components:
+  - type: EntityTableContainerFill
+    containers:
+      entity_storage: !type:AllSelector
+        children:
+        - id: WeaponPistolMk58Civilian
+          amount: 2
+        - id: MagazinePistolCivilianSP
+          amount: 4          
+
+- type: entity
+  parent: [ CrateWeaponSecure, BaseSecurityContraband ]
+  id: CrateArmoryCivilianMk59
+  name: Civilian Mk 59 Crate
+  description: Contains two Civilian Mk 59s with four mags. Requires Armory access to open.
+  components:
+  - type: EntityTableContainerFill
+    containers:
+      entity_storage: !type:AllSelector
+        children:
+        - id: WeaponPistolMk59Civilian
+          amount: 2
+        - id: MagazinePistolCivilianSP
+          amount: 4
+
+- type: entity
+  parent: [ CrateWeaponSecure, BaseSecurityContraband ]
+  id: CrateArmoryCivilianMk78
+  name: Civilian Mk 78 Crate
+  description: Contains two Civilian Mk 78s with four mags. Requires Armory access to open.
+  components:
+  - type: EntityTableContainerFill
+    containers:
+      entity_storage: !type:AllSelector
+        children:
+        - id: WeaponPistolMk78Civilian
+          amount: 2
+        - id: MagazinePistolCivilianSP
+          amount: 4
+
+- type: entity
+  parent: [ CrateWeaponSecure, BaseSecurityContraband ]
+  id: CrateArmoryCivilianInstigator
+  name: Civilian Instigator Crate
+  description: Contains two Civilian Instigators with four speed loaders. Requires Armory access to open.
+  components:
+  - type: EntityTableContainerFill
+    containers:
+      entity_storage: !type:AllSelector
+        children:
+        - id: WeaponRevolverInstigatorCivilian
+          amount: 2
+        - id: SpeedLoaderRevolver38CivilianSP
+          amount: 4
+
+- type: entity
+  parent: [ CrateWeaponSecure, BaseSecurityContraband ]
+  id: CrateArmoryCivilianLever
+  name: Civilian Lever-Action Crate
+  description: Contains two Civilian Lever-Actions with four speed loaders. Requires Armory access to open.
+  components:
+  - type: EntityTableContainerFill
+    containers:
+      entity_storage: !type:AllSelector
+        children:
+        - id: WeaponSniperLeverCivilian
+          amount: 2
+        - id: SpeedLoaderLeverCivilianMagnumSP
+          amount: 4
+
+- type: entity
+  parent: [ CrateWeaponSecure, BaseSecurityContraband ]
+  id: CrateArmoryPistolAmmo
+  name: 9mm Pistol SP Ammo Crate
+  description: Contains 480 rounds of 9mm Pistol SP ammo. Requires Armory access to open.
+  components:
+  - type: EntityTableContainerFill
+    containers:
+      entity_storage: !type:AllSelector
+        children:
+        - id: MagazineBoxPistolSP
+          amount: 4
+
+- type: entity
+  parent: [ CrateWeaponSecure, BaseSecurityContraband ]
+  id: CrateArmoryMagnumAmmo
+  name: .44 Magnum SP Ammo Crate
+  description: Contains 480 rounds of .44 Magnum SP ammo. Requires Armory access to open.
+  components:
+  - type: EntityTableContainerFill
+    containers:
+      entity_storage: !type:AllSelector
+        children:
+        - id: MagazineBoxMagnumSP
+          amount: 15 
+
+- type: entity
+  parent: [ CrateWeaponSecure, BaseSecurityContraband ]
+  id: CrateArmoryRevolverAmmo
+  name: .38 Special SP Ammo Crate
+  description: Contains 480 rounds of .38 Special SP ammo. Requires Armory access to open.
+  components:
+  - type: EntityTableContainerFill
+    containers:
+      entity_storage: !type:AllSelector
+        children:
+        - id: MagazineBoxRevolver38SP
+          amount: 5
+          

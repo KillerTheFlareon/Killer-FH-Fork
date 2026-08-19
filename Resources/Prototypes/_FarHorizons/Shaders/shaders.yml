@@ -86,3 +86,128 @@
     outerCircle: true
     range: 7
     falloff_width: 2.5
+
+- type: shader
+  id: MainSequenceStar
+  kind: source
+  path: "/Textures/_FarHorizons/Shaders/StarSystem/main_sequence_star.swsl"
+  params:
+    parallaxFactor: 0.05
+    solarRadiusFactor: 25.0
+
+- type: shader
+  id: GasGiant
+  kind: source
+  path: "/Textures/_FarHorizons/Shaders/StarSystem/gas_giant.swsl"
+  params:
+    parallaxFactor: 0.05
+    planetaryRadiusFactor: 1.0
+    hueShiftMultiplier: 0.1
+    saturationShiftMultiplier: 0.1
+    shadowSoftness: 0.25
+    rotationSpeed: 0.005
+    rimGlowStrength: 0.75
+    axialPitch: 1.7
+    ringDensity: 0.85
+    perspectiveStrength: 0.013
+
+- type: shader
+  id: IceGiant
+  kind: source
+  path: "/Textures/_FarHorizons/Shaders/StarSystem/ice_giant.swsl"
+  params:
+    parallaxFactor: 0.05
+    planetaryRadiusFactor: 1.0
+    hueShiftMultiplier: 0.1
+    saturationShiftMultiplier: 0.1
+    shadowSoftness: 0.25
+    rotationSpeed: 0.005
+    rimGlowStrength: 0.75
+    axialPitch: 1.7
+    ringDensity: 0.85
+    perspectiveStrength: 0.013
+    atmosphereDepth: 0.01
+
+- type: shader
+  id: RockyPlanet
+  kind: source
+  path: "/Textures/_FarHorizons/Shaders/StarSystem/rocky_planet.swsl"
+  params:
+    parallaxFactor: 0.1
+    planetaryRadiusFactor: 5.0
+    hueShiftMultiplier: 0.1
+    saturationShiftMultiplier: 0.1
+    shadowSoftness: 0.25
+    rotationSpeed: 0.005
+    rimGlowStrength: 0.75
+    axialPitch: 1.7
+    ringDensity: 0.85
+    perspectiveStrength: 0.013
+    roughness: 0.5
+    atmosphereSunScattering: 2.5
+    atmosphereHeightFalloff: 3.5
+    cloudSpeed: 0.01
+    cloudHeight: 0.02
+    cloudShadowStrength: 0.8
+    polarCapNoiseScale: 0.5
+
+- type: shader
+  id: AsteroidBelt
+  kind: source
+  path: "/Textures/_FarHorizons/Shaders/StarSystem/asteroid_belt.swsl"
+  params:
+    bandFrequency: 6.0
+    bandNoiseScale: 4.0
+    edgeFeatherPower: 0.25
+    beltRotationSpeed: 0.0001
+    mistScale: 0.15
+    mistDensity: 0.1
+    mistCoverage: 1.35
+    specksScale: 2.5
+    specksThreshold: 0.5
+    specksSpeedMultiplier: 2.25
+    boulderGridScale: 1.5
+    boulderDensity: 0.05
+    boulderMaxRadius: 1.5
+    boulderSpeedMultiplier: 1.25
+
+- type: shader
+  id: HologramFH
+  kind: source
+  path: "/Textures/_FarHorizons/Shaders/hologram.swsl"
+  params:
+    alpha: 0.9
+    width: 0.75
+    colorFactor: 0.5
+    lineSpeed: 5
+    lineFreq: 40000
+    glitchSpeed: 1
+    glitchFreq: 1000
+    glitchThreshold: 0.99
+    burstSpeed: 0.419
+    burstThreshold: 0.75
+    pixelShift: 1
+
+- type: shader
+  id: HologramFH_unshaded
+  kind: source
+  path: "/Textures/_FarHorizons/Shaders/hologram_unshaded.swsl"
+  params:
+    alpha: 0.9
+    width: 0.75
+    colorFactor: 0.5
+    lineSpeed: 5
+    lineFreq: 40000
+    glitchSpeed: 1
+    glitchFreq: 1000
+    glitchThreshold: 0.99
+    burstSpeed: 0.419
+    burstThreshold: 0.75
+    pixelShift: 1
+
+- type: shader
+  id: DisplacedDraw_unshaded
+  kind: source
+  path: "/Textures/_FarHorizons/Shaders/displacement_unshaded.swsl"
+  params:
+    displacementSize: 127

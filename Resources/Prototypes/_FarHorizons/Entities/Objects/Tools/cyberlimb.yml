@@ -19,7 +19,7 @@
       - CyberHandItem
 
 - type: entity
-  name: Cybernetic Jaws of Death
+  name: Jaws of Death
   parent: SyndicateJawsOfLife
   id: SyndicateJawsOfLifeCyber
   description: A set of Jaws of Death, compressed through the magic of science.

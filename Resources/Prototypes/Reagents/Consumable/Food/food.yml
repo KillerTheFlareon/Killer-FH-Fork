@@ -8,18 +8,20 @@
   flavor: nutriment
   color: "#24591F"
   metabolisms:
-    # Far Horizons start
-    Digestion:
+    Metabolites:
       effects:
+      - !type:SatiateHunger
+        # Far Horizons start
+        conditions:
+          - !type:MetabolizerTypeCondition
+            type: [ LesserVampire ]
+            inverted: true
       - !type:Vomit
         probability: 0.7
         conditions:
           - !type:MetabolizerTypeCondition
             type: [ LesserVampire ]
-    # Far Horizons end
-    Metabolites:
-      effects:
-      - !type:SatiateHunger
+      # Far Horizons end
   plantMetabolism:
   - !type:PlantAdjustNutrition
     amount: 1.5

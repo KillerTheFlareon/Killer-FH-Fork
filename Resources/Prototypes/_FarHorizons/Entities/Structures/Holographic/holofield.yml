@@ -302,6 +302,7 @@
     radius: 3
     color: "#66ffea"
   - type: GenericField
+  - type: LineOfSightExclude
 
 - type: entity
   id: HolographicFieldBarrier

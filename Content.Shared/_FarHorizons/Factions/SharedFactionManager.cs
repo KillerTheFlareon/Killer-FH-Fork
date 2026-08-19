@@ -12,8 +12,8 @@ namespace Content.Shared._FarHorizons.Factions;
 
 public abstract partial class SharedFactionManager : ISharedFactionManager
 {
-    [Dependency] protected readonly IPrototypeManager _prototypeManager = default!;
-    [Dependency] protected readonly ILocalizationManager _locMan = default!;
+    [Dependency] protected IPrototypeManager _prototypeManager = default!;
+    [Dependency] protected ILocalizationManager _locMan = default!;
 
     public static readonly string FallbackFaction = "FactionNT";
 
@@ -225,13 +225,23 @@ public abstract partial class SharedFactionManager : ISharedFactionManager
         _prototypeManager.Index(factionJob.job).ExtendedAccessGroups :
         OverrideJobExtendedAccessGroups(assignment!);
 
+    public JobSpecial[] OverrideJobSpecial(FactionJobAssignmentPrototype assignment) =>
+        assignment.Override == null || assignment.Override.Special == null ?
+            _prototypeManager.Index(assignment.Job).Special :
+            assignment.Override.Special;
+
+    public JobSpecial[] OverrideJobSpecial((ProtoId<FactionPrototype>? faction, ProtoId<JobPrototype> job) factionJob) =>
+        factionJob.faction is null || !TryGetJobAssignment((factionJob.faction.Value, factionJob.job), out var assignment) ? 
+        _prototypeManager.Index(factionJob.job).Special :
+        OverrideJobSpecial(assignment!);
+
     private (ProtoId<FactionPrototype> faction, ProtoId<JobPrototype> job) GetDefaultIdsWithJob() =>
         (GetDefaultFaction(), SharedGameTicker.FallbackOverflowJob);
     private static bool TryGetFactionColor(FactionPrototype faction, out Color color) => Color.TryParse(faction.Color, out color);
-    private FactionJobAssignmentPrototype? GetJobAssignment((ProtoId<FactionPrototype> faction, ProtoId<JobPrototype> job) factionJob) =>
+    public FactionJobAssignmentPrototype? GetJobAssignment((ProtoId<FactionPrototype> faction, ProtoId<JobPrototype> job) factionJob) =>
         ListFactionJobs().FirstOrDefault(p => p.Faction == factionJob.faction && p.Job == factionJob.job);
-    
-    private bool TryGetJobAssignment((ProtoId<FactionPrototype> faction, ProtoId<JobPrototype> job) factionJob, out FactionJobAssignmentPrototype? assignment){
+
+    public bool TryGetJobAssignment((ProtoId<FactionPrototype> faction, ProtoId<JobPrototype> job) factionJob, out FactionJobAssignmentPrototype? assignment){
         assignment = GetJobAssignment(factionJob);
         return assignment != null;
     }

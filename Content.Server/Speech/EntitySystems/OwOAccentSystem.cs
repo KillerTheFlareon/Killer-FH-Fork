@@ -6,9 +6,9 @@
 
 //namespace Content.Server.Speech.EntitySystems
 //{
-//    public sealed class OwOAccentSystem : EntitySystem
+//    public sealed partial class OwOAccentSystem : EntitySystem
 //    {
-//        [Dependency] private readonly IRobustRandom _random = default!;
+//        [Dependency] private IRobustRandom _random = default!;
 
 //        private static readonly IReadOnlyDictionary<string, string> SpecialWords = new Dictionary<string, string>()
 //        {

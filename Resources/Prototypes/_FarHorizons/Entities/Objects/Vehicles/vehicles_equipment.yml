@@ -49,7 +49,7 @@
       enabled: false
       radius: 5
       softness: 2
-      mask: /Textures/Effects/LightMasks/cone.png
+      lightMask: ConeSingle #FH
       autoRot: true
       containerOccluded: true
     - type: Sprite
@@ -74,7 +74,7 @@
       enabled: false
       radius: 8
       softness: 2
-      mask: /Textures/Effects/LightMasks/cone.png
+      lightMask: ConeSingle #FH
       autoRot: true
       containerOccluded: true
     - type: Sprite
@@ -107,7 +107,7 @@
       enabled: false
       radius: 5
       color: red
-      mask: /Textures/Effects/LightMasks/double_cone.png
+      lightMask: ConeDouble 
     - type: RotatingLight
       speed: 360
     - type: Sprite
@@ -253,7 +253,7 @@
         enum.SharedGasTankUiKey.Key:
           type: GasTankBoundUserInterface
     - type: GasTank
-      outputPressure: 21.3
+      releasePressure: 21.3
       air:
         volume: 3000
         temperature: 293.15
@@ -268,7 +268,7 @@
   suffix: Filled
   components:
   - type: GasTank
-    outputPressure: 21.3
+    releasePressure: 21.3
     air:
       volume: 3000
       moles:

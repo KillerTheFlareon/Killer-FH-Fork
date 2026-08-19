@@ -16,10 +16,10 @@
   - type: Projectile
     damage:
       types:
-        Blunt: 13
-        Structural: 15
+        Blunt: 9
+        Structural: 19
   - type: TimedDespawn
-    lifetime: 0.2 # roughly 5 tiles
+    lifetime: 0.135 # roughly 3 tiles
 
 - type: entity
   id: ProtoKineticPellet
@@ -28,8 +28,8 @@
   components:
   - type: ProjectileSpread
     proto: PelletKinetic
-    count: 5
-    spread: 25
+    count: 4
+    spread: 35
 
 #PKC variant charge shots
 
@@ -456,3 +456,42 @@
     state: high-sci
   - type: PointLight
     color: "#f870ff"
+
+# Other
+
+- type: entity
+  name: Shuttle Tesla Lightning
+  id: ShuttleTeslaBullet
+  parent: BaseBullet
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: TimedDespawn
+    lifetime: 20
+  - type: Sprite
+    sprite: Structures/Power/Generation/Tesla/energy_miniball.rsi
+    layers:
+    - state: tesla_projectile
+      shader: unshaded
+  - type: StaminaDamageOnCollide
+    damage: 50
+  - type: EmbeddableProjectile
+  - type: Projectile
+    damage:
+      types:
+        Heat: 40
+        Structural: 300
+    deleteOnCollide: false
+    soundHit:
+      path: /Audio/Weapons/Guns/Hits/bullet_hit.ogg
+  - type: LightningArcShooter
+    arcDepth: 1
+    maxLightningArc: 3
+    shootMinInterval: 5
+    shootMaxInterval: 15
+    shootRange: 3
+    lightningPrototype: Lightning
+  - type: Electrified
+    requirePower: false
+  - type: Tag
+    tags:
+      - HideContextMenu

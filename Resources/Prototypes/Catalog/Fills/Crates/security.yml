@@ -97,7 +97,7 @@
   parent: CrateSecgear
   id: CrateSecurityTrackingMindshieldImplants
   name: implanter crate
-  description: Contains 4 MindShield implants and 4 tracking implant. Requires Security access to open.
+  description: Contains 4 NanoTrasen MindShield implants and 4 tracking implant. Requires Security access to open. # FH
   components:
   - type: EntityTableContainerFill
     containers:
@@ -107,6 +107,8 @@
           amount: 4
         - id: TrackingImplanter
           amount: 4
+  - type: AccessReader
+    access: [["Security"], ["Cadet"]] #FH
 
 - type: entity
   parent: CrateSecgear

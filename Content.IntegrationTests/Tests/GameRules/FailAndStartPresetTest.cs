@@ -119,7 +119,7 @@ public sealed class FailAndStartPresetTest
     }
 }
 
-public sealed class TestRuleSystem : EntitySystem
+public sealed partial class TestRuleSystem : EntitySystem
 {
     public bool Run;
 

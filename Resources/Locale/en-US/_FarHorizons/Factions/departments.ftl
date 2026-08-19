@@ -18,6 +18,6 @@ faction-syndie-department-Silicon = Silicon Jobs
 faction-neutral-department-Command = Command Jobs
 faction-neutral-department-Law = Space Law Jobs - Concord Frontier Authority
 
-faction-neutral-department-Cargo = Cargo Jobs
+faction-neutral-department-Cargo = Cargo Jobs - Gemini Stellar Logistics
 
 faction-neutral-department-Civilian = Civilian Jobs - General Hires

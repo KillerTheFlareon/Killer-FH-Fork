@@ -4,9 +4,6 @@ using Content.Shared.DragDrop;
 using Content.Shared.Lock;
 using Robust.Shared.Timing;
 using Content.Shared.Examine;
-using Content.Shared.Damage.Components;
-using Content.Shared.Movement.Pulling.Events;
-using Content.Shared.Mobs.Components;
 using Content.Shared.Buckle;
 using Content.Shared.Movement.Components;
 using Content.Shared._FarHorizons.Vehicles.Events;
@@ -16,7 +13,6 @@ using Content.Shared.Actions;
 using Content.Shared.ActionBlocker;
 using Content.Shared.Buckle.Components;
 using Content.Shared.Containers.ItemSlots;
-using Content.Shared.Movement.Events;
 using Content.Shared.Movement.Systems;
 using Content.Shared.Stunnable;
 using Content.Shared.Tag;
@@ -25,8 +21,6 @@ using Robust.Shared.Prototypes;
 using System.Numerics;
 using System.Linq;
 using Content.Shared.PowerCell;
-using Content.Shared.Projectiles;
-using Content.Shared.Throwing;
 using Content.Shared._FarHorizons.ReagentDraw.Components;
 using Content.Shared.Audio;
 using Content.Shared.Popups;
@@ -37,70 +31,59 @@ using Content.Shared.Inventory.VirtualItem;
 using Content.Shared.Interaction.Components;
 using Content.Shared.Destructible;
 using Content.Shared.Whitelist;
-using Content.Shared.Wieldable;
-using Content.Shared.Wieldable.Components;
 using Content.Shared.Weapons.Ranged.Systems;
 using Content.Shared.Weapons.Ranged.Components;
-using Content.Shared.Repairable;
 using Content.Shared.Effects;
 using Robust.Shared.Player;
 using Content.Shared.Administration.Logs;
 using Content.Shared.Damage.Systems;
 using Content.Shared.Emp;
 using Content.Shared.PowerCell.Components;
-using Content.Shared.Weapons.Ranged.Events;
 using Content.Shared.Hands;
 using Content.Shared._FarHorizons.ReagentDraw.EntitySystems;
-using Content.Shared.Mobs;
-using Robust.Shared.Network;
 
 namespace Content.Shared._FarHorizons.Vehicles;
 
 public abstract partial class SharedVehicleSystem : EntitySystem
 {    
-    [Dependency] protected readonly ISharedAdminLogManager _adminLogger = default!;
-    [Dependency] protected readonly SharedMoverController _mover = default!;
-    [Dependency] protected readonly SharedTransformSystem _transform = default!;
-    [Dependency] protected readonly SharedBuckleSystem _buckle = default!;
-    [Dependency] protected readonly MovementSpeedModifierSystem _movementSpeed = default!;
-    [Dependency] protected readonly ActionBlockerSystem _actionBlocker = default!;
-    [Dependency] protected readonly SharedActionsSystem _actions = default!;
-    [Dependency] protected readonly TagSystem _tags = default!;
-    [Dependency] protected readonly PowerCellSystem _powerCell = default!;
-    [Dependency] protected readonly SharedReagentDrawSystem _reagentDraw = default!;
-    [Dependency] protected readonly SharedStunSystem _stun = default!;
-    [Dependency] protected readonly ThrowingSystem _throwing = default!;
-    [Dependency] protected readonly SharedAmbientSoundSystem _ambientSound = default!;
-    [Dependency] protected readonly SharedPopupSystem _popup = default!;
-    [Dependency] protected readonly SharedDoAfterSystem _doAfter = default!;
-    [Dependency] protected readonly SharedHandsSystem _handsSystem = default!;
-    [Dependency] protected readonly IGameTiming _gameTiming = default!;
-    [Dependency] protected readonly SharedVirtualItemSystem _virtualItem = default!;
-    [Dependency] protected readonly SharedContainerSystem _container = default!;
-    [Dependency] protected readonly DamageableSystem _damageable = default!;
-    [Dependency] protected readonly EntityWhitelistSystem _whitelist = default!;
-    [Dependency] protected readonly SharedWieldableSystem _wield = default!;
-    [Dependency] protected readonly SharedStaminaSystem _stamina = default!;
-    [Dependency] protected readonly LockSystem _lock = default!;
-    [Dependency] protected readonly IPrototypeManager _prototypes = default!;
-    [Dependency] protected readonly SharedColorFlashEffectSystem _color = default!;
-    [Dependency] protected readonly SharedGunSystem _gun = default!;
-    [Dependency] protected readonly SharedAudioSystem _audio = default!;
-    [Dependency] protected readonly SharedAppearanceSystem _appearance = default!;
+    [Dependency] protected ISharedAdminLogManager _adminLogger = default!;
+    [Dependency] protected SharedMoverController _mover = default!;
+    [Dependency] protected SharedTransformSystem _transform = default!;
+    [Dependency] protected SharedBuckleSystem _buckle = default!;
+    [Dependency] protected ActionBlockerSystem _actionBlocker = default!;
+    [Dependency] protected SharedActionsSystem _actions = default!;
+    [Dependency] protected TagSystem _tags = default!;
+    [Dependency] protected PowerCellSystem _powerCell = default!;
+    [Dependency] protected SharedReagentDrawSystem _reagentDraw = default!;
+    [Dependency] protected SharedStunSystem _stun = default!;
+    [Dependency] protected SharedAmbientSoundSystem _ambientSound = default!;
+    [Dependency] protected SharedPopupSystem _popup = default!;
+    [Dependency] protected SharedDoAfterSystem _doAfter = default!;
+    [Dependency] protected SharedHandsSystem _handsSystem = default!;
+    [Dependency] protected IGameTiming _gameTiming = default!;
+    [Dependency] protected SharedVirtualItemSystem _virtualItem = default!;
+    [Dependency] protected SharedContainerSystem _container = default!;
+    [Dependency] protected DamageableSystem _damageable = default!;
+    [Dependency] protected EntityWhitelistSystem _whitelist = default!;
+    [Dependency] protected LockSystem _lock = default!;
+    [Dependency] protected SharedColorFlashEffectSystem _color = default!;
+    [Dependency] protected SharedGunSystem _gun = default!;
+    [Dependency] protected SharedAudioSystem _audio = default!;
+    [Dependency] protected SharedAppearanceSystem _appearance = default!;
     protected static readonly ProtoId<TagPrototype> s_vehicleKeyTag = "VehicleKey";
-    protected static readonly string s_bluntname = "Blunt";
-    protected EntityQuery<ProjectileComponent> _projQuery;
     public override void Initialize()
     {
         base.Initialize();
 
-        _projQuery = GetEntityQuery<ProjectileComponent>();
+        InitializeRider();
+        InitializeBuckle();
+        InitializeContainer();
         
         SubscribeLocalEvent<VehicleComponent, ComponentStartup>(OnComponentStartup);
-        SubscribeLocalEvent<VehicleComponent, EntInsertedIntoContainerMessage>(OnEntInsertedVehicle);
+        SubscribeLocalEvent<VehicleComponent, EntInsertedIntoContainerMessage>(OnEntInsertedVehicle, after: [typeof(SharedContainerSystem)]);
         SubscribeLocalEvent<VehicleComponent, GetAdditionalAccessEvent>(OnGetAdditionalAccess);
         SubscribeLocalEvent<VehicleComponent, ItemSlotInsertEvent>(OnInsertEvent);
-        SubscribeLocalEvent<VehicleComponent, ItemSlotEjectEvent>(OnEjectEvent);
+        SubscribeLocalEvent<VehicleComponent, ItemSlotEjectEvent>(OnEjectEvent, before: [typeof(SharedHandsSystem)]);
         SubscribeLocalEvent<VehicleComponent, EjectKeysDoAfter>(OnEjectKeysDoAfter);
         SubscribeLocalEvent<VehicleComponent, TurnKeysDoAfter>(OnTurnKeysDoAfter);
         SubscribeLocalEvent<VehicleComponent, ReagantContainerSlotEmptyEvent>(OnEmptyReagantContainer);
@@ -114,37 +97,10 @@ public abstract partial class SharedVehicleSystem : EntitySystem
         SubscribeLocalEvent<VehicleComponent, CanDropTargetEvent>(OnCanDragDrop);
         SubscribeLocalEvent<VehicleComponent, ExaminedEvent>(OnExamine);
 
-        SubscribeLocalEvent<VehicleBuckleComponent, StrappedEvent>(OnStrapped);
-        SubscribeLocalEvent<VehicleBuckleComponent, UnstrappedEvent>(OnUnstrapped);
-        SubscribeLocalEvent<VehicleBuckleComponent, UnstrapAttemptEvent>(OnUnstrapAttempt);
-        SubscribeLocalEvent<VehicleBuckleComponent, VehicleUnbuckleDoAfter>(OnUnbuckleDoAfter);
-        SubscribeLocalEvent<VehicleBuckleComponent, RefreshMovementSpeedModifiersEvent>(OnMovementSpeedRefreshVehicleEvent);
-
-        SubscribeLocalEvent<VehicleContainerComponent, VehicleEntryDoAfter>(OnVehicleEntryDoAfter);
-        SubscribeLocalEvent<VehicleContainerComponent, VehicleRemoveDoAfter>(OnVehicleRemoveDoAfter);
-        SubscribeLocalEvent<VehicleContainerComponent, EntInsertedIntoContainerMessage>(OnEntInserted);
-
-        SubscribeLocalEvent<RiderComponent, StunnedEvent>(OnStunned);
-        SubscribeLocalEvent<RiderComponent, KnockedDownEvent>(OnKnockdown);
-        SubscribeLocalEvent<RiderComponent, UpdateCanMoveEvent>(OnUpdateCanMoveEvent);
-        SubscribeLocalEvent<RiderComponent, JumpActionEvent>(OnJumpActionEvent);
-        SubscribeLocalEvent<RiderComponent, WieldAttemptEvent>(OnWieldAttemptEvent);
-        SubscribeLocalEvent<RiderComponent, ShooterImpulseEvent>(OnShooterEvent);
-        SubscribeLocalEvent<RiderComponent, RefreshMovementSpeedModifiersEvent>(OnMovementSpeedRefreshRiderEvent);
-        SubscribeLocalEvent<RiderComponent, DidEquipHandEvent>(OnHandEquippedRider);
-        SubscribeLocalEvent<RiderComponent, PullAttemptEvent>(OnPullAttempt);
-        SubscribeLocalEvent<RiderComponent, EntityTerminatingEvent>(OnRiderTerminating);
-
-        SubscribeLocalEvent<GunComponent, ItemWieldedEvent>(OnGunWielded);
-        SubscribeLocalEvent<GunComponent, ItemUnwieldedEvent>(OnGunUnwielded);
-        SubscribeLocalEvent<GunComponent, GunRefreshModifiersEvent>(OnGunRefreshModifiers);
-
         SubscribeLocalEvent<TransformComponent, JetJumpActionEvent>(OnJetJumpActionEvent);
         SubscribeLocalEvent<DidEquipHandEvent>(OnHandEquipped);
         _transform.OnGlobalMoveEvent += OnMoveEvent;
     }
-
-    #region Vehicle Generic Events
 
     private void OnComponentStartup(Entity<VehicleComponent> ent, ref ComponentStartup args)
     {
@@ -205,8 +161,7 @@ public abstract partial class SharedVehicleSystem : EntitySystem
                 }
 
                 TurnOffVehicle(ent.Owner, ent.Comp);
-                Timer.Spawn(0, () =>_handsSystem.PickupOrDrop(user, item));
-                ent.Comp.Rider = null;
+                _handsSystem.PickupOrDrop(user, item);
                 Dirty(ent);
             }
             else
@@ -240,11 +195,7 @@ public abstract partial class SharedVehicleSystem : EntitySystem
             UpdateActions(ent.Comp.Rider.Value, false);
             if(TryComp<InputMoverComponent>(ent.Comp.Rider.Value, out var imComp) && imComp.CanMove)
                 _actionBlocker.UpdateCanMove(ent.Comp.Rider.Value);
-
-            for (var i = 0; i < ent.Comp.HandsNeeded; i++)
-            {
-                _virtualItem.DeleteInHandsMatching(ent.Comp.Rider.Value, ent.Owner);
-            }
+                
             _handsSystem.PickupOrDrop(args.User, key);
             ent.Comp.Rider = null;
             Dirty(ent);
@@ -446,289 +397,6 @@ public abstract partial class SharedVehicleSystem : EntitySystem
         }
         _appearance.SetData(entity.Owner, VehicleVisuals.VisualState, finalState);
     }
-
-    #endregion
-    #region VehicleBuckle Events
-    private void OnStrapped(Entity<VehicleBuckleComponent> ent, ref StrappedEvent args)
-    {
-        if(!TryComp<VehicleComponent>(ent, out var vehicleComp)) return;
-        SetUpRider(args.Buckle.Owner, ent.Owner, vehicleComp);
-        foreach(var held in _handsSystem.EnumerateHeld(args.Buckle.Owner))
-        {
-            if(TryComp<WieldableComponent>(held, out var wieldComp))
-                _wield.TryUnwield(held, wieldComp, args.Buckle.Owner);
-        }
-        Timer.Spawn(0, () => _movementSpeed.RefreshMovementSpeedModifiers(ent.Owner)); // Race conditions :strangle:
-    }
-
-    private void OnUnstrapAttempt(Entity<VehicleBuckleComponent> ent, ref UnstrapAttemptEvent args)
-    {
-        if(!TryComp<VehicleComponent>(ent.Owner, out var vehicleComp)) return;
-        if(args.User == null || !args.Popup) return;
-        if(vehicleComp.Rider == null) return;
-        if (vehicleComp.Rider != args.User)
-        {
-            args.Cancelled = true;
-            _adminLogger.Add(Database.LogType.Action, Database.LogImpact.Low, $"{ToPrettyString(args.User)} attempted to steal vehicle {ToPrettyString(ent.Owner)}");
-            _popup.PopupClient(Loc.GetString("vehicle-steal-vehicle-attempt"), vehicleComp.Rider.Value, PopupType.LargeCaution);
-            var ev = new VehicleUnbuckleDoAfter();
-            var doAfter = new DoAfterArgs(EntityManager, args.User.Value, ent.Comp.duration, ev, ent.Owner, ent.Owner)
-            {
-                BreakOnMove = true,
-                BreakOnDamage = true
-            };
-            _doAfter.TryStartDoAfter(doAfter);
-        }
-    }
-    
-    private void OnHornActionEvent(Entity<VehicleComponent> ent, ref HornActionEvent args)
-    {
-        if (!_gameTiming.IsFirstTimePredicted) return;
-        if (args.Handled || ent.Comp.HornSound == null)
-            return;
-        if(ent.Comp.Rider == null) return;
-        _audio.PlayPredicted(ent.Comp.HornSound, ent.Owner, null);
-        args.Handled = true;
-    }
-
-    private void OnUnstrapped(Entity<VehicleBuckleComponent> ent, ref UnstrappedEvent args)
-    {
-        if(!TryComp<VehicleComponent>(ent, out var vehicleComp)) return;
-                
-        if(HasComp<RiderComponent>(args.Buckle.Owner))
-            RemoveRider(args.Buckle.Owner, ent.Owner, vehicleComp);
-    }
-
-    private void OnUnbuckleDoAfter(Entity<VehicleBuckleComponent> ent, ref VehicleUnbuckleDoAfter args)
-    {
-        if(args.Cancelled) return;
-        if(!TryComp<VehicleComponent>(ent.Owner, out var vehicleComp)) return;
-        if(vehicleComp.Rider == null) return;
-        var user = vehicleComp.Rider.Value;
-        if(!TryComp<BuckleComponent>(user, out var buckleComp)) return;
-        _buckle.Unbuckle((user, buckleComp), user);
-    }
-
-    private void OnMovementSpeedRefreshVehicleEvent(Entity<VehicleBuckleComponent> ent, ref RefreshMovementSpeedModifiersEvent args)
-    {
-        if(!ent.Comp.armoraffectsvehicle) return;
-        if(!TryComp<VehicleComponent>(ent.Owner, out var vehicleComp) || vehicleComp.Rider == null) return;
-        if(!TryComp<MovementSpeedModifierComponent>(vehicleComp.Rider.Value, out var msmComp)) return;
-        args.ModifySpeed(msmComp.WalkSpeedModifier, msmComp.SprintSpeedModifier);
-
-    }
-
-    #endregion
-    #region VehicleContainer Events
-
-    private void OnVehicleEntryDoAfter(Entity<VehicleContainerComponent> ent, ref VehicleEntryDoAfter args)
-    {
-        if (args.Cancelled || args.Handled)
-            return;
-
-        if(!TryComp<VehicleComponent>(ent, out var vehicleComp)) return;
-        if(!TryInsert(args.Args.Target, ent.Owner, ent.Comp)) return;
-
-        SetUpRider(args.Args.Target!.Value, ent.Owner, vehicleComp);
-
-        args.Handled = true;
-    }
-
-    private void OnVehicleRemoveDoAfter(Entity<VehicleContainerComponent> ent, ref VehicleRemoveDoAfter args)
-    {
-        if (args.Cancelled || args.Handled)
-            return;
-        
-        if(!TryComp<VehicleComponent>(ent, out var vehicleComp)) return;
-        var passenger = ent.Comp.PassengerSlot.ContainedEntities.FirstOrDefault();
-        if(passenger == default) return;
-        RemoveRider(passenger, ent.Owner, vehicleComp);
-        TryRemove(passenger, ent.Owner, ent.Comp);
-
-        args.Handled = true;
-    }
-
-    private void OnEntInserted(EntityUid ent, VehicleContainerComponent component, EntInsertedIntoContainerMessage args)
-    {
-        if(args.Container != component.PassengerSlot) return;
-        
-        var tagert = args.Entity; 
-        Timer.Spawn(0, () =>
-        {
-            if(_whitelist.IsWhitelistFail(component.PassengerWhitelist, tagert))
-            {
-                if(HasComp<RiderComponent>(tagert) && TryComp<VehicleComponent>(ent, out var vehicleComp))
-                    RemoveRider(tagert, ent, vehicleComp);
-
-                if(_tags.HasTag(tagert, s_vehicleKeyTag)) return;
-                
-                _container.Remove(tagert, component.PassengerSlot);
-            }
-        });
-    }
-
-    #endregion
-    #region Rider Events
-
-    private void OnStunned(Entity<RiderComponent> ent, ref StunnedEvent args)
-    { 
-        var vehicle = ent.Comp.Riding;
-        if(!TryComp<VehicleBuckleComponent>(vehicle, out var vehicleBuckleComp)) return;
-        if(!vehicleBuckleComp.stundismount) return;
-        if(!TryComp<BuckleComponent>(ent.Owner, out var buckleComp)) return;
-
-        _buckle.Unbuckle((ent.Owner, buckleComp), ent.Owner);   
-    }
-
-    private void OnKnockdown(Entity<RiderComponent> ent, ref KnockedDownEvent args)
-    {
-        var vehicle = ent.Comp.Riding;
-        if(!TryComp<VehicleBuckleComponent>(vehicle, out var vehicleBuckleComp)) return;
-        if(!vehicleBuckleComp.knockdowndismount) return;
-        if(!TryComp<BuckleComponent>(ent.Owner, out var buckleComp)) return;
-        
-        _buckle.Unbuckle((ent.Owner, buckleComp), ent.Owner);   
-    }
-    
-    private void OnJumpActionEvent(Entity<RiderComponent> ent, ref JumpActionEvent args)
-    {
-        if(!TryComp<BuckleComponent>(ent.Owner, out var buckleComp)) return;
-        _buckle.Unbuckle((ent.Owner, buckleComp), ent.Owner);
-    }
-
-    private void OnUpdateCanMoveEvent(Entity<RiderComponent> ent, ref UpdateCanMoveEvent args)
-    {
-        if (!TryComp<VehicleComponent>(ent.Comp.Riding, out var vehicleComp))
-            return;
-
-        if (vehicleComp.RequireIgnition && !vehicleComp.Started)
-        {
-            args.Cancel();
-            return;
-        }
-
-        if (ent.Comp.Riding == null)
-            return;
-
-        var riding = ent.Comp.Riding.Value;
-
-        TryComp<PowerCellDrawComponent>(riding, out var pcdComp);
-        TryComp<ReagentDrawComponent>(riding, out var rdComp);
-
-        var noPower =
-            (vehicleComp.CellPowered && pcdComp != null && !_powerCell.HasDrawCharge(riding)) ^
-            (!vehicleComp.CellPowered && rdComp != null && !_reagentDraw.HasDrawReagant(riding));
-
-        if (!noPower) return;
-
-        if (vehicleComp.Started)
-            vehicleComp.Started = false;
-
-        if (vehicleComp.CellPowered && pcdComp?.Enabled == vehicleComp.Started)
-        {
-            _powerCell.SetDrawEnabled((riding, pcdComp), false);
-        }
-
-        if (!vehicleComp.CellPowered && rdComp?.Enabled == true)
-        {
-            rdComp.Enabled = vehicleComp.Started;
-            _ambientSound.SetAmbience(riding, false);
-            Dirty(riding, rdComp);
-        }
-
-        Dirty(riding, vehicleComp);
-        args.Cancel();
-    }
-
-    private void OnWieldAttemptEvent(Entity<RiderComponent> ent, ref WieldAttemptEvent args)
-    {
-        if(ent.Comp.Riding != null && TryComp<VehicleComponent>(ent.Comp.Riding.Value, out var vehicleComp) && !vehicleComp.DisallowWieldingGuns) return;
-
-        args.Cancel();
-    }
-
-    private void OnShooterEvent(Entity<RiderComponent> ent, ref ShooterImpulseEvent args)
-    {
-        if(!TryComp<StaminaComponent>(ent.Owner, out var stamina)) return;
-        if(ent.Comp.Riding != null && TryComp<VehicleComponent>(ent.Comp.Riding.Value, out var vehicleComp) && !vehicleComp.AllowGunKnockback) return;
-
-        foreach(var held in _handsSystem.EnumerateHeld(ent.Owner))
-        {
-            if(HasComp<GunComponent>(held) && HasComp<WieldableComponent>(held))
-            {
-                _stamina.TakeStaminaDamage(ent.Owner, stamina.CritThreshold*0.10f, component: stamina);
-            }
-        }
-    }
-
-    private void OnMovementSpeedRefreshRiderEvent(Entity<RiderComponent> ent, ref RefreshMovementSpeedModifiersEvent args)
-    {
-        if(ent.Comp.Riding == null) return;
-        Timer.Spawn(0, () => _movementSpeed.RefreshMovementSpeedModifiers(ent.Comp.Riding.Value)); // Race conditions :strangle:
-    }
-
-    private void OnHandEquippedRider(Entity<RiderComponent> ent, ref DidEquipHandEvent args)
-    {
-        if(!HasComp<GunComponent>(args.Equipped)) return;
-        _gun.RefreshModifiers(args.Equipped);
-    }
-
-    private void OnPullAttempt(Entity<RiderComponent> ent, ref PullAttemptEvent args)
-    {
-        if(TryComp<MobStateComponent>(ent.Owner, out var mbState) 
-        && (mbState.CurrentState == MobState.Critical 
-            || mbState.CurrentState == MobState.ActiveCritical
-            || mbState.CurrentState == MobState.Dead 
-            || mbState.CurrentState == MobState.Invalid))
-        {
-            _buckle.Unbuckle(ent.Owner, args.PullerUid);
-            return;
-        }
-        args.Cancelled = true;
-    }
-
-    private void OnRiderTerminating(Entity<RiderComponent> ent, ref EntityTerminatingEvent args)
-    {
-        if (ent.Comp.Riding is { } vehicle && TryComp<VehicleComponent>(vehicle, out var vehicleComp))
-            RemoveRider(ent.Owner, vehicle, vehicleComp);
-    }
-
-    #endregion
-    #region Gun Events
-    private void OnGunUnwielded(EntityUid uid, GunComponent component, ItemUnwieldedEvent args)
-    {
-        if(HasComp<RiderComponent>(args.User))
-            _gun.RefreshModifiers(uid);
-    }
-
-    private void OnGunWielded(EntityUid uid, GunComponent component, ref ItemWieldedEvent args)
-    {
-        if(HasComp<RiderComponent>(args.User))
-            _gun.RefreshModifiers(uid);
-    }
-
-    private void OnGunRefreshModifiers(Entity<GunComponent> ent, ref GunRefreshModifiersEvent args)
-    {
-        var transform = Transform(ent.Owner);
-        if(!TryComp<RiderComponent>(transform.ParentUid, out var riderComp)) return;
-        if(riderComp.Riding == null) return;
-        if(HasComp<PowerCellDrawComponent>(riderComp.Riding.Value) 
-            ^ HasComp<ReagentDrawComponent>(riderComp.Riding.Value))
-        {
-            if(HasComp<VehicleContainerComponent>(riderComp.Riding.Value))
-            {
-                args.MinAngle += Angle.FromDegrees(30);
-                args.MaxAngle += Angle.FromDegrees(30);
-            }
-            else if(HasComp<VehicleBuckleComponent>(riderComp.Riding.Value))
-            {
-                args.MinAngle += Angle.FromDegrees(20);
-                args.MaxAngle += Angle.FromDegrees(20);
-            }
-        }
-    }
-
-    #endregion
     #region Misc Events
 
     private void OnJetJumpActionEvent(Entity<TransformComponent> ent, ref JetJumpActionEvent args)
@@ -753,7 +421,7 @@ public abstract partial class SharedVehicleSystem : EntitySystem
         if(!TryComp<PhysicsComponent>(vehicle, out var vehiclePhys)) return;
 
         var speed = vehiclePhys.LinearVelocity.Length();
-        if(speed > 0.3)
+        if(speed >= 0.3)
             vehicleComp.isMoving = true;
         else if(speed < 0.3)
             vehicleComp.isMoving = false;
@@ -961,7 +629,13 @@ public abstract partial class SharedVehicleSystem : EntitySystem
 
         if(component.Rider != null)  
             if(TryComp<InputMoverComponent>(component.Rider.Value, out var imComp) && imComp.CanMove)
+            {
                 _actionBlocker.UpdateCanMove(component.Rider.Value);
+                for (var i = 0; i < component.HandsNeeded; i++)
+                {
+                    _virtualItem.DeleteInHandsMatching(component.Rider.Value, vehicle);
+                }
+            }
 
         Dirty(vehicle, component);
     }

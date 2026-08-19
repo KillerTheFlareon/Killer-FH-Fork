@@ -96,3 +96,37 @@
       interfaces:
         enum.StoreUiKey.Key:
           type: StoreBoundUserInterface
+
+- type: entity
+  parent: MindShieldImplant
+  id: MindShieldImplantNS
+  name: mindshield implant (NS)
+  description: This implant will ensure protection against mind control devices. # FH
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: MindShieldImplant
+    mindShieldStatusIcon: MindShieldIconNS
+
+- type: entity
+  parent: MindShieldImplant
+  id: MindShieldImplantGSL
+  name: mindshield implant (GSL)
+  description: This implant will ensure protection against mind control devices. # FH
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: MindShieldImplant
+    mindShieldStatusIcon: MindShieldIconGSL
+
+- type: entity
+  parent: BaseSubdermalImplant
+  id: FakeMindShieldImplantNS
+  name: Fake Mindshield Implant (NS)
+  description: This implant allows the implanter to produce a fake signal that security huds use to identify individuals implanted with a mindshield. # FH
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: SubdermalImplant
+    implantAction: FakeMindShieldToggleAction
+    implantComponents:
+    - type: FakeMindShield # TODO: put the component on the implant and use implant relay events for the status icon
+      mindShieldStatusIcon: MindShieldIconNS
+  - type: FakeMindShieldImplant

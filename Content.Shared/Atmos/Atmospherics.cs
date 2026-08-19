@@ -22,7 +22,7 @@ namespace Content.Shared.Atmos
         /// <summary>
         /// Global Atmospherics epsilon. Used for all general floating-point comparisons.
         /// </summary>
-        public const float Epsilon = 0.5f;
+        public const float Epsilon = 0.001f;
 
         /// <summary>
         ///     Maximum external pressure (in kPA) a gas miner will, by default, output to.
@@ -104,6 +104,21 @@ namespace Content.Shared.Atmos
         public const float OxygenMolesGasMiner = MolesCellGasMiner * OxygenStandard;
         public const float NitrogenMolesGasMiner = MolesCellGasMiner * NitrogenStandard;
 
+        /// <summary>
+        /// Converts Grams to Kilograms.
+        /// </summary>
+        public const float gToKg = 0.001f;
+
+        /// <summary>
+        /// Convert kPa to Kg/m^2
+        /// </summary>
+        public const float kPaToKg_m2 = 0.00980665f;
+
+        /// <summary>
+        /// Convert Kg/m^2 to kPa
+        /// </summary>
+        public const float Kg_m2TokPa = 101.9716212978f;
+
         #endregion
 
         /// <summary>
@@ -170,35 +185,6 @@ namespace Content.Shared.Atmos
         /// </summary>
         public const float SpaceHeatCapacity = 7000f;
 
-        /// <summary>
-        ///     Dictionary of chemical abbreviations for <see cref="Gas"/>
-        /// </summary>
-        public static Dictionary<Gas, string> GasAbbreviations = new Dictionary<Gas, string>()
-        {
-            [Gas.Ammonia] = Loc.GetString("gas-ammonia-abbreviation"),
-            [Gas.CarbonDioxide] = Loc.GetString("gas-carbon-dioxide-abbreviation"),
-            [Gas.Frezon] = Loc.GetString("gas-frezon-abbreviation"),
-            [Gas.Nitrogen] = Loc.GetString("gas-nitrogen-abbreviation"),
-            [Gas.NitrousOxide] = Loc.GetString("gas-nitrous-oxide-abbreviation"),
-            [Gas.Oxygen] = Loc.GetString("gas-oxygen-abbreviation"),
-            [Gas.Plasma] = Loc.GetString("gas-plasma-abbreviation"),
-            [Gas.Tritium] = Loc.GetString("gas-tritium-abbreviation"),
-            [Gas.WaterVapor] = Loc.GetString("gas-water-vapor-abbreviation"),
-            // Funkystation Start: Funky atmos - /tg/ gases
-            [Gas.BZ] = Loc.GetString("gas-bz-abbreviation"),
-            [Gas.Healium] = Loc.GetString("gas-healium-abbreviation"),
-            [Gas.Nitrium] = Loc.GetString("gas-nitrium-abbreviation"),
-            [Gas.Pluoxium] = Loc.GetString("gas-pluoxium-abbreviation"),
-            [Gas.Hydrogen] = Loc.GetString("gas-hydrogen-abbreviation"),
-            [Gas.HyperNoblium] = Loc.GetString("gas-hyper-noblium-abbreviation"),
-            [Gas.ProtoNitrate] = Loc.GetString("gas-proto-nitrate-abbreviation"),
-            [Gas.Zauker] = Loc.GetString("gas-zauker-abbreviation"),
-            [Gas.Halon] = Loc.GetString("gas-halon-abbreviation"),
-            [Gas.Helium] = Loc.GetString("gas-helium-abbreviation"),
-            [Gas.AntiNoblium] = Loc.GetString("gas-anti-noblium-abbreviation"),
-            // Funkystation End: Funky atmos - /tg/ gases
-        };
-
         #region Excited Groups
 
         /// <summary>
@@ -237,7 +223,7 @@ namespace Content.Shared.Atmos
         /// <summary>
         ///     Amount of heat released per mole of burnt hydrogen or tritium (hydrogen isotope)
         /// </summary>
-        public const float FireHydrogenEnergyReleased = 284e4f;
+        public const float FireHydrogenEnergyReleased = 284e3f;
         public const float FireMinimumTemperatureToExist = T0C + 100f;
         public const float FireMinimumTemperatureToSpread = T0C + 150f;
         public const float FireSpreadRadiosityScale = 0.85f;
@@ -248,8 +234,8 @@ namespace Content.Shared.Atmos
         public const float SuperSaturationEnds = SuperSaturationThreshold / 3;
 
         public const float OxygenBurnRateBase = 1.4f;
-        public const float PlasmaMinimumBurnTemperature = (100f+T0C);
-        public const float PlasmaUpperTemperature = (1370f+T0C);
+        public const float PlasmaMinimumBurnTemperature = 100f + T0C;
+        public const float PlasmaUpperTemperature = 1370f + T0C;
         public const float PlasmaOxygenFullburn = 10f;
         public const float PlasmaBurnRateDelta = 9f;
         public const float HydrogenBurnRateDelta = 2f; // Funky atmos - /tg/ gases

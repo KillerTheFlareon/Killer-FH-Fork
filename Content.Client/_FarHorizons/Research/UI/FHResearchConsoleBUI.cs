@@ -9,9 +9,9 @@ using Robust.Shared.Prototypes;
 namespace Content.Client._FarHorizons.Research.UI;
 
 [UsedImplicitly]
-public sealed class FHResearchConsoleBoundUserInterface(EntityUid owner, Enum uiKey) : BoundUserInterface(owner, uiKey)
+public sealed partial class FHResearchConsoleBoundUserInterface(EntityUid owner, Enum uiKey) : BoundUserInterface(owner, uiKey)
 {
-    [Dependency] private readonly IPrototypeManager _protoMan = default!;
+    [Dependency] private IPrototypeManager _protoMan = default!;
 
     private HashSet<ResearchTreeNodePrototype> _nodeProtos = [];
     private HashSet<ProtoId<ResearchTreeNodePrototype>> _unlockedNodes = [];

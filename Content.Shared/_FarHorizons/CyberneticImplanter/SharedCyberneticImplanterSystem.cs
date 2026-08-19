@@ -11,14 +11,14 @@ using Robust.Shared.Prototypes;
 
 namespace Content.Shared._FarHorizons.CyberneticImplanter;
 
-public abstract class SharedCyberneticImplanterSystem : EntitySystem
+public abstract partial class SharedCyberneticImplanterSystem : EntitySystem
 {
-    [Dependency] private readonly SharedAudioSystem _audio = default!;
-    [Dependency] private readonly IPrototypeManager _protoManager = default!;
-    [Dependency] private readonly EntityManager _entityManager = default!;
-    [Dependency] private readonly SharedDoAfterSystem _doAfter = default!;
-    [Dependency] private readonly SharedPopupSystem _popupSystem = default!;
-    [Dependency] private readonly SharedAppearanceSystem _visualizer = default!;
+    [Dependency] private SharedAudioSystem _audio = default!;
+    [Dependency] private IPrototypeManager _protoManager = default!;
+    [Dependency] private EntityManager _entityManager = default!;
+    [Dependency] private SharedDoAfterSystem _doAfter = default!;
+    [Dependency] private SharedPopupSystem _popupSystem = default!;
+    [Dependency] private SharedAppearanceSystem _visualizer = default!;
 
     public override void Initialize()
     {

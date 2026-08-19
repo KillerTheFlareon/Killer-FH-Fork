@@ -6,11 +6,11 @@ using Robust.Shared.Utility;
 
 namespace Content.Shared._FarHorizons.Vampire.Traits;
 
-public abstract class LesserVampireTraitSystem<T>
+public abstract partial class LesserVampireTraitSystem<T>
     : BackgroundTraitSystem<LesserVampireComponent, T>
     where T : LesserVampireTraitComponent
 {
-    [Dependency] protected readonly SharedLesserVampireSystem Vampire = default!;
+    [Dependency] protected SharedLesserVampireSystem Vampire = default!;
 
     public override void Initialize()
     {
@@ -34,11 +34,11 @@ public abstract class LesserVampireTraitSystem<T>
     protected virtual void RefreshBloodpoolDrain(Entity<LesserVampireComponent, T> ent, ref GetVampireBloodPoolChange args) { }
 }
 
-public abstract class LesserVampirePassiveTraitSystem<T>
+public abstract partial class LesserVampirePassiveTraitSystem<T>
     : BackgroundPassiveTraitSystem<LesserVampireComponent, T>
     where T : LesserVampirePassiveTraitComponent
 {
-    [Dependency] protected readonly SharedLesserVampireSystem Vampire = default!;
+    [Dependency] protected SharedLesserVampireSystem Vampire = default!;
 
     public override void Initialize()
     {
@@ -62,12 +62,12 @@ public abstract class LesserVampirePassiveTraitSystem<T>
     protected virtual void RefreshBloodpoolDrain(Entity<LesserVampireComponent, T> ent, ref GetVampireBloodPoolChange args) { }
 }
 
-public abstract class LesserVampireActionTraitSystem<T, TEvent>
+public abstract partial class LesserVampireActionTraitSystem<T, TEvent>
     : BackgroundActionTraitSystem<LesserVampireComponent, T, TEvent>
     where T : LesserVampireActionTraitComponent
     where TEvent : BaseActionEvent
 {
-    [Dependency] protected readonly SharedLesserVampireSystem Vampire = default!;
+    [Dependency] protected SharedLesserVampireSystem Vampire = default!;
 
     public override void Initialize()
     {
@@ -91,13 +91,13 @@ public abstract class LesserVampireActionTraitSystem<T, TEvent>
     protected virtual void RefreshBloodpoolDrain(Entity<LesserVampireComponent, T> ent, ref GetVampireBloodPoolChange args) { }
 }
 
-public abstract class LesserVampireToggleActionTraitSystem<T, TEvent>
+public abstract partial class LesserVampireToggleActionTraitSystem<T, TEvent>
     : BackgroundToggleActionTraitSystem<LesserVampireComponent, T, TEvent>
     where T : LesserVampireToggleActionComponent
     where TEvent : InstantActionEvent
 {
-    [Dependency] protected readonly SharedLesserVampireSystem Vampire = default!;
-    [Dependency] private readonly INetManager _net = default!;
+    [Dependency] protected SharedLesserVampireSystem Vampire = default!;
+    [Dependency] private INetManager _net = default!;
 
     public override void Initialize()
     {

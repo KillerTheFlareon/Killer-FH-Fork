@@ -40,18 +40,18 @@ public sealed partial class StoreSystem
     );
     #endregion
 
-    [Dependency] private readonly IAdminLogManager _admin = default!;
-    [Dependency] private readonly SharedHandsSystem _hands = default!;
-    [Dependency] private readonly ActionsSystem _actions = default!;
-    [Dependency] private readonly ActionContainerSystem _actionContainer = default!;
-    [Dependency] private readonly ActionUpgradeSystem _actionUpgrade = default!;
-    [Dependency] private readonly SharedMindSystem _mind = default!;
-    [Dependency] private readonly SharedAudioSystem _audio = default!;
-    [Dependency] private readonly StackSystem _stack = default!;
-    [Dependency] private readonly UserInterfaceSystem _ui = default!;
-    [Dependency] private readonly NpcFactionSystem _npcFaction = default!;
-    [Dependency] private readonly RevSupplyRiftSystem _revSupplyRift = default!; // Starlight
-    [Dependency] private readonly LanguageSystem _languageSystem = default!; //Starlight
+    [Dependency] private IAdminLogManager _admin = default!;
+    [Dependency] private SharedHandsSystem _hands = default!;
+    [Dependency] private ActionsSystem _actions = default!;
+    [Dependency] private ActionContainerSystem _actionContainer = default!;
+    [Dependency] private ActionUpgradeSystem _actionUpgrade = default!;
+    [Dependency] private SharedMindSystem _mind = default!;
+    [Dependency] private SharedAudioSystem _audio = default!;
+    [Dependency] private StackSystem _stack = default!;
+    [Dependency] private UserInterfaceSystem _ui = default!;
+    [Dependency] private NpcFactionSystem _npcFaction = default!;
+    [Dependency] private RevSupplyRiftSystem _revSupplyRift = default!; // Starlight
+    [Dependency] private LanguageSystem _languageSystem = default!; //Starlight
 
     private void InitializeUi()
     {
@@ -403,7 +403,7 @@ public sealed partial class StoreSystem
     public void UpdateAllUSSPUplinkUIs()
     {
         // Find all store components that are USSP uplinks
-        var query = EntityManager.EntityQuery<StoreComponent>();
+        var query = EntityQuery<StoreComponent>();
         foreach (var storeComp in query)
         {
             // Skip if this is not a USSP uplink
@@ -458,7 +458,7 @@ public sealed partial class StoreSystem
         _ui.SetUiState(storeUid, StoreUiKey.Key, state);
 
         // Find all players who might have this uplink open
-        var query = EntityManager.EntityQuery<ActorComponent>();
+        var query = EntityQuery<ActorComponent>();
         foreach (var actor in query)
         {
             // Check if this player has the uplink implanted

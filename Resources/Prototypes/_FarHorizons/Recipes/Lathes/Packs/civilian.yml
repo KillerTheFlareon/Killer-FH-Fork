@@ -1,0 +1,22 @@
+#region Static recipes
+
+# Practice ammo/mags and practice weapons
+- type: latheRecipePack
+  id: FarHorizonsCivilianWeaponsStatic
+  recipes:
+  - WeaponPistolMk58Civilian
+  - WeaponPistolMk78Civilian
+  - WeaponPistolMk59Civilian
+  - WeaponRevolverInstigatorCivilian
+  - WeaponSniperLeverCivilian
+
+# Magazines
+- type: latheRecipePack
+  id: FarHorizonsCivilianMagazinesStatic
+  recipes:
+  - MagazinePistolCivilianSP
+  - MagazinePistolCivilianRubber
+  - SpeedLoaderRevolver38CivilianSP
+  - SpeedLoaderRevolver38CivilianRubber
+  - SpeedLoaderLeverCivilianMagnumSP
+  - SpeedLoaderLeverCivilianMagnumRubber

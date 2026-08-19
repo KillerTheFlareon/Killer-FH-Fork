@@ -1,0 +1,19 @@
+- type: cargoProduct
+  id: MedicalMindShieldImplantsNS
+  icon:
+    sprite: Objects/Specific/Medical/implanter.rsi
+    state: implanter0
+  product: CrateMindShieldImplantsNS
+  cost: 3000
+  category: cargoproduct-category-name-medical
+  group: market
+
+- type: cargoProduct
+  id: MedicalMindShieldImplantsGSL
+  icon:
+    sprite: Objects/Specific/Medical/implanter.rsi
+    state: implanter0
+  product: CrateMindShieldImplantsGSL
+  cost: 3000
+  category: cargoproduct-category-name-medical
+  group: market

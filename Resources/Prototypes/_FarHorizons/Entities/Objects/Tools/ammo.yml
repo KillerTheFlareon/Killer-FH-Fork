@@ -161,6 +161,18 @@
     - AmmoWeapon12GMixedMag
 
 - type: entity
+  id: AmmoSelection12GSpeedloaderS
+  parent: AmmoSelectionBaseS
+  name: 12 Gauge Ammo Selector (Speedloader)
+  components:
+  - type: ThiefUndeterminedBackpack
+    possibleSets:
+    - AmmoWeapon12GHPSpeedloader
+    - AmmoWeapon12GSPSpeedloader
+    - AmmoWeapon12GFMJSpeedloader
+    - AmmoWeapon12GMixedSpeedloader
+
+- type: entity
   id: AmmoSelectionAmmoBagS
   parent: AmmoSelectionBaseS
   name: Ammo Bag Selector

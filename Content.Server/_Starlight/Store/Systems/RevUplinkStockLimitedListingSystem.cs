@@ -12,7 +12,7 @@ namespace Content.Server.Store.Systems;
 /// It prevents race conditions when multiple players try to purchase the same stock-limited item.
 /// This is primarily used by the revolutionary uplink system, but could be used by other systems in the future.
 /// </summary>
-public sealed class RevUplinkStockLimitedListingSystem : EntitySystem
+public sealed partial class RevUplinkStockLimitedListingSystem : EntitySystem
 {
     public override void Initialize()
     {

@@ -7,3 +7,83 @@
   cost: 6000
   category: cargoproduct-category-name-armory
   group: market
+
+- type: cargoProduct
+  id: ArmoryCivilianMk58
+  icon:
+    sprite: _FarHorizons/Objects/Weapons/Guns/Pistols/mk58.rsi
+    state: icon
+  product: CrateArmoryCivilianMk58
+  cost: 3700
+  category: cargoproduct-category-name-armory
+  group: market
+
+- type: cargoProduct
+  id: ArmoryCivilianMk59
+  icon:
+    sprite: _FarHorizons/Objects/Weapons/Guns/Pistols/mk59.rsi
+    state: icon
+  product: CrateArmoryCivilianMk59
+  cost: 3700
+  category: cargoproduct-category-name-armory
+  group: market
+
+- type: cargoProduct
+  id: ArmoryCivilianMk78
+  icon:
+    sprite: _FarHorizons/Objects/Weapons/Guns/Pistols/mk78.rsi
+    state: icon
+  product: CrateArmoryCivilianMk78
+  cost: 3700
+  category: cargoproduct-category-name-armory
+  group: market
+
+- type: cargoProduct
+  id: ArmoryCivilianInstigator
+  icon:
+    sprite: _FarHorizons/Objects/Weapons/Guns/Revolvers/instigator.rsi
+    state: icon
+  product: CrateArmoryCivilianInstigator
+  cost: 3500
+  category: cargoproduct-category-name-armory
+  group: market
+
+- type: cargoProduct
+  id: ArmoryCivilianLever
+  icon:
+    sprite: _Starlight/Objects/Weapons/Guns/Snipers/forged_rifle.rsi
+    state: base
+  product: CrateArmoryCivilianLever
+  cost: 4000
+  category: cargoproduct-category-name-armory
+  group: market
+
+- type: cargoProduct
+  id: CrateArmoryPistolAmmo
+  icon:
+    sprite: _FarHorizons/Objects/Weapons/Guns/Ammunition/Boxes/Pistol/9mm.rsi
+    state: icon
+  product: CrateArmoryPistolAmmo
+  cost: 720
+  category: cargoproduct-category-name-armory
+  group: market
+
+- type: cargoProduct
+  id: CrateArmoryMagnumAmmo
+  icon:
+    sprite: _FarHorizons/Objects/Weapons/Guns/Ammunition/Boxes/Magnum/.44.rsi
+    state: icon
+  product: CrateArmoryMagnumAmmo
+  cost: 1440
+  category: cargoproduct-category-name-armory
+  group: market
+
+- type: cargoProduct
+  id: CrateArmoryRevolverAmmo
+  icon:
+    sprite: _FarHorizons/Objects/Weapons/Guns/Ammunition/Boxes/Revolver/.38.rsi
+    state: icon
+  product: CrateArmoryRevolverAmmo
+  cost: 1000
+  category: cargoproduct-category-name-armory
+  group: market

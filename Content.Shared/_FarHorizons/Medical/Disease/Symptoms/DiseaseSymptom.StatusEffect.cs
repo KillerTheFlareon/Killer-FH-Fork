@@ -16,7 +16,7 @@ public sealed partial class SymptomStatusEffect : SymptomBehavior
 
 public sealed partial class SymptomStatusEffect
 {
-    [Dependency] private readonly SharedEntityEffectsSystem _effects = default!;
+    [Dependency] private SharedEntityEffectsSystem _effects = default!;
 
     /// <summary>
     /// Executes the status effects.

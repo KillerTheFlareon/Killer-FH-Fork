@@ -9,13 +9,15 @@
   - type: InteractionOutline
   - type: Sprite
     snapCardinals: true
-    sprite: Structures/Power/Generation/ame.rsi
+    sprite: _FarHorizons/Structures/Power/Generation/ame.rsi # Far Horizons
     state: control
     layers:
     - state: control
     - state: control_on
       map: ["display"]
       visible: false
+      shader: unshaded # Far Horizons
+    - state: control_glass # Far Horizons
   - type: Physics
   - type: Fixtures
     fixtures:
@@ -95,7 +97,7 @@
   - type: PowerMonitoringDevice
     group: Generator
     loadNode: input
-    sprite: Structures/Power/Generation/ame.rsi
+    sprite: _FarHorizons/Structures/Power/Generation/ame.rsi  # Far Horizons
     state: static
   - type: PowerSupplier
     supplyRate: 0
@@ -137,10 +139,9 @@
   - type: InteractionOutline
   - type: Sprite
     drawdepth: Walls
-    sprite: Structures/Power/Generation/ame.rsi
-    state: shield_0
+    sprite: _FarHorizons/Structures/Power/Generation/ame.rsi  # Far Horizons
     layers:
-    - state: shield_0
+    - state: shield_bg  # Far Horizons
     - state: core
       map: ["core"]
       visible: false
@@ -185,7 +186,7 @@
   - type: Transform
     anchored: true
   - type: IconSmooth
-    mode: CardinalFlags
+    # mode: CardinalFlags  # Far Horizons
     base: shield_
     key: ame_shield
   - type: AmeShield

@@ -422,7 +422,7 @@
       moles:
         Nitrogen: 4.1027581 # Prefill with 10L of nitrogen
       temperature: 293.15
-    outputPressure: 21.3
+    releasePressure: 21.3
   - type: OrganGasTankFillable
     targetPressure: 1000.0 # 1MPa of pressure target on refill
   - type: UseDelay

@@ -15,20 +15,28 @@ using Content.Shared.Buckle.Components;
 using Content.Shared.CombatMode.Pacification;
 using Content.Shared.Damage.Components;
 using Content.Shared.Damage.Prototypes;
-using Robust.Shared.Player;
 using Content.Shared.Damage;
 using Content.Shared.Movement.Systems;
 using Content.Shared.Repairable;
 using Content.Shared.Database;
+using Content.Shared.Throwing;
+using Robust.Shared.Prototypes;
+using Content.Shared.Projectiles;
 
 namespace Content.Server._FarHorizons.Vehicles;
 
 public sealed partial class VehicleSystems : SharedVehicleSystem
 {    
-    [Dependency] private readonly MovementModStatusSystem _movementStatus = default!;
+    [Dependency] private MovementModStatusSystem _movementStatus = default!;
+    [Dependency] private ThrowingSystem _throwing = default!;
+    [Dependency] private IPrototypeManager _prototypes = default!;
+    private EntityQuery<ProjectileComponent> _projQuery;
+    private static readonly string _bluntname = "Blunt";
+
     public override void Initialize()
     {
         base.Initialize();
+        _projQuery = GetEntityQuery<ProjectileComponent>();
 
         SubscribeLocalEvent<VehicleContainerComponent, DragDropTargetEvent>(OnDragDrop);
         SubscribeLocalEvent<VehicleContainerComponent, GetVerbsEvent<AlternativeVerb>>(OnAlternativeVerb);
@@ -86,11 +94,10 @@ public sealed partial class VehicleSystems : SharedVehicleSystem
 
             _audio.PlayPredicted(ent.Comp.SoundHit, ent.Owner, null, AudioParams.Default.WithVariation(0.125f).WithVolume(-0.125f));
 
-            DamageTypePrototype? _blunt = _prototypes.Index<DamageTypePrototype>(s_bluntname);
+            DamageTypePrototype? _blunt = _prototypes.Index<DamageTypePrototype>(_bluntname);
             DamageSpecifier? _damage = new(_blunt, Math.Clamp(10 * (1 + (0.5 * speed / crashingSpeed)), 10, 20));
             _damageable.TryChangeDamage(args.OtherEntity, _damage, origin: ent.Comp.Rider.Value);
-            _color.RaiseEffect(Color.Red, new List<EntityUid>() { args.OtherEntity, }, Filter.Pvs(args.OtherEntity, entityManager: EntityManager));
-
+            
             _movementStatus.TryAddMovementSpeedModDuration(ent.Owner, "StatusEffectSlowdownNoMobState", TimeSpan.FromSeconds(2), 0.25f);
             _adminLogger.Add(LogType.Damaged, LogImpact.High, $"{ToPrettyString(ent.Comp.Rider.Value)} ran over {ToPrettyString(args.OtherEntity)} dealing {_damage}");
         }

@@ -186,7 +186,7 @@
     air:
       volume: 2.5
       temperature: 293.15
-    outputPressure: 21.3
+    releasePressure: 21.3
   - type: OrganGasTankFillable
     targetPressure: 1000.0
   - type: UseDelay

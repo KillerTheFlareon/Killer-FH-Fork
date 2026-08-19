@@ -1,6 +1,6 @@
-markings-layer-Tail-IPC = Wings
 markings-layer-HeadSide-IPC = Screen
 markings-layer-HeadTop-IPC = Antenna
+markings-layer-Tail-IPC = Wings
 
 markings-layer-Tail-ProtoMoth = Wings
 
@@ -33,3 +33,6 @@ markings-layer-HeadTop-Protogen = Ears
 markings-layer-Head-Protogen = Visor
 markings-layer-HeadSide-Protogen = Face LEDs
 markings-layer-Special-Protogen = LEDs
+
+markings-layer-Wings = Wings
+markings-layer-TailCover = Tail Cover

@@ -145,3 +145,30 @@
   components:
   - type: Implanter
     implant: LanguageDatabaseImplant
+
+#GSL
+- type: entity
+  id: MindShieldImplanterGSL
+  parent: MindShieldImplanter
+  name: MindShield Implanter (GSL)
+  components:
+  - type: Implanter
+    implant: MindShieldImplantGSL
+
+#NeoSol
+- type: entity
+  id: MindShieldImplanterNS
+  parent: MindShieldImplanter
+  name: MindShield Implanter (NS)
+  components:
+  - type: Implanter
+    implant: MindShieldImplantNS
+
+#Fake
+- type: entity
+  id: FakeMindShieldImplanterNS
+  name: Fake Mindshield Implanter (NS)
+  parent: BaseImplantOnlyImplanterSyndi
+  components:
+  - type: Implanter
+    implant: FakeMindShieldImplantNS

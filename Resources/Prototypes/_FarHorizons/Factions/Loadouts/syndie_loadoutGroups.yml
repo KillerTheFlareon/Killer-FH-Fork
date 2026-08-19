@@ -308,7 +308,7 @@
   id: MarshalSidearm
   name: loadout-group-security-sidearm
   loadouts:
-  - SecurityPistolMk59
+  - SecurityPistolMk58
   - SecurityRevolverInspectorM500
   - SecurityRevolverInspector
   - SecurityRevolverOathbreakerM500
@@ -319,7 +319,7 @@
   - SecurityPistolDueProcess
   - SecurityPistolEnforcerFHNS
   - SecurityPistolPathology
-  - SecurityMk78
+  - SecurityPistolMk59
 
 # Foreman
 
@@ -1020,8 +1020,8 @@
   id: SecuritySidearmNS
   name: loadout-group-security-sidearm
   loadouts:
+  - SecurityPistolMk58
   - SecurityPistolMk59 #NeoSol version
-  - SecurityMk78 # FarHorizons
   #- SecurityPistolDP //Far Horizons Change
   #- SecurityPistolEnforcer //Far Horizons Change
   - SecurityRevolverInstigatorM500 # FarHorizons
@@ -1072,6 +1072,16 @@
   loadouts:
     - ConstableArmoredCoat
     - ConstableArmoredWinterCoat
+
+- type: loadoutGroup
+  id: ConstableSidearm
+  name: loadout-group-security-sidearm
+  loadouts:
+  - SecurityPistolDueProcess
+  - SecurityPistolMk58
+  - SecurityPistolMk59
+  - SecurityRevolverInstigatorM500
+  - SecurityRevolverInstigator
 
 # Inspector (Detective)
 
@@ -1274,3 +1284,20 @@
   - BotanistJumpskirtNS
   - BotanistOverallsJumpsuitNS
   - BotanistOverallsJumpskirtNS
+
+  #Clown
+
+- type: loadoutGroup
+  id: ClownJumpsuitNS
+  name: loadout-group-clown-jumpsuit
+  loadouts:
+  - ClownSuitNS
+  - JesterSuit
+  - JesterAltSuit
+
+- type: loadoutGroup
+  id: ClownShoesNS
+  name: loadout-group-clown-shoes
+  loadouts:
+  - ClownShoesNS
+  - JesterShoes

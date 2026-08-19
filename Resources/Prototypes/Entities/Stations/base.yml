@@ -17,6 +17,13 @@
         Science: [ ]
         Security: [ ]
         Service: [ ]
+        #Far Horizons Start
+        EngineeringNS: [ ]
+        MedicalNS: [ ]
+        ScienceNS: [ ]
+        SecurityNS: [ ]
+        ServiceNS: [ ]
+        #Far Horizons End
     - type: StationCargoBountyDatabase
 
 - type: entity

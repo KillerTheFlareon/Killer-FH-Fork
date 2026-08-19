@@ -7,8 +7,8 @@ namespace Content.Client._FarHorizons.Vehicles;
 
 public sealed partial class VehicleSystems : SharedVehicleSystem
 {
-    [Dependency] private readonly SpriteSystem _sprite = default!;
-    [Dependency] private readonly IEyeManager _eye = default!;
+    [Dependency] private SpriteSystem _sprite = default!;
+    [Dependency] private IEyeManager _eye = default!;
     public override void Initialize()
     {
         base.Initialize();

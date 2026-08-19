@@ -237,6 +237,7 @@
   parent: ClothingUniformBase
   id: ClothingUniformJumpsuitClown
   name: Clown Suit #Far Horizons - The Great Capitalization Crusade
+  suffix: NT #FH
   description: HONK!
   components:
   - type: Sprite
@@ -1104,7 +1105,7 @@
   parent: ClothingUniformJumpsuitClown
   id: ClothingUniformJumpsuitCluwne
   name: Cluwne Suit #Far Horizons - The Great Capitalization Crusade
-  suffix: Unremoveable
+  suffix: NT, Unremoveable #FH
   description: Cursed cluwne suit.
   components:
   - type: Sprite

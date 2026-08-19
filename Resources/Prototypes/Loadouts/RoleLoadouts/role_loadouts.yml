@@ -30,6 +30,7 @@
   - Trinkets
   - Scarves # Starlight
   - HoPPens # Starlight
+  - CivilianWeaponsNT # FH
 #  - GroupSpeciesBreathTool - Starlight removed
 
 # Silicons
@@ -66,6 +67,7 @@
   - Trinkets
   - Scarves # Starlight
   - Pens # Starlight
+  - CivilianWeaponsNT # FH
 #  - GroupSpeciesBreathTool - Starlight removed
 
 - type: roleLoadout
@@ -83,6 +85,7 @@
   - Scarves # Starlight
   - Pens # Starlight
   - BartenderJobTrinkets
+  - CivilianWeaponsNT # FH
 #  - GroupSpeciesBreathTool - Starlight removed
 
 - type: roleLoadout
@@ -97,6 +100,7 @@
   - Trinkets
   - Scarves # Starlight
   - Pens # Starlight
+  - CivilianWeaponsNT # FH
 #  - GroupSpeciesBreathTool - Starlight removed
 
 - type: roleLoadout
@@ -114,6 +118,7 @@
   - Trinkets
   - Scarves # Starlight
   - Pens # Starlight
+  - CivilianWeaponsNT # FH
 #  - GroupSpeciesBreathTool - Starlight removed
 
 - type: roleLoadout
@@ -128,6 +133,7 @@
   - Trinkets
   - Scarves # Starlight
   - LuxuryPens # Starlight
+  - CivilianWeaponsNT # FH
 #  - GroupSpeciesBreathTool - Starlight removed
 
 - type: roleLoadout
@@ -142,6 +148,7 @@
   - Trinkets
   - Scarves # Starlight
   - LuxuryPens # Starlight
+  - CivilianWeaponsNT # FH
 #  - GroupSpeciesBreathTool - Starlight removed
 
 - type: roleLoadout
@@ -162,6 +169,7 @@
   - Trinkets
   - Scarves # Starlight
   - Pens # Starlight
+  - CivilianWeaponsNT # FH
 #  - GroupSpeciesBreathTool - Starlight removed
 
 - type: roleLoadout
@@ -179,6 +187,7 @@
   - Scarves # Starlight
   - Pens # Starlight
   - JanitorJobTrinkets
+  - CivilianWeaponsNT # FH
 #  - GroupSpeciesBreathTool - Starlight removed
 
 - type: roleLoadout
@@ -195,6 +204,7 @@
   - Trinkets
   - Scarves # Starlight
   - Pens # Starlight
+  - CivilianWeaponsNT # FH
 #  - GroupSpeciesBreathTool - Starlight removed
 
 - type: roleLoadout
@@ -246,6 +256,7 @@
   - Scarves # Starlight
   - Pens # Starlight
   - Instruments
+  - CivilianWeaponsNT # FH
 #  - GroupSpeciesBreathTool - Starlight removed
 
 # Cargo
@@ -264,6 +275,7 @@
   - Trinkets
   - Scarves # Starlight
   - Pens # Starlight
+  - CivilianWeaponsFactionless # FH
 #  - GroupSpeciesBreathTool - Starlight removed
 
 - type: roleLoadout
@@ -281,6 +293,7 @@
   - Trinkets
   - Scarves # Starlight
   - Pens # Starlight
+  - CivilianWeaponsFactionless # FH
 #  - GroupSpeciesBreathTool - Starlight removed
 
 - type: roleLoadout
@@ -297,6 +310,7 @@
   - Trinkets
   - Scarves # Starlight
   - Pens # Starlight
+  - CivilianWeaponsFactionless # FH
 #  - GroupSpeciesBreathTool - Starlight removed
 
 # Engineering
@@ -316,6 +330,7 @@
   - Trinkets
   - Scarves # Starlight
   - Pens # Starlight
+  - CivilianWeaponsNT # FH
 #  - GroupSpeciesBreathTool - Starlight removed
 
 - type: roleLoadout
@@ -328,6 +343,7 @@
   - Trinkets
   - Scarves # Starlight
   - Pens # Starlight
+  - CivilianWeaponsNT # FH
 #  - GroupSpeciesBreathTool - Starlight removed
 
 - type: roleLoadout
@@ -345,6 +361,7 @@
   - Trinkets
   - Scarves # Starlight
   - Pens # Starlight
+  - CivilianWeaponsNT # FH
 #  - GroupSpeciesBreathTool - Starlight removed
 
 - type: roleLoadout
@@ -360,6 +377,7 @@
   - Trinkets
   - Scarves # Starlight
   - Pens # Starlight
+  - CivilianWeaponsNT # FH
 #  - GroupSpeciesBreathTool - Starlight removed
 
 # Science
@@ -379,6 +397,7 @@
   - Trinkets
   - Scarves # Starlight
   - Pens # Starlight
+  - CivilianWeaponsNT # FH
 #  - GroupSpeciesBreathTool - Starlight removed
 
 - type: roleLoadout
@@ -398,6 +417,7 @@
   - Trinkets
   - Scarves # Starlight
   - Pens # Starlight
+  - CivilianWeaponsNT # FH
 #  - GroupSpeciesBreathTool - Starlight removed
 
 - type: roleLoadout
@@ -411,6 +431,7 @@
   - Trinkets
   - Scarves # Starlight
   - Pens # Starlight
+  - CivilianWeaponsNT # FH
 #  - GroupSpeciesBreathTool - Starlight removed
 
 # Security
@@ -519,6 +540,7 @@
   - Scarves # Starlight
   - Pens # Starlight
   - ZookeeperJobTrinkets
+  - CivilianWeaponsNT # FH
 #  - GroupSpeciesBreathTool - Starlight removed
 
 - type: roleLoadout
@@ -535,6 +557,7 @@
   - Trinkets
   - Scarves # Starlight
   - LuxuryPens # Starlight
+  - CivilianWeaponsNT # FH
 #  - GroupSpeciesBreathTool - Starlight removed
 
 - type: roleLoadout
@@ -549,6 +572,7 @@
   - Trinkets
   - Scarves # Starlight
   - Pens # Starlight
+  - CivilianWeaponsNT # FH
 #  - GroupSpeciesBreathTool - Starlight removed
 
 - type: roleLoadout
@@ -563,6 +587,7 @@
   - Trinkets
   - Scarves # Starlight
   - Pens # Starlight
+  - CivilianWeaponsNT # FH
 #  - GroupSpeciesBreathTool - Starlight removed
 
 # These loadouts are used for non-crew spawns, like off-station antags and event mobs

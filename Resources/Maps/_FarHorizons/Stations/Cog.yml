@@ -4,7 +4,7 @@ meta:
   engineVersion: 272.0.1
   forkId: ""
   forkVersion: ""
-  time: 07/03/2026 23:42:18
+  time: 08/08/2026 20:02:26
   entityCount: 35025
 maps:
 - 1
@@ -20311,6 +20311,37 @@ entities:
     components:
     - type: Transform
       pos: -55.5,-17.5
+      parent: 2
+    - type: Fixtures
+      fixtures: {}
+- proto: BaseAdSignNT
+  entities:
+  - uid: 28471
+    components:
+    - type: Transform
+      pos: 37.5,-24.5
+      parent: 2
+    - type: Fixtures
+      fixtures: {}
+  - uid: 28472
+    components:
+    - type: Transform
+      pos: -8.5,-25.5
+      parent: 2
+    - type: Fixtures
+      fixtures: {}
+  - uid: 28473
+    components:
+    - type: Transform
+      pos: 37.5,13.5
+      parent: 2
+    - type: Fixtures
+      fixtures: {}
+  - uid: 28474
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: -19.5,51.5
       parent: 2
     - type: Fixtures
       fixtures: {}
@@ -86526,7 +86557,7 @@ entities:
       pos: -8.5,33.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -30091.463
+      secondsUntilStateChange: -30132.871
       state: Opening
   - uid: 15273
     components:
@@ -86605,7 +86636,7 @@ entities:
       pos: -41.5,24.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -24696.041
+      secondsUntilStateChange: -24737.45
       state: Closing
   - uid: 12856
     components:
@@ -98298,8 +98329,6 @@ entities:
     - type: Transform
       pos: 35.5,-23.5
       parent: 2
-    - type: ApcPowerReceiver
-      powerDisabled: True
   - uid: 14831
     components:
     - type: Transform
@@ -101307,7 +101336,7 @@ entities:
       pos: 20.5,-15.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -106321.555
+      secondsUntilStateChange: -106362.96
       state: Opening
     - type: DeviceLinkSink
       invokeCounter: 1
@@ -103678,7 +103707,7 @@ entities:
       pos: 51.5,-9.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -5954.304
+      secondsUntilStateChange: -5995.7124
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -182956,6 +182985,8 @@ entities:
       - Experimental
       - CivilianServices
       - Biochemical
+- proto: SecurityTechFabAmmo
+  entities:
   - uid: 32755
     components:
     - type: Transform
@@ -200984,37 +201015,6 @@ entities:
     components:
     - type: Transform
       pos: 33.5,-36.5
-      parent: 2
-    - type: Fixtures
-      fixtures: {}
-- proto: WallmountTelevisionRandomSpawner
-  entities:
-  - uid: 28471
-    components:
-    - type: Transform
-      pos: 37.5,-24.5
-      parent: 2
-    - type: Fixtures
-      fixtures: {}
-  - uid: 28472
-    components:
-    - type: Transform
-      pos: -8.5,-25.5
-      parent: 2
-    - type: Fixtures
-      fixtures: {}
-  - uid: 28473
-    components:
-    - type: Transform
-      pos: 37.5,13.5
-      parent: 2
-    - type: Fixtures
-      fixtures: {}
-  - uid: 28474
-    components:
-    - type: Transform
-      rot: -1.5707963267948966 rad
-      pos: -19.5,51.5
       parent: 2
     - type: Fixtures
       fixtures: {}
@@ -223403,7 +223403,7 @@ entities:
       lastSignals:
         DoorStatus: True
     - type: Door
-      secondsUntilStateChange: -43751.477
+      secondsUntilStateChange: -43792.887
       state: Opening
     - type: Airlock
       autoClose: False

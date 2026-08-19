@@ -1,6 +1,6 @@
 - type: marking
   id: LizardChestDragonwings
-  bodyPart: Tail
+  bodyPart: Wings #FH
   groupWhitelist: [Reptilian, ProtoReptile]
   sprites:
   - sprite: _Starlight/Mobs/Customization/reptilian.rsi

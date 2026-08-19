@@ -30,6 +30,74 @@
       state: tall_ears_cut_R_inner
 
 - type: marking
+  id: LagomorphEarsDeer
+  bodyPart: HeadTop
+  groupWhitelist: [Lagomorph]
+  sprites:
+    - sprite: _Starlight/Mobs/Customization/lagomorph.rsi
+      state: deer
+
+- type: marking
+  id: LagomorphEarsDeerAntlers
+  bodyPart: HeadTop
+  groupWhitelist: [Lagomorph]
+  sprites:
+    - sprite: _Starlight/Mobs/Customization/lagomorph.rsi
+      state: deer
+    - sprite: _Starlight/Mobs/Customization/lagomorph.rsi
+      state: antlers
+
+- type: marking
+  id: LagomorphEarsDeerAntlersSmall
+  bodyPart: HeadTop
+  groupWhitelist: [Lagomorph]
+  sprites:
+    - sprite: _Starlight/Mobs/Customization/lagomorph.rsi
+      state: deer
+    - sprite: _Starlight/Mobs/Customization/lagomorph.rsi
+      state: antler-small
+
+- type: marking
+  id: LagomorphEarsDeerAntlersJolly
+  bodyPart: HeadTop
+  groupWhitelist: [Lagomorph]
+  sprites:
+    - sprite: _Starlight/Mobs/Customization/lagomorph.rsi
+      state: deer
+    - sprite: _Starlight/Mobs/Customization/lagomorph.rsi
+      state: antler-jolly
+
+- type: marking
+  id: LagomorphEarsDeerAntlersW
+  bodyPart: HeadTop
+  groupWhitelist: [Lagomorph]
+  sprites:
+    - sprite: _Starlight/Mobs/Customization/lagomorph.rsi
+      state: deer
+    - sprite: _Starlight/Mobs/Customization/lagomorph.rsi
+      state: antler-w
+
+- type: marking
+  id: LagomorphEarsDeerAntlersDriedbush
+  bodyPart: HeadTop
+  groupWhitelist: [Lagomorph]
+  sprites:
+    - sprite: _Starlight/Mobs/Customization/lagomorph.rsi
+      state: deer
+    - sprite: _Starlight/Mobs/Customization/lagomorph.rsi
+      state: antler-driedbush
+
+- type: marking
+  id: LagomorphEarsAirplane
+  bodyPart: HeadTop
+  groupWhitelist: [Lagomorph]
+  sprites:
+    - sprite: _Starlight/Mobs/Customization/lagomorph.rsi
+      state: airplane
+    - sprite: _Starlight/Mobs/Customization/lagomorph.rsi
+      state: inner_airplane
+
+- type: marking
   id: LagomorphEarsFloppy
   bodyPart: HeadTop
   groupWhitelist: [Lagomorph]
@@ -289,6 +357,8 @@
   sprites:
     - sprite: _Starlight/Mobs/Customization/lagomorph.rsi
       state: fluffy_tail
+    - sprite: _Starlight/Mobs/Customization/lagomorph.rsi
+      state: fluffy_tail_twotone
 
 - type: marking
   id: LagomorphTailLong
@@ -297,6 +367,8 @@
   sprites:
     - sprite: _Starlight/Mobs/Customization/lagomorph.rsi
       state: long_tail
+    - sprite: _Starlight/Mobs/Customization/lagomorph.rsi
+      state: long_tail_twotone
 
 - type: marking
   id: LagomorphTailCotton
@@ -305,6 +377,8 @@
   sprites:
     - sprite: _Starlight/Mobs/Customization/lagomorph.rsi
       state: cotton_tail
+    - sprite: _Starlight/Mobs/Customization/lagomorph.rsi
+      state: cotton_tail_twotone
 
 # Chest Markings
 

@@ -198,6 +198,11 @@
     - SalvageConsumeables
     - SalvageMercenaryEquipment
     - SalvageCybernetics
+    - SalvageArmor # Far Horizons
+    - SalvageMech # Far Horizons
+    - SalvageVehicles # Far Horizons
+    - SalvageAmmo # Far Horizons
+    - SalvageLuxury  # Far Horizons
     currencyWhitelist:
     - SalvageTicket
 
@@ -216,6 +221,9 @@
         - MiningEquipment
         - MiningConsumeables
         - SalvageCybernetics #FH
+        - MiningMech # Far Horizons
+        - MiningVehicles # Far Horizons
+        - MiningWeapons # Far Horizons
       currencyWhitelist:
         - SalvageTicket # Same currency as salvage vendor to promote sharing
 

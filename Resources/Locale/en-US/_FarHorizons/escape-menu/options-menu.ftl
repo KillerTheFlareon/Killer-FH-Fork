@@ -44,3 +44,5 @@ ui-options-accessability-header-telegraphs = Telegraphs
 ui-options-telegraphs-hostile-color = Hostile Telegraphs:
 ui-options-telegraphs-utility-color = Utility Telegraphs:
 ui-options-telegraphs-color-example = ■■■
+
+ui-options-render-star-system = Render Star System
