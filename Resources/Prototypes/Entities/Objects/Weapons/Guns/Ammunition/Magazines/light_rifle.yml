@@ -1,19 +1,19 @@
 # Empty mags
 - type: entity
-  id: BaseMagazineLightRifle
+  id: BaseMagazineRifle762 #FH
   parent: [ BaseItem, BaseSecurityContraband ]
   abstract: true
-  name: "magazine (.30 rifle)"
+  name: "magazine (7.62 rifle)" #FH
   components:
   - type: Tag
     tags:
-      - MagazineLightRifle
+      - MagazineRifle762 #FH
   - type: BallisticAmmoProvider
     mayTransfer: true
     whitelist:
       tags:
-        - CartridgeLightRifle
-    proto: CartridgeLightRifleSP
+        - CartridgeRifle762 #FH
+    proto: CartridgeRifle762SP #FH
     capacity: 30
   - type: Item
     size: Small
@@ -35,16 +35,16 @@
 
 # Magazines
 - type: entity
-  id: MagazineLightRifleBoxSP
-  name: L6 SAW magazine box (.30 rifle SP)
-  parent: BaseMagazineLightRifle
-  description: Box containing a 100-round belt of linked .30 rifle rounds, used by light machine guns such as the L6. Intended to hold general-purpose kinetic ammunition.
+  id: MagazineRifle762BoxSP #FH
+  name: L6 SAW magazine box (7.62 rifle SP) #FH
+  parent: BaseMagazineRifle762 #FH
+  description: Box containing a 100-round belt of linked 7.62 rifle rounds, used by light machine guns such as the L6. Intended to hold general-purpose kinetic ammunition. #FH
   components:
   - type: Tag
     tags:
-      - MagazineLightRifleBox
+      - MagazineRifle762Box #FH
   - type: BallisticAmmoProvider
-    proto: CartridgeLightRifleSP
+    proto: CartridgeRifle762SP #FH
     capacity: 100
   - type: Item
   - type: Sprite
@@ -57,10 +57,10 @@
 
 
 - type: entity
-  id: MagazineLightRifleEmpty
-  name: "magazine (.30 rifle any)"
+  id: MagazineRifle762Empty #FH
+  name: "magazine (7.62 rifle any)" #FH
   suffix: empty
-  parent: MagazineLightRifleSP
+  parent: MagazineRifle762SP #FH
   components:
   - type: BallisticAmmoProvider
     proto: null
@@ -72,12 +72,12 @@
       map: ["enum.GunVisualLayers.Mag"]
 
 - type: entity
-  id: MagazineLightRifleSP
-  name: "magazine (.30 rifle SP)"
-  parent: BaseMagazineLightRifle
+  id: MagazineRifle762SP #FH
+  name: "magazine (7.62 rifle SP)" #FH
+  parent: BaseMagazineRifle762 #FH
   components:
   - type: BallisticAmmoProvider
-    proto: CartridgeLightRifleSP
+    proto: CartridgeRifle762SP #FH
   - type: Sprite
     layers:
     - state: sp
@@ -87,13 +87,13 @@
 
 
 - type: entity
-  id: MagazineLightRifleHP
-  name: "magazine (.30 rifle HP)"
-  parent: BaseMagazineLightRifle
+  id: MagazineRifle762HP #FH
+  name: "magazine (7.62 rifle HP)" #FH
+  parent: BaseMagazineRifle762 #FH
   description: Curved 30-round double stack magazine for combat rifles. Intended to hold general-purpose kinetic ammunition.
   components:
   - type: BallisticAmmoProvider
-    proto: CartridgeLightRifleHP
+    proto: CartridgeRifle762HP #FH
   - type: Sprite
     layers:
     - state: base
@@ -109,12 +109,12 @@
 
 
 - type: entity
-  id: MagazineLightRifleFMJ
-  name: "magazine (.30 rifle FMJ)"
-  parent: BaseMagazineLightRifle
+  id: MagazineRifle762FMJ #FH
+  name: "magazine (7.62 rifle FMJ)" #FH
+  parent: BaseMagazineRifle762 #FH
   components:
   - type: BallisticAmmoProvider
-    proto: CartridgeLightRifleFMJ
+    proto: CartridgeRifle762FMJ #FH
   - type: Sprite
     layers:
     - state: fmj
@@ -123,12 +123,12 @@
       map: ["enum.GunVisualLayers.Mag"]
 
 - type: entity
-  id: MagazineLightRifleAP
-  name: "magazine (.30 rifle AP)"
-  parent: BaseMagazineLightRifle
+  id: MagazineRifle762AP #FH
+  name: "magazine (7.62 rifle AP)" #FH
+  parent: BaseMagazineRifle762 #FH
   components:
   - type: BallisticAmmoProvider
-    proto: CartridgeLightRifleAP
+    proto: CartridgeRifle762AP #FH
   - type: Sprite
     layers:
     - state: ap
@@ -143,13 +143,13 @@
       - state: inhand-right-mag
 
 - type: entity
-  parent: BaseMagazineLightRifle
-  id: MagazineLightRiflePractice
-  name: "magazine (.30 rifle practice)"
+  parent: BaseMagazineRifle762 #FH
+  id: MagazineRifle762Practice #FH
+  name: "magazine (7.62 rifle practice)" #FH
   description: Curved 30-round double stack magazine for combat rifles. Intended to hold harmless practice ammunition.
   components:
   - type: BallisticAmmoProvider
-    proto: CartridgeLightRiflePractice
+    proto: CartridgeRifle762Practice #FH
   - type: Sprite
     layers:
     - state: base
@@ -170,13 +170,13 @@
         color: "#dbdbdb"
 
 - type: entity
-  parent: BaseMagazineLightRifle
-  id: MagazineLightRifleUranium
-  name: "magazine (.30 rifle uranium)"
+  parent: BaseMagazineRifle762 #FH
+  id: MagazineRifle762Uranium #FH
+  name: "magazine (7.62 rifle uranium)" #FH
   description: Curved 30-round double stack magazine for combat rifles. Intended to hold exotic uranium-core ammunition.
   components:
   - type: BallisticAmmoProvider
-    proto: CartridgeLightRifleUranium
+    proto: CartridgeRifle762Uranium #FH
   - type: Sprite
     layers:
     - state: base
@@ -197,13 +197,13 @@
         color: "#00cd42"
 
 - type: entity
-  id: MagazineLightRifleIncendiary
-  name: "magazine (.30 rifle incendiary)"
-  parent: BaseMagazineLightRifle
+  id: MagazineRifle762Incendiary #FH
+  name: "magazine (7.62 rifle incendiary)" #FH
+  parent: BaseMagazineRifle762 #FH
   description: Curved 30-round double stack magazine for combat rifles. Intended to hold self-igniting incendiary ammunition.
   components:
   - type: BallisticAmmoProvider
-    proto: CartridgeLightRifleIncendiary
+    proto: CartridgeRifle762Incendiary #FH
   - type: Sprite
     layers:
     - state: incendiary
@@ -212,29 +212,29 @@
       map: ["enum.GunVisualLayers.Mag"]
 
 - type: entity
-  id: MagazineLightRifleMaxim
-  name: "pan magazine (.30 rifle)"
-  parent: BaseMagazineLightRifle
+  id: MagazineRifle762Maxim #FH
+  name: "pan magazine (7.62 rifle)" #FH
+  parent: BaseMagazineRifle762 #FH
   components:
   - type: Tag
     tags:
-      - MagazineLightRiflePan
+      - MagazineRifle762Pan #FH
   - type: BallisticAmmoProvider
-    proto: CartridgeLightRifleSP
+    proto: CartridgeRifle762SP #FH
     capacity: 47
   - type: Sprite
     sprite: Objects/Weapons/Guns/Ammunition/Magazine/LightRifle/maxim.rsi
 
 - type: entity
-  id: MagazineLightRiflePkBox
-  name: "PK munitions box (.30 rifle)"
-  parent: BaseMagazineLightRifle
+  id: MagazineRifle762PkBox #FH
+  name: "PK munitions box (7.62 rifle)" #FH
+  parent: BaseMagazineRifle762 #FH
   components:
   - type: Tag
     tags:
-      - MagazineLightRifleBox
+      - MagazineRifle762Box #FH
   - type: BallisticAmmoProvider
-    proto: CartridgeLightRifleSP
+    proto: CartridgeRifle762SP #FH
     capacity: 80
   - type: Sprite
     layers:

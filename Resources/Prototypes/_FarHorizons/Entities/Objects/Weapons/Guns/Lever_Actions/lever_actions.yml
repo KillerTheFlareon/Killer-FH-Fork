@@ -49,8 +49,8 @@
       tags:
       - CartridgeMagnum
       - CartridgeMagnumImprovised
-      - CartridgeLightRifle
-      - CartridgeLightRifleImprovised
+      - CartridgeRifle762
+      - CartridgeRifle762Improvised
     capacity: 12
     proto: CartridgeMagnumSP
   - type: Wieldable
@@ -68,15 +68,15 @@
   name: Swordfish Lever-Action
   parent: [WeaponLeverActionBase, BaseSecurityContraband]
   id: WeaponLeverActionStock
-  description: Used by some law enforcement agencies on the frontier where strong firepower reliably delivered matters more than an automatic firearm. Accepts .30 and .44 Magnum cartridges.
+  description: Used by some law enforcement agencies on the frontier where strong firepower reliably delivered matters more than an automatic firearm. Accepts 7.62 and .44 Magnum cartridges.
   components:
   - type: BallisticAmmoProvider
     whitelist:
       tags:
       - CartridgeMagnum
       - CartridgeMagnumImprovised
-      - CartridgeLightRifle
-      - CartridgeLightRifleImprovised
+      - CartridgeRifle762
+      - CartridgeRifle762Improvised
     capacity: 12
     proto: CartridgeMagnumSP
   #type: Attachments (or smth)
@@ -91,7 +91,7 @@
   name: Wooden Swordfish Lever-Action
   parent: [WeaponLeverActionBase]
   id: WeaponLeverActionCivilian
-  description: Typically found in the hands of civilians as a popular self-defense weapon. Accepts .30 and .44 Magnum cartridges.
+  description: Typically found in the hands of civilians as a popular self-defense weapon. Accepts 7.62 and .44 Magnum cartridges.
   components:
   - type: Sprite
     sprite: _FarHorizons/Objects/Weapons/Guns/Lever_Actions/Model_1989_Civilian/model_1989_x64x32.rsi
@@ -106,8 +106,8 @@
       tags:
       - CartridgeMagnum
       - CartridgeMagnumImprovised
-      - CartridgeLightRifle
-      - CartridgeLightRifleImprovised
+      - CartridgeRifle762
+      - CartridgeRifle762Improvised
     capacity: 6 
     proto: CartridgeMagnumSP
   #type: Attachments (or smth)
@@ -122,7 +122,7 @@
   name: Wooden Swordfish Lever-Action Pistol
   parent: [WeaponLeverActionBase]
   id: WeaponLeverActionCivilianPistol
-  description: Doesn't hold that many rounds, but it is compact! Accepts .30 and .44 Magnum cartridges, still needs to be wielded to be properly used.
+  description: Doesn't hold that many rounds, but it is compact! Accepts 7.62 and .44 Magnum cartridges, still needs to be wielded to be properly used.
   components:
   - type: KnockbackByUserTag
     doestContain:
@@ -163,8 +163,8 @@
       tags:
       - CartridgeMagnum
       - CartridgeMagnumImprovised
-      - CartridgeLightRifle
-      - CartridgeLightRifleImprovised
+      - CartridgeRifle762
+      - CartridgeRifle762Improvised
     capacity: 4
     proto: CartridgeMagnumSP
   #type: Attachments (or smth)
@@ -489,8 +489,8 @@
               variation: 0.05
           whitelist:
            tags:
-           - CartridgeLightRifle
-           - CartridgeLightRifleImprovised
+           - CartridgeRifle762
+           - CartridgeRifle762Improvised
            - CartridgeRifle556
           capacity: 35
           proto: null
@@ -682,8 +682,8 @@
            tags:
            - CartridgeMagnum
            - CartridgeMagnumImprovised
-           - CartridgeLightRifle
-           - CartridgeLightRifleImprovised
+           - CartridgeRifle762
+           - CartridgeRifle762Improvised
           capacity: 8
           proto: null
           soundInsert:
@@ -784,7 +784,7 @@
               variation: 0.05
           whitelist:
            tags:
-           - CartridgeLightRifle
+           - CartridgeRifle762
            - CartridgeRifle556
           capacity: 20
           proto: null

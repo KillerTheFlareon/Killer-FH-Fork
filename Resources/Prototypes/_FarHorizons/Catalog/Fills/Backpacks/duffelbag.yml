@@ -136,22 +136,22 @@
         children:
         - id: MedkitFilled
           amount: 2
-        - id: MagazineLightRifleSP
+        - id: MagazineRifle762SP
           amount: 2
         - id: MagazinePistol38SP
           amount: 2
-        - id: SpeedLoaderLightRifle
+        - id: SpeedLoaderRifle762
           amount: 2
         - id: MagazinePistolSP
           amount: 2
         - id: MagazineBoxRevolver38SP
         - id: MagazineBoxPistolSP
         - id: MagazineBoxMagnumSP
-        - id: MagazineBoxLightRifleSP
+        - id: MagazineBoxRifle762SP
         - id: MagazineBoxRevolver38FMJ
         - id: MagazineBoxPistolFMJ
         - id: MagazineBoxMagnumFMJ
-        - id: MagazineBoxLightRifleFMJ
+        - id: MagazineBoxRifle762FMJ
         - id: FoodTinMRE
           amount: 4
         - id: DrinkWaterBottleFull
@@ -214,7 +214,7 @@
       storagebase: !type:AllSelector
         children:
         - id: WeaponRifleAk
-        - id: MagazineLightRifleSP
+        - id: MagazineRifle762SP
           amount: 2
 
 - type: entity
@@ -226,9 +226,9 @@
       storagebase: !type:AllSelector
         children:
         - id: WeaponLightMachineGunDP28
-        - id: MagazineLightRifleMaxim
+        - id: MagazineRifle762Maxim
           amount: 4
-        - id: MagazineCanisterLightRifleSP
+        - id: MagazineCanisterRifle762SP
 
 - type: entity
   id: ClothingBackpackDuffelPPShBundle
@@ -280,7 +280,7 @@
         - id: MagazineCanisterRevolver38HP
         - id: MagazineCanisterMagnumHP
         - id: MagazineCanisterRifle556HP
-        - id: MagazineCanisterLightRifleHP
+        - id: MagazineCanisterRifle762HP
         - id: MagazineCanisterPistolHP
         - id: MagazinePistolSubMachineGunHP
           amount: 9
@@ -290,7 +290,7 @@
           amount: 4
         - id: MagazineMagnumRifleSP #no HP counterpart
           amount: 4
-        - id: MagazineLightRifleBoxSP #no HP counterpart
+        - id: MagazineRifle762BoxSP #no HP counterpart
           amount: 4
         - id: SpeedLoaderMagnumAP
           amount: 2
@@ -321,7 +321,7 @@
         - id: MagazineCanisterRevolver38FMJ
         - id: MagazineCanisterMagnumFMJ
         - id: MagazineCanisterRifle556FMJ
-        - id: MagazineCanisterLightRifleFMJ
+        - id: MagazineCanisterRifle762FMJ
         - id: MagazineCanisterPistolFMJ
         - id: MagazinePistolSubMachineGunFMJ
           amount: 9
@@ -329,7 +329,7 @@
           amount: 4
         - id: MagazineMagnumRifleSP #no FMJ counterpart
           amount: 4
-        - id: MagazineLightRifleBoxSP #no FMJ counterpart
+        - id: MagazineRifle762BoxSP #no FMJ counterpart
           amount: 4
         - id: MagazineShotgunSlug
           amount: 7
@@ -383,7 +383,7 @@
         - id: MagazineCanisterRevolver38HP
         - id: MagazineCanisterMagnumHP
         - id: MagazineCanisterRifle556HP
-        - id: MagazineCanisterLightRifleHP
+        - id: MagazineCanisterRifle762HP
         - id: MagazineCanisterPistolHP
         - id: MagazinePistolSubMachineGunHP
           amount: 9
@@ -393,7 +393,7 @@
           amount: 4
         - id: MagazineMagnumRifleSP #no HP counterpart
           amount: 4
-        - id: MagazineLightRifleBoxSP #no HP counterpart
+        - id: MagazineRifle762BoxSP #no HP counterpart
           amount: 4
         - id: MagazineBatteryUAAP
           amount: 2
@@ -424,7 +424,7 @@
         - id: MagazineCanisterRevolver38FMJ
         - id: MagazineCanisterMagnumFMJ
         - id: MagazineCanisterRifle556FMJ
-        - id: MagazineCanisterLightRifleFMJ
+        - id: MagazineCanisterRifle762FMJ
         - id: MagazineCanisterPistolFMJ
         - id: MagazinePistolSubMachineGunFMJ
           amount: 9
@@ -432,7 +432,7 @@
           amount: 4
         - id: MagazineMagnumRifleSP #no FMJ counterpart
           amount: 4
-        - id: MagazineLightRifleBoxSP #no FMJ counterpart
+        - id: MagazineRifle762BoxSP #no FMJ counterpart
           amount: 4
         - id: MagazineShotgunSlug
           amount: 7
@@ -465,7 +465,7 @@
         - id: MagazineCanisterRevolver38SP
         - id: MagazineCanisterMagnumSP
         - id: MagazineCanisterRifle556SP
-        - id: MagazineCanisterLightRifleSP
+        - id: MagazineCanisterRifle762SP
         - id: MagazineCanisterPistolSP
         - id: MagazinePistolSubMachineGunSP
           amount: 5
@@ -473,7 +473,7 @@
           amount: 4
         - id: MagazineMagnumRifleSP
           amount: 4
-        - id: MagazineLightRifleBoxSP
+        - id: MagazineRifle762BoxSP
           amount: 4
         - id: MagazineShotgunFlechette
           amount: 7

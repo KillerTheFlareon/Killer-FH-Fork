@@ -227,7 +227,7 @@
 - type: entity
   id: Rifle556HeavyBase
   name: "5.56 Box Magazine (Rifle)"
-  parent: BaseMagazineBoxLightRifle
+  parent: BaseMagazineBoxRifle762
   abstract: true
   components:
   - type: Tag

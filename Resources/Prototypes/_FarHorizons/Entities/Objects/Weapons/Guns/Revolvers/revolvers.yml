@@ -500,8 +500,8 @@
            tags:
            - CartridgeMagnum
            - CartridgeMagnumImprovised
-           - CartridgeLightRifle
-           - CartridgeLightRifleImprovised
+           - CartridgeRifle762
+           - CartridgeRifle762Improvised
           capacity: 4
           proto: null
           soundInsert:

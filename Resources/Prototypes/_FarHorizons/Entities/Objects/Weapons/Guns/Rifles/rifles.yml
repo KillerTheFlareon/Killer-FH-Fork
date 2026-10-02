@@ -9,7 +9,7 @@
   name: AK-205
   parent: [ BaseWeaponRifle, BaseMajorContraband ]
   id: WeaponRifleAk205
-  description: An upgraded version of the AKMS, made for space combat. Feeds from .30 rifle magazines.
+  description: An upgraded version of the AKMS, made for space combat. Feeds from 7.62 rifle magazines.
   components:
   - type: Sprite
     sprite: _FarHorizons/Objects/Weapons/Guns/Rifles/ak-205.rsi
@@ -39,21 +39,21 @@
     slots:
       gun_magazine:
         name: Magazine
-        startingItem: MagazineLightRifleSP
+        startingItem: MagazineRifle762SP
         insertSound: /Audio/Weapons/Guns/MagIn/ltrifle_magin.ogg
         ejectSound: /Audio/Weapons/Guns/MagOut/ltrifle_magout.ogg
         priority: 2
         whitelist:
           tags:
-          - MagazineLightRifle
+          - MagazineRifle762
         whitelistFailPopup: gun-magazine-whitelist-fail
       gun_chamber:
         name: Chamber
-        startingItem: CartridgeLightRifleSP
+        startingItem: CartridgeRifle762SP
         priority: 1
         whitelist:
           tags:
-          - CartridgeLightRifle
+          - CartridgeRifle762
   - type: ContainerContainer
     containers:
       gun_magazine: !type:ContainerSlot ""

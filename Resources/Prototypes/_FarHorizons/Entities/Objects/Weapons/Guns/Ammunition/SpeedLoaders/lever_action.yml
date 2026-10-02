@@ -178,8 +178,8 @@
       tags:
         - CartridgeMagnum
         - CartridgeMagnumImprovised
-        - CartridgeLightRifle
-        - CartridgeLightRifleImprovised
+        - CartridgeRifle762
+        - CartridgeRifle762Improvised
     capacity: 6
   - type: MagazineVisuals
     magState: mag
@@ -356,8 +356,8 @@
               variation: 0.05
           whitelist:
            tags:
-           - CartridgeLightRifle
-           - CartridgeLightRifleImprovised
+           - CartridgeRifle762
+           - CartridgeRifle762Improvised
            - CartridgeRifle556
           capacity: 35
           proto: null

@@ -50,10 +50,10 @@
       path: /Audio/Weapons/Guns/Gunshots/sniper.ogg
   - type: BallisticAmmoProvider
     capacity: 10
-    proto: CartridgeLightRifleFMJ
+    proto: CartridgeRifle762FMJ #FH
     whitelist:
       tags:
-      - CartridgeLightRifle
+      - CartridgeRifle762 #FH
   - type: ContainerContainer
     containers:
       ballistic-ammo: !type:Container

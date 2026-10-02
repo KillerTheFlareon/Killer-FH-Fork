@@ -1,10 +1,10 @@
 - type: entity
-  id: MagazineLightRifleRubber
-  name: "magazine (.30 rifle rubber)"
-  parent: BaseMagazineLightRifle
+  id: MagazineRifle762Rubber #FH
+  name: "magazine (7.62 rifle rubber)" #FH
+  parent: BaseMagazineRifle762 #FH
   components:
   - type: BallisticAmmoProvider
-    proto: CartridgeLightRifleRubber
+    proto: CartridgeRifle762Rubber #FH
   - type: Sprite
     layers:
     - state: rubber

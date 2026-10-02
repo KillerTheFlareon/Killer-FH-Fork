@@ -288,11 +288,11 @@
   recipes:
 # Magazine
   - L6SawMagazine
-  - MagazineLightRifleSP
-  - MagazineLightRifleHP
-  - MagazineLightRifleFMJ
-  - MagazineLightRifleMaxim
-  - MagazineLightRifleEmpty
+  - MagazineRifle762SP
+  - MagazineRifle762HP
+  - MagazineRifle762FMJ
+  - MagazineRifle762Maxim
+  - MagazineRifle762Empty
   - MagazinePistolSubMachineGunUzi
   - MagazinePistolSubMachineGunPPSH
   - MagazineMagnumRifleSP
@@ -300,15 +300,15 @@
   - MagazineBoxCaselessRifle
   - MagazineBoxCaselessRifleRubber
   - MagazineBoxCaselessRiflePractice
-  - MagazineBoxLightRiflePractice
+  - MagazineBoxRifle762Practice
 
 - type: latheRecipePack
   id: FarHorizonsSecurityAmmoEmagDynamic
   recipes:
 # Magazine
-  - MagazineLightRifleIncendiary
-  - MagazineLightRifleUranium
-  - MagazineLightRifleAP
+  - MagazineRifle762Incendiary
+  - MagazineRifle762Uranium
+  - MagazineRifle762AP
 
 - type: latheRecipePack
   id: FarHorizonsSecurityVehiclePartsDynamic

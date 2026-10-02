@@ -139,7 +139,7 @@
     - MagazineRifle556Incendiary
     - MagazinePistolIncendiary
     - MagazinePistolSubMachineGunIncendiary
-    - MagazineLightRifleIncendiary
+    - MagazineRifle762Incendiary
     - MagazineShotgunIncendiary
     - MagazineShotgunUranium
     - MagazineShotgunUraniumFlechette
@@ -156,18 +156,18 @@
     - MagazineRifle556Uranium
     - MagazinePistolUranium
     - MagazinePistolSubMachineGunUranium
-    - MagazineLightRifleUranium
+    - MagazineRifle762Uranium
 #Box
     - BoxShotgunIncendiary
     - MagazineBoxPistolIncendiary
     - MagazineBoxMagnumIncendiary
-    - MagazineBoxLightRifleIncendiary
+    - MagazineBoxRifle762Incendiary
     - MagazineBoxRifle556Incendiary
     - MagazineBoxRevolver38Incendiary
     - MagazineBoxRevolver38Uranium
     - MagazineBoxPistolUranium
     - MagazineBoxMagnumUranium
-    - MagazineBoxLightRifleUranium
+    - MagazineBoxRifle762Uranium
     - MagazineBoxRifle556Uranium
     - BoxShotgunUranium
     - BoxShotgunUraniumFlechette
@@ -722,7 +722,7 @@
     - MagazinePistolAP
     - MagazinePistol38AP
     - MagazineRifle556AP
-    - MagazineLightRifleAP
+    - MagazineRifle762AP
     - Rifle556HeavyMagazineAP
     - MagazinePistolSubMachineGunAP
 #Box
@@ -730,7 +730,7 @@
     - MagazineBoxPistolAP
     - MagazineBoxRevolver38AP
     - MagazineBoxRifle556AP
-    - MagazineBoxLightRifleAP
+    - MagazineBoxRifle762AP
 #Canister
     - MagazineCanisterPistolAP
     - MagazineCanisterRifle556AP

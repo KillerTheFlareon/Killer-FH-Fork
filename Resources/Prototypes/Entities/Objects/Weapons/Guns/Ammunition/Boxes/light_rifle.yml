@@ -1,16 +1,16 @@
 - type: entity
   abstract: true
   parent: BaseItem
-  id: BaseMagazineBoxLightRifle
-  name: ammunition box (.30 rifle)
-  description: 120 round box of .30 Rifle ammunition. #Far Horizons
+  id: BaseMagazineBoxRifle762 #FH
+  name: ammunition box (7.62 rifle) #FH
+  description: 120 round box of 7.62 Rifle ammunition. #Far Horizons
   components:
   - type: BallisticAmmoProvider
     mayTransfer: true
     whitelist:
       tags:
-        - CartridgeLightRifle
-    proto: CartridgeLightRifleSP
+        - CartridgeRifle762 #FH
+    proto: CartridgeRifle762SP #FH
     capacity: 120 #FH - 4x mag size
   - type: Item
     size: Small
@@ -27,14 +27,14 @@
 
 # Boxes
 - type: entity
-  parent: BaseMagazineBoxLightRifle
-  id: MagazineBoxLightRifleBig
-  name: ammunition box (.30 rifle SP)
-  description: 200 round box of .30 ammunition. #Far Horizons
+  parent: BaseMagazineBoxRifle762 #FH
+  id: MagazineBoxRifle762Big #FH
+  name: ammunition box (7.62 rifle SP) #FH
+  description: 200 round box of 7.62 ammunition. #Far Horizons
   components:
   - type: BallisticAmmoProvider
     capacity: 200
-    proto: CartridgeLightRifleSP
+    proto: CartridgeRifle762SP #FH
   - type: Sprite
     layers:
     - state: base-b
@@ -48,12 +48,12 @@
   - type: Appearance
 
 - type: entity
-  parent: BaseMagazineBoxLightRifle
-  id: MagazineBoxLightRifleSP
-  name: ammunition box (.30 rifle SP)
+  parent: BaseMagazineBoxRifle762 #FH
+  id: MagazineBoxRifle762SP #FH
+  name: ammunition box (7.62 rifle SP) #FH
   components:
   - type: BallisticAmmoProvider
-    proto: CartridgeLightRifleSP
+    proto: CartridgeRifle762SP #FH
   - type: Sprite
     layers:
     - state: base
@@ -64,16 +64,16 @@
 # Starlight-start
   - type: Tag
     tags:
-    - MagazineBoxLightRifle
+    - MagazineBoxRifle762 #FH
 # Starlight-end
 
 - type: entity
-  parent: BaseMagazineBoxLightRifle
-  id: MagazineBoxLightRifleHP
-  name: ammunition box (.30 rifle HP)
+  parent: BaseMagazineBoxRifle762 #FH
+  id: MagazineBoxRifle762HP #FH
+  name: ammunition box (7.62 rifle HP) #FH
   components:
   - type: BallisticAmmoProvider
-    proto: CartridgeLightRifleHP
+    proto: CartridgeRifle762HP #FH
   - type: Sprite
     layers:
     - state: base
@@ -82,12 +82,12 @@
       map: ["enum.GunVisualLayers.Mag"]
 
 - type: entity
-  parent: BaseMagazineBoxLightRifle
-  id: MagazineBoxLightRifleFMJ
-  name: ammunition box (.30 rifle FMJ)
+  parent: BaseMagazineBoxRifle762 #FH
+  id: MagazineBoxRifle762FMJ #FH
+  name: ammunition box (7.62 rifle FMJ) #FH
   components:
   - type: BallisticAmmoProvider
-    proto: CartridgeLightRifleFMJ
+    proto: CartridgeRifle762FMJ #FH
   - type: Sprite
     layers:
     - state: base
@@ -97,12 +97,12 @@
     - state: fmj
 
 - type: entity
-  parent: BaseMagazineBoxLightRifle
-  id: MagazineBoxLightRifleAP
-  name: ammunition box (.30 rifle AP)
+  parent: BaseMagazineBoxRifle762 #FH
+  id: MagazineBoxRifle762AP #FH
+  name: ammunition box (7.62 rifle AP) #FH
   components:
   - type: BallisticAmmoProvider
-    proto: CartridgeLightRifleAP
+    proto: CartridgeRifle762AP #FH
   - type: Sprite
     layers:
     - state: base
@@ -112,13 +112,13 @@
     - state: ap
 
 - type: entity
-  parent: BaseMagazineBoxLightRifle
-  id: MagazineBoxLightRiflePractice
-  name: ammunition box (.30 rifle practice)
-  description: A cardboard box of .30 rifle rounds. Intended to hold harmless practice ammunition.
+  parent: BaseMagazineBoxRifle762 #FH
+  id: MagazineBoxRifle762Practice #FH
+  name: ammunition box (7.62 rifle practice) #FH
+  description: A cardboard box of 7.62 rifle rounds. Intended to hold harmless practice ammunition. #FH
   components:
   - type: BallisticAmmoProvider
-    proto: CartridgeLightRiflePractice
+    proto: CartridgeRifle762Practice #FH
   - type: Sprite
     layers:
     - state: base
@@ -128,13 +128,13 @@
     - state: practice
 
 - type: entity
-  parent: BaseMagazineBoxLightRifle
-  id: MagazineBoxLightRifleIncendiary
-  name: ammunition box (.30 rifle incendiary)
-  description: A cardboard box of .30 rifle rounds. Intended to hold self-igniting incendiary ammunition.
+  parent: BaseMagazineBoxRifle762 #FH
+  id: MagazineBoxRifle762Incendiary #FH
+  name: ammunition box (7.62 rifle incendiary) #FH
+  description: A cardboard box of 7.62 rifle rounds. Intended to hold self-igniting incendiary ammunition. #FH
   components:
   - type: BallisticAmmoProvider
-    proto: CartridgeLightRifleIncendiary
+    proto: CartridgeRifle762Incendiary #FH
   - type: Sprite
     layers:
     - state: base
@@ -144,13 +144,13 @@
     - state: incendiary
 
 - type: entity
-  parent: BaseMagazineBoxLightRifle
-  id: MagazineBoxLightRifleUranium
-  name: ammunition box (.30 rifle uranium)
-  description: A cardboard box of .30 rifle rounds. Intended to hold exotic uranium-core ammunition.
+  parent: BaseMagazineBoxRifle762 #FH
+  id: MagazineBoxRifle762Uranium #FH
+  name: ammunition box (7.62 rifle uranium) #FH
+  description: A cardboard box of 7.62 rifle rounds. Intended to hold exotic uranium-core ammunition. #FH
   components:
   - type: BallisticAmmoProvider
-    proto: CartridgeLightRifleUranium
+    proto: CartridgeRifle762Uranium #FH
   - type: Sprite
     layers:
     - state: base

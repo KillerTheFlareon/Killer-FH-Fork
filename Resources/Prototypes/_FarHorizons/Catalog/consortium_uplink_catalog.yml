@@ -695,7 +695,7 @@
   id: ConsortiumUplinkMosinAmmo
   name: uplink-consortium-mosin-ammo-name
   description: uplink-consortium-mosin-ammo-desc
-  productEntity: MagazineBoxLightRifleFMJ
+  productEntity: MagazineBoxRifle762FMJ
   cost:
     Refinedbluespacecrystal: 1
   categories:
