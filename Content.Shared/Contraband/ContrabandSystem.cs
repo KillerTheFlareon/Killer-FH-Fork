@@ -73,7 +73,8 @@ public sealed partial class ContrabandSystem : EntitySystem
         {
             // department restricted text
             departmentExamineMessage =
-                GenerateDepartmentExamineMessage(component.AllowedDepartments, component.AllowedJobs);
+                Loc.GetString(severity.ExamineText, ("departments", 
+                    GenerateDepartmentExamineMessage(component.AllowedDepartments, component.AllowedJobs))); //FH, adjusted to not use hardcoded LocId
         }
         else
         {
@@ -117,10 +118,7 @@ public sealed partial class ContrabandSystem : EntitySystem
         var localizedJobs = jobs.Select(p => Loc.GetString("contraband-job-plural", ("job", p)));
 
         //creating a combined list of jobs and departments for the restricted text
-        var list = ContentLocalizationManager.FormatList(localizedDepartments.Concat(localizedJobs).ToList());
-
-        // department restricted text
-        return Loc.GetString("contraband-examine-text-Restricted-department", ("departments", list), ("type", itemType));
+        return ContentLocalizationManager.FormatList(localizedDepartments.Concat(localizedJobs).ToList()); //FH, adjusted to not use hardcoded LocId
     }
 
     private FormattedMessage GetContrabandExamine(String deptMessage, String carryMessage)
